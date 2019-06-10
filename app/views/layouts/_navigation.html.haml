@@ -1,12 +1,11 @@
 %nav.navbar{:role => "navigation"}
   .container.is-fluid
     .navbar-brand
-      %a.navbar-item
-      %img{:src => "https://bulma.io/images/bulma-logo.png", :width => "200", :height => "18"}
+      = link_to image_tag("https://bulma.io/images/bulma-logo.png", size: '150x20'), root_path
     .navbar-menu
       .navbar-end
         = link_to 'Aktualności', '#', :class => 'navbar-item'
         = link_to 'Uczelnie', '#' , :class => 'navbar-item'
         = link_to 'Kierunki', '#' , :class => 'navbar-item'
         .buttons
-          = link_to 'Zarejestruj', '#', :class => 'button is-primary'
+          = link_to 'Zarejestruj', signup_path, :class => 'button is-primary'
