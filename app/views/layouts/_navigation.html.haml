@@ -1,11 +1,12 @@
 %nav.navbar{:role => "navigation"}
-  .navbar-brand
-    %a.navbar-item
-    %img{:src => "https://bulma.io/images/bulma-logo.png", :width => "200", :height => "18"}
-  .navbar-menu
-    .navbar-end
-      = link_to 'Aktualności', '#', :class => 'navbar-item'
-      = link_to 'Uczelnie', '#' , :class => 'navbar-item'
-      = link_to 'Kierunki', '#' , :class => 'navbar-item'
-      .buttons
-        = link_to 'Zarejestruj', '#', :class => 'button is-primary'
+  .container.is-fluid
+    .navbar-brand
+      %a.navbar-item
+      %img{:src => "https://bulma.io/images/bulma-logo.png", :width => "200", :height => "18"}
+    .navbar-menu
+      .navbar-end
+        = link_to 'Aktualności', '#', :class => 'navbar-item'
+        = link_to 'Uczelnie', '#' , :class => 'navbar-item'
+        = link_to 'Kierunki', '#' , :class => 'navbar-item'
+        .buttons
+          = link_to 'Zarejestruj', '#', :class => 'button is-primary'

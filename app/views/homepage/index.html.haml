@@ -1,1 +1,65 @@
-%h1 Hello
+.hero.is-light.is-bold
+  .hero-body.has-text-centered
+    %h1.title Witaj w HighSchooler
+    .is-divider
+    %h2.subtitle 
+      Aplikacji, która pomoże Ci obliczyć ilość punktów rekrutacyjnych na Twoje wymarzone studia
+      lub jeśli takich nie masz - pomoże Ci je znaleźć!
+    .container
+      .columns
+        .column
+          .card
+            %header.card-header
+              %p.card-header-icon
+                %i.fas.fa-university
+              %p.card-header-title Baza kierunków na polskich szkołach wyższych
+            .card-content
+              .content.has-text-justified
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Ut fermentum ligula purus, quis eleifend odio condimentum vitae. 
+                Nulla eget mauris sit amet sapien elementum ultricies. Nam interdum suscipit bibendum. 
+                Etiam id risus eu urna vestibulum efficitur. Sed congue dolor nec pulvinar viverra. Cras posuere enim odio, 
+                eu commodo tortor semper non. Maecenas lacinia vestibulum blandit.
+        .column
+          .card
+            %header.card-header
+              %p.card-header-icon
+                %i.fas.fa-user-graduate
+              %p.card-header-title Przeliczanie punktów rekrutacyjnych z wyników matury
+            .card-content
+              .content.has-text-justified
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Ut fermentum ligula purus, quis eleifend odio condimentum vitae. 
+                Nulla eget mauris sit amet sapien elementum ultricies. Nam interdum suscipit bibendum. 
+                Etiam id risus eu urna vestibulum efficitur. Sed congue dolor nec pulvinar viverra. Cras posuere enim odio, 
+                eu commodo tortor semper non. Maecenas lacinia vestibulum blandit.
+      .columns
+        .column
+          .card
+            %header.card-header
+              %p.card-header-icon
+                %i.fas.fa-calendar-check
+              %p.card-header-title Harmonogramy rekrutacji
+            .card-content
+              .content.has-text-justified
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Ut fermentum ligula purus, quis eleifend odio condimentum vitae. 
+                Nulla eget mauris sit amet sapien elementum ultricies. Nam interdum suscipit bibendum. 
+                Etiam id risus eu urna vestibulum efficitur. Sed congue dolor nec pulvinar viverra. Cras posuere enim odio, 
+                eu commodo tortor semper non. Maecenas lacinia vestibulum blandit.
+        .column
+          .card
+            %header.card-header
+              %p.card-header-icon
+                %i.fas.fa-file-alt
+              %p.card-header-title Raporty dotyczące rekomendowanych uczelni
+            .card-content
+              .content.has-text-justified
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Ut fermentum ligula purus, quis eleifend odio condimentum vitae. 
+                Nulla eget mauris sit amet sapien elementum ultricies. Nam interdum suscipit bibendum. 
+                Etiam id risus eu urna vestibulum efficitur. Sed congue dolor nec pulvinar viverra. Cras posuere enim odio, 
+                eu commodo tortor semper non. Maecenas lacinia vestibulum blandit.
+    .is-divider
+    %h1.title Nie czekaj!
+    = button_to 'Dołącz do nas', root_path, method: :get, :class => 'button button is-rounded is-large is-primary'
