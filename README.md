@@ -1,24 +1,19 @@
-# README
+# HighSchooler
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Z założenia praca inżynierska.
 
-Things you may want to cover:
+Użyte technologie:
 
-* Ruby version
+- Ruby
 
-* System dependencies
+- Rails 5
 
-* Configuration
+- RSpec
 
-* Database creation
+- PostgreSQL
 
-* Database initialization
+- HAML/SASS
 
-* How to run the test suite
+- Bulma
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Aplikacja we wczesnej fazie developmentu.
