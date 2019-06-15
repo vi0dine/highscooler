@@ -6,10 +6,8 @@
         .columns.is-vcentered
           .column.is-one-third
             = render 'users/info_box' 
-          .column.is-two-thirds{'v-if':'formIndex<2'}
+          .column.is-two-thirds
             = render 'users/user_form'
-          .column.is-two-thirds{'v-if':'formIndex==2'}
-            = render 'users/edu_form'
   .level
     .container
       .level-left
