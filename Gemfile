@@ -16,7 +16,6 @@ gem 'hirb'
 gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
-gem 'rspec', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
@@ -25,6 +24,10 @@ gem 'webpacker', '~> 4.x'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'sqlite3'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'faker'
 end
 
 group :development do
