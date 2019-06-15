@@ -1,0 +1,14 @@
+= form_for :matura_results, url: {action: 'create'} do |f|
+  .field.is-grouped.has-addons
+    .control.has-icons-left
+      .select
+        = select(:matura_results, :subject, [['Biologia', 0], ['Matematyka', 1], ['Chemia', 2]]) ## Should fetch from db
+        %span.icon.is-small.is-left
+          %i.fas.fa-chalkboard-teacher
+    .control
+      .select
+        = select(:matura_results, :level, [['Podstawowy', 0], ['Rozszerzony', 1]])
+    .control
+      = f.number_field :result, class: 'input'
+    .control
+      = f.submit 'Dodaj', class: 'button is-primary'
