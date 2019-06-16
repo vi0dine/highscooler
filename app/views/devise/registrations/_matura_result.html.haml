@@ -3,7 +3,7 @@
     .field
       .control.has-icons-left
         .select
-          = f.select(:subject, [['Biologia', 'biology'], ['Matematyka', 'math'], ['Chemia', 'chemistry']]) ## Should fetch from db
+          = f.select(:matura_subject_id, MaturaSubject.all.collect {|p| [ p.name, p.id ] })
           %span.icon.is-small.is-left
             %i.fas.fa-chalkboard-teacher
   .column.is-5

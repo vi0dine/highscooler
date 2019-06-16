@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_16_194218) do
+ActiveRecord::Schema.define(version: 2019_06_16_200308) do
 
   create_table "field_of_studies", force: :cascade do |t|
     t.string "name"
@@ -21,12 +21,20 @@ ActiveRecord::Schema.define(version: 2019_06_16_194218) do
 
   create_table "matura_results", force: :cascade do |t|
     t.integer "user_id"
-    t.string "subject"
     t.integer "level"
     t.integer "result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "matura_subject_id"
+    t.index ["matura_subject_id"], name: "index_matura_results_on_matura_subject_id"
     t.index ["user_id"], name: "index_matura_results_on_user_id"
+  end
+
+  create_table "matura_subjects", force: :cascade do |t|
+    t.string "name"
+    t.integer "subject_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "study_interests", force: :cascade do |t|
