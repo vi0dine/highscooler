@@ -5,9 +5,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @user = User.new
+    @user.matura_results.build
+  end
 
   # POST /resource
   # def create
@@ -43,7 +44,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys:
-      %i[username email password account_type gender date_of_birth city date_of_matura])
+      [:username, :email, :password, :account_type,
+       :gender, :date_of_birth, :city, :date_of_matura, matura_results_attributes: [:id, :user_id, :subject, :level, :result]])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
