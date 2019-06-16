@@ -12,4 +12,4 @@
         - else
           = link_to 'Zaloguj', new_user_session_path, :class => 'navbar-item'
           .buttons
-            = link_to 'Zarejestruj', new_user_registration_path, :class => 'button is-primary'
+            = link_to 'Zarejestruj', new_user_registration_path, method: :get, :class => 'button is-primary'
