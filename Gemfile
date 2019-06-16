@@ -7,9 +7,12 @@ ruby '2.6.3'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bulma-rails', '~> 0.7.5'
 gem 'bulma-extensions-rails'
+gem 'bulma-rails', '~> 0.7.5'
 gem 'coffee-rails', '~> 4.2'
+gem 'devise'
+gem 'devise-argon2'
+gem 'devise-encryptable'
 gem 'font-awesome-sass', '~> 5.8.1'
 gem 'haml', '~> 5.1', '>= 5.1.1'
 gem 'hirb'
@@ -23,11 +26,11 @@ gem 'webpacker', '~> 4.x'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'sqlite3'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
-  gem 'rspec-rails'
   gem 'faker'
+  gem 'sqlite3'
+  gem 'rspec-rails'
 end
 
 group :development do

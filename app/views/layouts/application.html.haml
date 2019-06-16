@@ -9,5 +9,14 @@
     = javascript_pack_tag 'signup_form'
   %body
     = render 'layouts/navigation'
-    = yield
+    - if notice
+      .container.is-fluid
+        .notification.is-info
+          = notice
+    - if alert
+      .container.is-fluid
+        .notification.is-danger
+          = alert
+    .container.is-fluid
+      = yield
     = render 'layouts/footer'
