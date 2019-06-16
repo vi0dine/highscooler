@@ -8,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     @user = User.new
     @user.matura_results.build
+    @user.study_interests.build
   end
 
   # POST /resource
@@ -45,7 +46,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys:
       [:username, :email, :password, :account_type,
-       :gender, :date_of_birth, :city, :date_of_matura, matura_results_attributes: [:id, :user_id, :subject, :level, :result]])
+       :gender, :date_of_birth, :city, :date_of_matura, matura_results_attributes: [:id, :user_id, :subject, :level, :result],
+       study_interests_attributes: [:id, :user_id, :field_of_study_id]])
   end
 
   # If you have extra params to permit, append them to the sanitizer.

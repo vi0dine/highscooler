@@ -21,8 +21,9 @@
             %h3.subtitle Kierunki studiów:
             %br
             .container.is-fluid
-              = f.fields_for :field_of_studies do |s|
-                = render 'field_of_study', f: s
+              - 3.times do
+                = f.fields_for :study_interests do |s|
+                  = render 'study_interest', f: s
       = f.submit 'Test'
   .column.is-3
     = render 'info_box'
