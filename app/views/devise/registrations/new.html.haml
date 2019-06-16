@@ -3,11 +3,8 @@
   .level
     .level-item
       .container
-        .columns.is-vcentered
-          .column.is-one-third
-            = render 'devise/registrations/info_box' 
-          .column.is-two-thirds
-            = render 'devise/registrations/user_form'
+        .columns
+          = render 'devise/registrations/user_form'
   .level
     .container
       .level-left

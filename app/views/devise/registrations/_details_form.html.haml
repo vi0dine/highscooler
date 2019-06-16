@@ -1,0 +1,31 @@
+.field
+  = label(:date_of_birth, 'Data urodzenia', class: 'label')
+  .control.has-icons-left.has-icons-right
+    = f.date_field :date_of_birth, class: 'input'
+    %span.icon.is-small.is-left
+      %i.fas.fa-calendar
+    %span.icon.is-small.is-right
+      %i.fas.fa-check
+.field
+  = label(:gender, 'Płeć', class: 'label')
+  .control.has-icons-left
+    .select
+      = f.select(:gender, [['Kobieta', 'female'], ['Mężczyzna', 'male'], ['Inne', 'not_specified']], { include_blank: true })
+      %span.icon.is-small.is-left
+        %i.fas.fa-transgender-alt
+.field
+  = label(:city, 'Miasto', class: 'label')
+  .control.has-icons-left.has-icons-right
+    = f.text_field :city, class: 'input'
+    %span.icon.is-small.is-left
+      %i.fas.fa-city
+    %span.icon.is-small.is-right
+      %i.fas.fa-check
+.field
+  = label(:date_of_matura, 'Data pierwszej matury', class: 'label')
+  .control.has-icons-left.has-icons-right
+    = f.date_field :date_of_matura, class: 'input'
+    %span.icon.is-small.is-left
+      %i.fas.fa-graduation-cap
+    %span.icon.is-small.is-right
+      %i.fas.fa-check

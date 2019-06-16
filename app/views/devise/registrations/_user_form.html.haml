@@ -1,80 +1,28 @@
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'userForm'}, local: true) do |f|
-  = render 'devise/shared/error_messages', resource: resource
-  #basics{'v-show':'formIndex==0'}
-    .field
-      = label(:username, 'Nazwa użytkownika', class: 'label')
-      .control.has-icons-left.has-icons-right
-        = f.text_field :username, class: 'input'
-        %span.icon.is-small.is-left
-          %i.fas.fa-user
-        %span.icon.is-small.is-right
-          %i.fas.fa-check
-    .field
-      = label(:email, 'Email', class: 'label')
-      .control.has-icons-left.has-icons-right
-        = f.email_field :email, class: 'input'
-        %span.icon.is-small.is-left
-          %i.fas.fa-envelope
-        %span.icon.is-small.is-right
-          %i.fas.fa-check
-    .field
-      = label(:password, 'Hasło', class: 'label')
-      .control.has-icons-left.has-icons-right
-        = f.password_field :password, autocomplete: "new-password", class: 'input'
-        %span.icon.is-small.is-left
-          %i.fas.fa-key
-        %span.icon.is-small.is-right
-          %i.fas.fa-check
-    .field
-      = label(:password_confirmation, 'Powtórz hasło', class: 'label')
-      .control.has-icons-left.has-icons-right
-        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'input'
-        %span.icon.is-small.is-left
-          %i.fas.fa-key
-        %span.icon.is-small.is-right
-          %i.fas.fa-check
-    .field
-      = label(:account_type, 'Status', class: 'label')
-      .control
-        .select
-          = f.select(:account_type, [['Student', 'student'], ['Uczeń', 'schoolboy'], ['Inne', 'other']], { include_blank: true })
-  #details{'v-show':'formIndex==1'}
-    .field
-      = label(:date_of_birth, 'Data urodzenia', class: 'label')
-      .control.has-icons-left.has-icons-right
-        = f.date_field :date_of_birth, class: 'input'
-        %span.icon.is-small.is-left
-          %i.fas.fa-calendar
-        %span.icon.is-small.is-right
-          %i.fas.fa-check
-    .field
-      = label(:gender, 'Płeć', class: 'label')
-      .control.has-icons-left
-        .select
-          = f.select(:gender, [['Kobieta', 'female'], ['Mężczyzna', 'male'], ['Inne', 'not_specified']], { include_blank: true })
-          %span.icon.is-small.is-left
-            %i.fas.fa-transgender-alt
-    .field
-      = label(:city, 'Miasto', class: 'label')
-      .control.has-icons-left.has-icons-right
-        = f.text_field :city, class: 'input'
-        %span.icon.is-small.is-left
-          %i.fas.fa-city
-        %span.icon.is-small.is-right
-          %i.fas.fa-check
-    .field
-      = label(:date_of_matura, 'Data pierwszej matury', class: 'label')
-      .control.has-icons-left.has-icons-right
-        = f.date_field :date_of_matura, class: 'input'
-        %span.icon.is-small.is-left
-          %i.fas.fa-graduation-cap
-        %span.icon.is-small.is-right
-          %i.fas.fa-check
-  #matura{'v-show':'formIndex==2'}
-    .container{'ref':'exams'}
-      = f.fields_for :matura_results do |m|
-        = render 'matura_result', f: m
-    %br
-    .container{'v-on:click': 'addExam'}
-      = link_to_add_exam('Dodaj egzamin', f, :matura_results, class: 'button is-primary')
-    = f.submit 'Test'
+.columns
+  .column.is-9
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'userForm'}, local: true) do |f|
+      = render 'devise/shared/error_messages', resource: resource
+      #basics{'v-show':'formIndex==0'}
+        = render 'basic_form', f: f
+      #details{'v-show':'formIndex==1'}
+        = render 'details_form', f: f
+      #matura{'v-show':'formIndex==2'}
+        .columns
+          .column
+            %h3.subtitle Wyniki matur:
+            %br
+            .container.is-fluid{'ref':'exams'}
+              = f.fields_for :matura_results do |m|
+                = render 'matura_result', f: m
+            %br
+            .container{'v-on:click': 'addExam'}
+              = link_to_add_exam('Dodaj egzamin', f, :matura_results, class: 'button is-primary is-pulled-right')
+          .column
+            %h3.subtitle Kierunki studiów:
+            %br
+            .container.is-fluid
+              = f.fields_for :field_of_studies do |s|
+                = render 'field_of_study', f: s
+      = f.submit 'Test'
+  .column.is-3
+    = render 'info_box'
