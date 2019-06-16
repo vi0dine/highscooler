@@ -7,5 +7,9 @@
         = link_to 'Aktualności', '#', :class => 'navbar-item'
         = link_to 'Uczelnie', '#' , :class => 'navbar-item'
         = link_to 'Kierunki', '#' , :class => 'navbar-item'
-        .buttons
-          = link_to 'Zarejestruj', signup_path, :class => 'button is-primary'
+        - if user_signed_in?
+          = link_to 'Wyloguj', destroy_user_session_path, :method => :delete, :class => 'navbar-item'
+        - else
+          = link_to 'Zaloguj', new_user_session_path, :class => 'navbar-item'
+          .buttons
+            = link_to 'Zarejestruj', new_user_registration_path, :class => 'button is-primary'

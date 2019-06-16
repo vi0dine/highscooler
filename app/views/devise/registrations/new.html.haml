@@ -1,13 +1,13 @@
 #signup-form
-  = render 'users/steps'
+  = render 'devise/registrations/steps'
   .level
     .level-item
       .container
         .columns.is-vcentered
           .column.is-one-third
-            = render 'users/info_box' 
+            = render 'devise/registrations/info_box' 
           .column.is-two-thirds
-            = render 'users/user_form'
+            = render 'devise/registrations/user_form'
   .level
     .container
       .level-left

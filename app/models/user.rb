@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  enum gender: %i[female male not_specified]
+  enum account_type: %i[schoolboy student other]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -1,0 +1,87 @@
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'userForm'}) do |f|
+  = render 'devise/shared/error_messages', resource: resource
+  #basics{'v-show':'formIndex==0'}
+    .field
+      = label(:username, 'Nazwa użytkownika', class: 'label')
+      .control.has-icons-left.has-icons-right
+        = f.text_field :username, class: 'input'
+        %span.icon.is-small.is-left
+          %i.fas.fa-user
+        %span.icon.is-small.is-right
+          %i.fas.fa-check
+    .field
+      = label(:email, 'Email', class: 'label')
+      .control.has-icons-left.has-icons-right
+        = f.email_field :email, class: 'input'
+        %span.icon.is-small.is-left
+          %i.fas.fa-envelope
+        %span.icon.is-small.is-right
+          %i.fas.fa-check
+    .field
+      = label(:password, 'Hasło', class: 'label')
+      .control.has-icons-left.has-icons-right
+        = f.password_field :password, autocomplete: "new-password", class: 'input'
+        %span.icon.is-small.is-left
+          %i.fas.fa-key
+        %span.icon.is-small.is-right
+          %i.fas.fa-check
+    .field
+      = label(:password_confirmation, 'Powtórz hasło', class: 'label')
+      .control.has-icons-left.has-icons-right
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'input'
+        %span.icon.is-small.is-left
+          %i.fas.fa-key
+        %span.icon.is-small.is-right
+          %i.fas.fa-check
+    .field
+      = label(:account_type, 'Status', class: 'label')
+      .control
+        .select
+          = f.select(:account_type, [['Student', 'student'], ['Uczeń', 'schoolboy'], ['Inne', 'other']], { include_blank: true })
+  #details{'v-show':'formIndex==1'}
+    .field
+      = label(:date_of_birth, 'Data urodzenia', class: 'label')
+      .control.has-icons-left.has-icons-right
+        = f.date_field :date_of_birth, class: 'input'
+        %span.icon.is-small.is-left
+          %i.fas.fa-calendar
+        %span.icon.is-small.is-right
+          %i.fas.fa-check
+    .field
+      = label(:gender, 'Płeć', class: 'label')
+      .control.has-icons-left
+        .select
+          = f.select(:gender, [['Kobieta', 'female'], ['Mężczyzna', 'male'], ['Inne', 'not_specified']], { include_blank: true })
+          %span.icon.is-small.is-left
+            %i.fas.fa-transgender-alt
+    .field
+      = label(:city, 'Miasto', class: 'label')
+      .control.has-icons-left.has-icons-right
+        = f.text_field :city, class: 'input'
+        %span.icon.is-small.is-left
+          %i.fas.fa-city
+        %span.icon.is-small.is-right
+          %i.fas.fa-check
+    .field
+      = label(:date_of_matura, 'Data pierwszej matury', class: 'label')
+      .control.has-icons-left.has-icons-right
+        = f.date_field :date_of_matura, class: 'input'
+        %span.icon.is-small.is-left
+          %i.fas.fa-graduation-cap
+        %span.icon.is-small.is-right
+          %i.fas.fa-check
+  = f. submit 'Załóż konto'
+  -# #matura{'v-show':'formIndex==2'}
+  -#   = @maturas.each do |matura|
+  -#     = fields_for 'matura_results', matura do |m|
+  -#       .field.is-grouped.has-addons
+  -#         .control.has-icons-left
+  -#           .select
+  -#             = select(:matura_results, :subject, [['Biologia', 0], ['Matematyka', 1], ['Chemia', 2]]) ## Should fetch from db
+  -#             %span.icon.is-small.is-left
+  -#               %i.fas.fa-chalkboard-teacher
+  -#         .control
+  -#           .select
+  -#             = select(:matura_results, :level, [['Podstawowy', 0], ['Rozszerzony', 1]])
+  -#         .control
+  -#           = m.number_field :result, class: 'input'
