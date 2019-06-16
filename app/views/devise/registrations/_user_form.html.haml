@@ -71,16 +71,10 @@
         %span.icon.is-small.is-right
           %i.fas.fa-check
   #matura{'v-show':'formIndex==2'}
-    = f.fields_for :matura_results do |matura_result|
-      .field.is-grouped.has-addons
-        .control.has-icons-left
-          .select
-            = matura_result.select(:subject, [['Biologia', 'biology'], ['Matematyka', 'math'], ['Chemia', 'chemistry']]) ## Should fetch from db
-            %span.icon.is-small.is-left
-              %i.fas.fa-chalkboard-teacher
-        .control
-          .select
-            = matura_result.select(:level, [['Podstawowy', 'basic'], ['Rozszerzony', 'advanced']])
-        .control
-          = matura_result.number_field :result, class: 'input'
-  = f.submit 'Test'
+    .container{'ref':'exams'}
+      = f.fields_for :matura_results do |m|
+        = render 'matura_result', f: m
+    %br
+    .container{'v-on:click': 'addExam'}
+      = link_to_add_exam('Dodaj egzamin', f, :matura_results, class: 'button is-primary')
+    = f.submit 'Test'

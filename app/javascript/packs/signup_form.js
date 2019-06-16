@@ -20,6 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           // Disabled button
         }
+      },
+      addExam(e) {
+        console.log(e);
+        let regexp, time;
+        time = new Date().getTime();
+        regexp = new RegExp(e.target.dataset["id"], "g");
+        $(this.$refs.exams).append(
+          e.target.dataset["fields"].replace(regexp, time)
+        );
+        return e.preventDefault();
       }
     }
   });
