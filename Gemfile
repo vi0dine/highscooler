@@ -30,8 +30,9 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'sqlite3'
 end
 
 group :development do
