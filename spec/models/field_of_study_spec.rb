@@ -7,7 +7,7 @@ RSpec.describe FieldOfStudy, type: :model do
 
   it 'should initialize FieldOfStudy with name and type' do
     expect(field_of_study_full.name).to eq('Lekarski')
-    expect(field_of_study_full.field_type).to eq(4)
+    expect(field_of_study_full.field_type).to eq('professions')
   end
 
   it { should validate_presence_of(:name) }
@@ -26,7 +26,9 @@ RSpec.describe FieldOfStudy, type: :model do
   end
 
   it { should have_many(:users).through(:study_interests) }
-  it 'should has many users via study interests'
+  it 'should has many users via study interests' do
+    expect(field_of_study_full.users.count).to eq(5)
+  end
 
   it { should validate_uniqueness_of(:name).case_insensitive }
 end

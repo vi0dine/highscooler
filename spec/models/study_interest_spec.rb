@@ -8,7 +8,6 @@ RSpec.describe StudyInterest, type: :model do
     expect(study_interest.field_of_study.name).to eq('Lekarski')
   end
 
-
   it { should belong_to(:user) }
   it { should belong_to(:field_of_study) }
 end
