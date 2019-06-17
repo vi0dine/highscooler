@@ -6,8 +6,8 @@ RSpec.describe MaturaSubject, type: :model do
   let(:matura_subject_no_type) { build(:matura_subject, subject_type: nil) }
 
   it 'should create MaturaSubject with all data' do
-    expect(matura_subject.name).to eq('Chemia')
-    expect(matura_subject.subject_type).to eq('sciences')
+    expect(matura_subject.name).to be_kind_of(String)
+    expect(matura_subject.subject_type).to be_kind_of(String)
   end
 
   it { should validate_presence_of(:name) }

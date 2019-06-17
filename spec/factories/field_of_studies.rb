@@ -1,9 +1,12 @@
 FactoryBot.define do
   factory :field_of_study do
-    name { 'Lekarski' }
+    name { Faker::Educator.degree }
     field_type { 4 }
-    after :create do |field_of_study|
-      create_list :study_interest, 5, field_of_study: field_of_study
+
+    factory :field_of_study_with_interests do
+      after :create do |field_of_study|
+        create_list :study_interest, 5, field_of_study: field_of_study
+      end
     end
   end
 end

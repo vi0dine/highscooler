@@ -11,9 +11,11 @@ RSpec.describe MaturaResult, type: :model do
   it 'should create valid matura result with all fields' do
     expect(matura_result.level).to eq('basic')
     expect(matura_result.result).to eq(99)
-    expect(matura_result.matura_subject.name).to eq('Chemia')
-    expect(matura_result.user.username).to eq('John123') 
+    expect(matura_result.matura_subject.name).to be_kind_of(String)
+    expect(matura_result.user.username).to be_kind_of(String)
   end
+
+  it { should validate_inclusion_of(:result).in_range(0..100) }
 
   it 'should be invalid when level is null' do
     expect(matura_result_no_level).to_not be_valid
