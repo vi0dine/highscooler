@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :high_school do
-    name { 'I Liceum Ogólnokształcące w Pcimiu Dolnym' }
+    name { Faker::Educator.secondary_school }
     city { 'Pcimie Dolne' }
     school_type { 0 }
 

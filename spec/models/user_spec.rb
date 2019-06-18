@@ -24,6 +24,11 @@ RSpec.describe User, type: :model do
     expect(user_with_results.matura_results.last.result).to eq(99)
   end
 
+  it { should belong_to(:high_school) }
+  it 'should belongs to one highschool' do
+    expect(user.high_school).to be_kind_of(HighSchool)
+  end
+
   it { should have_many(:field_of_studies).through(:study_interests) }
   it 'should have fields of studies' do
     expect(user_with_interests.field_of_studies.count).to eq(3)
