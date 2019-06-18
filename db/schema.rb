@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_16_200308) do
+ActiveRecord::Schema.define(version: 2019_06_18_173011) do
 
   create_table "field_of_studies", force: :cascade do |t|
     t.string "name"
     t.integer "field_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "high_schools", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "city", null: false
+    t.integer "school_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,7 +69,9 @@ ActiveRecord::Schema.define(version: 2019_06_16_200308) do
     t.string "city"
     t.integer "account_type", null: false
     t.date "date_of_matura"
+    t.integer "high_school_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["high_school_id"], name: "index_users_on_high_school_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

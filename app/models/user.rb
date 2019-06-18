@@ -6,8 +6,10 @@ class User < ApplicationRecord
   has_many :matura_results
   has_many :study_interests
   has_many :field_of_studies, through: :study_interests
+  belongs_to :high_school
   accepts_nested_attributes_for :matura_results
   accepts_nested_attributes_for :study_interests
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

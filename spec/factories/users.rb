@@ -8,6 +8,7 @@ FactoryBot.define do
     gender { 1 }
     account_type { 2 }
     date_of_matura { '2016-07-03' }
+    high_school
 
     factory :user_with_interests do
       after :create do |user|
