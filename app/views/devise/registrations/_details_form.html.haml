@@ -22,6 +22,13 @@
     %span.icon.is-small.is-right
       %i.fas.fa-check
 .field
+  = label(:high_school, 'Szkoła średnia', class: 'label')
+  .control.has-icons-left
+    .select
+      = f.select :high_school_id, HighSchool.all.collect {|p| [ p.name, p.id ] }
+      %span.icon.is-small.is-left
+        %i.fas.fa-school
+.field
   = label(:date_of_matura, 'Data pierwszej matury', class: 'label')
   .control.has-icons-left.has-icons-right
     = f.date_field :date_of_matura, class: 'input'
