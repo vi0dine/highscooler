@@ -5,4 +5,6 @@ class FieldOfStudy < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }
   has_many :study_interests
   has_many :users, through: :study_interests
+  has_many :field_details
+  has_many :academies, through: :field_details
 end
