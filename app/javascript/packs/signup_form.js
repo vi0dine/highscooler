@@ -30,6 +30,20 @@ document.addEventListener("DOMContentLoaded", () => {
           e.target.dataset["fields"].replace(regexp, time)
         );
         return e.preventDefault();
+      },
+      addInterest(e) {
+        console.log(e);
+        let regexp, time;
+        time = new Date().getTime();
+        regexp = new RegExp(e.target.dataset["id"], "g");
+        if (this.$refs.interests.childElementCount < 5) {
+          $(this.$refs.interests).append(
+            e.target.dataset["fields"].replace(regexp, time)
+          );
+        } else {
+          alert("Możesz dodać tylko 5 kierunków studiów.");
+        }
+        return e.preventDefault();
       }
     }
   });

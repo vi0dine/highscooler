@@ -20,10 +20,12 @@
           .column
             %h3.subtitle Kierunki studiów:
             %br
-            .container.is-fluid
-              - 3.times do
-                = f.fields_for :study_interests do |s|
-                  = render 'study_interest', f: s
+            .container.is-fluid{'ref':'interests'}
+              = f.fields_for :study_interests do |s|
+                = render 'study_interest', f: s
+            %br
+            .container{'v-on:click': 'addInterest'}
+              = link_to_add_exam('Dodaj kierunek', f, :study_interests, class: 'button is-primary is-pulled-right')
       = f.submit 'Test'
   .column.is-3
     = render 'info_box'

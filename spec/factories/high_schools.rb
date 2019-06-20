@@ -6,7 +6,7 @@ FactoryBot.define do
 
     factory :high_school_with_users do
       after :create do |high_school|
-        create_list :user, 10, high_school: high_school
+        create_list :user, 3, high_school: high_school
       end
     end
   end

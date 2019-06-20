@@ -19,10 +19,6 @@ RSpec.describe User, type: :model do
   it { should accept_nested_attributes_for(:study_interests) }
 
   it { should have_many(:matura_results) }
-  it 'should have matura results added' do
-    expect(user_with_results.matura_results.count).to eq(5)
-    expect(user_with_results.matura_results.last.result).to eq(99)
-  end
 
   it { should belong_to(:high_school) }
   it 'should belongs to one highschool' do

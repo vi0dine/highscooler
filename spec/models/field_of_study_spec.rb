@@ -23,12 +23,12 @@ RSpec.describe FieldOfStudy, type: :model do
 
   it { should have_many(:study_interests) }
   it 'should has many study interests' do
-    expect(field_of_study_with_interests.study_interests.count).to eq(5)
+    expect(field_of_study_with_interests.study_interests.count).to eq(3)
   end
 
   it { should have_many(:users).through(:study_interests) }
   it 'should has many users via study interests' do
-    expect(field_of_study_with_interests.users.count).to eq(5)
+    expect(field_of_study_with_interests.users.count).to eq(3)
   end
 
   it { should validate_uniqueness_of(:name).case_insensitive }
