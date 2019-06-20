@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_20_144345) do
+ActiveRecord::Schema.define(version: 2019_06_20_145657) do
 
   create_table "academies", force: :cascade do |t|
     t.string "name", null: false
@@ -18,6 +18,18 @@ ActiveRecord::Schema.define(version: 2019_06_20_144345) do
     t.integer "academy_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "field_details", force: :cascade do |t|
+    t.integer "high_school_id"
+    t.integer "field_of_study_id"
+    t.integer "students_limit"
+    t.string "recrutation_formula"
+    t.integer "minimal_points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["field_of_study_id"], name: "index_field_details_on_field_of_study_id"
+    t.index ["high_school_id"], name: "index_field_details_on_high_school_id"
   end
 
   create_table "field_of_studies", force: :cascade do |t|
