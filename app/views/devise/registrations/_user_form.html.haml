@@ -1,6 +1,6 @@
-.columns
+.columns{'v-if':'formIndex<3'}
   .column.is-9
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'userForm'}, local: true) do |f|
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'userForm', ref: 'signup_form'}, remote: true, authenticity_token: true) do |f|
       = render 'devise/shared/error_messages', resource: resource
       #basics{'v-show':'formIndex==0'}
         = render 'basic_form', f: f
@@ -26,6 +26,11 @@
             %br
             .container{'v-on:click': 'addInterest'}
               = link_to_add_exam('Dodaj kierunek', f, :study_interests, class: 'button is-primary is-pulled-right')
-      = f.submit 'Test'
-  .column.is-3
+  .column.is-3{'v-if':'formIndex<3'}
     = render 'info_box'
+.columns.is-centered{'v-if':'formIndex==3'}
+  .column#finish
+    .notification.is-success.has-text-centered.has-text-light
+      %h1.title Twoje konto zostało utworzone!
+      %br
+      = button_to 'Sprawdź wyniki', root_path, method: :get, :class => 'button button is-rounded is-light'

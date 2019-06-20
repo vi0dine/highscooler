@@ -8,10 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     methods: {
       nextForm() {
-        if (this.formIndex < 3) {
+        if (this.formIndex < 2) {
+          this.formIndex += 1;
+        } else if (this.formIndex == 2) {
+          this.$refs.signup_form.submit();
           this.formIndex += 1;
         } else {
-          // Disabled button
+          // Disabled
         }
       },
       prevForm() {
@@ -22,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       },
       addExam(e) {
-        console.log(e);
         let regexp, time;
         time = new Date().getTime();
         regexp = new RegExp(e.target.dataset["id"], "g");
@@ -32,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return e.preventDefault();
       },
       addInterest(e) {
-        console.log(e);
         let regexp, time;
         time = new Date().getTime();
         regexp = new RegExp(e.target.dataset["id"], "g");

@@ -3,17 +3,16 @@
   .level
     .level-item
       .container
-        .columns
-          = render 'devise/registrations/user_form'
+        = render 'devise/registrations/user_form'
   .level
     .container
       .level-left
         .level-item
           .steps-actions
             .steps-action
-            %a.button.is-primary{'v-on:click':'prevForm()', 'v-bind:disabled':'formIndex==0'} Poprzedni
+            %a.button.is-primary{'v-on:click':'prevForm()', 'v-bind:disabled':'formIndex==0', 'v-if':'formIndex<3'} Poprzedni
       .level-right
         .level-item
           .steps-actions
             .steps-action
-            %a.button.is-primary{'v-on:click':'nextForm()', 'v-bind:disabled':'formIndex==3'} Następny
+            %a.button.is-primary{'v-on:click':'nextForm()', 'v-bind:disabled':'formIndex==3', 'v-if':'formIndex<3'} Następny
