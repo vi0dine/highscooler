@@ -12,8 +12,12 @@ Użyte technologie:
 
 - PostgreSQL
 
+- Devise
+
 - HAML/SASS
 
 - Bulma
 
-Aplikacja we wczesnej fazie developmentu.
+- VueJS / jQuery
+
+Aplikacja w fazie developmentu. Planowany deploy ~ 02.2020
