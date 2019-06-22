@@ -12,8 +12,8 @@
             %h3.subtitle Wyniki matur:
             %br
             .container.is-fluid{'ref':'exams'}
-              = f.fields_for :matura_results do |m|
-                = render 'matura_result', f: m
+              -# = f.fields_for :matura_results do |m|
+              -#   = render 'matura_result', f: m
             %br
             .container{'v-on:click': 'addExam'}
               = link_to_add_exam('Dodaj egzamin', f, :matura_results, class: 'button is-primary is-pulled-right')
@@ -21,8 +21,8 @@
             %h3.subtitle Kierunki studiów:
             %br
             .container.is-fluid{'ref':'interests'}
-              = f.fields_for :study_interests do |s|
-                = render 'study_interest', f: s
+              -# = f.fields_for :study_interests do |s|
+              -#   = render 'study_interest', f: s
             %br
             .container{'v-on:click': 'addInterest'}
               = link_to_add_exam('Dodaj kierunek', f, :study_interests, class: 'button is-primary is-pulled-right')
