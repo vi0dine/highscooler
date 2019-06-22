@@ -1,0 +1,36 @@
+.container
+  .columns
+    .column.is-half
+      .columns.is-centered.is-vcentered
+        .column.is-3
+          %figure.image.is-128x128
+            %img{src: 'https://bulma.io/images/placeholders/128x128.png'}
+        .column
+          %h2.title 
+            = @user.username
+          %h2.subtitle 
+            = @user.email
+      .column
+        .list
+          - @user.field_of_studies.each do |field|
+            %li.list-item
+              = field.name
+      .columns
+        .column
+          %table.table
+            %thead
+              %tr
+                %th Przedmiot
+                %th Poziom
+                %th Wynik
+            %tbody
+            - @user.matura_results.each do |mr|
+              %tr
+                %td 
+                  = mr.matura_subject.name
+                %td
+                  = MaturaResult.human_enum_name(:level, mr.level)
+                %td
+                  = mr.result
+    .column
+      %h1.title Raport
