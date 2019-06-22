@@ -41,15 +41,14 @@ MaturaSubject.create(name: 'Historia', subject_type: 0)
 
 # FieldDetail samples
 FieldDetail.create(students_limit: 520,
-                   recrutation_formula: '(Biologia|Chemia|Matematyka|Fizyka)*2+(Biologia|Chemia|Matematyka|Fizyka)*2',
+                   recrutation_formula: '(Biologia_Pr|Chemia_Pr|Matematyka_Pr|Fizyka_Pr)*2+(Biologia_Pr|Chemia_Pr|Matematyka_Pr|Fizyka_Pr)*2',
                    minimal_points: 320,
                    academy_id: 4,
                    field_of_study_id: 1)
-FieldDetail.create(recrutation_formula: '2*(Chemia|Fizyka|Informatyka|Matematyka)|0.5*(Język Polski) + 2*(Chemia|Fizyka|Informatyka|Matematyka) + 0.5*(JO)',
+FieldDetail.create(recrutation_formula: '2*(Chemia_Pr|Fizyka_Pr|Informatyka_Pr|Matematyka_Pr)|0.5*(Język Polski_Pr) + 2*(Chemia_Pr|Fizyka_Pr|Informatyka_Pr|Matematyka_Pr) + 0.5*(Język Angielski_Pr)',
                    academy_id: 2,
                    field_of_study_id: 2)
 FieldDetail.create(students_limit: 200,
-                   recrutation_formula: '(Historia|Matematyka)*(0.5|1)+(WOS|Język Polski|Geografia)*(0.25|0.5)+(Język Obcy)*(0.2|0.4)',
+                   recrutation_formula: '(Historia_Pr|Matematyka_Pr)*(0.5|1)+(WOS_Pr|Język Polski_Pr|Geografia_Pr)*(0.25|0.5)+(Język Angielski_Pr)*(0.2|0.4)',
                    academy_id: 1,
                    field_of_study_id: 3)
-                   
