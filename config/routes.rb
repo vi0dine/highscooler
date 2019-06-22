@@ -5,5 +5,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root 'homepage#index'
-  get 'users/:id', to: 'users/dashboard#show'
+
+  scope :users do
+    get '/:id', to: 'users/dashboard#show', as: :dashboard
+  end
 end

@@ -1,12 +1,12 @@
-.container
+.container{style: 'padding: 25px;'}
   .columns
-    .column.is-half
+    .column.is-4
       .columns.is-centered.is-vcentered
-        .column.is-3
+        .column.is-4
           %figure.image.is-128x128
             %img{src: 'https://bulma.io/images/placeholders/128x128.png'}
         .column
-          %h2.title 
+          %h2.title
             = @user.username
           %h2.subtitle 
             = @user.email
@@ -34,3 +34,32 @@
                   = mr.result
     .column
       %h1.title Raport
+      .container{style:'height: 650px; overflow: auto;'}
+        .tile.is-ancestor
+        - @fields.each do |field|
+          .tile.is-12.is-vertical{style: 'padding: 10px;'}
+            .box
+              .columns
+                .column.is-6
+                  %span.subtitle 
+                    = field.academy.name
+                  %p
+                    = field.academy.city
+                .column
+                  %p.heading Limit miejsc
+                  - unless field.students_limit.nil?
+                    %p 
+                      = field.students_limit
+                  - else
+                    %p Brak informacji
+                .column
+                  %p.heading Próg punktowy
+                  - unless field.minimal_points.nil?
+                    %p 
+                      = field.minimal_points
+                  - else
+                    %p Brak informacji
+                .column
+                  %p.heading Twój wynik
+                  %p 200 pkt
+                    

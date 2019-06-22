@@ -52,3 +52,4 @@ FieldDetail.create(students_limit: 200,
                    recrutation_formula: '(Historia|Matematyka)*(0.5|1)+(WOS|Język Polski|Geografia)*(0.25|0.5)+(Język Obcy)*(0.2|0.4)',
                    academy_id: 1,
                    field_of_study_id: 3)
+                   
