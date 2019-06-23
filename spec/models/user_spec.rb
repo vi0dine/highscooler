@@ -19,6 +19,7 @@ RSpec.describe User, type: :model do
   it { should accept_nested_attributes_for(:study_interests) }
 
   it { should have_many(:matura_results) }
+  it { should have_many(:study_interests) }
 
   it { should belong_to(:high_school) }
   it 'should belongs to one highschool' do
@@ -30,6 +31,8 @@ RSpec.describe User, type: :model do
     expect(user_with_interests.field_of_studies.count).to eq(3)
     expect(user_with_interests.field_of_studies.first.name).to be_kind_of(String)
   end
+
+  it { should have_many(:matura_subjects).through(:matura_results) }
 
   it 'should have hashed password' do
     expect(user.valid_password?('123456')).to be_truthy
