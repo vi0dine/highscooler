@@ -1,0 +1,47 @@
+.container{style: 'margin-top: 30px;'}
+  %h1.title Uczelnie
+  .level
+    .level-left
+      .level-item
+        .field.has-addons
+          .control
+            %input.input
+          .control
+            %button.button.is-info Szukaj
+    .level-right
+      .level-item.has-text-centered
+        %div
+          %p.heading Uczelni
+          %p.title
+            = @academies.count
+  .level
+    .container
+      .list
+        - @academies.each do |academy|
+          .list-item
+            .columns
+              .column.is-1
+                %figure.image.is-64x64
+                  %image.is-rounded{src: 'https://bulma.io/images/placeholders/128x128.png'}
+              .column.is-7.has-text-left
+                %p.title.is-size-4 
+                  = academy.name
+                %p.subtitle
+                  = academy.city
+              .column.is-1.has-text-centered
+                %div
+                  %p.heading Kierunków
+                  %p.title
+                    = academy.field_of_studies.count
+              .column.is-2.has-text-centered
+                %div
+                  %p.heading Zainteresowanych
+                  %p.subtitle
+                    TODO
+              .column.is-1.has-text-centered
+                %div
+                  %p.heading Ranking
+                  %p.subtitle
+                    TODO
+              
+        

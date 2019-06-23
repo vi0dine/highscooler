@@ -8,12 +8,13 @@ class Users::DashboardController < ApplicationController
         @fields << fd
         @formulas << fd.recrutation_formula
       end
-    puts @formulas
     # count_points(@user, @formulas)
     end
   end
 
   private
+
+  # RegEx 1: \(([^()]+)\) -> Match elements in parentheses
 
   # def count_points(user, formulas)
   #   formulas.each do |formula|

@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   scope :users do
     get '/:id', to: 'users/dashboard#show', as: :dashboard
   end
+
+  scope :academies do
+    get '/', to: 'academies#index'
+  end
 end
