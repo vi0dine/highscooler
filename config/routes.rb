@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   end
 
   scope :academies do
-    get '/', to: 'academies#index'
+    get '/', to: 'academies#index', as: :academies
   end
 end

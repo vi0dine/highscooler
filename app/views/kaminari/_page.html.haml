@@ -1,0 +1,4 @@
+- unless page.current?
+  = link_to page, url, {remote: remote, rel: page.rel, class: 'pagination-link'}
+- else
+  = link_to page, url, {remote: remote, rel: page.rel, class: 'pagination-link is-current'}
