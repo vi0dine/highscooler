@@ -1,5 +1,5 @@
 class AcademiesController < ApplicationController
   def index
-    @academies = Academy.all
+    @academies = Academy.order(:name).page params[:page]
   end
 end

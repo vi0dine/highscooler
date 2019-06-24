@@ -4,4 +4,6 @@ class Academy < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }
   has_many :field_details
   has_many :field_of_studies, through: :field_details
+
+  paginates_per 5
 end
