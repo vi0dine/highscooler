@@ -16,9 +16,9 @@
             = @academies.count
   .level
     .container
-      .list
-        - @academies.each do |academy|
-          .list-item
+      - @academies.each do |academy|
+        = link_to academy_path(academy.id) do
+          .box{style: 'padding: 10px; margin: 10px;'}
             .columns
               .column.is-1
                 %figure.image.is-64x64

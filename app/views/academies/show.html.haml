@@ -1,0 +1,43 @@
+.container{style: 'margin-top: 30px;'}
+  .columns
+    .column
+      %h1.title
+        = @academy.name
+      %h2.subtitle
+        = @academy.city
+      .is-divider
+      .container{style: 'height: 700px; overflow-y: auto; overflow-x: hidden;'}
+        - @academy.field_of_studies.each do |field|
+          .box{style: 'padding: 10px;'}
+            %article.media
+              %figure.media-left
+                %p.image.is-64x64
+                  %image{src: 'https://via.placeholder.com/64x64'}
+              .media-content
+                .columns.is-centered.is-vcentered
+                  .column
+                    .content
+                      %span.heading.is-size-4
+                        = field.name
+                      %span
+                        = field.field_type
+                  .column.has-text-centered
+                    %span.heading Zainteresowani
+                    %p
+                      = field.users.count
+    .column
+      %figure.image
+        %image{src: 'https://via.placeholder.com/468x60?text=Uniwersytet+Wroclawski'}
+      .container{style: 'margin-top: 20px;'}
+        %h2.subtitle Opinie o uczelni
+        .container{style: 'height: 700px; overflow: auto;'}
+          - 15.times do
+            .notification.is-success{style: 'padding: 10px;'}
+              %article.media
+                %figure.media-left
+                  %p.image.is-64x64
+                    %image{src: 'https://via.placeholder.com/64x64'}
+                .media-content
+                  %strong Username
+                  %br
+                  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
