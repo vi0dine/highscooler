@@ -1,7 +1,7 @@
 class FieldOfStudy < ApplicationRecord
   enum field_type: %i[humanities administrative artistic medical social_sciences
-                      natural_sciences formal_sciences technical sports 
-                      linguistic economical pedagogical law psychological 
+                      natural_sciences formal_sciences technical sports
+                      linguistic economical pedagogical law psychological
                       military agricultural others] # Should refactor to new model :/
   validates :name, :field_type, presence: true
   validates :field_type, numericality: { only_integers: true }
@@ -10,4 +10,6 @@ class FieldOfStudy < ApplicationRecord
   has_many :users, through: :study_interests
   has_many :field_details
   has_many :academies, through: :field_details
+
+  paginates_per 5
 end
