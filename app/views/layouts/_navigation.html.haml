@@ -6,7 +6,7 @@
       .navbar-end
         = link_to 'Aktualności', '#', :class => 'navbar-item'
         = link_to 'Uczelnie', academies_path , :class => 'navbar-item'
-        = link_to 'Kierunki', '#' , :class => 'navbar-item'
+        = link_to 'Kierunki', fields_path , :class => 'navbar-item'
         - if user_signed_in?
           = link_to 'Wyloguj', destroy_user_session_path, :method => :delete, :class => 'navbar-item'
         - else
