@@ -17,5 +17,6 @@ Rails.application.routes.draw do
 
   scope :fields do
     get '/', to: 'fields#index', as: :fields
+    get '/:id', to: 'fields#show', as: :field
   end
 end

@@ -1,0 +1,67 @@
+.container{style: 'margin-top: 30px;'}
+  .columns
+    .column.is-8
+      %h1.title
+        = @field.name
+      %h2.subtitle
+        = @field.field_type
+      %figure.image
+        %image{src: 'https://via.placeholder.com/468x60?text=Informatyka'}
+      .container{style: 'margin-top: 20px;'}
+      .is-divider
+      .columns
+        .column
+          .container
+            = Faker::Lorem.paragraph(30)
+        .column
+          .container
+            - @field.academies.each do |academy|
+              .box{style: 'padding: 10px;'}
+                %article.media
+                  %figure.media-left
+                    %p.image.is-64x64
+                      %image{src: 'https://via.placeholder.com/64x64'}
+                  .media-content
+                    .columns.is-centered.is-vcentered
+                      .column.has-text-left
+                        .content
+                          %span.heading.is-size-7
+                            = academy.name
+                          %span.is-size-8
+                            = academy.city
+                      .column.has-text-centered
+                        %span.heading Zainteresowani
+                        %p TODO
+    .column
+      %h2.subtitle Opinie o kierunku
+      .container{style: 'height: 400px; overflow: auto;'}
+        - 15.times do
+          .notification.is-success{style: 'padding: 10px;'}
+            %article.media
+              %figure.media-left
+                %p.image.is-64x64
+                  %image{src: 'https://via.placeholder.com/64x64'}
+              .media-content
+                %strong 
+                  = Faker::Internet.username
+                %small
+                  ='| '+ Faker::Educator.university
+                %br
+                %p
+                  = Faker::Lorem.paragraph(3)
+      .container{style: 'padding: 10px;'}
+        %h2.subtitle Przedmioty maturalne
+        %table.table.is-fullwidth
+          %thead
+            %tr
+              %th Przedmiot
+              %th Procent uczelni wliczających
+          %tbody
+            - 3.times do
+              %tr
+                %td
+                  = Faker::Educator.subject
+                %td
+                  = Faker::Number.number(2)+'%'
+            
+
