@@ -45,7 +45,7 @@ FieldDetail.create(students_limit: 520,
                    minimal_points: 320,
                    academy_id: 4,
                    field_of_study_id: 1)
-FieldDetail.create(recrutation_formula: '2*(Chemia_Pr|Fizyka_Pr|Informatyka_Pr|Matematyka_Pr)|0.5*(Język Polski_Pr) + 2*(Chemia_Pr|Fizyka_Pr|Informatyka_Pr|Matematyka_Pr) + 0.5*(Język Angielski_Pr)',
+FieldDetail.create(recrutation_formula: '(Chemia_Pr|Fizyka_Pr|Informatyka_Pr|Matematyka_Pr)*2|(Język Polski_Pr)*0.5 + (Chemia_Pr|Fizyka_Pr|Informatyka_Pr|Matematyka_Pr)*2 + (Język Angielski_Pr)*0.5',
                    academy_id: 2,
                    field_of_study_id: 2)
 FieldDetail.create(students_limit: 200,
