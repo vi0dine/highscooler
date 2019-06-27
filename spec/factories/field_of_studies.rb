@@ -11,7 +11,7 @@ FactoryBot.define do
 
     factory :field_of_study_with_details do
       after :create do |field_of_study|
-        create_list :field_detail, 5, field_of_study: field_of_study
+        create_list :field_detail, 3, field_of_study: field_of_study
       end
     end
   end
