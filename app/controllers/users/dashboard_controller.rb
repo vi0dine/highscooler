@@ -1,30 +1,68 @@
 class Users::DashboardController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @fields = []
-    @formulas = []
-    @user.field_of_studies.each do |fos|
-      fos.field_details.each do |fd|
-        @fields << fd
-        @formulas << fd.recrutation_formula
-      end
-    # count_points(@user, @formulas)
-    end
+    @fields = @user.field_details
+    @formulas = @user.field_details.collect(&:recrutation_formula)
+    @your_result = count_points(@user, @formulas)
   end
 
   private
 
   # RegEx 1: \(([^()]+)\) -> Match elements in parentheses
-
-  # def count_points(user, formulas)
-  #   formulas.each do |formula|
-  #     user.matura_subjects.each do |subject|
-  #       if (formula.include? "#{subject.name}_Pp") && !(user.matura_results.select {|res| res.matura_subject_id == subject.id && res.level == 'basic'}.nil?)
-  #         formula.gsub!("#{subject.name}_Pp", user.matura_results.select {|res| res.matura_subject_id == subject.id && res.level == 'basic' }.first.result.to_s)
-  #       elsif (formula.include? "#{subject.name}_Pr") && !(user.matura_results.select {|res| res.matura_subject_id == subject.id && res.level == 'advanced'}.nil?)
-  #         formula.gsub!("#{subject.name}_Pr", user.matura_results.select {|res| res.matura_subject_id == subject.id && res.level == 'advanced' }.first.result.to_s)
-  #       end
-  #     end
-  #   end
-  # end
+  # RegEx 2: [^(].+?(#{subject.name}).+?(?=\))
+  # RegEx 3: \(.*?(#{subject.name}).*?\)
+  # RegEx 4: \((?:(?!#{subject_to_not_include}).)*?\)
+  
+  def count_points(user, formulas)
+    # For each formula
+    formulas.each do |formula|
+      basicRes = user.matura_results.select { |user_res| user_res.level == 'basic' }
+      puts basicRes
+      advancedRes = user.matura_results.select { |user_res| user_res.level == 'advanced' }
+      max_basic_subject_id = nil
+      max_advanced_subject_id = nil
+      exps = formula.split('+')
+      formula.clear
+      # and each element
+      exps.each do |exp|
+        max = -1
+        exp.gsub!(/^[\[]|[\]]$/, '')
+        # extract subjects
+        subjects = exp.split('|')
+        # and for each subjects
+        subjects.each do |subject|
+          subject.gsub!(/^[\(]|[\)]$/, '')
+          subject_name = subject.match(/.*_../)[0]
+          # replace its name with users result
+          if basicRes.map(&:matura_subject).map { |subject| subject.name+"_Pp" }.include?(subject_name)
+            subject.gsub!(subject_name, basicRes.detect { |result| result.matura_subject.name+"_Pp" == subject_name}.result.to_s)
+            # assign evaluated value to max
+            if (max < eval(subject))
+              max = eval(subject)
+              max_basic_subject_id = basicRes.detect { |result| result.matura_subject.name+"_Pp" == subject_name}.id
+              puts max_basic_subject_id
+            end
+          elsif advancedRes.map(&:matura_subject).map { |subject| subject.name+"_Pr" }.include?(subject_name)
+            subject.gsub!(subject_name, advancedRes.detect { |result| result.matura_subject.name+"_Pr" == subject_name}.result.to_s)
+            # assign evaluated value to max
+            if (max < eval(subject))
+              max = eval(subject)
+              max_advanced_subject_id = advancedRes.detect { |result| result.matura_subject.name+"_Pr" == subject_name}.id
+              puts max_advanced_subject_id
+            end
+          else
+            # if no user result assign '0'
+            subject.gsub!(subject_name, '0')
+          end
+        end
+        # replace first element with max value
+        exp.replace(max.to_s)
+        # reject max elements from user results to avoid duplicates
+        basicRes.reject! { |res| res.id == max_basic_subject_id }
+        advancedRes.reject! { |res| res.id == max_advanced_subject_id}
+        # replace formula with calculated elements
+        formula << exp << "+"
+      end
+    end
+  end
 end

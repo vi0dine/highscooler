@@ -56,10 +56,11 @@
                   %p.heading Próg punktowy
                   - unless field.minimal_points.nil?
                     %p 
-                      = field.minimal_points
+                      = field.minimal_points.to_s+' pkt'
                   - else
                     %p Brak informacji
                 .column
                   %p.heading Twój wynik
-                  %p 200 pkt
+                  %p 
+                    = eval(@your_result[0].chomp('+').to_s).to_s+' pkt'
                     
