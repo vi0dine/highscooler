@@ -3,6 +3,7 @@ class Users::DashboardController < ApplicationController
     @user = User.find(params[:id])
     @fields = @user.field_details
     @formulas = @user.field_details.collect(&:recrutation_formula)
+    count_points(@user, @formulas)
   end
 
   private
@@ -14,16 +15,24 @@ class Users::DashboardController < ApplicationController
   
   def count_points(user, formulas)
     formulas.each do |formula|
-      user.matura_subjects.each do |subject|
-        if (formula.include? "#{subject.name}_Pp") &&
-           !user.matura_results.select {|res| res.matura_subject_id == subject.id && res.level == 'basic'}.nil?
-          formula.gsub!("#{subject.name}_Pp", '100'.to_s)
-        elsif (formula.include? "#{subject.name}_Pr") && 
-              !user.matura_results.select {|res| res.matura_subject_id == subject.id && res.level == 'advanced'}.nil?
-          formula.gsub!("#{subject.name}_Pr", '100'.to_s)
+      exps = formula.split('+')
+      exps.each do |exp|
+        exp.gsub!(/^[\[]|[\]]$/, '')
+        puts "Exp: #{exp}"
+        subjects = exp.split('|')
+        subjects.each do |subject|
+          subject.gsub!(/^[\(]|[\)]$/, '')
+          subject_name = subject.match(/.*_../)[0]
+          puts "Subject name: #{subject_name}"
+          if (user.matura_subjects.select { |user_sub| "#{user_sub.name}_Pr" == subject_name })
+            puts "Podmiana #{subject_name} na wynik."
+            exp.gsub!(subject_name, '45')
+          else
+            puts "Usuwanie #{subject_name}."
+            exp.gsub!(subject, '')
+          end
         end
       end
     end
-    formulas
   end
 end
