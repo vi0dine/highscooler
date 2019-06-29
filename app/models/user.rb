@@ -16,4 +16,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :encryptable
+
+  attr_accessor :results
+
+  def add_recrutation_results(prepared_formulas)
+    @results = []
+    prepared_formulas.each do |result| 
+      @results << eval(result.chomp('+').to_s)
+    end
+  end
 end

@@ -3,7 +3,8 @@ class Users::DashboardController < ApplicationController
     @user = User.find(params[:id])
     @fields = @user.field_details
     @formulas = @user.field_details.collect(&:recrutation_formula)
-    @your_result = count_points(@user, @formulas)
+    @your_results = count_points(@user, @formulas)
+    @results = @user.add_recrutation_results(@your_results)
   end
 
   private
@@ -17,7 +18,6 @@ class Users::DashboardController < ApplicationController
     # For each formula
     formulas.each do |formula|
       basicRes = user.matura_results.select { |user_res| user_res.level == 'basic' }
-      puts basicRes
       advancedRes = user.matura_results.select { |user_res| user_res.level == 'advanced' }
       max_basic_subject_id = nil
       max_advanced_subject_id = nil
@@ -40,7 +40,6 @@ class Users::DashboardController < ApplicationController
             if (max < eval(subject))
               max = eval(subject)
               max_basic_subject_id = basicRes.detect { |result| result.matura_subject.name+"_Pp" == subject_name}.id
-              puts max_basic_subject_id
             end
           elsif advancedRes.map(&:matura_subject).map { |subject| subject.name+"_Pr" }.include?(subject_name)
             subject.gsub!(subject_name, advancedRes.detect { |result| result.matura_subject.name+"_Pr" == subject_name}.result.to_s)
@@ -48,7 +47,6 @@ class Users::DashboardController < ApplicationController
             if (max < eval(subject))
               max = eval(subject)
               max_advanced_subject_id = advancedRes.detect { |result| result.matura_subject.name+"_Pr" == subject_name}.id
-              puts max_advanced_subject_id
             end
           else
             # if no user result assign '0'

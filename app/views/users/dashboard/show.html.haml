@@ -36,7 +36,7 @@
       %h1.title Raport
       .container{style:'height: 650px; overflow: auto;'}
         .tile.is-ancestor
-        - @fields.each do |field|
+        - @fields.each_with_index do |field, id|
           .tile.is-12.is-vertical{style: 'padding: 10px;'}
             .box
               .columns
@@ -62,5 +62,5 @@
                 .column
                   %p.heading Twój wynik
                   %p 
-                    = eval(@your_result[0].chomp('+').to_s).to_s+' pkt'
+                    = "#{@user.results[id]} pkt"
                     
