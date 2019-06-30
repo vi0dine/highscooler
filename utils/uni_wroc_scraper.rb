@@ -77,16 +77,32 @@ class Scraper
           formula << "(#{elem.first&.capitalize}_Pr*#{elem[3]&.strip})" << ']+'
         end
       end
-      formulas << { 'field_name': field_data['Field Name'].first, 'formula': formula.chomp('+')}
+      formulas << {'field_name': field_data['Field Name'].first, 'formula': formula.chomp('+')}
     end
     formulas
   end
 
-  uni_wroc = File.new('uwr.txt', 'a')
+  def get_limit(field)
+    limit = ''
+    sample_link = HTTParty.get(@uni_page.css('ul').css('.search_results').css('li').children.map { |link| link['href'] }.first)
+    limits_page = Nokogiri::HTML(sample_link)
+    field_row = limits_page.css("section[data-id='limity'] > table > tbody > tr").each do |row|
+      if row.at_css('td').text == field
+        limit << row.children[3].text
+      end
+    end
+    limit
+  end
+
+  uni_wroc = File.new('./uwr.txt', 'a')
   scraper = Scraper.new
   links = scraper.get_links
   data = scraper.get_data(links)
-  scraper.make_formulas(data).each do |formula|
-    uni_wroc << formula << "\n"
-  end 
+  scraper.make_formulas(data).each_with_index do |formula, id|
+    uni_wroc << "FieldOfStudy.create(name: #{formula[:field_name]&.downcase&.capitalize}, field_type: ?)" << "\n"
+    uni_wroc << "FieldDetail.create(students_limit: #{scraper.get_limit(formula[:field_name])},
+                                    recrutation_formula: '#{formula[:formula]}',
+                                    academy_id: 1,
+                                    field_of_study_id: #{id})" << "\n"
+  end
 end
