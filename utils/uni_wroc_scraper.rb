@@ -24,17 +24,17 @@ class Scraper
       field_data = {}
       field = HTTParty.get(link)
       field_page = Nokogiri::HTML(field)
-      # Extract field name
-      field_data['Field Name'] = field_page.css("main > article> header > h1").map(&:text)
+      # Extract field_name
+      field_data['field_name'] = field_page.css("main > article> header > h1").map(&:text)
       subjects = []
-      # Extract table with matura subjects and exponents
+      # Extract table with matura_subjects and exponents
       field_page.css("section[data-id='zasady'] > table > tbody > tr").each do |row|
         subjects << row.css('td').children.map(&:text)
       end
-      field_data['Matura Subjects'] = subjects
+      field_data['matura_subjects'] = subjects
       # Clear results from '\n'
-      field_data['Matura Subjects'].each {|exp| exp.reject! { |elem| elem == "\n" } }
-      field_data['Matura Subjects'].each do |row| 
+      field_data['matura_subjects'].each {|exp| exp.reject! { |elem| elem == "\n" } }
+      field_data['matura_subjects'].each do |row| 
         row.each do |cell|
           cell.downcase!
           cell.gsub!("\n", ' ')
@@ -42,8 +42,8 @@ class Scraper
         end
       end
       # Remove first row if its just a header
-      if (!(field_data['Matura Subjects'][0].nil?) && field_data['Matura Subjects'][0].include?("współczynnik dla poziomu podstawowego"))
-        field_data['Matura Subjects'].shift
+      if (!(field_data['matura_subjects'][0].nil?) && field_data['matura_subjects'][0].include?("współczynnik dla poziomu podstawowego"))
+        field_data['matura_subjects'].shift
       end
       fields << field_data
     end
@@ -53,9 +53,13 @@ class Scraper
   def make_formulas(data)
     puts "Converting data to recrutation formulas..."
     formulas = []
+    # For each field
     data.each do |field_data|
+      # Create empty formula
       formula = ''
-      field_data['Matura Subjects'].each do |elem|
+      # For each matura subject
+      field_data['matura_subjects'].each do |elem|
+        # single subject
         if elem.first&.start_with?("przedmiot ")
           formula << '['
           elem[1].split(',').each do |subject|
@@ -63,6 +67,7 @@ class Scraper
             formula << "(#{subject.strip.capitalize}_Pr*#{elem[3]&.strip})|"
           end
           formula.chomp('|') << ']+'
+        # and multiple subjects
         elsif elem.first&.start_with?("przedmioty ")
           2.times do
             formula << '['
@@ -72,12 +77,19 @@ class Scraper
             end
             formula.chomp('|') << ']+'
           end
+        # or multiple language subjects
+        elsif elem.first&.start_with?("język obcy nowożytny ")
+          formula << '['
+          formula << "(Język_Angielski_Pp*#{elem[2]&.strip})|(Język_Niemiecki_Pp*#{elem[2]&.strip})|(Język_Francuski_Pp*#{elem[2]&.strip})|(Język_Hiszpański_Pp*#{elem[2]&.strip})|(Język_Rosyjski_Pp*#{elem[2]&.strip})|(Język_Włoski_Pp#{elem[2]&.strip})"
+          formula << '|'
+          formula << "(Język_Angielski_Pr*#{elem[3]&.strip})|(Język_Niemiecki_Pr*#{elem[3]&.strip})|(Język_Francuski_Pr*#{elem[3]&.strip})|(Język_Hiszpański_Pr*#{elem[3]&.strip})|(Język_Rosyjski_Pr*#{elem[3]&.strip})|(Język_Włoski_Pr#{elem[3]&.strip})"
+          formula << ']'
         else
           formula << '[' << "(#{elem.first&.capitalize}_Pp*#{elem[2]&.strip})|"
           formula << "(#{elem.first&.capitalize}_Pr*#{elem[3]&.strip})" << ']+'
         end
       end
-      formulas << {'field_name': field_data['Field Name'].first, 'formula': formula.chomp('+')}
+      formulas << {'field_name': field_data['field_name'].first, 'formula': formula.chomp('+')}
     end
     formulas
   end
@@ -98,8 +110,10 @@ class Scraper
   scraper = Scraper.new
   links = scraper.get_links
   data = scraper.get_data(links)
+  data.each_with_index do |field, id|
+    uni_wroc << "FieldOfStudy.create(name: '#{field['field_name']&.first&.downcase&.capitalize}', field_type: ?)" << "\n"
+  end
   scraper.make_formulas(data).each_with_index do |formula, id|
-    uni_wroc << "FieldOfStudy.create(name: #{formula[:field_name]&.downcase&.capitalize}, field_type: ?)" << "\n"
     uni_wroc << "FieldDetail.create(students_limit: #{scraper.get_limit(formula[:field_name])},
                                     recrutation_formula: '#{formula[:formula]}',
                                     academy_id: 1,
