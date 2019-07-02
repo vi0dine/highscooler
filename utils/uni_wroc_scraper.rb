@@ -3,9 +3,6 @@ require 'httparty'
 require 'benchmark'
 
 class Scraper
-
-  attr_accessor :parse_page
-
   def initialize
     puts "Connecting to recrutation website..."
     doc = HTTParty.get("https://rekrutacja.uni.wroc.pl/?re=letnia&st&po=s1&tr=stacjonarne")
@@ -69,8 +66,16 @@ class Scraper
             formula << "(#{subject.capitalize}_Pr*#{elem[3]&.strip})|"
           end
           formula = formula.chomp('|') << ']+'
+        elsif elem.first&.start_with?("przedmiot ") && elem[1]&.strip&.start_with?(/\d/)
+          formula << '['
+          elem[1].gsub(/.*: /, '').split(',').each do |subject|
+            subject = subject.downcase.strip.chomp(" (pisemny)").chomp(" lub fizyka i astronomia")
+            formula << "(#{subject.capitalize}_Pp*#{elem[3]&.strip})|"
+            formula << "(#{subject.capitalize}_Pr*#{elem[4]&.strip})|"
+          end
+          formula = formula.chomp('|') << ']+'
         # and multiple subjects
-        elsif elem.first&.start_with?("przedmioty ")
+        elsif elem.first&.start_with?(/.*przedmioty.*/)
           2.times do
             formula << '['
             elem[1].split(',').each do |subject|
