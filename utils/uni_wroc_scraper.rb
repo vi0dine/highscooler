@@ -83,14 +83,14 @@ class Scraper
         # or multiple language subjects
         elsif elem.first&.start_with?("język obcy nowożytny ")
           formula << '['
-          formula << "(Język angielski_Pp*#{elem[2]&.strip})|(Język niemiecki_Pp*#{elem[2]&.strip})|(Język francuski_Pp*#{elem[2]&.strip})|(Język hiszpański_Pp*#{elem[2]&.strip})|(Język rosyjski_Pp*#{elem[2]&.strip})|(Język włoski_Pp#{elem[2]&.strip})"
+          formula << "(Język angielski_Pp*#{elem[2]&.strip})|(Język niemiecki_Pp*#{elem[2]&.strip})|(Język francuski_Pp*#{elem[2]&.strip})|(Język hiszpański_Pp*#{elem[2]&.strip})|(Język rosyjski_Pp*#{elem[2]&.strip})|(Język włoski_Pp*#{elem[2]&.strip})"
           formula << '|'
-          formula << "(Język angielski_Pr*#{elem[3]&.strip})|(Język niemiecki_Pr*#{elem[3]&.strip})|(Język francuski_Pr*#{elem[3]&.strip})|(Język hiszpański_Pr*#{elem[3]&.strip})|(Język rosyjski_Pr*#{elem[3]&.strip})|(Język włoski_Pr#{elem[3]&.strip})"
+          formula << "(Język angielski_Pr*#{elem[3]&.strip})|(Język niemiecki_Pr*#{elem[3]&.strip})|(Język francuski_Pr*#{elem[3]&.strip})|(Język hiszpański_Pr*#{elem[3]&.strip})|(Język rosyjski_Pr*#{elem[3]&.strip})|(Język włoski_Pr*#{elem[3]&.strip})"
           formula << ']'
         else
           subject = elem.first&.downcase&.strip&.gsub(/..pisemny../, '')&.chomp(" lub fizyka i astronomia")
-          formula << '[' << "(#{subject&.capitalize}_Pp*#{elem[2]&.strip})|"
-          formula << "(#{subject&.capitalize}_Pr*#{elem[3]&.strip})" << ']+'
+          formula << '[' << "(#{subject&.capitalize}_Pp*#{elem[1]&.strip})|"
+          formula << "(#{subject&.capitalize}_Pr*#{elem[2]&.strip})" << ']+'
         end
       end
       formulas << {'field_name': field_data['field_name'].first, 'formula': formula.gsub(',', '.').gsub('Dowolny przedmiot (pisemny) inny niż wymienione w tabeli', 'dowolny inny').chomp('+')}
@@ -152,8 +152,8 @@ class Scraper
   end
   scraper.make_formulas(data).each_with_index do |formula, id|
     uni_wroc << "FieldDetail.create(students_limit: #{scraper.get_limit(formula[:field_name])},
-                                    recrutation_formula: '#{formula[:formula]}',
-                                    academy_id: 1,
-                                    field_of_study_id: #{id})" << "\n"
+                   recrutation_formula: '#{formula[:formula]}',
+                   academy_id: 1,
+                   field_of_study_id: #{id})" << "\n"
   end
 end

@@ -119,15 +119,4 @@ MaturaSubject.create(name: 'Język rosyjski', subject_type: 0)
 MaturaSubject.create(name: 'Język włoski', subject_type: 0)
 
 # FieldDetail samples
-FieldDetail.create(students_limit: 520,
-                   recrutation_formula: '[(Biologia_Pr*2)|(Chemia_Pr*2)|(Matematyka_Pr*2)|(Fizyka_Pr*2)]+[(Biologia_Pr*2)|(Chemia_Pr*2)|(Matematyka_Pr*2)|(Fizyka_Pr*2)]',
-                   minimal_points: 320,
-                   academy_id: 4,
-                   field_of_study_id: 1)
-FieldDetail.create(recrutation_formula: '[(Chemia_Pr*4)|(Fizyka_Pr*4)|(Informatyka_Pr*4)|(Matematyka_Pr*4)|(Matematyka_Pp*2)|(Język Polski_Pr*1)|(Język Polski_Pp*0.5)]+[(Chemia_Pr*4)|(Fizyka_Pr*4)|(Informatyka_Pr*4)|(Matematyka_Pr*4)|(Matematyka_Pp*2)|(Język Polski_Pr*1)|(Język Polski_Pp*0.5)]+[(Język Angielski_Pr*1)|(Język Angielski_Pp*0.5)]',
-                   academy_id: 2,
-                   field_of_study_id: 2)
-FieldDetail.create(students_limit: 200,
-                   recrutation_formula: '[(Historia_Pr*1)|(Matematyka_Pr*1)|(Matematyka_Pp*0.5)]+[(WOS_Pr*0.5)|(Język Polski_Pr*0.5)|(Język Polski_Pp*0.25)|(Geografia_Pr*0.5)]+[(Język Angielski_Pr*0.4)|(Język Angielski_Pp*0.2)]',
-                   academy_id: 1,
-                   field_of_study_id: 3)
+  # Uniwersytet Wrocławski
