@@ -147,17 +147,18 @@ class Scraper
 
     benchmark.report('Make formulas') do
       threads = []
-      uni_wroc = File.new('./uwr.txt', 'a')
+      uni_wroc_fields = File.new('./utils/uwr/uwr_fields.txt', 'a')
+      uni_wroc_formulas = File.new('./utils/uwr/uwr_formulas.txt', 'a')
       scraper = Scraper.new
       links = scraper.get_links
       data = scraper.get_data(links)
       scraper.make_formulas(data).each_with_index do |formula, id|
         threads[id] = Thread.new {
-          uni_wroc << "FieldOfStudy.create(id: #{id}, name: '#{formula[:field_name]&.downcase&.capitalize}', field_type: ?)" << "\n"
-          uni_wroc << "FieldDetail.create(students_limit: #{scraper.get_limit(formula[:field_name])},
+          uni_wroc_fields << "#{formula[:field_name]&.downcase&.capitalize} = FieldOfStudy.new(name: '#{formula[:field_name]&.downcase&.capitalize}', field_type: ?)" << "\n" << "#{formula[:field_name]&.downcase&.capitalize}.id = #{id}" << "\n" << "#{formula[:field_name]&.downcase&.capitalize}.save\n"
+          uni_wroc_formulas << "FieldDetail.create(students_limit: #{scraper.get_limit(formula[:field_name])},
                     recrutation_formula: '#{formula[:formula]}',
                     academy_id: 1,
-                    field_of_study_id: #{id})" << "\n"
+                    field_of_study_id: #{id}" << "\n"
         }
       end
       threads.each { |t| t.join;}
