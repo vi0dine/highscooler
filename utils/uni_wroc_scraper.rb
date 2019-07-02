@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'httparty'
+require 'benchmark'
 
 class Scraper
 
@@ -63,19 +64,21 @@ class Scraper
         if elem.first&.start_with?("przedmiot ")
           formula << '['
           elem[1].split(',').each do |subject|
+            subject = subject.downcase.strip.chomp(' (pisemny)').chomp(' lub fizyka i astronomia')
             formula << "(#{subject.strip.capitalize}_Pp*#{elem[2]&.strip})|"
             formula << "(#{subject.strip.capitalize}_Pr*#{elem[3]&.strip})|"
           end
-          formula.chomp('|') << ']+'
+          formula = formula.chomp('|') << ']+'
         # and multiple subjects
         elsif elem.first&.start_with?("przedmioty ")
           2.times do
             formula << '['
             elem[1].split(',').each do |subject|
+              subject = subject.downcase.strip.chomp(' (pisemny)').chomp(' lub fizyka i astronomia')
               formula << "(#{subject.strip.capitalize}_Pp*#{elem[2]&.strip})|"
               formula << "(#{subject.strip.capitalize}_Pr*#{elem[3]&.strip})|"
             end
-            formula.chomp('|') << ']+'
+            formula = formula.chomp('|') << ']+'
           end
         # or multiple language subjects
         elsif elem.first&.start_with?("język obcy nowożytny ")
@@ -106,17 +109,49 @@ class Scraper
     limit
   end
 
-  uni_wroc = File.new('./uwr.txt', 'a')
-  scraper = Scraper.new
-  links = scraper.get_links
-  data = scraper.get_data(links)
-  data.each_with_index do |field, id|
-    uni_wroc << "FieldOfStudy.create(name: '#{field['field_name']&.first&.downcase&.capitalize}', field_type: ?)" << "\n"
-  end
-  scraper.make_formulas(data).each_with_index do |formula, id|
-    uni_wroc << "FieldDetail.create(students_limit: #{scraper.get_limit(formula[:field_name])},
+  Benchmark.bm do |benchmark|
+    benchmark.report('Initialize scraper') do
+      scraper = Scraper.new
+    end
+
+    benchmark.report('Grab links') do
+      scraper = Scraper.new
+      links = scraper.get_links
+    end
+
+    benchmark.report('Grab fields data') do
+      scraper = Scraper.new
+      links = scraper.get_links
+      data = scraper.get_data(links)
+    end
+
+    benchmark.report('Make formulas') do
+      scraper = Scraper.new
+      links = scraper.get_links
+      data = scraper.get_data(links)
+      data.each_with_index do |field, id|
+        uni_wroc << "FieldOfStudy.create(name: '#{field['field_name']&.first&.downcase&.capitalize}', field_type: ?)" << "\n"
+      end
+      scraper.make_formulas(data).each_with_index do |formula, id|
+        uni_wroc << "FieldDetail.create(students_limit: #{scraper.get_limit(formula[:field_name])},
                                     recrutation_formula: '#{formula[:formula]}',
                                     academy_id: 1,
                                     field_of_study_id: #{id})" << "\n"
+      end
+    end
   end
+
+  # uni_wroc = File.new('./uwr.txt', 'a')
+  # scraper = Scraper.new
+  # links = scraper.get_links
+  # data = scraper.get_data(links)
+  # data.each_with_index do |field, id|
+  #   uni_wroc << "FieldOfStudy.create(name: '#{field['field_name']&.first&.downcase&.capitalize}', field_type: ?)" << "\n"
+  # end
+  # scraper.make_formulas(data).each_with_index do |formula, id|
+  #   uni_wroc << "FieldDetail.create(students_limit: #{scraper.get_limit(formula[:field_name])},
+  #                                   recrutation_formula: '#{formula[:formula]}',
+  #                                   academy_id: 1,
+  #                                   field_of_study_id: #{id})" << "\n"
+  # end
 end
