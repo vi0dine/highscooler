@@ -88,12 +88,12 @@ class Scraper
           formula << "(Język angielski_Pr*#{elem[3]&.strip})|(Język niemiecki_Pr*#{elem[3]&.strip})|(Język francuski_Pr*#{elem[3]&.strip})|(Język hiszpański_Pr*#{elem[3]&.strip})|(Język rosyjski_Pr*#{elem[3]&.strip})|(Język włoski_Pr#{elem[3]&.strip})"
           formula << ']'
         else
-          subject = elem.first&.downcase&.strip&.chomp(" (pisemny)")&.chomp(" lub fizyka i astronomia")
+          subject = elem.first&.downcase&.strip&.gsub(/..pisemny../, '')&.chomp(" lub fizyka i astronomia")
           formula << '[' << "(#{subject&.capitalize}_Pp*#{elem[2]&.strip})|"
           formula << "(#{subject&.capitalize}_Pr*#{elem[3]&.strip})" << ']+'
         end
       end
-      formulas << {'field_name': field_data['field_name'].first, 'formula': formula.chomp('+')}
+      formulas << {'field_name': field_data['field_name'].first, 'formula': formula.gsub(',', '.').chomp('+')}
     end
     formulas
   end
