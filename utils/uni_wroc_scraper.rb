@@ -64,9 +64,9 @@ class Scraper
         if elem.first&.start_with?("przedmiot ")
           formula << '['
           elem[1].split(',').each do |subject|
-            subject = subject.downcase.strip.chomp(' (pisemny)').chomp(' lub fizyka i astronomia')
-            formula << "(#{subject.strip.capitalize}_Pp*#{elem[2]&.strip})|"
-            formula << "(#{subject.strip.capitalize}_Pr*#{elem[3]&.strip})|"
+            subject = subject.downcase.strip.chomp(" (pisemny)").chomp(" lub fizyka i astronomia")
+            formula << "(#{subject.capitalize}_Pp*#{elem[2]&.strip})|"
+            formula << "(#{subject.capitalize}_Pr*#{elem[3]&.strip})|"
           end
           formula = formula.chomp('|') << ']+'
         # and multiple subjects
@@ -74,22 +74,23 @@ class Scraper
           2.times do
             formula << '['
             elem[1].split(',').each do |subject|
-              subject = subject.downcase.strip.chomp(' (pisemny)').chomp(' lub fizyka i astronomia')
-              formula << "(#{subject.strip.capitalize}_Pp*#{elem[2]&.strip})|"
-              formula << "(#{subject.strip.capitalize}_Pr*#{elem[3]&.strip})|"
+              subject = subject.downcase.strip.chomp(" (pisemny)").chomp(" lub fizyka i astronomia")
+              formula << "(#{subject.capitalize}_Pp*#{elem[2]&.strip})|"
+              formula << "(#{subject.capitalize}_Pr*#{elem[3]&.strip})|"
             end
             formula = formula.chomp('|') << ']+'
           end
         # or multiple language subjects
         elsif elem.first&.start_with?("język obcy nowożytny ")
           formula << '['
-          formula << "(Język_Angielski_Pp*#{elem[2]&.strip})|(Język_Niemiecki_Pp*#{elem[2]&.strip})|(Język_Francuski_Pp*#{elem[2]&.strip})|(Język_Hiszpański_Pp*#{elem[2]&.strip})|(Język_Rosyjski_Pp*#{elem[2]&.strip})|(Język_Włoski_Pp#{elem[2]&.strip})"
+          formula << "(Język angielski_Pp*#{elem[2]&.strip})|(Język niemiecki_Pp*#{elem[2]&.strip})|(Język francuski_Pp*#{elem[2]&.strip})|(Język hiszpański_Pp*#{elem[2]&.strip})|(Język rosyjski_Pp*#{elem[2]&.strip})|(Język włoski_Pp#{elem[2]&.strip})"
           formula << '|'
-          formula << "(Język_Angielski_Pr*#{elem[3]&.strip})|(Język_Niemiecki_Pr*#{elem[3]&.strip})|(Język_Francuski_Pr*#{elem[3]&.strip})|(Język_Hiszpański_Pr*#{elem[3]&.strip})|(Język_Rosyjski_Pr*#{elem[3]&.strip})|(Język_Włoski_Pr#{elem[3]&.strip})"
+          formula << "(Język angielski_Pr*#{elem[3]&.strip})|(Język niemiecki_Pr*#{elem[3]&.strip})|(Język francuski_Pr*#{elem[3]&.strip})|(Język hiszpański_Pr*#{elem[3]&.strip})|(Język rosyjski_Pr*#{elem[3]&.strip})|(Język włoski_Pr#{elem[3]&.strip})"
           formula << ']'
         else
-          formula << '[' << "(#{elem.first&.capitalize}_Pp*#{elem[2]&.strip})|"
-          formula << "(#{elem.first&.capitalize}_Pr*#{elem[3]&.strip})" << ']+'
+          subject = elem.first&.downcase&.strip&.chomp(" (pisemny)")&.chomp(" lub fizyka i astronomia")
+          formula << '[' << "(#{subject&.capitalize}_Pp*#{elem[2]&.strip})|"
+          formula << "(#{subject&.capitalize}_Pr*#{elem[3]&.strip})" << ']+'
         end
       end
       formulas << {'field_name': field_data['field_name'].first, 'formula': formula.chomp('+')}
@@ -109,49 +110,50 @@ class Scraper
     limit
   end
 
-  Benchmark.bm do |benchmark|
-    benchmark.report('Initialize scraper') do
-      scraper = Scraper.new
-    end
+  # Benchmark.bm do |benchmark|
+  #   benchmark.report('Initialize scraper') do
+  #     scraper = Scraper.new
+  #   end
 
-    benchmark.report('Grab links') do
-      scraper = Scraper.new
-      links = scraper.get_links
-    end
+  #   benchmark.report('Grab links') do
+  #     scraper = Scraper.new
+  #     links = scraper.get_links
+  #   end
 
-    benchmark.report('Grab fields data') do
-      scraper = Scraper.new
-      links = scraper.get_links
-      data = scraper.get_data(links)
-    end
+  #   benchmark.report('Grab fields data') do
+  #     scraper = Scraper.new
+  #     links = scraper.get_links
+  #     data = scraper.get_data(links)
+  #   end
 
-    benchmark.report('Make formulas') do
-      scraper = Scraper.new
-      links = scraper.get_links
-      data = scraper.get_data(links)
-      data.each_with_index do |field, id|
-        uni_wroc << "FieldOfStudy.create(name: '#{field['field_name']&.first&.downcase&.capitalize}', field_type: ?)" << "\n"
-      end
-      scraper.make_formulas(data).each_with_index do |formula, id|
-        uni_wroc << "FieldDetail.create(students_limit: #{scraper.get_limit(formula[:field_name])},
-                                    recrutation_formula: '#{formula[:formula]}',
-                                    academy_id: 1,
-                                    field_of_study_id: #{id})" << "\n"
-      end
-    end
-  end
-
-  # uni_wroc = File.new('./uwr.txt', 'a')
-  # scraper = Scraper.new
-  # links = scraper.get_links
-  # data = scraper.get_data(links)
-  # data.each_with_index do |field, id|
-  #   uni_wroc << "FieldOfStudy.create(name: '#{field['field_name']&.first&.downcase&.capitalize}', field_type: ?)" << "\n"
-  # end
-  # scraper.make_formulas(data).each_with_index do |formula, id|
-  #   uni_wroc << "FieldDetail.create(students_limit: #{scraper.get_limit(formula[:field_name])},
+  #   benchmark.report('Make formulas') do
+  #     uni_wroc = File.new('./uwr.txt', 'a')
+  #     scraper = Scraper.new
+  #     links = scraper.get_links
+  #     data = scraper.get_data(links)
+  #     data.each_with_index do |field, id|
+  #       uni_wroc << "FieldOfStudy.create(name: '#{field['field_name']&.first&.downcase&.capitalize}', field_type: ?)" << "\n"
+  #     end
+  #     scraper.make_formulas(data).each_with_index do |formula, id|
+  #       uni_wroc << "FieldDetail.create(students_limit: #{scraper.get_limit(formula[:field_name])},
   #                                   recrutation_formula: '#{formula[:formula]}',
   #                                   academy_id: 1,
   #                                   field_of_study_id: #{id})" << "\n"
+  #     end
+  #   end
   # end
+
+  uni_wroc = File.new('./uwr.txt', 'a')
+  scraper = Scraper.new
+  links = scraper.get_links
+  data = scraper.get_data(links)
+  data.each_with_index do |field, id|
+    uni_wroc << "FieldOfStudy.create(name: '#{field['field_name']&.first&.downcase&.capitalize}', field_type: ?)" << "\n"
+  end
+  scraper.make_formulas(data).each_with_index do |formula, id|
+    uni_wroc << "FieldDetail.create(students_limit: #{scraper.get_limit(formula[:field_name])},
+                                    recrutation_formula: '#{formula[:formula]}',
+                                    academy_id: 1,
+                                    field_of_study_id: #{id})" << "\n"
+  end
 end
