@@ -81,14 +81,20 @@ class Scraper
             formula = formula.chomp('|') << ']+'
           end
         # or multiple language subjects
-        elsif elem.first&.start_with?("język obcy nowożytny ")
+        elsif elem.first&.start_with?("język obcy nowożytny ") && elem[1].start_with?("dowolny")
           formula << '['
           formula << "(Język angielski_Pp*#{elem[2]&.strip})|(Język niemiecki_Pp*#{elem[2]&.strip})|(Język francuski_Pp*#{elem[2]&.strip})|(Język hiszpański_Pp*#{elem[2]&.strip})|(Język rosyjski_Pp*#{elem[2]&.strip})|(Język włoski_Pp*#{elem[2]&.strip})"
           formula << '|'
           formula << "(Język angielski_Pr*#{elem[3]&.strip})|(Język niemiecki_Pr*#{elem[3]&.strip})|(Język francuski_Pr*#{elem[3]&.strip})|(Język hiszpański_Pr*#{elem[3]&.strip})|(Język rosyjski_Pr*#{elem[3]&.strip})|(Język włoski_Pr*#{elem[3]&.strip})"
           formula << ']'
+        elsif elem.first&.start_with?("język obcy nowożytny ")
+          formula << '['
+          formula << "(Język angielski_Pp*#{elem[1]&.strip})|(Język niemiecki_Pp*#{elem[1]&.strip})|(Język francuski_Pp*#{elem[1]&.strip})|(Język hiszpański_Pp*#{elem[1]&.strip})|(Język rosyjski_Pp*#{elem[1]&.strip})|(Język włoski_Pp*#{elem[1]&.strip})"
+          formula << '|'
+          formula << "(Język angielski_Pr*#{elem[2]&.strip})|(Język niemiecki_Pr*#{elem[2]&.strip})|(Język francuski_Pr*#{elem[2]&.strip})|(Język hiszpański_Pr*#{elem[2]&.strip})|(Język rosyjski_Pr*#{elem[2]&.strip})|(Język włoski_Pr*#{elem[2]&.strip})"
+          formula << ']'
         else
-          subject = elem.first&.downcase&.strip&.gsub(/..pisemny../, '')&.chomp(" lub fizyka i astronomia")
+          subject = elem.first&.downcase&.strip&.gsub(/.pisemny./, '')&.chomp(" lub fizyka i astronomia")
           formula << '[' << "(#{subject&.capitalize}_Pp*#{elem[1]&.strip})|"
           formula << "(#{subject&.capitalize}_Pr*#{elem[2]&.strip})" << ']+'
         end
