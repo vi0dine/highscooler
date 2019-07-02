@@ -96,15 +96,27 @@ Academy.create(name: 'Uniwersytet Medyczny w Łodzi', city: 'Łódź', academy_t
 Academy.create(name: 'Uniwersytet Przyrodniczy w Lublinie', city: 'Lublin', academy_type: 5)
 
 # MaturaSubject samples
-MaturaSubject.create(name: 'Matematyka', subject_type: 1)
-MaturaSubject.create(name: 'Język Polski', subject_type: 0)
-MaturaSubject.create(name: 'Język Angielski', subject_type: 0)
 MaturaSubject.create(name: 'Biologia', subject_type: 1)
 MaturaSubject.create(name: 'Chemia', subject_type: 1)
+MaturaSubject.create(name: 'Filozofia', subject_type: 0)
 MaturaSubject.create(name: 'Fizyka', subject_type: 1)
-MaturaSubject.create(name: 'Informatyka', subject_type: 1)
-MaturaSubject.create(name: 'WOS', subject_type: 0)
+MaturaSubject.create(name: 'Geografia', subject_type: 1)
 MaturaSubject.create(name: 'Historia', subject_type: 0)
+MaturaSubject.create(name: 'Historia muzyki', subject_type: 0)
+MaturaSubject.create(name: 'Historia sztuki', subject_type: 0)
+MaturaSubject.create(name: 'Informatyka', subject_type: 1)
+MaturaSubject.create(name: 'Język łaciński i kultura antyczna', subject_type: 0)
+MaturaSubject.create(name: 'Język mniejszości etnicznej', subject_type: 0)
+MaturaSubject.create(name: 'Język mniejszości narodowej', subject_type: 0)
+MaturaSubject.create(name: 'Język regionalny', subject_type: 0)
+MaturaSubject.create(name: 'Matematyka', subject_type: 1)
+MaturaSubject.create(name: 'Język polski', subject_type: 0)
+MaturaSubject.create(name: 'Wiedza o społeczeństwie', subject_type: 0)
+MaturaSubject.create(name: 'Język angielski', subject_type: 0)
+MaturaSubject.create(name: 'Język francuski', subject_type: 0)
+MaturaSubject.create(name: 'Język hiszpański', subject_type: 0)
+MaturaSubject.create(name: 'Język rosyjski', subject_type: 0)
+MaturaSubject.create(name: 'Język włoski', subject_type: 0)
 
 # FieldDetail samples
 FieldDetail.create(students_limit: 520,
