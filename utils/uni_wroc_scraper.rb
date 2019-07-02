@@ -93,7 +93,7 @@ class Scraper
           formula << "(#{subject&.capitalize}_Pr*#{elem[3]&.strip})" << ']+'
         end
       end
-      formulas << {'field_name': field_data['field_name'].first, 'formula': formula.gsub(',', '.').chomp('+')}
+      formulas << {'field_name': field_data['field_name'].first, 'formula': formula.gsub(',', '.').gsub('Dowolny przedmiot (pisemny) inny niż wymienione w tabeli', 'dowolny inny').chomp('+')}
     end
     formulas
   end
