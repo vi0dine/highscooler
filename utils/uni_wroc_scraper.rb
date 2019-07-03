@@ -154,11 +154,11 @@ class Scraper
       data = scraper.get_data(links)
       scraper.make_formulas(data).each_with_index do |formula, id|
         threads[id] = Thread.new {
-          uni_wroc_fields << "#{formula[:field_name]&.downcase&.capitalize} = FieldOfStudy.new(name: '#{formula[:field_name]&.downcase&.capitalize}', field_type: ?)" << "\n" << "#{formula[:field_name]&.downcase&.capitalize}.id = #{id}" << "\n" << "#{formula[:field_name]&.downcase&.capitalize}.save\n"
-          uni_wroc_formulas << "FieldDetail.create(students_limit: #{scraper.get_limit(formula[:field_name])},
+          uni_wroc_fields << "field#{id} = FieldOfStudy.new(name: '#{formula[:field_name]&.downcase&.capitalize}', field_type: ?)" << "\n" << "field#{id}.id = #{id}" << "\n" << "field#{id}.save\n"
+          uni_wroc_formulas << "FieldDetail.create(field_of_study_id: #{id},
                     recrutation_formula: '#{formula[:formula]}',
                     academy_id: 1,
-                    field_of_study_id: #{id}" << "\n"
+                    students_limit: #{scraper.get_limit(formula[:field_name])}" << "\n"
         }
       end
       threads.each(&:join)
