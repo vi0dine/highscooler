@@ -48,7 +48,7 @@ class Scraper
         fields << field_data
       }
     end
-    threads.each { |t| t.join; }
+    threads.each(&:join)
     fields
   end
 
@@ -111,7 +111,7 @@ class Scraper
           end
         }
       end
-      threads.each { |t| t.join;}
+      threads.each(&:join)
       formulas << {'field_name': field_data['field_name'].first, 'formula': formula.gsub(',', '.').gsub('Dowolny przedmiot (pisemny) inny niż wymienione w tabeli', 'dowolny inny').chomp('+')}
     end
     formulas
@@ -161,7 +161,7 @@ class Scraper
                     field_of_study_id: #{id}" << "\n"
         }
       end
-      threads.each { |t| t.join;}
+      threads.each(&:join)
     end
   end
 
