@@ -130,38 +130,42 @@ class Scraper
   end
 
   Benchmark.bm do |benchmark|
-    benchmark.report('Initialize scraper') do
-      scraper = Scraper.new
-    end
+    # benchmark.report('Initialize scraper') do
+    #   scraper = Scraper.new
+    # end
 
-    benchmark.report('Grab links') do
-      scraper = Scraper.new
-      links = scraper.get_links
-    end
+    # benchmark.report('Grab links') do
+    #   scraper = Scraper.new
+    #   links = scraper.get_links
+    # end
 
-    benchmark.report('Grab fields data') do
-      scraper = Scraper.new
-      links = scraper.get_links
-      data = scraper.get_data(links)
-    end
+    # benchmark.report('Grab fields data') do
+    #   scraper = Scraper.new
+    #   links = scraper.get_links
+    #   data = scraper.get_data(links)
+    # end
 
     benchmark.report('Make formulas') do
       threads = []
-      uni_wroc_fields = File.new('./utils/uwr/uwr_fields.txt', 'a')
-      uni_wroc_formulas = File.new('./utils/uwr/uwr_formulas.txt', 'a')
+      uwr_data = []
+      uni_wroc_data = File.new('./utils/uwr/uwr_data.txt', 'a')
       scraper = Scraper.new
       links = scraper.get_links
       data = scraper.get_data(links)
       scraper.make_formulas(data).each_with_index do |formula, id|
         threads[id] = Thread.new {
-          uni_wroc_fields << "field#{id} = FieldOfStudy.new(name: '#{formula[:field_name]&.downcase&.capitalize}', field_type: ?)" << "\n" << "field#{id}.id = #{id}" << "\n" << "field#{id}.save\n"
-          uni_wroc_formulas << "FieldDetail.create(field_of_study_id: #{id},
+          uwr_data << {id: id, field: "FieldOfStudy.create(name: '#{formula[:field_name]&.downcase&.capitalize}', field_type: ?)\n",
+                   formula: "FieldDetail.create(field_of_study_id: #{id},
                     recrutation_formula: '#{formula[:formula]}',
                     academy_id: 1,
-                    students_limit: #{scraper.get_limit(formula[:field_name])}" << "\n"
+                    students_limit: #{scraper.get_limit(formula[:field_name])}\n"}
         }
       end
       threads.each(&:join)
+      uwr_data.sort_by { |field| field[:id] }.each do |field| 
+        uni_wroc_data << field[:field]
+        uni_wroc_data << field[:formula]
+      end
     end
   end
 
