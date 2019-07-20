@@ -1,6 +1,32 @@
-$navbar-background-color: #eaeaea;
+$light: #e8f7ee;
+$dark: #444545;
+$primary: #b5ffe9;
+$secondary: #c9d6ea;
+$link: #acbdba;
+$text: $dark;
+$text-lighter: #54555f;
+$background: $light;
+
+$footer-background-color: $light;
+$body-background-color: $secondary;
+$box-background-color: $link;
+$box-color: $text-lighter;
+$table-background-color: $light;
+$button-text-color: $text-lighter;
+
+li.list-item {
+  background-color: $light;
+}
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "bulma-extensions";
 @import "bulma";
+
+.notification.is-primary {
+  color: $dark;
+}
+
+.button.is-primary {
+  color: $text-lighter;
+}

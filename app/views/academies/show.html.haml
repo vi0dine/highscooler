@@ -17,7 +17,7 @@
                 .columns.is-centered.is-vcentered
                   .column
                     .content
-                      %span.heading.is-size-4
+                      %span.heading.is-size-6
                         = field.name
                       %span
                         = field.field_type
@@ -32,7 +32,7 @@
         %h2.subtitle Opinie o uczelni
         .container{style: 'height: 700px; overflow: auto;'}
           - 15.times do
-            .notification.is-success{style: 'padding: 10px;'}
+            .notification.is-primary{style: 'padding: 10px;'}
               %article.media
                 %figure.media-left
                   %p.image.is-64x64
