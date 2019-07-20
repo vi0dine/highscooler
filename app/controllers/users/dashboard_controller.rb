@@ -45,7 +45,6 @@ class Users::DashboardController < ApplicationController
                 end
               rescue SyntaxError
                 p "Syntax error in formula"
-                formula = ''
                 throw :formula_error
               end
             elsif advancedRes.map(&:matura_subject).map { |sub| sub.name+"_Pr" }.include?(subject_name)
@@ -58,7 +57,6 @@ class Users::DashboardController < ApplicationController
                 end
               rescue SyntaxError
                 p "Syntax error in formula"
-                formula = ''
                 throw :formula_error
               end
             else
@@ -81,10 +79,9 @@ class Users::DashboardController < ApplicationController
   def calculate_recrutation_points(user, formulas)
     begin
       counted = count_points(user, formulas)
-      puts counted.inspect
-    # rescue SyntaxError
-    #   p 'Error in formula'
-    # else
+      counted.each do |points|
+        points.gsub!(/.*-1.*/, '-')
+      end
       your_results = counted
     end
     user.add_recrutation_results(your_results)

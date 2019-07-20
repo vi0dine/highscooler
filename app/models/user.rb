@@ -24,8 +24,8 @@ class User < ApplicationRecord
     prepared_formulas.each do |result|
       begin
         eval(result.chomp('+').to_s)
-      rescue
-        @results << ''
+      rescue SyntaxError
+        @results << '-'
       else
         @results << eval(result.chomp('+').to_s)
       end
