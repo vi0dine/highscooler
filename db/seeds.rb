@@ -8,78 +8,11 @@
 
 # FieldOfStudies samples
   # Uniwersytet Wrocławski
-FieldOfStudy.create(name: 'Administracja', field_type: 1)
-FieldOfStudy.create(name: 'Anglistyka', field_type: 9)
-FieldOfStudy.create(name: 'Archeologia', field_type: 4)
-FieldOfStudy.create(name: 'Astronomia', field_type: 5)
-FieldOfStudy.create(name: 'Bachelor of business and administration (biznes i administracja)', field_type: 1)
-FieldOfStudy.create(name: 'Bezpieczeństwo narodowe', field_type: 14)
-FieldOfStudy.create(name: 'Biologia człowieka', field_type: 5)
-FieldOfStudy.create(name: 'Biologia', field_type: 5)
-FieldOfStudy.create(name: 'Biotechnologia', field_type: 7)
-FieldOfStudy.create(name: 'Biotechnology', field_type: 7)
-FieldOfStudy.create(name: 'Chemia i toksykologia sądowa', field_type: 6)
-FieldOfStudy.create(name: 'Chemia medyczna', field_type: 6)
-FieldOfStudy.create(name: 'Chemia', field_type: 5)
-FieldOfStudy.create(name: 'Chemistry', field_type: 5)
-FieldOfStudy.create(name: 'Criminal justice', field_type: 12)
-FieldOfStudy.create(name: 'Dyplomacja europejska', field_type: 4)
-FieldOfStudy.create(name: 'Dziedzictwo kultury materialnej – ochrona, promocja, gospodarowanie', field_type: 2)
-FieldOfStudy.create(name: 'Dziennikarstwo i komunikacja społeczna', field_type: 0)
-FieldOfStudy.create(name: 'Ekonomia', field_type: 10)
-FieldOfStudy.create(name: 'Etnologia i antropologia kulturowa', field_type: 4)
-FieldOfStudy.create(name: 'European cultures', field_type: 0)
-FieldOfStudy.create(name: 'Europeistyka', field_type: 0)
-FieldOfStudy.create(name: 'Filologia chorwacka z językiem serbskim', field_type: 9)
-FieldOfStudy.create(name: 'Filologia czeska', field_type: 9)
-FieldOfStudy.create(name: 'Filologia francuska', field_type: 9)
-FieldOfStudy.create(name: 'Filologia germańska', field_type: 9)
-FieldOfStudy.create(name: 'Filologia hiszpańska', field_type: 9)
-FieldOfStudy.create(name: 'Filologia indyjska', field_type: 9)
-FieldOfStudy.create(name: 'Filologia klasyczna', field_type: 9)
-FieldOfStudy.create(name: 'Filologia polska', field_type: 9)
-FieldOfStudy.create(name: 'Filologia rosyjska', field_type: 9)
-FieldOfStudy.create(name: 'Filologia ukraińska', field_type: 9)
-FieldOfStudy.create(name: 'Filozofia', field_type: 0)
-FieldOfStudy.create(name: 'Fizyka', field_type: 5)
-FieldOfStudy.create(name: 'Genetyka i biologia eksperymentalna', field_type: 6)
-FieldOfStudy.create(name: 'Geografia', field_type: 5)
-FieldOfStudy.create(name: 'Geologia', field_type: 5)
-FieldOfStudy.create(name: 'Gospodarka przestrzenna', field_type: 1)
-FieldOfStudy.create(name: 'Historia sztuki', field_type: 2)
-FieldOfStudy.create(name: 'Historia', field_type: 0)
-FieldOfStudy.create(name: 'Indywidualne studia informatyczno-matematyczne', field_type: 6)
-FieldOfStudy.create(name: 'Indywidualne studia międzyobszarowe', field_type: 16)
-FieldOfStudy.create(name: 'Informacja naukowa i bibliotekoznawstwo', field_type: 0)
-FieldOfStudy.create(name: 'Informatyka', field_type: 6)
-FieldOfStudy.create(name: 'Italianistyka', field_type: 9)
-FieldOfStudy.create(name: 'Judaistyka', field_type: 9)
-FieldOfStudy.create(name: 'Komunikacja wizerunkowa', field_type: 4)
-FieldOfStudy.create(name: 'Koreanistyka', field_type: 9)
-FieldOfStudy.create(name: 'Kultura i praktyka tekstu: twórcze pisanie i edytorstwo', field_type: 0)
-FieldOfStudy.create(name: 'Kulturoznawstwo', field_type: 2)
-FieldOfStudy.create(name: 'Matematyka', field_type: 5)
-FieldOfStudy.create(name: 'Mikrobiologia', field_type: 6)
-FieldOfStudy.create(name: 'Militarioznawstwo', field_type: 14)
-FieldOfStudy.create(name: 'Muzykologia', field_type: 2)
-FieldOfStudy.create(name: 'Niderlandystyka', field_type: 9)
-FieldOfStudy.create(name: 'Ochrona środowiska', field_type: 15)
-FieldOfStudy.create(name: 'Pedagogika', field_type: 11)
-FieldOfStudy.create(name: 'Politologia specjalności comparative politics; global security; media and politics; europe in the world', field_type: 4)
-FieldOfStudy.create(name: 'Politologia', field_type: 4)
-FieldOfStudy.create(name: 'Praca socjalna', field_type: 4)
-FieldOfStudy.create(name: 'Publikowanie cyfrowe i sieciowe', field_type: 0)
-FieldOfStudy.create(name: 'Sinologia', field_type: 9)
-FieldOfStudy.create(name: 'Socjologia ekonomiczna', field_type: 4)
-FieldOfStudy.create(name: 'Socjologia grup dyspozycyjnych', field_type: 4)
-FieldOfStudy.create(name: 'Socjologia', field_type: 4)
-FieldOfStudy.create(name: 'Stosunki międzynarodowe specjalność global studies', field_type: 4)
-FieldOfStudy.create(name: 'Stosunki międzynarodowe', field_type: 4)
-FieldOfStudy.create(name: 'Studia śródziemnomorskie', field_type: 16)
-FieldOfStudy.create(name: 'Turystyka', field_type: 8)
-FieldOfStudy.create(name: 'Zarządzanie migracjami', field_type: 1)
-FieldOfStudy.create(name: 'Zarządzanie projektami społecznymi', field_type: 1)
-FieldOfStudy.create(name: 'Zarządzanie środowiskiem przyrodniczym', field_type: 1)
+FieldOfStudy.create(name: 'Chemia i toksykologia sądowa', field_type: 4)
+FieldOfStudy.create(name: 'Indywidualne studia międzyobszarowe', field_type: 4)
+FieldOfStudy.create(name: 'Politologia', field_type: 1)
+FieldOfStudy.create(name: 'Geografia', field_type: 2)
+FieldOfStudy.create(name: 'Genetyka i biologia eksperymentalna', field_type: 3)
 
 # HighSchool samples
 HighSchool.create(name: 'II Liceum Ogólnokształcące im. Hugona Kołłątaja w Wałbrzychu', city: 'Wałbrzych', school_type: 0)
@@ -118,5 +51,25 @@ MaturaSubject.create(name: 'Język hiszpański', subject_type: 0)
 MaturaSubject.create(name: 'Język rosyjski', subject_type: 0)
 MaturaSubject.create(name: 'Język włoski', subject_type: 0)
 
-# FieldDetail samples
+# Field Details
   # Uniwersytet Wrocławski
+FieldDetail.create(field_of_study_id: 1,
+                  recrutation_formula: '[(Biologia_Pp*0.5)|(Biologia_Pr*1.0)|(Chemia_Pp*0.5)|(Chemia_Pr*1.0)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1.0)|(Informatyka_Pp*0.5)|(Informatyka_Pr*1.0)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1.0)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1.0)|(Chemia_Pp*0.5)|(Chemia_Pr*1.0)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1.0)|(Informatyka_Pp*0.5)|(Informatyka_Pr*1.0)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1.0)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
+                  academy_id: 1,
+                  students_limit: 48)
+FieldDetail.create(field_of_study_id: 2,
+                    recrutation_formula: '[]',
+                    academy_id: 1,
+                    students_limit: 30)
+FieldDetail.create(field_of_study_id: 3,
+                    recrutation_formula: '[(Język polski_Pp*0.25)|(Język polski_Pr*0.5)|(Matematyka_Pp*0.25)|(Matematyka_Pr*0.5)|(Geografia_Pp*0.25)|(Geografia_Pr*0.5)]+[(Historia_Pp*0.5)|(Historia_Pr*1)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Wiedza o społeczeństwie_Pp*0.5)|(Wiedza o społeczeństwie_Pr*1)]',
+                    academy_id: 1,
+                    students_limit: 80)
+FieldDetail.create(field_of_study_id: 4,
+                    recrutation_formula: '[(Geografia_Pp*0.5)|(Geografia_Pr*1)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Historia_Pp*0.5)|(Historia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Wiedza o społeczeństwie_Pp*0.5)|(Wiedza o społeczeństwie_Pr*1)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
+                    academy_id: 1,
+                    students_limit: 65)
+FieldDetail.create(field_of_study_id: 5,
+                    recrutation_formula: '[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]',
+                    academy_id: 1,
+                    students_limit: 60)

@@ -1,360 +1,335 @@
-FieldOfStudy.create(name: 'Chemia medyczna', field_type: ?)
-FieldDetail.create(field_of_study_id: 0,
-                    recrutation_formula: '[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Biologia_Pp*0.5)|(Biologia_Pr*1.0)|(Chemia_Pp*0.5)|(Chemia_Pr*1.0)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1.0)|(Informatyka_Pp*0.5)|(Informatyka_Pr*1.0)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1.0)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1.0)|(Chemia_Pp*0.5)|(Chemia_Pr*1.0)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1.0)|(Informatyka_Pp*0.5)|(Informatyka_Pr*1.0)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1.0)]',
-                    academy_id: 1,
-                    students_limit: 120
-FieldOfStudy.create(name: 'Dziedzictwo kultury materialnej – ochrona, promocja, gospodarowanie', field_type: ?)
-FieldDetail.create(field_of_study_id: 1,
-                    recrutation_formula: '[(Dowolny przedmiot(inny niż wymienione)_Pp*0.5)|(Dowolny przedmiot(inny niż wymienione)_Pr*1)]+[(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Język angielski_Pp*0.5)|(Język niemiecki_Pp*0.5)|(Język francuski_Pp*0.5)|(Język hiszpański_Pp*0.5)|(Język rosyjski_Pp*0.5)|(Język włoski_Pp*0.5)|(Język angielski_Pr*1)|(Język niemiecki_Pr*1)|(Język francuski_Pr*1)|(Język hiszpański_Pr*1)|(Język rosyjski_Pr*1)|(Język włoski_Pr*1)]',
-                    academy_id: 1,
-                    students_limit: 75
-FieldOfStudy.create(name: 'Stosunki międzynarodowe', field_type: ?)
-FieldDetail.create(field_of_study_id: 2,
-                    recrutation_formula: '[(Język angielski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język niemiecki_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język francuski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język hiszpański_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język rosyjski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język włoski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język angielski_Pr* 0.2)|(Język niemiecki_Pr* 0.2)|(Język francuski_Pr* 0.2)|(Język hiszpański_Pr* 0.2)|(Język rosyjski_Pr* 0.2)|(Język włoski_Pr* 0.2)][(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Wiedza o społeczeństwie_Pp* 0.5)|[(Język polski_Pp* 0.25)|(Język polski_Pr* 0.5)|(Geografia_Pp* 0.25)|(Geografia_Pr* 0.5)|(Matematyka_Pp* 0.25)|(Matematyka_Pr* 0.5)]',
-                    academy_id: 1,
-                    students_limit: 100
-FieldOfStudy.create(name: 'Criminal justice', field_type: ?)
-FieldDetail.create(field_of_study_id: 3,
-                    recrutation_formula: '',
-                    academy_id: 1,
-                    students_limit: 
-FieldOfStudy.create(name: 'Judaistyka', field_type: ?)
-FieldDetail.create(field_of_study_id: 4,
-                    recrutation_formula: '[(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Dowolny przedmiot   do wyboru_Pp*0)|(Dowolny przedmiot   do wyboru_Pr*0.5)]+[(Język angielski _Pp*0.2)|(Język angielski _Pr*0.4)]',
-                    academy_id: 1,
-                    students_limit: 40
-FieldOfStudy.create(name: 'Administracja', field_type: ?)
-FieldDetail.create(field_of_study_id: 5,
-                    recrutation_formula: '[(Historia_Pp* 0.5)|(Historia_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)]+[[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)](Wiedza o społeczeństwie_Pp* 0.25)|(Wiedza o społeczeństwie_Pr* 0.5)|(Język polski_Pp* 0.25)|(Język polski_Pr* 0.5)|(Geografia_Pp* 0.25)|(Geografia_Pr* 0.5)]',
-                    academy_id: 1,
-                    students_limit: 180
-FieldOfStudy.create(name: 'Anglistyka', field_type: ?)
+FieldOfStudy.create(name: 'Kulturoznawstwo', field_type: ?)
 FieldDetail.create(field_of_study_id: 6,
-                    recrutation_formula: '[(dowolny inny_Pp*0.25)|(dowolny inny_Pr* 0.5)]+[(Język angielski *_Pp*0)|(Język angielski *_Pr*1)]+[(Język polski *_Pp*0)|(Język polski *_Pr* 0.8)]',
+                    recrutation_formula: '[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][( 0_Pp* 0.5)|( 0_Pr*)|(25_Pp* 0.5)|(25_Pr*)]+[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]',
                     academy_id: 1,
-                    students_limit: 80
-FieldOfStudy.create(name: 'Sinologia', field_type: ?)
+                    students_limit: 80)
+FieldOfStudy.create(name: 'Astronomia', field_type: ?)
 FieldDetail.create(field_of_study_id: 7,
-                    recrutation_formula: '[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Język angielski _Pp*0.5)|(Język angielski _Pr*1.0)]+[(Język polski _Pp*0.5)|(Język polski _Pr*1.0)]+[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp*0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr*0.5)]+[(Język łaciński i kultura antyczna_Pp*0.75)|(Język łaciński i kultura antyczna_Pr*1.5)]',
+                    recrutation_formula: '[(Biologia_Pp*0)|(Biologia_Pr*0.5)|(Chemia_Pp*0)|(Chemia_Pr*0.5)|(Geografia_Pp*0)|(Geografia_Pr*0.5)|(  informatyka_Pp*0)|(  informatyka_Pr*0.5)]+[(Fizyka_Pp*0)|(Fizyka_Pr*1.5)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Matematyka_Pp*0.5)|(Matematyka_Pr*1.5)]',
                     academy_id: 1,
-                    students_limit: 38
-FieldOfStudy.create(name: 'Europeistyka', field_type: ?)
-FieldDetail.create(field_of_study_id: 8,
-                    recrutation_formula: '[(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Język polski_Pp* 0.25)|(Język polski_Pr* 0.5)|(Matematyka_Pp* 0.25)|(Matematyka_Pr* 0.5)]+[(Wiedza o społeczeństwie_Pp* 0.5)|(Wiedza o społeczeństwie_Pr* 1)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)]',
-                    academy_id: 1,
-                    students_limit: 50
+                    students_limit: 50)
 FieldOfStudy.create(name: 'Biologia człowieka', field_type: ?)
-FieldDetail.create(field_of_study_id: 9,
+FieldDetail.create(field_of_study_id: 8,
                     recrutation_formula: '[(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
                     academy_id: 1,
-                    students_limit: 45
-FieldOfStudy.create(name: 'Biotechnologia', field_type: ?)
+                    students_limit: 45)
+FieldOfStudy.create(name: 'Filologia indyjska', field_type: ?)
+FieldDetail.create(field_of_study_id: 9,
+                    recrutation_formula: '[(Język angielski _Pp* 0.5)|(Język angielski _Pr* 1)]+[(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Język łaciński i kultura antyczna_Pp* 0)|(Język łaciński i kultura antyczna_Pr* 1.5)]+[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp* 0.2)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr* 0.4)]+[(Język angielski_Pp* 0.25)|(Język niemiecki_Pp* 0.25)|(Język francuski_Pp* 0.25)|(Język hiszpański_Pp* 0.25)|(Język rosyjski_Pp* 0.25)|(Język włoski_Pp* 0.25)|(Język angielski_Pr* 0.5)|(Język niemiecki_Pr* 0.5)|(Język francuski_Pr* 0.5)|(Język hiszpański_Pr* 0.5)|(Język rosyjski_Pr* 0.5)|(Język włoski_Pr* 0.5)]',
+                    academy_id: 1,
+                    students_limit: 30)
+FieldOfStudy.create(name: 'Fizyka', field_type: ?)
 FieldDetail.create(field_of_study_id: 10,
-                    recrutation_formula: '[(Język angielski_Pp*angielski)|(Język niemiecki_Pp*angielski)|(Język francuski_Pp*angielski)|(Język hiszpański_Pp*angielski)|(Język rosyjski_Pp*angielski)|(Język włoski_Pp*angielski)|(Język angielski_Pr* 0.1)|(Język niemiecki_Pr* 0.1)|(Język francuski_Pr* 0.1)|(Język hiszpański_Pr* 0.1)|(Język rosyjski_Pr* 0.1)|(Język włoski_Pr* 0.1)][(Chemia_Pp*0.5)|(Chemia_Pr* 1)]+[(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)]',
+                    recrutation_formula: '[(Fizyka_Pp*                   0)|(Fizyka_Pr*1.5)]+[(Matematyka_Pp*0.5)|(Matematyka_Pr*1.5)]+[(Chemia_Pp*0)|(Chemia_Pr*0.5)|(Geografia_Pp*0)|(Geografia_Pr*0.5)|(   informatyka_Pp*0)|(   informatyka_Pr*0.5)|(Biologia_Pp*0)|(Biologia_Pr*0.5)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
                     academy_id: 1,
-                    students_limit: 130
-FieldOfStudy.create(name: 'Kulturoznawstwo', field_type: ?)
+                    students_limit: 80)
+FieldOfStudy.create(name: 'Bezpieczeństwo narodowe', field_type: ?)
 FieldDetail.create(field_of_study_id: 11,
-                    recrutation_formula: '[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][( 0_Pp* 0.5)|( 0_Pr*)|(25_Pp* 0.5)|(25_Pr*)]',
+                    recrutation_formula: '[(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Przedmiot  (jeden do wyboru)_Pp*język polski (pisemny). geografia. matematyka)|(Przedmiot  (jeden do wyboru)_Pr* 0.25)]+[(Wiedza o społeczeństwie_Pp* 0.5)|(Wiedza o społeczeństwie_Pr* 1)]+[(Język angielski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język niemiecki_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język francuski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język hiszpański_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język rosyjski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język włoski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język angielski_Pr* 0.2)|(Język niemiecki_Pr* 0.2)|(Język francuski_Pr* 0.2)|(Język hiszpański_Pr* 0.2)|(Język rosyjski_Pr* 0.2)|(Język włoski_Pr* 0.2)]',
                     academy_id: 1,
-                    students_limit: 80
-FieldOfStudy.create(name: 'Chemistry', field_type: ?)
+                    students_limit: 120)
+FieldOfStudy.create(name: 'Criminal justice', field_type: ?)
 FieldDetail.create(field_of_study_id: 12,
                     recrutation_formula: '',
                     academy_id: 1,
-                    students_limit: 
-FieldOfStudy.create(name: 'Historia', field_type: ?)
-FieldDetail.create(field_of_study_id: 13,
-                    recrutation_formula: '[(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Przedmiot_Pp*dowolny pisemny (inny niż wybrane wcześniej))|(Przedmiot_Pr* 0.5)]+[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1.0)|(Język niemiecki_Pr* 1.0)|(Język francuski_Pr* 1.0)|(Język hiszpański_Pr* 1.0)|(Język rosyjski_Pr* 1.0)|(Język włoski_Pr* 1.0)]',
-                    academy_id: 1,
-                    students_limit: 120
-FieldOfStudy.create(name: 'Niderlandystyka', field_type: ?)
-FieldDetail.create(field_of_study_id: 14,
-                    recrutation_formula: '[(Dowolny inny przedmiot  w tym inny język obcy nowożytny_Pp*0.25)|(Dowolny inny przedmiot  w tym inny język obcy nowożytny_Pr* 0.5)]+[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]',
-                    academy_id: 1,
-                    students_limit: 80
-FieldOfStudy.create(name: 'Zarządzanie projektami społecznymi', field_type: ?)
-FieldDetail.create(field_of_study_id: 15,
-                    recrutation_formula: '[(0_Pp*1.0)|(0_Pr*)|(5_Pp*1.0)|(5_Pr*)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(0_Pp*0.5)|(0_Pr*)|(25_Pp*0.5)|(25_Pr*)]',
-                    academy_id: 1,
-                    students_limit: 80
-FieldOfStudy.create(name: 'Pedagogika', field_type: ?)
-FieldDetail.create(field_of_study_id: 16,
-                    recrutation_formula: '[(Historia_Pp* 0.5)|(Historia_Pr* 1)|(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Wiedza o społeczeństwie_Pp* 0.5)|(Wiedza o społeczeństwie_Pr* 1)]+[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)]',
-                    academy_id: 1,
-                    students_limit: 140
-FieldOfStudy.create(name: 'Filologia czeska', field_type: ?)
-FieldDetail.create(field_of_study_id: 17,
-                    recrutation_formula: '[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]',
-                    academy_id: 1,
-                    students_limit: 50
-FieldOfStudy.create(name: 'Filologia polska', field_type: ?)
-FieldDetail.create(field_of_study_id: 18,
-                    recrutation_formula: '[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Dowolny przedmiot  inny niż wymienione w tabeli_Pp* 0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr* 0.5)]',
-                    academy_id: 1,
-                    students_limit: 220
-FieldOfStudy.create(name: 'Filologia rosyjska', field_type: ?)
-FieldDetail.create(field_of_study_id: 19,
-                    recrutation_formula: '[(Język angielski_Pp*0.5)|(Język niemiecki_Pp*0.5)|(Język francuski_Pp*0.5)|(Język hiszpański_Pp*0.5)|(Język rosyjski_Pp*0.5)|(Język włoski_Pp*0.5)|(Język angielski_Pr*1)|(Język niemiecki_Pr*1)|(Język francuski_Pr*1)|(Język hiszpański_Pr*1)|(Język rosyjski_Pr*1)|(Język włoski_Pr*1)][(Język polski _Pp*0.5)|(Język polski _Pr*1)]',
-                    academy_id: 1,
-                    students_limit: 120
-FieldOfStudy.create(name: 'Dyplomacja europejska', field_type: ?)
-FieldDetail.create(field_of_study_id: 20,
-                    recrutation_formula: '[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Wiedza o społeczeństwie_Pp* 0.5)|(Wiedza o społeczeństwie_Pr* 1)]+[(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Język polski_Pp* 0.25)|(Język polski_Pr* 0.5)|(Matematyka_Pp* 0.25)|(Matematyka_Pr* 0.5)]',
-                    academy_id: 1,
-                    students_limit: 75
-FieldOfStudy.create(name: 'Filologia indyjska', field_type: ?)
-FieldDetail.create(field_of_study_id: 21,
-                    recrutation_formula: '[(Język angielski_Pp* 0.25)|(Język niemiecki_Pp* 0.25)|(Język francuski_Pp* 0.25)|(Język hiszpański_Pp* 0.25)|(Język rosyjski_Pp* 0.25)|(Język włoski_Pp* 0.25)|(Język angielski_Pr* 0.5)|(Język niemiecki_Pr* 0.5)|(Język francuski_Pr* 0.5)|(Język hiszpański_Pr* 0.5)|(Język rosyjski_Pr* 0.5)|(Język włoski_Pr* 0.5)][(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Język angielski _Pp* 0.5)|(Język angielski _Pr* 1)]+[(Język łaciński i kultura antyczna_Pp* 0)|(Język łaciński i kultura antyczna_Pr* 1.5)]+[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp* 0.2)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr* 0.4)]',
-                    academy_id: 1,
-                    students_limit: 30
-FieldOfStudy.create(name: 'Gospodarka przestrzenna', field_type: ?)
-FieldDetail.create(field_of_study_id: 22,
-                    recrutation_formula: '[(Geografia_Pp*0.5)|(Geografia_Pr*1)|(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Historia_Pp*0.5)|(Historia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Wiedza o społeczeństwie_Pp*0.5)|(Wiedza o społeczeństwie_Pr*1)|(Język polski_Pp*0.5)|(Język polski_Pr*1)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
-                    academy_id: 1,
-                    students_limit: 60
-FieldOfStudy.create(name: 'Filozofia', field_type: ?)
-FieldDetail.create(field_of_study_id: 23,
-                    recrutation_formula: '[(Filozofia_Pp* 0.5)|(Filozofia_Pr* 1)]+[(Dowolny_Pp* 0.25)|(Dowolny_Pr* 0.5)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]',
-                    academy_id: 1,
-                    students_limit: 60
-FieldOfStudy.create(name: 'Politologia specjalności comparative politics; global security; media and politics; europe in the world', field_type: ?)
-FieldDetail.create(field_of_study_id: 24,
-                    recrutation_formula: '',
-                    academy_id: 1,
-                    students_limit: 
-FieldOfStudy.create(name: 'Geografia', field_type: ?)
-FieldDetail.create(field_of_study_id: 25,
-                    recrutation_formula: '[(Geografia_Pp* 0.5)|(Geografia_Pr* 1)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)|(Chemia_Pp* 0.5)|(Chemia_Pr* 1)|(Historia_Pp* 0.5)|(Historia_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)|(Wiedza o społeczeństwie_Pp* 0.5)|(Wiedza o społeczeństwie_Pr* 1)]',
-                    academy_id: 1,
-                    students_limit: 65
-FieldOfStudy.create(name: 'Muzykologia', field_type: ?)
-FieldDetail.create(field_of_study_id: 26,
-                    recrutation_formula: '',
-                    academy_id: 1,
-                    students_limit: 35
-FieldOfStudy.create(name: 'Matematyka', field_type: ?)
-FieldDetail.create(field_of_study_id: 27,
-                    recrutation_formula: '[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Matematyka*_Pp* 0.5)|(Matematyka*_Pr* 2)]+[(Informatyka_Pp* 0.5)|(Informatyka_Pr* 1)]+[(Fizyka_Pp* 0.25)|(Fizyka_Pr* 0.5)|(Matematyka_Pp* 0.25)|(Matematyka_Pr* 0.5)|(Informatyka_Pp* 0.25)|(Informatyka_Pr* 0.5)]',
-                    academy_id: 1,
-                    students_limit: 200
-FieldOfStudy.create(name: 'Filologia ukraińska', field_type: ?)
-FieldDetail.create(field_of_study_id: 28,
-                    recrutation_formula: '[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Język polski  lub język ukraiński _Pp* 0.5)|(Język polski  lub język ukraiński _Pr* 1)]',
-                    academy_id: 1,
-                    students_limit: 60
-FieldOfStudy.create(name: 'Bachelor of business and administration (biznes i administracja)', field_type: ?)
-FieldDetail.create(field_of_study_id: 29,
-                    recrutation_formula: '',
-                    academy_id: 1,
-                    students_limit: 
-FieldOfStudy.create(name: 'Indywidualne studia międzyobszarowe', field_type: ?)
-FieldDetail.create(field_of_study_id: 30,
-                    recrutation_formula: '[(Matematyka_Pp*0.6)|(Matematyka_Pr*1.0)]+[(Język angielski_Pp*0.6)|(Język niemiecki_Pp*0.6)|(Język francuski_Pp*0.6)|(Język hiszpański_Pp*0.6)|(Język rosyjski_Pp*0.6)|(Język włoski_Pp*0.6)|(Język angielski_Pr*1.0)|(Język niemiecki_Pr*1.0)|(Język francuski_Pr*1.0)|(Język hiszpański_Pr*1.0)|(Język rosyjski_Pr*1.0)|(Język włoski_Pr*1.0)][(Przedmiot_Pp**)|(Przedmiot_Pr*(jeden do wyboru))]+[(Język polski _Pp*0.6)|(Język polski _Pr*1.0)]+[(_Pp*)|(_Pr*)]',
-                    academy_id: 1,
-                    students_limit: 30 (w tym prawo 2;psychologia 2)
-FieldOfStudy.create(name: 'Mikrobiologia', field_type: ?)
-FieldDetail.create(field_of_study_id: 31,
-                    recrutation_formula: '[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Chemia_Pp* 0.5)|(Chemia_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)]+[(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Chemia_Pp* 0.5)|(Chemia_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)]',
-                    academy_id: 1,
-                    students_limit: 60
-FieldOfStudy.create(name: 'Filologia francuska', field_type: ?)
-FieldDetail.create(field_of_study_id: 32,
-                    recrutation_formula: '[(Dowolny przedmiot . w tym drugi język obcy. inny niż wybrany powyżej_Pp* 0.25)|(Dowolny przedmiot . w tym drugi język obcy. inny niż wybrany powyżej_Pr* 0.5)]+[( 0.4_Pp* 0.8)|( 0.4_Pr*)]+[(Język francuski _Pp*lub język obcy inny niż język francuski (pisemny))|(Język francuski _Pr* 0.5)]+[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]',
-                    academy_id: 1,
-                    students_limit: 70
-FieldOfStudy.create(name: 'Ochrona środowiska', field_type: ?)
-FieldDetail.create(field_of_study_id: 33,
-                    recrutation_formula: '[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Biologia_Pp*0.5)|(Biologia_Pr*1.0)|(Chemia_Pp*0.5)|(Chemia_Pr*1.0)|(Geografia_Pp*0.5)|(Geografia_Pr*1.0)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1.0)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1.0)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1.0)|(Chemia_Pp*0.5)|(Chemia_Pr*1.0)|(Geografia_Pp*0.5)|(Geografia_Pr*1.0)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1.0)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1.0)]',
-                    academy_id: 1,
-                    students_limit: 60
-FieldOfStudy.create(name: 'Studia śródziemnomorskie', field_type: ?)
-FieldDetail.create(field_of_study_id: 34,
-                    recrutation_formula: '[(Język łaciński i kultura antyczna_Pp*0)|(Język łaciński i kultura antyczna_Pr*1.5)]+[(Język obcy romański _Pp* 0.5)|(Język obcy romański _Pr* 1)]+[(Język polski_Pp* 0.5)|(Język polski_Pr*1)]+[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp*0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr* 0.5)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
-                    academy_id: 1,
-                    students_limit: 60
-FieldOfStudy.create(name: 'Socjologia grup dyspozycyjnych', field_type: ?)
-FieldDetail.create(field_of_study_id: 35,
-                    recrutation_formula: '[(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Wiedza o społeczeństwie_Pp*0.25)|(Wiedza o społeczeństwie_Pr*0.5)|(Historia_Pp*0.25)|(Historia_Pr*0.5)|(Matematyka_Pp*0.25)|(Matematyka_Pr*0.5)|(Geografia_Pp*0.25)|(Geografia_Pr*0.5)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
-                    academy_id: 1,
-                    students_limit: 80
-FieldOfStudy.create(name: 'Filologia chorwacka z językiem serbskim', field_type: ?)
-FieldDetail.create(field_of_study_id: 36,
-                    recrutation_formula: '[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)]',
-                    academy_id: 1,
-                    students_limit: 40
-FieldOfStudy.create(name: 'Chemia', field_type: ?)
-FieldDetail.create(field_of_study_id: 37,
-                    recrutation_formula: '[(Język obcy nowożytny_Pp*dowolny)|(Język obcy nowożytny_Pr*0.2)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)|(Informatyka_Pp*0.5)|(Informatyka_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)]',
-                    academy_id: 1,
-                    students_limit: 140
-FieldOfStudy.create(name: 'Ekonomia', field_type: ?)
-FieldDetail.create(field_of_study_id: 38,
-                    recrutation_formula: '[[(Język polski_Pp* 0.25)|(Język polski_Pr* 0.5)|(Geografia_Pp* 0.25)|(Geografia_Pr* 0.5)|(Wiedza o społeczeństwie_Pp* 0.25)|(Wiedza o społeczeństwie_Pr* 0.5)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)](Matematyka_Pr* 1)|(Historia_Pp* 0.5)|(Historia_Pr* 1)]',
-                    academy_id: 1,
-                    students_limit: 150
-FieldOfStudy.create(name: 'Turystyka', field_type: ?)
-FieldDetail.create(field_of_study_id: 39,
-                    recrutation_formula: '[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Geografia_Pp*0.5)|(Geografia_Pr*1)|(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Fizyka i astronomia_Pp*0.5)|(Fizyka i astronomia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Historia_Pp*0.5)|(Historia_Pr*1)|(Język polski_Pp*0.5)|(Język polski_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Wiedza o społeczeństwie_Pp*0.5)|(Wiedza o społeczeństwie_Pr*1)]',
-                    academy_id: 1,
-                    students_limit: 65
-FieldOfStudy.create(name: 'Komunikacja wizerunkowa', field_type: ?)
-FieldDetail.create(field_of_study_id: 40,
-                    recrutation_formula: '[[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Język polski _Pp*0.5)|(Język polski _Pr* 1)]+(Historia_Pp* 0.5)|(Historia_Pr* 1)|(Historia sztuki_Pp* 0.5)|(Historia sztuki_Pr* 1)|(Geografia_Pp* 0.5)|(Geografia_Pr* 1)|(Wiedza o społeczeństwie_Pp* 0.5)|(Wiedza o społeczeństwie_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)|(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Chemia_Pp* 0.5)|(Chemia_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)|(Filozofia_Pp* 0.5)|(Filozofia_Pr* 1)]',
-                    academy_id: 1,
-                    students_limit: 80
+                    students_limit: )
 FieldOfStudy.create(name: 'Zarządzanie migracjami', field_type: ?)
-FieldDetail.create(field_of_study_id: 41,
-                    recrutation_formula: '[[(Historia. wiedza o społeczeństwie _Pp*0.5)|(Historia. wiedza o społeczeństwie _Pr*1)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)](Język polski_Pp*0.25)|(Język polski_Pr*0.5)|(Matematyka_Pp*0.25)|(Matematyka_Pr*0.5)]',
+FieldDetail.create(field_of_study_id: 13,
+                    recrutation_formula: '[(Język polski_Pp*0.25)|(Język polski_Pr*0.5)|(Matematyka_Pp*0.25)|(Matematyka_Pr*0.5)]+[(Historia. wiedza o społeczeństwie _Pp*0.5)|(Historia. wiedza o społeczeństwie _Pr*1)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
                     academy_id: 1,
-                    students_limit: 65
-FieldOfStudy.create(name: 'Archeologia', field_type: ?)
-FieldDetail.create(field_of_study_id: 42,
-                    recrutation_formula: '[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Geografia_Pp* 0.5)|(Geografia_Pr* 1)]',
-                    academy_id: 1,
-                    students_limit: 60
-FieldOfStudy.create(name: 'Socjologia', field_type: ?)
-FieldDetail.create(field_of_study_id: 43,
-                    recrutation_formula: '[[(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)](Wiedza o społeczeństwie_Pp*0.25)|(Wiedza o społeczeństwie_Pr*0.5)|(Historia_Pp*0.25)|(Historia_Pr*0.5)|(Matematyka_Pp*0.25)|(Matematyka_Pr*0.5)|(Geografia_Pp*0.25)|(Geografia_Pr*0.5)]',
-                    academy_id: 1,
-                    students_limit: 120
-FieldOfStudy.create(name: 'Zarządzanie środowiskiem przyrodniczym', field_type: ?)
-FieldDetail.create(field_of_study_id: 44,
-                    recrutation_formula: '[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]',
-                    academy_id: 1,
-                    students_limit: 40
-FieldOfStudy.create(name: 'Socjologia ekonomiczna', field_type: ?)
-FieldDetail.create(field_of_study_id: 45,
-                    recrutation_formula: '[(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Wiedza o społeczeństwie_Pp*0.25)|(Wiedza o społeczeństwie_Pr*0.5)|(Historia_Pp*0.25)|(Historia_Pr*0.5)|(Matematyka_Pp*0.25)|(Matematyka_Pr*0.5)|(Geografia_Pp*0.25)|(Geografia_Pr*0.5)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
-                    academy_id: 1,
-                    students_limit: 100
-FieldOfStudy.create(name: 'Astronomia', field_type: ?)
-FieldDetail.create(field_of_study_id: 46,
-                    recrutation_formula: '[(Matematyka_Pp*0.5)|(Matematyka_Pr*1.5)]+[(Biologia_Pp*0)|(Biologia_Pr*0.5)|(Chemia_Pp*0)|(Chemia_Pr*0.5)|(Geografia_Pp*0)|(Geografia_Pr*0.5)|(  informatyka_Pp*0)|(  informatyka_Pr*0.5)]+[(Fizyka_Pp*0)|(Fizyka_Pr*1.5)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
-                    academy_id: 1,
-                    students_limit: 50
-FieldOfStudy.create(name: 'Biologia', field_type: ?)
-FieldDetail.create(field_of_study_id: 47,
-                    recrutation_formula: '[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Chemia_Pp* 0.5)|(Chemia_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)]+[(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Chemia_Pp* 0.5)|(Chemia_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)]',
-                    academy_id: 1,
-                    students_limit: 70
-FieldOfStudy.create(name: 'Informatyka', field_type: ?)
-FieldDetail.create(field_of_study_id: 48,
-                    recrutation_formula: '[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Matematyka*_Pp* 0.5)|(Matematyka*_Pr* 2)]+[(Informatyka_Pp* 0.5)|(Informatyka_Pr* 1)]+[(Fizyka_Pp* 0.25)|(Fizyka_Pr* 0.5)|(Matematyka_Pp* 0.25)|(Matematyka_Pr* 0.5)|(Informatyka_Pp* 0.25)|(Informatyka_Pr* 0.5)]',
-                    academy_id: 1,
-                    students_limit: 160
-FieldOfStudy.create(name: 'Historia sztuki', field_type: ?)
-FieldDetail.create(field_of_study_id: 49,
-                    recrutation_formula: '[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp*0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr* 0.5)]',
-                    academy_id: 1,
-                    students_limit: 65
-FieldOfStudy.create(name: 'Indywidualne studia informatyczno-matematyczne', field_type: ?)
-FieldDetail.create(field_of_study_id: 50,
-                    recrutation_formula: '[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Informatyka_Pp*0)|(Informatyka_Pr*1.0)]+[(Matematyka_Pp*0)|(Matematyka_Pr*2.0)]+[(0_Pp*1.0)|(0_Pr*)]',
-                    academy_id: 1,
-                    students_limit: 
-FieldOfStudy.create(name: 'Dziennikarstwo i komunikacja społeczna', field_type: ?)
-FieldDetail.create(field_of_study_id: 51,
-                    recrutation_formula: '[(Język angielski_Pp*0.5)|(Język niemiecki_Pp*0.5)|(Język francuski_Pp*0.5)|(Język hiszpański_Pp*0.5)|(Język rosyjski_Pp*0.5)|(Język włoski_Pp*0.5)|(Język angielski_Pr*1)|(Język niemiecki_Pr*1)|(Język francuski_Pr*1)|(Język hiszpański_Pr*1)|(Język rosyjski_Pr*1)|(Język włoski_Pr*1)][(Historia_Pp*0.5)|(Historia_Pr*1)|(Historia sztuki_Pp*0.5)|(Historia sztuki_Pr*1)|(Geografia_Pp*0.5)|(Geografia_Pr*1)|(Wiedza o społeczeństwie_Pp*0.5)|(Wiedza o społeczeństwie_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)|(Filozofia_Pp*0.5)|(Filozofia_Pr*1)]+[(Język polski _Pp*0.5)|(Język polski _Pr*1)]',
-                    academy_id: 1,
-                    students_limit: 90
-FieldOfStudy.create(name: 'Biotechnology', field_type: ?)
-FieldDetail.create(field_of_study_id: 52,
-                    recrutation_formula: '',
-                    academy_id: 1,
-                    students_limit: 
-FieldOfStudy.create(name: 'Filologia germańska', field_type: ?)
-FieldDetail.create(field_of_study_id: 53,
-                    recrutation_formula: '[(Język polski _Pp*0.25)|(Język polski _Pr*0.5)]+[( 0.4_Pp*0.8)|( 0.4_Pr*)]+[(Język niemiecki _Pp*lub język obcy inny niż język niemiecki (pisemny))|(Język niemiecki _Pr* 0.5)]',
-                    academy_id: 1,
-                    students_limit: 160
+                    students_limit: 65)
 FieldOfStudy.create(name: 'Etnologia i antropologia kulturowa', field_type: ?)
-FieldDetail.create(field_of_study_id: 54,
+FieldDetail.create(field_of_study_id: 14,
                     recrutation_formula: '[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Język polski_Pp* 0.25)|(Język polski_Pr* 0.5)|(Geografia_Pp* 0.25)|(Geografia_Pr* 0.5)|(Historia_Pp* 0.25)|(Historia_Pr* 0.5)|(Historia sztuki_Pp* 0.25)|(Historia sztuki_Pr* 0.5)|(Wiedza o społeczeństwie_Pp* 0.25)|(Wiedza o społeczeństwie_Pr* 0.5)|(Filozofia_Pp* 0.25)|(Filozofia_Pr* 0.5)]',
                     academy_id: 1,
-                    students_limit: 70
-FieldOfStudy.create(name: 'Kultura i praktyka tekstu: twórcze pisanie i edytorstwo', field_type: ?)
-FieldDetail.create(field_of_study_id: 55,
-                    recrutation_formula: '[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp*0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr*0.5)]+[(Język nowożytny _Pp*0.5)|(Język nowożytny _Pr*1)]+[(Język polski_Pp*0.5)|(Język polski_Pr*1)]',
+                    students_limit: 70)
+FieldOfStudy.create(name: 'Politologia specjalności comparative politics; global security; media and politics; europe in the world', field_type: ?)
+FieldDetail.create(field_of_study_id: 15,
+                    recrutation_formula: '',
                     academy_id: 1,
-                    students_limit: 70
+                    students_limit: )
 FieldOfStudy.create(name: 'Publikowanie cyfrowe i sieciowe', field_type: ?)
-FieldDetail.create(field_of_study_id: 56,
+FieldDetail.create(field_of_study_id: 16,
                     recrutation_formula: '[(Dowolny inny przedmiot  w tym inny język obcy nowożytny_Pp*0.25)|(Dowolny inny przedmiot  w tym inny język obcy nowożytny_Pr*0.5)]+[(Język angielski_Pp*0.5)|(Język niemiecki_Pp*0.5)|(Język francuski_Pp*0.5)|(Język hiszpański_Pp*0.5)|(Język rosyjski_Pp*0.5)|(Język włoski_Pp*0.5)|(Język angielski_Pr*1)|(Język niemiecki_Pr*1)|(Język francuski_Pr*1)|(Język hiszpański_Pr*1)|(Język rosyjski_Pr*1)|(Język włoski_Pr*1)][(Język polski. matematyka. historia sztuki. informatyka (jeden do wyboru)_Pp*0.5)|(Język polski. matematyka. historia sztuki. informatyka (jeden do wyboru)_Pr*1)]',
                     academy_id: 1,
-                    students_limit: 80
-FieldOfStudy.create(name: 'Filologia hiszpańska', field_type: ?)
-FieldDetail.create(field_of_study_id: 57,
-                    recrutation_formula: '[(Język hiszpański  lub język obcy inny niż język hiszpański _Pp* 0.5)|(Język hiszpański  lub język obcy inny niż język hiszpański _Pr* 1)]+[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Dowolny przedmiot . w tym drugi język obcy. inny niż wybrany powyżej_Pp* 0.25)|(Dowolny przedmiot . w tym drugi język obcy. inny niż wybrany powyżej_Pr* 0.5)]+[( 0.4_Pp* 0.8)|( 0.4_Pr*)]',
-                    academy_id: 1,
-                    students_limit: 60
-FieldOfStudy.create(name: 'Chemia i toksykologia sądowa', field_type: ?)
-FieldDetail.create(field_of_study_id: 58,
-                    recrutation_formula: '[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Biologia_Pp*0.5)|(Biologia_Pr*1.0)|(Chemia_Pp*0.5)|(Chemia_Pr*1.0)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1.0)|(Informatyka_Pp*0.5)|(Informatyka_Pr*1.0)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1.0)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1.0)|(Chemia_Pp*0.5)|(Chemia_Pr*1.0)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1.0)|(Informatyka_Pp*0.5)|(Informatyka_Pr*1.0)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1.0)]',
-                    academy_id: 1,
-                    students_limit: 48
+                    students_limit: 80)
 FieldOfStudy.create(name: 'Filologia klasyczna', field_type: ?)
-FieldDetail.create(field_of_study_id: 59,
-                    recrutation_formula: '[(Język obcy romański _Pp* 0.5)|(Język obcy romański _Pr* 1)]+[(Język łaciński i kultura antyczna_Pp*0)|(Język łaciński i kultura antyczna_Pr*1.5)]+[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp*0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr* 0.5)]+[(Język nowożytny inny niż język romański _Pp* 0.2)|(Język nowożytny inny niż język romański _Pr* 0.4)]',
+FieldDetail.create(field_of_study_id: 17,
+                    recrutation_formula: '[(Język nowożytny inny niż język romański _Pp* 0.2)|(Język nowożytny inny niż język romański _Pr* 0.4)]+[(Język łaciński i kultura antyczna_Pp*0)|(Język łaciński i kultura antyczna_Pr*1.5)]+[(Język obcy romański _Pp* 0.5)|(Język obcy romański _Pr* 1)]+[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp*0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr* 0.5)]',
                     academy_id: 1,
-                    students_limit: 30
-FieldOfStudy.create(name: 'Genetyka i biologia eksperymentalna', field_type: ?)
-FieldDetail.create(field_of_study_id: 60,
-                    recrutation_formula: '[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]',
+                    students_limit: 30)
+FieldOfStudy.create(name: 'Filologia polska', field_type: ?)
+FieldDetail.create(field_of_study_id: 18,
+                    recrutation_formula: '[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp* 0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr* 0.5)]',
                     academy_id: 1,
-                    students_limit: 60
-FieldOfStudy.create(name: 'Geologia', field_type: ?)
-FieldDetail.create(field_of_study_id: 61,
-                    recrutation_formula: '[[(Geografia_Pp* 0.5)|(Geografia_Pr* 1)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)](Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Chemia_Pp* 0.5)|(Chemia_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)]',
+                    students_limit: 220)
+FieldOfStudy.create(name: 'Niderlandystyka', field_type: ?)
+FieldDetail.create(field_of_study_id: 19,
+                    recrutation_formula: '[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Dowolny inny przedmiot  w tym inny język obcy nowożytny_Pp*0.25)|(Dowolny inny przedmiot  w tym inny język obcy nowożytny_Pr* 0.5)]',
                     academy_id: 1,
-                    students_limit: 70
+                    students_limit: 80)
+FieldOfStudy.create(name: 'Gospodarka przestrzenna', field_type: ?)
+FieldDetail.create(field_of_study_id: 20,
+                    recrutation_formula: '[(Geografia_Pp*0.5)|(Geografia_Pr*1)|(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Historia_Pp*0.5)|(Historia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Wiedza o społeczeństwie_Pp*0.5)|(Wiedza o społeczeństwie_Pr*1)|(Język polski_Pp*0.5)|(Język polski_Pr*1)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
+                    academy_id: 1,
+                    students_limit: 60)
+FieldOfStudy.create(name: 'Chemia medyczna', field_type: ?)
+FieldDetail.create(field_of_study_id: 21,
+                    recrutation_formula: '[(Biologia_Pp*0.5)|(Biologia_Pr*1.0)|(Chemia_Pp*0.5)|(Chemia_Pr*1.0)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1.0)|(Informatyka_Pp*0.5)|(Informatyka_Pr*1.0)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1.0)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1.0)|(Chemia_Pp*0.5)|(Chemia_Pr*1.0)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1.0)|(Informatyka_Pp*0.5)|(Informatyka_Pr*1.0)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1.0)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
+                    academy_id: 1,
+                    students_limit: 120)
+FieldOfStudy.create(name: 'Dziedzictwo kultury materialnej – ochrona, promocja, gospodarowanie', field_type: ?)
+FieldDetail.create(field_of_study_id: 22,
+                    recrutation_formula: '[(Język angielski_Pp*0.5)|(Język niemiecki_Pp*0.5)|(Język francuski_Pp*0.5)|(Język hiszpański_Pp*0.5)|(Język rosyjski_Pp*0.5)|(Język włoski_Pp*0.5)|(Język angielski_Pr*1)|(Język niemiecki_Pr*1)|(Język francuski_Pr*1)|(Język hiszpański_Pr*1)|(Język rosyjski_Pr*1)|(Język włoski_Pr*1)][(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Dowolny przedmiot(inny niż wymienione)_Pp*0.5)|(Dowolny przedmiot(inny niż wymienione)_Pr*1)]',
+                    academy_id: 1,
+                    students_limit: 75)
+FieldOfStudy.create(name: 'Zarządzanie projektami społecznymi', field_type: ?)
+FieldDetail.create(field_of_study_id: 23,
+                    recrutation_formula: '[(0_Pp*1.0)|(0_Pr*)|(5_Pp*1.0)|(5_Pr*)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(0_Pp*0.5)|(0_Pr*)|(25_Pp*0.5)|(25_Pr*)]',
+                    academy_id: 1,
+                    students_limit: 80)
+FieldOfStudy.create(name: 'Filologia ukraińska', field_type: ?)
+FieldDetail.create(field_of_study_id: 24,
+                    recrutation_formula: '[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Język polski  lub język ukraiński _Pp* 0.5)|(Język polski  lub język ukraiński _Pr* 1)]',
+                    academy_id: 1,
+                    students_limit: 60)
+FieldOfStudy.create(name: 'Socjologia grup dyspozycyjnych', field_type: ?)
+FieldDetail.create(field_of_study_id: 25,
+                    recrutation_formula: '[(Wiedza o społeczeństwie_Pp*0.25)|(Wiedza o społeczeństwie_Pr*0.5)|(Historia_Pp*0.25)|(Historia_Pr*0.5)|(Matematyka_Pp*0.25)|(Matematyka_Pr*0.5)|(Geografia_Pp*0.25)|(Geografia_Pr*0.5)]+[(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
+                    academy_id: 1,
+                    students_limit: 80)
+FieldOfStudy.create(name: 'Pedagogika', field_type: ?)
+FieldDetail.create(field_of_study_id: 26,
+                    recrutation_formula: '[(Historia_Pp* 0.5)|(Historia_Pr* 1)|(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Wiedza o społeczeństwie_Pp* 0.5)|(Wiedza o społeczeństwie_Pr* 1)]+[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)]',
+                    academy_id: 1,
+                    students_limit: 140)
+FieldOfStudy.create(name: 'Historia sztuki', field_type: ?)
+FieldDetail.create(field_of_study_id: 27,
+                    recrutation_formula: '[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Dowolny przedmiot  inny niż wymienione w tabeli_Pp*0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr* 0.5)]',
+                    academy_id: 1,
+                    students_limit: 65)
+FieldOfStudy.create(name: 'Filologia germańska', field_type: ?)
+FieldDetail.create(field_of_study_id: 28,
+                    recrutation_formula: '[( 0.4_Pp*0.8)|( 0.4_Pr*)]+[(Język niemiecki _Pp*lub język obcy inny niż język niemiecki (pisemny))|(Język niemiecki _Pr* 0.5)]+[(Język polski _Pp*0.25)|(Język polski _Pr*0.5)]',
+                    academy_id: 1,
+                    students_limit: 160)
+FieldOfStudy.create(name: 'Filozofia', field_type: ?)
+FieldDetail.create(field_of_study_id: 29,
+                    recrutation_formula: '[(Filozofia_Pp* 0.5)|(Filozofia_Pr* 1)]+[(Dowolny_Pp* 0.25)|(Dowolny_Pr* 0.5)]+[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)]',
+                    academy_id: 1,
+                    students_limit: 60)
 FieldOfStudy.create(name: 'Militarioznawstwo', field_type: ?)
-FieldDetail.create(field_of_study_id: 62,
-                    recrutation_formula: '[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Dowolny (inny_Pp* 0.5)|(Dowolny (inny_Pr* 1)|(Niż wymienione)_Pp* 0.5)|(Niż wymienione)_Pr* 1)]+[(Historia_Pp* 0.5)|(Historia_Pr* 1)]',
+FieldDetail.create(field_of_study_id: 30,
+                    recrutation_formula: '[[(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)](Dowolny (inny_Pp* 0.5)|(Dowolny (inny_Pr* 1)|(Niż wymienione)_Pp* 0.5)|(Niż wymienione)_Pr* 1)]',
                     academy_id: 1,
-                    students_limit: 30
-FieldOfStudy.create(name: 'Fizyka', field_type: ?)
-FieldDetail.create(field_of_study_id: 63,
-                    recrutation_formula: '[(Chemia_Pp*0)|(Chemia_Pr*0.5)|(Geografia_Pp*0)|(Geografia_Pr*0.5)|(   informatyka_Pp*0)|(   informatyka_Pr*0.5)|(Biologia_Pp*0)|(Biologia_Pr*0.5)]+[(Fizyka_Pp*                   0)|(Fizyka_Pr*1.5)]+[(Matematyka_Pp*0.5)|(Matematyka_Pr*1.5)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
+                    students_limit: 30)
+FieldOfStudy.create(name: 'Geologia', field_type: ?)
+FieldDetail.create(field_of_study_id: 31,
+                    recrutation_formula: '[(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Chemia_Pp* 0.5)|(Chemia_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)]+[(Geografia_Pp* 0.5)|(Geografia_Pr* 1)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)]',
                     academy_id: 1,
-                    students_limit: 80
-FieldOfStudy.create(name: 'Informacja naukowa i bibliotekoznawstwo', field_type: ?)
-FieldDetail.create(field_of_study_id: 64,
-                    recrutation_formula: '[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Język polski (_Pp* 0.5)|(Język polski (_Pr* 1)]+[(Dowolny inny przedmiot . w tym inny język obcy nowożytny_Pp* 0.25)|(Dowolny inny przedmiot . w tym inny język obcy nowożytny_Pr* 0.5)]',
+                    students_limit: 70)
+FieldOfStudy.create(name: 'Administracja', field_type: ?)
+FieldDetail.create(field_of_study_id: 32,
+                    recrutation_formula: '[(Wiedza o społeczeństwie_Pp* 0.25)|(Wiedza o społeczeństwie_Pr* 0.5)|(Język polski_Pp* 0.25)|(Język polski_Pr* 0.5)|(Geografia_Pp* 0.25)|(Geografia_Pr* 0.5)]+[(Historia_Pp* 0.5)|(Historia_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)]',
                     academy_id: 1,
-                    students_limit: 50
-FieldOfStudy.create(name: 'Politologia', field_type: ?)
-FieldDetail.create(field_of_study_id: 65,
-                    recrutation_formula: '[(Wiedza o społeczeństwie_Pp* 0.5)|(Wiedza o społeczeństwie_Pr* 1)]+[(Język polski_Pp* 0.25)|(Język polski_Pr* 0.5)|(Matematyka_Pp* 0.25)|(Matematyka_Pr* 0.5)|(Geografia_Pp* 0.25)|(Geografia_Pr* 0.5)]+[(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)]',
+                    students_limit: 180)
+FieldOfStudy.create(name: 'Dziennikarstwo i komunikacja społeczna', field_type: ?)
+FieldDetail.create(field_of_study_id: 33,
+                    recrutation_formula: '[(Historia_Pp*0.5)|(Historia_Pr*1)|(Historia sztuki_Pp*0.5)|(Historia sztuki_Pr*1)|(Geografia_Pp*0.5)|(Geografia_Pr*1)|(Wiedza o społeczeństwie_Pp*0.5)|(Wiedza o społeczeństwie_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)|(Filozofia_Pp*0.5)|(Filozofia_Pr*1)]+[(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Język angielski_Pp*0.5)|(Język niemiecki_Pp*0.5)|(Język francuski_Pp*0.5)|(Język hiszpański_Pp*0.5)|(Język rosyjski_Pp*0.5)|(Język włoski_Pp*0.5)|(Język angielski_Pr*1)|(Język niemiecki_Pr*1)|(Język francuski_Pr*1)|(Język hiszpański_Pr*1)|(Język rosyjski_Pr*1)|(Język włoski_Pr*1)]',
                     academy_id: 1,
-                    students_limit: 80
-FieldOfStudy.create(name: 'Bezpieczeństwo narodowe', field_type: ?)
-FieldDetail.create(field_of_study_id: 66,
-                    recrutation_formula: '[(Wiedza o społeczeństwie_Pp* 0.5)|(Wiedza o społeczeństwie_Pr* 1)]+[(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Przedmiot  (jeden do wyboru)_Pp*język polski (pisemny). geografia. matematyka)|(Przedmiot  (jeden do wyboru)_Pr* 0.25)]+[(Język angielski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język niemiecki_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język francuski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język hiszpański_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język rosyjski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język włoski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język angielski_Pr* 0.2)|(Język niemiecki_Pr* 0.2)|(Język francuski_Pr* 0.2)|(Język hiszpański_Pr* 0.2)|(Język rosyjski_Pr* 0.2)|(Język włoski_Pr* 0.2)]',
+                    students_limit: 90)
+FieldOfStudy.create(name: 'Chemia', field_type: ?)
+FieldDetail.create(field_of_study_id: 34,
+                    recrutation_formula: '[(Język obcy nowożytny_Pp*dowolny)|(Język obcy nowożytny_Pr*0.2)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)|(Informatyka_Pp*0.5)|(Informatyka_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)]',
                     academy_id: 1,
-                    students_limit: 120
-FieldOfStudy.create(name: 'Koreanistyka', field_type: ?)
-FieldDetail.create(field_of_study_id: 67,
-                    recrutation_formula: '[(Język angielski _Pp*0.5)|(Język angielski _Pr*1.0)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Język polski _Pp*0.5)|(Język polski _Pr*1.0)]+[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp*0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr*0.5)]+[(Język łaciński i kultura antyczna_Pp*0.75)|(Język łaciński i kultura antyczna_Pr*1.5)]',
+                    students_limit: 140)
+FieldOfStudy.create(name: 'Judaistyka', field_type: ?)
+FieldDetail.create(field_of_study_id: 35,
+                    recrutation_formula: '[(Język angielski _Pp*0.2)|(Język angielski _Pr*0.4)]+[(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Dowolny przedmiot   do wyboru_Pp*0)|(Dowolny przedmiot   do wyboru_Pr*0.5)]',
                     academy_id: 1,
-                    students_limit: 35
-FieldOfStudy.create(name: 'Italianistyka', field_type: ?)
-FieldDetail.create(field_of_study_id: 68,
-                    recrutation_formula: '[(0.4_Pp*0.8)|(0.4_Pr*)]+[(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Dowolny przedmiot . w tym drugi język obcy. inny niż wybrany powyżej_Pp*0.25)|(Dowolny przedmiot . w tym drugi język obcy. inny niż wybrany powyżej_Pr*0.5)]+[(Język włoski _Pp*lub język obcy inny niż język włoski (pisemny))|(Język włoski _Pr*0.5)]',
-                    academy_id: 1,
-                    students_limit: 30
+                    students_limit: 40)
 FieldOfStudy.create(name: 'Praca socjalna', field_type: ?)
-FieldDetail.create(field_of_study_id: 69,
+FieldDetail.create(field_of_study_id: 36,
                     recrutation_formula: '[(Wiedza o społeczeństwie_Pp* 0.25)|(Wiedza o społeczeństwie_Pr* 0.5)|(Historia_Pp* 0.25)|(Historia_Pr* 0.5)|(Matematyka_Pp* 0.25)|(Matematyka_Pr* 0.5)]+[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)]',
                     academy_id: 1,
-                    students_limit: 90
+                    students_limit: 90)
+FieldOfStudy.create(name: 'Archeologia', field_type: ?)
+FieldDetail.create(field_of_study_id: 37,
+                    recrutation_formula: '[(Geografia_Pp* 0.5)|(Geografia_Pr* 1)]+[(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)]',
+                    academy_id: 1,
+                    students_limit: 60)
+FieldOfStudy.create(name: 'Biologia', field_type: ?)
+FieldDetail.create(field_of_study_id: 38,
+                    recrutation_formula: '[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Chemia_Pp* 0.5)|(Chemia_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)]+[(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Chemia_Pp* 0.5)|(Chemia_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)]',
+                    academy_id: 1,
+                    students_limit: 70)
+FieldOfStudy.create(name: 'Chemistry', field_type: ?)
+FieldDetail.create(field_of_study_id: 39,
+                    recrutation_formula: '',
+                    academy_id: 1,
+                    students_limit: )
+FieldOfStudy.create(name: 'Biotechnologia', field_type: ?)
+FieldDetail.create(field_of_study_id: 40,
+                    recrutation_formula: '[(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)]+[(Chemia_Pp*0.5)|(Chemia_Pr* 1)]+[(Język angielski_Pp*angielski)|(Język niemiecki_Pp*angielski)|(Język francuski_Pp*angielski)|(Język hiszpański_Pp*angielski)|(Język rosyjski_Pp*angielski)|(Język włoski_Pp*angielski)|(Język angielski_Pr* 0.1)|(Język niemiecki_Pr* 0.1)|(Język francuski_Pr* 0.1)|(Język hiszpański_Pr* 0.1)|(Język rosyjski_Pr* 0.1)|(Język włoski_Pr* 0.1)]',
+                    academy_id: 1,
+                    students_limit: 130)
 FieldOfStudy.create(name: 'European cultures', field_type: ?)
+FieldDetail.create(field_of_study_id: 41,
+                    recrutation_formula: '',
+                    academy_id: 1,
+                    students_limit: )
+FieldOfStudy.create(name: 'Anglistyka', field_type: ?)
+FieldDetail.create(field_of_study_id: 42,
+                    recrutation_formula: '[[(Język polski *_Pp*0)|(Język polski *_Pr* 0.8)]+[(Język angielski *_Pp*0)|(Język angielski *_Pr*1)]+(dowolny inny_Pp*0.25)|(dowolny inny_Pr* 0.5)]',
+                    academy_id: 1,
+                    students_limit: 80)
+FieldOfStudy.create(name: 'Filologia czeska', field_type: ?)
+FieldDetail.create(field_of_study_id: 43,
+                    recrutation_formula: '[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)]',
+                    academy_id: 1,
+                    students_limit: 50)
+FieldOfStudy.create(name: 'Bachelor of business and administration (biznes i administracja)', field_type: ?)
+FieldDetail.create(field_of_study_id: 44,
+                    recrutation_formula: '',
+                    academy_id: 1,
+                    students_limit: )
+FieldOfStudy.create(name: 'Filologia hiszpańska', field_type: ?)
+FieldDetail.create(field_of_study_id: 45,
+                    recrutation_formula: '[( 0.4_Pp* 0.8)|( 0.4_Pr*)]+[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Język hiszpański  lub język obcy inny niż język hiszpański _Pp* 0.5)|(Język hiszpański  lub język obcy inny niż język hiszpański _Pr* 1)]+[(Dowolny przedmiot . w tym drugi język obcy. inny niż wybrany powyżej_Pp* 0.25)|(Dowolny przedmiot . w tym drugi język obcy. inny niż wybrany powyżej_Pr* 0.5)]',
+                    academy_id: 1,
+                    students_limit: 60)
+FieldOfStudy.create(name: 'Filologia francuska', field_type: ?)
+FieldDetail.create(field_of_study_id: 46,
+                    recrutation_formula: '[( 0.4_Pp* 0.8)|( 0.4_Pr*)]+[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Język francuski _Pp*lub język obcy inny niż język francuski (pisemny))|(Język francuski _Pr* 0.5)]+[(Dowolny przedmiot . w tym drugi język obcy. inny niż wybrany powyżej_Pp* 0.25)|(Dowolny przedmiot . w tym drugi język obcy. inny niż wybrany powyżej_Pr* 0.5)]',
+                    academy_id: 1,
+                    students_limit: 70)
+FieldOfStudy.create(name: 'Matematyka', field_type: ?)
+FieldDetail.create(field_of_study_id: 47,
+                    recrutation_formula: '[(Matematyka*_Pp* 0.5)|(Matematyka*_Pr* 2)]+[(Fizyka_Pp* 0.25)|(Fizyka_Pr* 0.5)|(Matematyka_Pp* 0.25)|(Matematyka_Pr* 0.5)|(Informatyka_Pp* 0.25)|(Informatyka_Pr* 0.5)]+[(Informatyka_Pp* 0.5)|(Informatyka_Pr* 1)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)]',
+                    academy_id: 1,
+                    students_limit: 200)
+FieldOfStudy.create(name: 'Studia śródziemnomorskie', field_type: ?)
+FieldDetail.create(field_of_study_id: 48,
+                    recrutation_formula: '[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|[(Język obcy romański _Pp* 0.5)|(Język obcy romański _Pr* 1)]+[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp*0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr* 0.5)]+[(Język polski_Pp* 0.5)|(Język polski_Pr*1)]+[(Język łaciński i kultura antyczna_Pp*0)|(Język łaciński i kultura antyczna_Pr*1.5)]+(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
+                    academy_id: 1,
+                    students_limit: 60)
+FieldOfStudy.create(name: 'Informacja naukowa i bibliotekoznawstwo', field_type: ?)
+FieldDetail.create(field_of_study_id: 49,
+                    recrutation_formula: '[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Dowolny inny przedmiot . w tym inny język obcy nowożytny_Pp* 0.25)|(Dowolny inny przedmiot . w tym inny język obcy nowożytny_Pr* 0.5)]+[(Język polski (_Pp* 0.5)|(Język polski (_Pr* 1)]',
+                    academy_id: 1,
+                    students_limit: 50)
+FieldOfStudy.create(name: 'Stosunki międzynarodowe', field_type: ?)
+FieldDetail.create(field_of_study_id: 50,
+                    recrutation_formula: '[(Wiedza o społeczeństwie_Pp* 0.5)|(Wiedza o społeczeństwie_Pr* 1)]+[(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Język polski_Pp* 0.25)|(Język polski_Pr* 0.5)|(Geografia_Pp* 0.25)|(Geografia_Pr* 0.5)|(Matematyka_Pp* 0.25)|(Matematyka_Pr* 0.5)]+[(Język angielski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język niemiecki_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język francuski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język hiszpański_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język rosyjski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język włoski_Pp*język angielski. język niemiecki. język francuski. język rosyjski)|(Język angielski_Pr* 0.2)|(Język niemiecki_Pr* 0.2)|(Język francuski_Pr* 0.2)|(Język hiszpański_Pr* 0.2)|(Język rosyjski_Pr* 0.2)|(Język włoski_Pr* 0.2)]',
+                    academy_id: 1,
+                    students_limit: 100)
+FieldOfStudy.create(name: 'Ekonomia', field_type: ?)
+FieldDetail.create(field_of_study_id: 51,
+                    recrutation_formula: '[(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)|(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Język polski_Pp* 0.25)|(Język polski_Pr* 0.5)|(Geografia_Pp* 0.25)|(Geografia_Pr* 0.5)|(Wiedza o społeczeństwie_Pp* 0.25)|(Wiedza o społeczeństwie_Pr* 0.5)]',
+                    academy_id: 1,
+                    students_limit: 150)
+FieldOfStudy.create(name: 'Sinologia', field_type: ?)
+FieldDetail.create(field_of_study_id: 52,
+                    recrutation_formula: '[(Język angielski _Pp*0.5)|(Język angielski _Pr*1.0)]+[(Język łaciński i kultura antyczna_Pp*0.75)|(Język łaciński i kultura antyczna_Pr*1.5)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Język polski _Pp*0.5)|(Język polski _Pr*1.0)]+[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp*0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr*0.5)]',
+                    academy_id: 1,
+                    students_limit: 38)
+FieldOfStudy.create(name: 'Historia', field_type: ?)
+FieldDetail.create(field_of_study_id: 53,
+                    recrutation_formula: '[(Przedmiot_Pp*dowolny pisemny (inny niż wybrane wcześniej))|(Przedmiot_Pr* 0.5)]+[(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1.0)|(Język niemiecki_Pr* 1.0)|(Język francuski_Pr* 1.0)|(Język hiszpański_Pr* 1.0)|(Język rosyjski_Pr* 1.0)|(Język włoski_Pr* 1.0)]',
+                    academy_id: 1,
+                    students_limit: 120)
+FieldOfStudy.create(name: 'Koreanistyka', field_type: ?)
+FieldDetail.create(field_of_study_id: 54,
+                    recrutation_formula: '[(Język angielski _Pp*0.5)|(Język angielski _Pr*1.0)]+[(Język polski _Pp*0.5)|(Język polski _Pr*1.0)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Język łaciński i kultura antyczna_Pp*0.75)|(Język łaciński i kultura antyczna_Pr*1.5)]+[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp*0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr*0.5)]',
+                    academy_id: 1,
+                    students_limit: 35)
+FieldOfStudy.create(name: 'Indywidualne studia informatyczno-matematyczne', field_type: ?)
+FieldDetail.create(field_of_study_id: 55,
+                    recrutation_formula: '[(Informatyka_Pp*0)|(Informatyka_Pr*1.0)]+[(0_Pp*1.0)|(0_Pr*)]+[(Matematyka_Pp*0)|(Matematyka_Pr*2.0)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
+                    academy_id: 1,
+                    students_limit: )
+FieldOfStudy.create(name: 'Dyplomacja europejska', field_type: ?)
+FieldDetail.create(field_of_study_id: 56,
+                    recrutation_formula: '[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Wiedza o społeczeństwie_Pp* 0.5)|(Wiedza o społeczeństwie_Pr* 1)]+[(Język polski_Pp* 0.25)|(Język polski_Pr* 0.5)|(Matematyka_Pp* 0.25)|(Matematyka_Pr* 0.5)]+[(Historia_Pp* 0.5)|(Historia_Pr* 1)]',
+                    academy_id: 1,
+                    students_limit: 75)
+FieldOfStudy.create(name: 'Zarządzanie środowiskiem przyrodniczym', field_type: ?)
+FieldDetail.create(field_of_study_id: 57,
+                    recrutation_formula: '[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]',
+                    academy_id: 1,
+                    students_limit: 40)
+FieldOfStudy.create(name: 'Turystyka', field_type: ?)
+FieldDetail.create(field_of_study_id: 58,
+                    recrutation_formula: '[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Geografia_Pp*0.5)|(Geografia_Pr*1)|(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Fizyka i astronomia_Pp*0.5)|(Fizyka i astronomia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Historia_Pp*0.5)|(Historia_Pr*1)|(Język polski_Pp*0.5)|(Język polski_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Wiedza o społeczeństwie_Pp*0.5)|(Wiedza o społeczeństwie_Pr*1)]',
+                    academy_id: 1,
+                    students_limit: 65)
+FieldOfStudy.create(name: 'Informatyka', field_type: ?)
+FieldDetail.create(field_of_study_id: 59,
+                    recrutation_formula: '[(Matematyka*_Pp* 0.5)|(Matematyka*_Pr* 2)]+[(Informatyka_Pp* 0.5)|(Informatyka_Pr* 1)]+[(Fizyka_Pp* 0.25)|(Fizyka_Pr* 0.5)|(Matematyka_Pp* 0.25)|(Matematyka_Pr* 0.5)|(Informatyka_Pp* 0.25)|(Informatyka_Pr* 0.5)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)]',
+                    academy_id: 1,
+                    students_limit: 160)
+FieldOfStudy.create(name: 'Biotechnology', field_type: ?)
+FieldDetail.create(field_of_study_id: 60,
+                    recrutation_formula: '',
+                    academy_id: 1,
+                    students_limit: )
+FieldOfStudy.create(name: 'Socjologia ekonomiczna', field_type: ?)
+FieldDetail.create(field_of_study_id: 61,
+                    recrutation_formula: '[(Wiedza o społeczeństwie_Pp*0.25)|(Wiedza o społeczeństwie_Pr*0.5)|(Historia_Pp*0.25)|(Historia_Pr*0.5)|(Matematyka_Pp*0.25)|(Matematyka_Pr*0.5)|(Geografia_Pp*0.25)|(Geografia_Pr*0.5)]+[(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]',
+                    academy_id: 1,
+                    students_limit: 100)
+FieldOfStudy.create(name: 'Europeistyka', field_type: ?)
+FieldDetail.create(field_of_study_id: 62,
+                    recrutation_formula: '[(Historia_Pp* 0.5)|(Historia_Pr* 1)]+[(Wiedza o społeczeństwie_Pp* 0.5)|(Wiedza o społeczeństwie_Pr* 1)]+[(Język polski_Pp* 0.25)|(Język polski_Pr* 0.5)|(Matematyka_Pp* 0.25)|(Matematyka_Pr* 0.5)]+[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)]',
+                    academy_id: 1,
+                    students_limit: 50)
+FieldOfStudy.create(name: 'Filologia rosyjska', field_type: ?)
+FieldDetail.create(field_of_study_id: 63,
+                    recrutation_formula: '[(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Język angielski_Pp*0.5)|(Język niemiecki_Pp*0.5)|(Język francuski_Pp*0.5)|(Język hiszpański_Pp*0.5)|(Język rosyjski_Pp*0.5)|(Język włoski_Pp*0.5)|(Język angielski_Pr*1)|(Język niemiecki_Pr*1)|(Język francuski_Pr*1)|(Język hiszpański_Pr*1)|(Język rosyjski_Pr*1)|(Język włoski_Pr*1)]',
+                    academy_id: 1,
+                    students_limit: 120)
+FieldOfStudy.create(name: 'Muzykologia', field_type: ?)
+FieldDetail.create(field_of_study_id: 64,
+                    recrutation_formula: '',
+                    academy_id: 1,
+                    students_limit: 35)
+FieldOfStudy.create(name: 'Socjologia', field_type: ?)
+FieldDetail.create(field_of_study_id: 65,
+                    recrutation_formula: '[(Wiedza o społeczeństwie_Pp*0.25)|(Wiedza o społeczeństwie_Pr*0.5)|(Historia_Pp*0.25)|(Historia_Pr*0.5)|(Matematyka_Pp*0.25)|(Matematyka_Pr*0.5)|(Geografia_Pp*0.25)|(Geografia_Pr*0.5)]+[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Język polski _Pp*0.5)|(Język polski _Pr*1)]',
+                    academy_id: 1,
+                    students_limit: 120)
+FieldOfStudy.create(name: 'Filologia chorwacka z językiem serbskim', field_type: ?)
+FieldDetail.create(field_of_study_id: 66,
+                    recrutation_formula: '[(Język polski _Pp* 0.5)|(Język polski _Pr* 1)]+[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)]',
+                    academy_id: 1,
+                    students_limit: 40)
+FieldOfStudy.create(name: 'Kultura i praktyka tekstu: twórcze pisanie i edytorstwo', field_type: ?)
+FieldDetail.create(field_of_study_id: 67,
+                    recrutation_formula: '[(Język nowożytny _Pp*0.5)|(Język nowożytny _Pr*1)]+[(Język polski_Pp*0.5)|(Język polski_Pr*1)]+[(Dowolny przedmiot  inny niż wymienione w tabeli_Pp*0.25)|(Dowolny przedmiot  inny niż wymienione w tabeli_Pr*0.5)]',
+                    academy_id: 1,
+                    students_limit: 70)
+FieldOfStudy.create(name: 'Ochrona środowiska', field_type: ?)
+FieldDetail.create(field_of_study_id: 68,
+                    recrutation_formula: '[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Biologia_Pp*0.5)|(Biologia_Pr*1.0)|(Chemia_Pp*0.5)|(Chemia_Pr*1.0)|(Geografia_Pp*0.5)|(Geografia_Pr*1.0)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1.0)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1.0)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1.0)|(Chemia_Pp*0.5)|(Chemia_Pr*1.0)|(Geografia_Pp*0.5)|(Geografia_Pr*1.0)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1.0)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1.0)]',
+                    academy_id: 1,
+                    students_limit: 60)
+FieldOfStudy.create(name: 'Italianistyka', field_type: ?)
+FieldDetail.create(field_of_study_id: 69,
+                    recrutation_formula: '[(0.4_Pp*0.8)|(0.4_Pr*)]+[(Język polski _Pp*0.5)|(Język polski _Pr*1)]+[(Dowolny przedmiot . w tym drugi język obcy. inny niż wybrany powyżej_Pp*0.25)|(Dowolny przedmiot . w tym drugi język obcy. inny niż wybrany powyżej_Pr*0.5)]+[(Język włoski _Pp*lub język obcy inny niż język włoski (pisemny))|(Język włoski _Pr*0.5)]',
+                    academy_id: 1,
+                    students_limit: 30)
+FieldOfStudy.create(name: 'Stosunki międzynarodowe specjalność global studies', field_type: ?)
 FieldDetail.create(field_of_study_id: 70,
                     recrutation_formula: '',
                     academy_id: 1,
-                    students_limit: 
-FieldOfStudy.create(name: 'Stosunki międzynarodowe specjalność global studies', field_type: ?)
+                    students_limit: )
+FieldOfStudy.create(name: 'Komunikacja wizerunkowa', field_type: ?)
 FieldDetail.create(field_of_study_id: 71,
-                    recrutation_formula: '',
+                    recrutation_formula: '[[(Język angielski_Pp* 0.5)|(Język niemiecki_Pp* 0.5)|(Język francuski_Pp* 0.5)|(Język hiszpański_Pp* 0.5)|(Język rosyjski_Pp* 0.5)|(Język włoski_Pp* 0.5)|(Język angielski_Pr* 1)|(Język niemiecki_Pr* 1)|(Język francuski_Pr* 1)|(Język hiszpański_Pr* 1)|(Język rosyjski_Pr* 1)|(Język włoski_Pr* 1)][(Język polski _Pp*0.5)|(Język polski _Pr* 1)]+(Historia_Pp* 0.5)|(Historia_Pr* 1)|(Historia sztuki_Pp* 0.5)|(Historia sztuki_Pr* 1)|(Geografia_Pp* 0.5)|(Geografia_Pr* 1)|(Wiedza o społeczeństwie_Pp* 0.5)|(Wiedza o społeczeństwie_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)|(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Chemia_Pp* 0.5)|(Chemia_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)|(Filozofia_Pp* 0.5)|(Filozofia_Pr* 1)]',
                     academy_id: 1,
-                    students_limit: 
+                    students_limit: 80)
+FieldOfStudy.create(name: 'Mikrobiologia', field_type: ?)
+FieldDetail.create(field_of_study_id: 72,
+                    recrutation_formula: '[(Język angielski_Pp* 0.2)|(Język niemiecki_Pp* 0.2)|(Język francuski_Pp* 0.2)|(Język hiszpański_Pp* 0.2)|(Język rosyjski_Pp* 0.2)|(Język włoski_Pp* 0.2)|(Język angielski_Pr* 0.4)|(Język niemiecki_Pr* 0.4)|(Język francuski_Pr* 0.4)|(Język hiszpański_Pr* 0.4)|(Język rosyjski_Pr* 0.4)|(Język włoski_Pr* 0.4)][(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Chemia_Pp* 0.5)|(Chemia_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)]+[(Biologia_Pp* 0.5)|(Biologia_Pr* 1)|(Chemia_Pp* 0.5)|(Chemia_Pr* 1)|(Matematyka_Pp* 0.5)|(Matematyka_Pr* 1)|(Fizyka_Pp* 0.5)|(Fizyka_Pr* 1)]',
+                    academy_id: 1,
+                    students_limit: 60)

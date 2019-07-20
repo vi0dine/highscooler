@@ -121,7 +121,7 @@ class Scraper
     limit = ''
     sample_link = HTTParty.get(@uni_page.css('ul').css('.search_results').css('li').children.map { |link| link['href'] }.first)
     limits_page = Nokogiri::HTML(sample_link)
-    field_row = limits_page.css("section[data-id='limity'] > table > tbody > tr").each do |row|
+    limits_page.css("section[data-id='limity'] > table > tbody > tr").each do |row|
       if row.at_css('td').text == field
         limit << row.children[3].text
       end
@@ -155,10 +155,10 @@ class Scraper
       scraper.make_formulas(data).each_with_index do |formula, id|
         threads[id] = Thread.new {
           uwr_data << {id: id, field: "FieldOfStudy.create(name: '#{formula[:field_name]&.downcase&.capitalize}', field_type: ?)\n",
-                   formula: "FieldDetail.create(field_of_study_id: #{id},
+                   formula: "FieldDetail.create(field_of_study_id: #{id+1},
                     recrutation_formula: '#{formula[:formula]}',
                     academy_id: 1,
-                    students_limit: #{scraper.get_limit(formula[:field_name])}\n"}
+                    students_limit: #{scraper.get_limit(formula[:field_name])})\n"}
         }
       end
       threads.each(&:join)

@@ -21,8 +21,14 @@ class User < ApplicationRecord
 
   def add_recrutation_results(prepared_formulas)
     @results = []
-    prepared_formulas.each do |result| 
-      @results << eval(result.chomp('+').to_s)
+    prepared_formulas.each do |result|
+      begin
+        eval(result.chomp('+').to_s)
+      rescue
+        @results << ''
+      else
+        @results << eval(result.chomp('+').to_s)
+      end
     end
   end
 end

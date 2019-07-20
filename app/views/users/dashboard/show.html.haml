@@ -42,9 +42,9 @@
               .columns
                 .column.is-6
                   %span.subtitle 
-                    = field.academy.name
+                    = field.field_of_study.name
                   %p
-                    = field.academy.city
+                    = "#{field.academy.name} - #{field.academy.city}"
                 .column
                   %p.heading Limit miejsc
                   - unless field.students_limit.nil?
