@@ -34,4 +34,4 @@
   = label(:account_type, 'Status', class: 'label')
   .control
     .select
-      = f.select(:account_type, [['Student', 'student'], ['Uczeń', 'schoolboy']], { include_blank: true })
+      = f.select(:account_type, [['Student', 'student'], ['Uczeń', 'schoolboy']], { include_blank: true }, { 'v-model': 'accountType' })

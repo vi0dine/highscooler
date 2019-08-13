@@ -21,11 +21,18 @@
       %i.fas.fa-city
     %span.icon.is-small.is-right
       %i.fas.fa-check
-.field
+.field{'v-if':"accountType=='schoolboy'"}
   = label(:high_school, 'Szkoła średnia', class: 'label')
   .control.has-icons-left
     .select
       = f.select :high_school_id, HighSchool.all.collect {|p| [ p.name, p.id ] }
+      %span.icon.is-small.is-left
+        %i.fas.fa-school
+.field{'v-if':"accountType=='student'"}
+  = label(:high_school, 'Uczelnia', class: 'label')
+  .control.has-icons-left
+    .select
+      = f.select :academy_id, Academy.all.collect {|p| [ p.name, p.id ] }
       %span.icon.is-small.is-left
         %i.fas.fa-school
 .field

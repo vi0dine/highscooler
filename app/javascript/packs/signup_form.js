@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const app = new Vue({
     el: "#signup-form",
     data: {
-      formIndex: 0
+      formIndex: 0,
+      accountType: null
     },
     methods: {
       nextForm() {
