@@ -64,7 +64,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys:
       [:username, :email, :password, :account_type,
-       :gender, :date_of_birth, :city, :high_school_id, :date_of_matura, matura_results_attributes: [:id, :user_id, :matura_subject_id, :level, :result],
+       :gender, :date_of_birth, :city, :high_school_id, :academy_id, :date_of_matura, matura_results_attributes: [:id, :user_id, :matura_subject_id, :level, :result],
        study_interests_attributes: [:id, :user_id, :field_of_study_id]])
   end
 

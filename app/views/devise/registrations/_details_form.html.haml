@@ -29,7 +29,7 @@
       %span.icon.is-small.is-left
         %i.fas.fa-school
 .field{'v-if':"accountType=='student'"}
-  = label(:high_school, 'Uczelnia', class: 'label')
+  = label(:academy, 'Uczelnia', class: 'label')
   .control.has-icons-left
     .select
       = f.select :academy_id, Academy.all.collect {|p| [ p.name, p.id ] }
