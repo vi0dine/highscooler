@@ -12,7 +12,7 @@
       .columns
         .column
           .container
-            = Faker::Lorem.paragraph(30)
+            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
         .column
           .container
             - @field.academies.each do |academy|
@@ -43,12 +43,12 @@
                   %image{src: 'https://via.placeholder.com/64x64'}
               .media-content
                 %strong 
-                  = Faker::Internet.username
+                  Username
                 %small
-                  ='| '+ Faker::Educator.university
+                  |  University
                 %br
                 %p
-                  = Faker::Lorem.paragraph(3)
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
       .container{style: 'padding: 10px;'}
         %h2.subtitle Przedmioty maturalne
         %table.table.is-fullwidth
@@ -60,8 +60,8 @@
             - 3.times do
               %tr
                 %td
-                  = Faker::Educator.subject
+                  Przedmiot
                 %td
-                  = Faker::Number.number(2)+'%'
+                  Procenty
             
 

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   enum gender: %i[female male not_specified]
-  enum account_type: %i[schoolboy student other]
+  enum account_type: %i[schoolboy student partner admin]
   validates :username, :email, :encrypted_password, :account_type, presence: true
   validates :username, :email, uniqueness: { case_sensitive: false }
   has_many :matura_results
