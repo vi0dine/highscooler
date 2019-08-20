@@ -9,5 +9,6 @@ class AcademiesController < ApplicationController
 
   def new
     @academy = Academy.new
+    authorize! :create, @academy
   end
 end

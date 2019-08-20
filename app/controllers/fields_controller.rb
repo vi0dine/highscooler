@@ -7,4 +7,9 @@ class FieldsController < ApplicationController
   def show
     @field = FieldOfStudy.find(params[:id])
   end
+
+  def new
+    @field = FieldOfStudy.new
+    authorize! :create, @field
+  end
 end
