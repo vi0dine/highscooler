@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
   it { should have_many(:matura_results) }
   it { should have_many(:study_interests) }
 
-  it { should belong_to(:high_school) }
+  it { should belong_to(:high_school).optional }
   it 'should belongs to one highschool' do
     expect(user.high_school).to be_kind_of(HighSchool)
   end

@@ -9,6 +9,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bulma-extensions-rails'
 gem 'bulma-rails', '~> 0.7.5'
+gem 'cancancan'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'devise-argon2'
