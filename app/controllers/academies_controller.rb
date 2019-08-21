@@ -16,7 +16,7 @@ class AcademiesController < ApplicationController
     authorize! :create, @academy
     @academy = Academy.new(academy_params)
     if @academy.save
-      flash[:success] = 'Uczelnia została utworzona'
+      flash[:notice] = 'Uczelnia została utworzona'
       redirect_to root_path
     else
       render 'new'

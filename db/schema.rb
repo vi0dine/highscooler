@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2019_08_13_170124) do
   end
 
   create_table "field_of_studies", force: :cascade do |t|
-    t.string "name"
-    t.integer "field_type"
+    t.string "name", null: false
+    t.integer "field_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
