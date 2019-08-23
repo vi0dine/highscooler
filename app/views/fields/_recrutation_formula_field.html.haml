@@ -1,0 +1,28 @@
+.columns.is-vcentered
+  .column.is-2
+    .field
+      %label.label
+        Przedmioty maturalne
+      .control
+        .select.is-multiple
+          %select{ multiple: true, size: 2 }
+            - MaturaSubject.all.each do |m|
+              %option{ value: m.name }= m.name
+  .column.is-2
+    %label.label
+      Poziom podstawowy
+    .control
+      %input.input{ type: 'number' }
+  .column.is-2
+    %label.label
+      Poziom rozszerzony
+    .control
+      %input.input{ type: 'number' }
+  .column
+    %article.message.is-warning
+      .message-header
+        %p Formuła rekrutacyjna
+      .message-body
+        Formula
+%button.button.is-success
+  Dodaj
