@@ -19,8 +19,10 @@ Rails.application.routes.draw do
 
   scope :fields do
     get '/', to: 'fields#index', as: :fields
-    get '/new', to: 'fields#new', as: :new_field
-    post '/new', to: 'fields#create', as: :create_field
+    get '/new_field', to: 'fields#new_field', as: :new_field
+    post '/new_field', to: 'fields#create_field', as: :create_field
+    get '/new_details', to: 'fields#new_details', as: :new_details
+    post '/new_details', to: 'fields#create_details', as: :create_details
     get '/:id', to: 'fields#show', as: :field
   end
 end

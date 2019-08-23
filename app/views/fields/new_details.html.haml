@@ -1,0 +1,40 @@
+.container{style: 'padding: 15px;'}
+  %h1.title Dodaj szczegóły kierunku na uczelni
+  .container
+    = form_for(@field_details, url: new_details_path(@field_details), remote: true, authenticity_token: true) do |f|
+      .columns
+        .column.is-9
+          .field
+            = label(:field_of_study_id, 'Kierunek', class: 'label')
+            .control
+              .select
+                = f.select(:field_of_study_id, FieldOfStudy.all.collect {|p| [ p.name, p.id ] })
+          .field
+            = label(:academy, 'Uczelnia', class: 'label')
+            .control
+              .select
+                = f.select(:academy_id, Academy.all.collect {|p| [ p.name, p.id ] })
+          .field
+            = label(:students_limit, 'Limit przyjęć', class: 'label')
+            .control
+              = f.number_field :students_limit, class: 'input', min: 0
+          .field
+            = label(:minimal_points, 'Próg punktowy', class: 'label')
+            .control
+              = f.number_field :students_limit, class: 'input', min: 0
+        .column
+          %article.message.is-warning
+            .message-header
+              %p Info
+            .message-body
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+              Tempus quis placerat ut, porta nec nulla. 
+              Vestibulum rhoncus ac ex sit amet fringilla. 
+              Nullam gravida purus diam, et dictum. Aenean ac, in mollis lectus. Donec sodales, 
+              arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque.
+      %hr
+      .columns
+        .column
+          .field
+            .control
+              = f.submit "Dodaj", class: 'button is-primary'
