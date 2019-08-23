@@ -1,29 +1,35 @@
-#formula-generator
-  .columns.is-vcentered#formula-generator
-    .column.is-2
-      .field
+.columns.is-centered.is-vcentered#formula-generator
+  .column.is-3
+    .field
+      %label.label
+        Przedmioty maturalne
+      .control
+        .select.is-multiple
+          %select{ multiple: true, size: 3, 'v-model':'subjects' }
+            - MaturaSubject.all.each do |m|
+              %option{ value: m.name }= m.name
+  .column.is-4
+    .columns
+      .column
         %label.label
-          Przedmioty maturalne
+          Poziom podstawowy
         .control
-          .select.is-multiple
-            %select{ multiple: true, size: 2, 'v-model':'subjects' }
-              - MaturaSubject.all.each do |m|
-                %option{ value: m.name }= m.name
-    .column.is-2
-      %label.label
-        Poziom podstawowy
-      .control
-        %input.input{ type: 'number', 'v-model':'basic_ratio' }
-    .column.is-2
-      %label.label
-        Poziom rozszerzony
-      .control
-        %input.input{ type: 'number', 'v-model':'advanced_ratio' }
-    .column
-      %article.message.is-warning
-        .message-header
-          %p Formuła rekrutacyjna
-        .message-body
-          {{ formula }}
-  %button.button.is-success{'v-on:click':'generateFormula()', type: 'button'}
-    Dodaj
+          %input.input{ type: 'number', 'v-model':'basic_ratio' }
+      .column
+        %label.label
+          Poziom rozszerzony
+        .control
+          %input.input{ type: 'number', 'v-model':'advanced_ratio' }
+    .container
+      %button.button.is-fullwidth.is-success{'v-on:click':'generateFormula()', type: 'button'}
+        Dodaj przedmioty
+  .column.is-offset-1.is-4
+    %article.message.is-warning
+      .message-header
+        %p Formuła rekrutacyjna
+      .message-body
+        {{ formula }}
+    %button.button.is-success{ type: 'button', 'v-on:click':'confirmFormula()' }
+      Zatwierdź
+    %button.button.is-danger{ type: 'button', 'v-on:click':'resetFormula()' }
+      Wyczyść

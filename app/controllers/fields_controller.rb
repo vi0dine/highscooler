@@ -24,19 +24,19 @@ class FieldsController < ApplicationController
     end
   end
 
-  def new_details
-    @field_details = FieldDetail.new
-    authorize! :create, @field_details
+  def new_detail
+    @field_detail = FieldDetail.new
+    authorize! :create, @field_detail
   end
 
-  def create_details
-    authorize! :create, @field_details
-    @field_details = FieldDetail.new(field_details_params)
-    if @field_details.save
+  def create_detail
+    authorize! :create, @field_detail
+    @field_detail = FieldDetail.new(field_detail_params)
+    if @field_detail.save
       flash[:notice] = 'Kierunek został dodany do uczelni'
       redirect_to root_path
     else
-      render 'new_details'
+      render 'new_detail'
     end
   end
 
@@ -46,7 +46,7 @@ class FieldsController < ApplicationController
     params.require(:field_of_study).permit(:name, :field_type)
   end
 
-  def field_details_params
-    params.require(:field_details).permit(:academy_id, :field_of_study_id, :students_limit, :recrutation_formula, :minimal_points)
+  def field_detail_params
+    params.require(:field_detail).permit(:academy_id, :field_of_study_id, :students_limit, :recrutation_formula, :minimal_points)
   end
 end

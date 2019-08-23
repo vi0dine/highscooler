@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     get '/', to: 'fields#index', as: :fields
     get '/new_field', to: 'fields#new_field', as: :new_field
     post '/new_field', to: 'fields#create_field', as: :create_field
-    get '/new_details', to: 'fields#new_details', as: :new_details
-    post '/new_details', to: 'fields#create_details', as: :create_details
+    get '/new_detail', to: 'fields#new_detail', as: :new_detail
+    post '/new_detail', to: 'fields#create_detail', as: :create_detail
     get '/:id', to: 'fields#show', as: :field
   end
 end
