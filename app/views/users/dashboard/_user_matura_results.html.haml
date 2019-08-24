@@ -1,0 +1,15 @@
+%table.table.is-fullwidth
+  %thead
+    %tr
+      %th Przedmiot
+      %th Poziom
+      %th Wynik
+  %tbody
+  - @user.matura_results.each do |mr|
+    %tr
+      %td 
+        = mr.matura_subject.name
+      %td
+        = MaturaResult.human_enum_name(:level, mr.level)
+      %td
+        = mr.result

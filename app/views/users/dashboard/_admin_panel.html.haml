@@ -10,12 +10,12 @@
                 %span.icon
                   %i.fas.fa-graduation-cap
                 %p.title Dodaj kierunek studiów
-          %article.tile.is-child.notification.is-primary
+          %article.tile.is-child.notification.is-success
             = link_to new_academy_path, method: :get do
               .container
                 %span.icon
                   %i.fas.fa-university
-                %p.title Dodaj uczelnie
+                %p.title Dodaj uczelnię
         .tile.is-parent
           %article.tile.is-child.notification.is-warning
             = link_to new_detail_path, method: :get do
@@ -27,7 +27,7 @@
                   .message-body
                     %p Użyj generatora do utworzenia wzoru rekrutacyjnego i upewnij się, że jest on poprawny!
       .tile.is-parent
-        %article.tile.is-child.notification.is-info
+        %article.tile.is-child.notification.is-dark
           = link_to new_highschool_path, method: :get do
             .container
               %span.icon

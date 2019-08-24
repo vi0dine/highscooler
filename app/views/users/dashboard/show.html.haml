@@ -15,23 +15,11 @@
           - @user.field_of_studies.each do |field|
             %li.list-item
               = field.name
-      .columns
-        .column
-          %table.table.is-fullwidth
-            %thead
-              %tr
-                %th Przedmiot
-                %th Poziom
-                %th Wynik
-            %tbody
-            - @user.matura_results.each do |mr|
-              %tr
-                %td 
-                  = mr.matura_subject.name
-                %td
-                  = MaturaResult.human_enum_name(:level, mr.level)
-                %td
-                  = mr.result
+      .container
+        - if current_user.account_type == 'schoolboy'
+          = render 'user_matura_results'
+        - elsif current_user.account_type == 'admin'
+          = render 'basic_statistics'
     .column
       - if current_user.account_type == 'schoolboy'
         = render 'report'
