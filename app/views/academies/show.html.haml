@@ -5,7 +5,7 @@
         = @academy.name
       %h2.subtitle
         = @academy.city
-      - if current_user.account_type == 'admin'
+      - if current_user && current_user.account_type == 'admin'
         .container
           = link_to("Dodaj kierunek do uczelni", new_detail_path({ academy_id: @academy.id }), class: 'button is-success', method: 'get')
       .is-divider

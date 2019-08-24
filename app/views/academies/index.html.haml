@@ -8,7 +8,7 @@
             %input.input
           .control
             %button.button.is-info Szukaj
-      - if current_user.account_type == 'admin'
+      - if current_user && current_user.account_type == 'admin'
         .level-item
           = button_to("Dodaj uczelnię", new_academy_path, class: 'button is-success', method: 'get')
     .level-right

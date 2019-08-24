@@ -15,7 +15,7 @@
             %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
         .column
           .container
-          - if current_user.account_type == 'admin'
+          - if current_user && current_user.account_type == 'admin'
             .container{style: 'margin-bottom: 10px;'}
               = link_to("Przypisz uczelnię", new_detail_path({ field_id: @field.id }), class: 'button is-success', method: 'get')
             - @field.academies.each do |academy|

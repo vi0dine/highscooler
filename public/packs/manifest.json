@@ -1,0 +1,34 @@
+{
+  "application.js": "/packs/js/application-181d869d5d5f66e0b204.js",
+  "application.js.map": "/packs/js/application-181d869d5d5f66e0b204.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-181d869d5d5f66e0b204.js"
+      ],
+      "js.map": [
+        "/packs/js/application-181d869d5d5f66e0b204.js.map"
+      ]
+    },
+    "new_details_form": {
+      "js": [
+        "/packs/js/new_details_form-17212efd12d6420520fd.js"
+      ],
+      "js.map": [
+        "/packs/js/new_details_form-17212efd12d6420520fd.js.map"
+      ]
+    },
+    "signup_form": {
+      "js": [
+        "/packs/js/signup_form-bee5f50127b702303aca.js"
+      ],
+      "js.map": [
+        "/packs/js/signup_form-bee5f50127b702303aca.js.map"
+      ]
+    }
+  },
+  "new_details_form.js": "/packs/js/new_details_form-17212efd12d6420520fd.js",
+  "new_details_form.js.map": "/packs/js/new_details_form-17212efd12d6420520fd.js.map",
+  "signup_form.js": "/packs/js/signup_form-bee5f50127b702303aca.js",
+  "signup_form.js.map": "/packs/js/signup_form-bee5f50127b702303aca.js.map"
+}
