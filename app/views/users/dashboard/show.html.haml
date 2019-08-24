@@ -33,34 +33,7 @@
                 %td
                   = mr.result
     .column
-      %h1.title Raport
-      .container{style:'height: 650px; overflow: auto;'}
-        .tile.is-ancestor
-        - @fields.each_with_index do |field, id|
-          .tile.is-12.is-vertical{style: 'padding: 10px;'}
-            .box
-              .columns
-                .column.is-6
-                  %span.subtitle 
-                    = field.field_of_study.name
-                  %p
-                    = "#{field.academy.name} - #{field.academy.city}"
-                .column
-                  %p.heading Limit miejsc
-                  - unless field.students_limit.nil?
-                    %p 
-                      = field.students_limit
-                  - else
-                    %p Brak informacji
-                .column
-                  %p.heading Próg punktowy
-                  - unless field.minimal_points.nil?
-                    %p 
-                      = field.minimal_points.to_s+' pkt'
-                  - else
-                    %p Brak informacji
-                .column
-                  %p.heading Twój wynik
-                  %p 
-                    = "#{@user.results[id]} pkt"
-                    
+      - if current_user.account_type == 'schoolboy'
+        = render 'report'
+      - elsif current_user.account_type == 'admin'
+        = render 'admin_panel'

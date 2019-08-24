@@ -4,6 +4,7 @@ class Users::DashboardController < ApplicationController
     @fields = @user.field_details
     @formulas = @user.field_details.collect(&:recrutation_formula)
     @results = calculate_recrutation_points(@user, @formulas)
+    authorize! :read, @user
   end
 
   private
