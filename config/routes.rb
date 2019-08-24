@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     get '/:id', to: 'users/dashboard#show', as: :dashboard
   end
 
+  scope :highschools do
+    get '/new', to: 'high_schools#new', as: :new_highschool
+    post '/new', to: 'high_schools#create', as: :create_highschool
+  end
+
   scope :academies do
     get '/', to: 'academies#index', as: :academies
     get '/new', to: 'academies#new', as: :new_academy
