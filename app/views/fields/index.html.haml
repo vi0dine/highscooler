@@ -1,5 +1,5 @@
 .container{style: 'margin-top: 30px;'}
-  %h1.title Uczelnie
+  %h1.title Kierunki
   .level
     .level-left
       .level-item
@@ -8,6 +8,9 @@
             %input.input
           .control
             %button.button.is-info Szukaj
+      - if current_user.account_type == 'admin'
+        .level-item
+          = button_to("Dodaj kierunek", new_field_path, class: 'button is-success', method: 'get')
     .level-right
       .level-item.has-text-centered
         %div

@@ -1,6 +1,7 @@
 = javascript_pack_tag 'new_details_form'
 .container{style: 'padding: 15px;'}
   %h1.title Dodaj szczegóły kierunku na uczelni
+  %h2.subtitle= @req
   .container#formula-generator
     = form_for(@field_detail, url: new_detail_path(@field_detail), remote: true, authenticity_token: true) do |f|
       .columns
@@ -9,12 +10,12 @@
             = label(:field_of_study_id, 'Kierunek', class: 'label')
             .control
               .select
-                = f.select(:field_of_study_id, FieldOfStudy.all.collect {|p| [ p.name, p.id ] })
+                = f.select(:field_of_study_id, FieldOfStudy.all.collect {|p| [ p.name, p.id ] }, selected: params[:field_id])
           .field
             = label(:academy_id, 'Uczelnia', class: 'label')
             .control
               .select
-                = f.select(:academy_id, Academy.all.collect {|p| [ p.name, p.id ] })
+                = f.select(:academy_id, Academy.all.collect {|p| [ p.name, p.id ] }, selected: params[:academy_id])
           .field
             = label(:students_limit, 'Limit przyjęć', class: 'label')
             .control
