@@ -1,34 +1,44 @@
 {
-  "application.js": "/packs/js/application-181d869d5d5f66e0b204.js",
-  "application.js.map": "/packs/js/application-181d869d5d5f66e0b204.js.map",
+  "academy_opinion.js": "/packs/js/academy_opinion-dce8ffe58f96201b73d7.js",
+  "academy_opinion.js.map": "/packs/js/academy_opinion-dce8ffe58f96201b73d7.js.map",
+  "application.js": "/packs/js/application-2181adcc3224cdc0c9c1.js",
+  "application.js.map": "/packs/js/application-2181adcc3224cdc0c9c1.js.map",
   "entrypoints": {
-    "application": {
+    "academy_opinion": {
       "js": [
-        "/packs/js/application-181d869d5d5f66e0b204.js"
+        "/packs/js/academy_opinion-dce8ffe58f96201b73d7.js"
       ],
       "js.map": [
-        "/packs/js/application-181d869d5d5f66e0b204.js.map"
+        "/packs/js/academy_opinion-dce8ffe58f96201b73d7.js.map"
+      ]
+    },
+    "application": {
+      "js": [
+        "/packs/js/application-2181adcc3224cdc0c9c1.js"
+      ],
+      "js.map": [
+        "/packs/js/application-2181adcc3224cdc0c9c1.js.map"
       ]
     },
     "new_details_form": {
       "js": [
-        "/packs/js/new_details_form-17212efd12d6420520fd.js"
+        "/packs/js/new_details_form-301f9cdeb7504cb0a228.js"
       ],
       "js.map": [
-        "/packs/js/new_details_form-17212efd12d6420520fd.js.map"
+        "/packs/js/new_details_form-301f9cdeb7504cb0a228.js.map"
       ]
     },
     "signup_form": {
       "js": [
-        "/packs/js/signup_form-bee5f50127b702303aca.js"
+        "/packs/js/signup_form-9309378971e36693b5bb.js"
       ],
       "js.map": [
-        "/packs/js/signup_form-bee5f50127b702303aca.js.map"
+        "/packs/js/signup_form-9309378971e36693b5bb.js.map"
       ]
     }
   },
-  "new_details_form.js": "/packs/js/new_details_form-17212efd12d6420520fd.js",
-  "new_details_form.js.map": "/packs/js/new_details_form-17212efd12d6420520fd.js.map",
-  "signup_form.js": "/packs/js/signup_form-bee5f50127b702303aca.js",
-  "signup_form.js.map": "/packs/js/signup_form-bee5f50127b702303aca.js.map"
+  "new_details_form.js": "/packs/js/new_details_form-301f9cdeb7504cb0a228.js",
+  "new_details_form.js.map": "/packs/js/new_details_form-301f9cdeb7504cb0a228.js.map",
+  "signup_form.js": "/packs/js/signup_form-9309378971e36693b5bb.js",
+  "signup_form.js.map": "/packs/js/signup_form-9309378971e36693b5bb.js.map"
 }

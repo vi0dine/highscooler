@@ -5,6 +5,7 @@ class AcademiesController < ApplicationController
 
   def show
     @academy = Academy.find(params[:id])
+    @academy_opinion = AcademyOpinion.new
   end
 
   def new
@@ -19,7 +20,20 @@ class AcademiesController < ApplicationController
       flash[:notice] = 'Uczelnia została utworzona'
       redirect_to root_path
     else
+      flash[:alert] = 'Wystąpił błąd.'
       render 'new'
+    end
+  end
+
+  def create_academy_opinion
+    authorize! :create, @academy_opinion
+    @academy_opinion = AcademyOpinion.new(academy_opinion_params)
+    if @academy_opinion.save
+      flash[:notice] = 'Opinia została dodana. Odśwież stronę.'
+      redirect_to academy_path(@academy_opinion.academy_id)
+    else
+      flash[:alert] = 'Wystąpił błąd podczas dodawania opinii'
+      redirect_to academy_path(@academy_opinion.academy_id)
     end
   end
 
@@ -27,5 +41,9 @@ class AcademiesController < ApplicationController
 
   def academy_params
     params.require(:academy).permit(:name, :city, :academy_type)
+  end
+
+  def academy_opinion_params
+    params.require(:academy_opinion).permit(:body, :is_positive, :academy_id, :user_id)
   end
 end

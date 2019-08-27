@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get '/new', to: 'academies#new', as: :new_academy
     post '/new', to: 'academies#create', as: :create_academy
     get '/:id', to: 'academies#show', as: :academy
+    post '/new_opinion', to: 'academies#create_academy_opinion', as: :create_academy_opinion
   end
 
   scope :fields do

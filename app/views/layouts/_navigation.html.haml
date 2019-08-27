@@ -8,7 +8,7 @@
         = link_to 'Uczelnie', academies_path , :class => 'navbar-item'
         = link_to 'Kierunki', fields_path , :class => 'navbar-item'
         - if user_signed_in?
-          = link_to 'Wyloguj', destroy_user_session_path, :method => :delete, :class => 'navbar-item'
+          = link_to 'Wyloguj', destroy_user_session_path, :class => 'navbar-item'
         - else
           = link_to 'Zaloguj', new_user_session_path, :class => 'navbar-item'
           .buttons

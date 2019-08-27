@@ -1,3 +1,4 @@
+= javascript_pack_tag 'academy_opinion'
 .container{style: 'margin-top: 30px;'}
   .columns
     .column
@@ -31,16 +32,47 @@
     .column
       %figure.image
         %image{src: 'https://via.placeholder.com/468x60?text=Uniwersytet+Wroclawski'}
-      .container{style: 'margin-top: 20px;'}
+      .container#academy-opinion{ style: 'margin-top: 20px;' }
         %h2.subtitle Opinie o uczelni
+        - if (current_user&.account_type == 'student' && current_user&.academy == @academy) || current_user&.account_type == 'admin'
+          %button.button.is-success{ 'v-on:click':'showModal()' } Dodaj opinię
+          .is-divider
+          .modal{'v-bind:class': "{ 'is-active': isVisible }"}
+            = form_for(@academy_opinion, url: create_academy_opinion_path(@academy_opinion), remote: true, authenticity_token: true) do |f|
+              .modal-background
+              .modal-card
+                %header.modal-card-head
+                  %p.modal-card-title Dodaj opinię
+                  %button.delete{ type: 'button', 'v-on:click':'closeModal()'}
+                %section.modal-card-body
+                  .field
+                    %label.label Użytkownik
+                    .control
+                      %input.input{ disabled: true, value: current_user.username }
+                    = f.hidden_field :user_id, value: current_user.id
+                  .field
+                    %label.label Uczelnia                    
+                    .control
+                      %input.input{ disabled: true, value: @academy.name }
+                    = f.hidden_field :academy_id, value: @academy.id
+                  .field
+                    = label(:body, 'Opinia', class: 'label')
+                    .control
+                      = f.text_area :body, class: 'textarea'
+                  .field
+                    = f.label(:is_positive, 'Ocena', class: 'label')
+                    = f.radio_button :is_positive, true, class: 'is-checkradio', checked: true
+                    = f.label(:is_positive, 'Pozytywna', class: 'label', value: 'true')
+                    = f.radio_button :is_positive, false, class: 'is-checkradio'
+                    = f.label(:is_positive, 'Negatywna', class: 'label', value: 'false')
+                %footer.modal-card-foot
+                  %button.button.is-success{ 'v-on:click':'submit()' } Zapisz
+                  %button.button.is-danger{ type: 'button', 'v-on:click':'closeModal()' } Anuluj
         .container{style: 'height: 700px; overflow: auto;'}
-          - 15.times do
-            .notification.is-primary{style: 'padding: 10px;'}
-              %article.media
-                %figure.media-left
-                  %p.image.is-64x64
-                    %image{src: 'https://via.placeholder.com/64x64'}
-                .media-content
-                  %strong Username
-                  %br
-                  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+          - @academy.academy_opinions.each do |o|
+            - if o.is_positive
+              .notification.is-success{style: 'padding: 10px;'}
+                = render 'opinion', o: o
+            - else
+              .notification.is-danger{style: 'padding: 10px;'}
+                = render 'opinion', o: o
