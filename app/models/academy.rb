@@ -5,6 +5,7 @@ class Academy < ApplicationRecord
   has_many :users
   has_many :field_details
   has_many :field_of_studies, through: :field_details
+  has_many :academy_opinions
 
   paginates_per 5
 end

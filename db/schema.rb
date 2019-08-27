@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_170124) do
+ActiveRecord::Schema.define(version: 2019_08_27_092021) do
 
   create_table "academies", force: :cascade do |t|
     t.string "name", null: false
@@ -18,6 +18,17 @@ ActiveRecord::Schema.define(version: 2019_08_13_170124) do
     t.integer "academy_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "academy_opinions", force: :cascade do |t|
+    t.text "body"
+    t.boolean "is_positive"
+    t.integer "user_id"
+    t.integer "academy_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["academy_id"], name: "index_academy_opinions_on_academy_id"
+    t.index ["user_id"], name: "index_academy_opinions_on_user_id"
   end
 
   create_table "field_details", force: :cascade do |t|
@@ -33,8 +44,8 @@ ActiveRecord::Schema.define(version: 2019_08_13_170124) do
   end
 
   create_table "field_of_studies", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "field_type", null: false
+    t.string "name"
+    t.integer "field_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
