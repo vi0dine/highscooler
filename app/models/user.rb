@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :academy_opinions
   has_many :field_opinions
   belongs_to :high_school, optional: true
+  belongs_to :field_of_study, optional: true
   belongs_to :academy, optional: true
   accepts_nested_attributes_for :matura_results
   accepts_nested_attributes_for :study_interests

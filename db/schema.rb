@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_120940) do
+ActiveRecord::Schema.define(version: 2019_08_27_163531) do
 
   create_table "academies", force: :cascade do |t|
     t.string "name", null: false
@@ -115,8 +115,10 @@ ActiveRecord::Schema.define(version: 2019_08_27_120940) do
     t.date "date_of_matura"
     t.integer "high_school_id"
     t.integer "academy_id"
+    t.integer "field_of_study_id"
     t.index ["academy_id"], name: "index_users_on_academy_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["field_of_study_id"], name: "index_users_on_field_of_study_id"
     t.index ["high_school_id"], name: "index_users_on_high_school_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

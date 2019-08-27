@@ -15,7 +15,6 @@ class FieldsController < ApplicationController
   end
 
   def create_field
-    authorize! :create, @field
     @field_of_study = FieldOfStudy.new(field_of_study_params)
     if @field_of_study.save
       flash[:notice] = 'Kierunek został utworzony'
@@ -23,6 +22,7 @@ class FieldsController < ApplicationController
     else
       render 'new_field'
     end
+    authorize! :create, @field_of_study
   end
 
   def new_detail
@@ -31,7 +31,6 @@ class FieldsController < ApplicationController
   end
 
   def create_detail
-    authorize! :create, @field_detail
     @field_detail = FieldDetail.new(field_detail_params)
     if @field_detail.save
       flash[:notice] = 'Kierunek został dodany do uczelni'
@@ -39,18 +38,19 @@ class FieldsController < ApplicationController
     else
       render 'new_detail'
     end
+    authorize! :create, @field_detail
   end
 
   def create_field_opinion
-    authorize! :create, @field_opinion
     @field_opinion = FieldOpinion.new(field_opinion_params)
     if @field_opinion.save
-      flash[:notice] = 'Opinia została dodana. Odśwież stronę.'
-      # redirect_to field_path(@field_opinion.field_of_study_id)
+      flash[:notice] = 'Opinia została dodana.'
+      redirect_to field_path(@field_opinion.field_of_study_id)
     else
       flash[:alert] = 'Wystąpił błąd podczas dodawania opinii'
-      # redirect_to field_path(@field_opinion.field_of_study_id)
+      redirect_to field_path(@field_opinion.field_of_study_id)
     end
+    authorize! :create, @field_opinion
   end
 
   private

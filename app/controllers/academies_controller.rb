@@ -26,15 +26,15 @@ class AcademiesController < ApplicationController
   end
 
   def create_academy_opinion
-    authorize! :create, @academy_opinion
     @academy_opinion = AcademyOpinion.new(academy_opinion_params)
     if @academy_opinion.save
-      flash[:notice] = 'Opinia została dodana. Odśwież stronę.'
+      flash[:notice] = 'Opinia została dodana.'
       redirect_to academy_path(@academy_opinion.academy_id)
     else
       flash[:alert] = 'Wystąpił błąd podczas dodawania opinii'
       redirect_to academy_path(@academy_opinion.academy_id)
     end
+    authorize! :create, @academy_opinion
   end
 
   private
