@@ -35,23 +35,22 @@
                       .column.has-text-centered
                         %span.heading Zainteresowani
                         %p TODO
-    .column
+    .column#opinions
       %h2.subtitle Opinie o kierunku
+      - if (current_user&.account_type == 'student' && current_user&.field_of_study == @field) || current_user&.account_type == 'admin'
+        %button.button.is-success{ 'v-on:click':'showModal()' } Dodaj opinię
+        .is-divider
+        = form_for(@field_opinion, url: create_field_opinion_path(@field_opinion), remote: true, authenticity_token: true) do |f|
+          = render 'academies/new_opinion_form', f: f, resource: @field
       .container{style: 'height: 400px; overflow: auto;'}
-        - 15.times do
-          .notification.is-primary{style: 'padding: 10px;'}
-            %article.media
-              %figure.media-left
-                %p.image.is-64x64
-                  %image{src: 'https://via.placeholder.com/64x64'}
-              .media-content
-                %strong 
-                  Username
-                %small
-                  |  University
-                %br
-                %p
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+        - @field.field_opinions.each do |o|
+          - if o.is_positive
+            .notification.is-success{style: 'padding: 10px;'}
+              = render 'opinion', o: o
+          - else
+            .notification.is-danger{style: 'padding: 10px;'}
+              = render 'opinion', o: o
+
       .container{style: 'padding: 10px;'}
         %h2.subtitle Przedmioty maturalne
         %table.table.is-fullwidth

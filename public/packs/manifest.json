@@ -1,15 +1,15 @@
 {
-  "academy_opinion.js": "/packs/js/academy_opinion-dce8ffe58f96201b73d7.js",
-  "academy_opinion.js.map": "/packs/js/academy_opinion-dce8ffe58f96201b73d7.js.map",
+  "academy_opinion.js": "/packs/js/academy_opinion-23734ebea945a77e258c.js",
+  "academy_opinion.js.map": "/packs/js/academy_opinion-23734ebea945a77e258c.js.map",
   "application.js": "/packs/js/application-2181adcc3224cdc0c9c1.js",
   "application.js.map": "/packs/js/application-2181adcc3224cdc0c9c1.js.map",
   "entrypoints": {
     "academy_opinion": {
       "js": [
-        "/packs/js/academy_opinion-dce8ffe58f96201b73d7.js"
+        "/packs/js/academy_opinion-23734ebea945a77e258c.js"
       ],
       "js.map": [
-        "/packs/js/academy_opinion-dce8ffe58f96201b73d7.js.map"
+        "/packs/js/academy_opinion-23734ebea945a77e258c.js.map"
       ]
     },
     "application": {

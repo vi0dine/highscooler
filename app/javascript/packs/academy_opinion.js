@@ -2,7 +2,7 @@ import Vue from "vue/dist/vue.esm";
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = new Vue({
-    el: "#academy-opinion",
+    el: "#opinions",
     data: {
       isVisible: false
     },

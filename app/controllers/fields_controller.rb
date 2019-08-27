@@ -6,6 +6,7 @@ class FieldsController < ApplicationController
 
   def show
     @field = FieldOfStudy.find(params[:id])
+    @field_opinion = FieldOpinion.new
   end
 
   def new_field
@@ -40,6 +41,18 @@ class FieldsController < ApplicationController
     end
   end
 
+  def create_field_opinion
+    authorize! :create, @field_opinion
+    @field_opinion = FieldOpinion.new(field_opinion_params)
+    if @field_opinion.save
+      flash[:notice] = 'Opinia została dodana. Odśwież stronę.'
+      # redirect_to field_path(@field_opinion.field_of_study_id)
+    else
+      flash[:alert] = 'Wystąpił błąd podczas dodawania opinii'
+      # redirect_to field_path(@field_opinion.field_of_study_id)
+    end
+  end
+
   private
 
   def field_of_study_params
@@ -48,5 +61,9 @@ class FieldsController < ApplicationController
 
   def field_detail_params
     params.require(:field_detail).permit(:academy_id, :field_of_study_id, :students_limit, :recrutation_formula, :minimal_points)
+  end
+
+  def field_opinion_params
+    params.require(:field_opinion).permit(:body, :is_positive, :user_id, :field_of_study_id, :academy_id)
   end
 end

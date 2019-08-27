@@ -30,5 +30,6 @@ Rails.application.routes.draw do
     get '/new_detail', to: 'fields#new_detail', as: :new_detail
     post '/new_detail', to: 'fields#create_detail', as: :create_detail
     get '/:id', to: 'fields#show', as: :field
+    post '/new_opinion', to: 'fields#create_field_opinion', as: :create_field_opinion
   end
 end
