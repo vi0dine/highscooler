@@ -4,8 +4,8 @@
   - @fields.each_with_index do |field, id|
     .tile.is-12.is-vertical{style: 'padding: 10px;'}
       .box
-        .columns
-          .column.is-6
+        .columns.is-centered.is-vcentered
+          .column.is-5
             %span.subtitle 
               = field.field_of_study.name
             %p
@@ -28,4 +28,13 @@
             %p.heading Twój wynik
             %p 
               = "#{@user.results[id]} pkt"
+          - unless current_user.interesteds.select { |f| f.field_detail_id == field.id }.count > 0
+            .column
+              %p.heading Zainteresowany?
+              = link_to create_interest_path(interested: { user_id: current_user.id, field_detail_id: field.id }), method: :post, class: 'button is-rounded is-success' do
+                %span.icon.is-small
+                  %i.fas.fa-check
+              %button.button.is-rounded.is-danger
+                %span.icon.is-small
+                  %i.fas.fa-times
               

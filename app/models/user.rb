@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :field_details, through: :field_of_studies
   has_many :academy_opinions
   has_many :field_opinions
+  has_many :interesteds
   belongs_to :high_school, optional: true
   belongs_to :field_of_study, optional: true
   belongs_to :academy, optional: true

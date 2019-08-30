@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   scope :users do
     get '/:id', to: 'users/dashboard#show', as: :dashboard
+    post '/:id/interest', to: 'users/dashboard#create_interest', as: :create_interest
   end
 
   scope :highschools do
