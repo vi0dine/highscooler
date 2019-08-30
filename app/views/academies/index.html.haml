@@ -40,7 +40,7 @@
                 %div
                   %p.heading Zainteresowanych
                   %p.subtitle
-                    TODO
+                    = academy.field_of_studies.sum { |f| f.field_details.first.users.count }
               .column.is-1.has-text-centered
                 %div
                   %p.heading Ranking

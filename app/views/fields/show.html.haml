@@ -34,7 +34,7 @@
                           = academy.city
                     .column.has-text-centered
                       %span.heading Zainteresowani
-                      %p TODO
+                      %p= academy.field_details.select { |f| f.field_of_study == @field }.first.users.count
     .column#opinions
       %h2.subtitle Opinie o kierunku
       - if (current_user&.account_type == 'student' && current_user&.field_of_study == @field) || current_user&.account_type == 'admin'

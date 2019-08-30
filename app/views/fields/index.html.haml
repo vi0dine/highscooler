@@ -42,7 +42,7 @@
                 %div
                   %p.heading Zainteresowanych
                   %p.subtitle
-                    = field.users.count
+                    = field.field_details.sum { |f| f.users.count }
               .column.is-1.has-text-centered
                 %div
                   %p.heading Ranking
