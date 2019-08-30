@@ -18,23 +18,23 @@
           - if current_user && current_user.account_type == 'admin'
             .container{style: 'margin-bottom: 10px;'}
               = link_to("Przypisz uczelnię", new_detail_path({ field_id: @field.id }), class: 'button is-success', method: 'get')
-            - @field.academies.each do |academy|
-              .box{style: 'padding: 10px;'}
-                %article.media
-                  %figure.media-left
-                    %p.image.is-64x64
-                      %image{src: 'https://via.placeholder.com/64x64'}
-                  .media-content
-                    .columns.is-centered.is-vcentered
-                      .column.has-text-left
-                        .content
-                          %span.heading.is-size-7
-                            = academy.name
-                          %span.is-size-8
-                            = academy.city
-                      .column.has-text-centered
-                        %span.heading Zainteresowani
-                        %p TODO
+          - @field.academies.each do |academy|
+            .box{style: 'padding: 10px;'}
+              %article.media
+                %figure.media-left
+                  %p.image.is-64x64
+                    %image{src: 'https://via.placeholder.com/64x64'}
+                .media-content
+                  .columns.is-centered.is-vcentered
+                    .column.has-text-left
+                      .content
+                        %span.heading.is-size-7
+                          = academy.name
+                        %span.is-size-8
+                          = academy.city
+                    .column.has-text-centered
+                      %span.heading Zainteresowani
+                      %p TODO
     .column#opinions
       %h2.subtitle Opinie o kierunku
       - if (current_user&.account_type == 'student' && current_user&.field_of_study == @field) || current_user&.account_type == 'admin'
