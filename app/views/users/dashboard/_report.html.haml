@@ -31,10 +31,7 @@
           - unless current_user.interesteds.select { |f| f.field_detail_id == field.id }.count > 0
             .column
               %p.heading Zainteresowany?
-              = link_to create_interest_path(interested: { user_id: current_user.id, field_detail_id: field.id }), method: :post, class: 'button is-rounded is-success' do
+              = link_to create_interest_path(interested: { user_id: current_user.id, field_detail_id: field.id }), method: :post, class: 'button is-rounded is-fullwidth is-success' do
                 %span.icon.is-small
                   %i.fas.fa-check
-              %button.button.is-rounded.is-danger
-                %span.icon.is-small
-                  %i.fas.fa-times
               
