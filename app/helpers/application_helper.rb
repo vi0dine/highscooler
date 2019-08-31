@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def link_to_add_exam(name, f, association, **args)
     new_object = f.object.send(association).klass.new

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Academy < ApplicationRecord
   enum academy_type: %i[university polytechnic music_academy medical_academy art_academy other]
   validates :name, :city, :academy_type, presence: true

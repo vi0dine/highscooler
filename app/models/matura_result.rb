@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MaturaResult < ApplicationRecord
   enum level: %i[basic advanced]
   validates :level, :result, presence: true

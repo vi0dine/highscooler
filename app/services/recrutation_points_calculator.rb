@@ -3,6 +3,11 @@
 class RecrutationPointsCalculator
   def initialize(user)
     @user = user
+    @basic_res = user.matura_results.select(&:basic?)
+    @advanced_res = user.matura_results.select(&:advanced?)
+    @max_basic_subject_id = nil
+    @max_advanced_subject_id = nil
+    @max_exponent_result = -1
   end
 
   def self.call(user)
@@ -17,69 +22,82 @@ class RecrutationPointsCalculator
 
   private
 
-  # RegEx 1: \(([^()]+)\) -> Match elements in parentheses
-  # RegEx 2: [^(].+?(#{subject.name}).+?(?=\))
-  # RegEx 3: \(.*?(#{subject.name}).*?\)
-  # RegEx 4: \((?:(?!#{subject_to_not_include}).)*?\)
+  def find_subject_with_level(level, subject_name)
+    if level == 'basic'
+      @basic_res.detect { |result| result.basic_subject?(subject_name) }
+    elsif level == 'advanced'
+      @advanced_res.detect { |result| result.advanced_subject?(subject_name) }
+    else
+      false
+    end
+  end
+
+  def update_max_advanced_result(subject, subject_name)
+    subject.gsub!(subject_name, find_subject_with_level('advanced', subject_name)&.result.to_s)
+    # assign evaluated value to @max_exponent_result
+    begin
+      if @max_exponent_result < eval(subject)
+        @max_exponent_result = eval(subject)
+        @max_advanced_subject_id = find_subject_with_level('advanced', subject_name)&.id
+      end
+    rescue SyntaxError
+      p 'Syntax error in formula'
+      throw :formula_error
+    end
+  end
+
+  def update_max_basic_result(subject, subject_name)
+    subject.gsub!(subject_name, find_subject_with_level('basic', subject_name)&.result.to_s)
+    # assign evaluated value to @max_exponent_result
+    begin
+      if @max_exponent_result < eval(subject)
+        @max_exponent_result = eval(subject)
+        @max_basic_subject_id = find_subject_with_level('basic', subject_name)&.id
+      end
+    rescue SyntaxError
+      p 'Syntax error in formula'
+      throw :formula_error
+    end
+  end
+
+  def replace_subject_name(subject)
+    subject.gsub!(/^[\(]|[\)]$/, '')
+    subject_name = /.*_../.match(subject)[0]
+    # replace its name with users result
+    if @basic_res.detect { |result| result.basic_subject?(subject_name) }
+      update_max_basic_result(subject, subject_name)
+    elsif @advanced_res.detect { |result| result.advanced_subject?(subject_name) }
+      update_max_advanced_result(subject, subject_name)
+    else
+      # if no user result assign '0'
+      subject.gsub!(subject_name, '0')
+    end
+  end
+
+  def calculate_exponent(exp, formula)
+    @max_exponent_result = -1
+    exp.gsub!(/^[\[]|[\]]$/, '')
+    # extract subjects
+    subjects = exp.split('|')
+    # and for each subjects
+    subjects.each { |subject| replace_subject_name(subject) }
+    # replace first element with @max_exponent_result value
+    exp.replace(@max_exponent_result.to_s)
+    # reject @max_exponent_result elements from user results to avoid duplicates
+    @basic_res.reject! { |res| res.id == @max_basic_subject_id }
+    @advanced_res.reject! { |res| res.id == @max_advanced_subject_id }
+    # replace formula with calculated elements
+    formula << exp << '+'
+  end
 
   def count_points(user)
     # For each formula
     user.formulas.each do |formula|
-      catch :formula_error do 
-        basic_res = user.matura_results.select(&:basic?)
-        advanced_res = user.matura_results.select(&:advanced?)
-        max_basic_subject_id = nil
-        max_advanced_subject_id = nil
+      catch :formula_error do
         exps = formula.split('+')
         formula.clear
         # and each element
-        exps.each do |exp|
-          max = -1
-          exp.gsub!(/^[\[]|[\]]$/, '')
-          # extract subjects
-          subjects = exp.split('|')
-          # and for each subjects
-          subjects.each do |subject|
-            subject.gsub!(/^[\(]|[\)]$/, '')
-            subject_name = /.*_../.match(subject)[0]
-            # replace its name with users result
-            if basic_res.detect{ |result| result.basic_subject?(subject_name) }
-              subject.gsub!(subject_name, (basic_res.detect{ |result| result.basic_subject?(subject_name) })&.result.to_s)
-              # assign evaluated value to max
-              begin
-                if max < eval(subject)
-                  max = eval(subject)
-                  max_basic_subject_id = (basic_res.detect{ |result| result.basic_subject?(subject_name) })&.id
-                end
-              rescue SyntaxError
-                p 'Syntax error in formula'
-                throw :formula_error
-              end
-            elsif advanced_res.detect{ |result| result.advanced_subject?(subject_name) }
-              subject.gsub!(subject_name, (advanced_res.detect{ |result| result.advanced_subject?(subject_name) })&.result.to_s)
-              # assign evaluated value to max
-              begin
-                if (max < eval(subject))
-                  max = eval(subject)
-                  max_advanced_subject_id = (advanced_res.detect{ |result| result.advanced_subject?(subject_name) })&.id
-                end
-              rescue SyntaxError
-                p 'Syntax error in formula'
-                throw :formula_error
-              end
-            else
-              # if no user result assign '0'
-              subject.gsub!(subject_name, '0')
-            end
-          end
-          # replace first element with max value
-          exp.replace(max.to_s)
-          # reject max elements from user results to avoid duplicates
-          basic_res.reject! { |res| res.id == max_basic_subject_id }
-          advanced_res.reject! { |res| res.id == max_advanced_subject_id}
-          # replace formula with calculated elements
-          formula << exp << "+"
-        end
+        exps.each { |exp| calculate_exponent(exp, formula) }
       end
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FieldDetail < ApplicationRecord
   belongs_to :academy
   belongs_to :field_of_study
