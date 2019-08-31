@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AcademiesController < ApplicationController
   def index
     @academies = Academy.order(:name).page params[:page]
@@ -29,11 +31,10 @@ class AcademiesController < ApplicationController
     @academy_opinion = AcademyOpinion.new(academy_opinion_params)
     if @academy_opinion.save
       flash[:notice] = 'Opinia została dodana.'
-      redirect_to academy_path(@academy_opinion.academy_id)
     else
       flash[:alert] = 'Wystąpił błąd podczas dodawania opinii'
-      redirect_to academy_path(@academy_opinion.academy_id)
     end
+    redirect_to academy_path(@academy_opinion.academy_id)
     authorize! :create, @academy_opinion
   end
 

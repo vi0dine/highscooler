@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HighSchoolsController < ApplicationController
   def new
     @highschool = HighSchool.new
@@ -5,7 +7,6 @@ class HighSchoolsController < ApplicationController
   end
 
   def create
-    authorize! :create, @highschool
     @highschool = HighSchool.new(high_school_params)
     if @highschool.save
       flash[:notice] = 'Szkoła została utworzona'
@@ -13,6 +14,7 @@ class HighSchoolsController < ApplicationController
     else
       render 'new'
     end
+    authorize! :create, @highschool
   end
 
   private

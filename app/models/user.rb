@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attr_accessor :results
+
   enum gender: %i[female male not_specified]
   enum account_type: %i[schoolboy student partner admin]
   validates :username, :email, :encrypted_password, :account_type, presence: true
@@ -22,18 +24,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :encryptable
 
-  attr_accessor :results
-
-  def add_recrutation_results(prepared_formulas)
-    @results = []
-    prepared_formulas.each do |result|
-      begin
-        eval(result.chomp('+').to_s)
-      rescue SyntaxError
-        @results << '-'
-      else
-        @results << eval(result.chomp('+').to_s)
-      end
-    end
+  def formulas
+    field_details.collect(&:recrutation_formula)
   end
 end

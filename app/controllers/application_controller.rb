@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :set_locale
 
@@ -11,7 +13,7 @@ class ApplicationController < ActionController::Base
     dashboard_path(resource.id)
   end
 
-  def after_sign_out_path_for(resource)
+  def after_sign_out_path_for
     root_path
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FieldsController < ApplicationController
   def index
     @all_fields = FieldOfStudy.all
@@ -45,11 +47,10 @@ class FieldsController < ApplicationController
     @field_opinion = FieldOpinion.new(field_opinion_params)
     if @field_opinion.save
       flash[:notice] = 'Opinia została dodana.'
-      redirect_to field_path(@field_opinion.field_of_study_id)
     else
       flash[:alert] = 'Wystąpił błąd podczas dodawania opinii'
-      redirect_to field_path(@field_opinion.field_of_study_id)
     end
+    redirect_to field_path(@field_opinion.field_of_study_id)
     authorize! :create, @field_opinion
   end
 
