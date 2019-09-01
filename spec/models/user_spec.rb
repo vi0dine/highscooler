@@ -34,8 +34,4 @@ RSpec.describe User, type: :model do
 
   it { should have_many(:matura_subjects).through(:matura_results) }
   it { should have_many(:field_details).through(:field_of_studies) }
-
-  it 'should have hashed password' do
-    expect(user.valid_password?('123456')).to be_truthy
-  end
 end

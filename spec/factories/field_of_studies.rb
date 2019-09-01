@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :field_of_study do
-    name { Faker::Educator.course_name }
-    field_type { 4 }
+    sequence(:name) { |n| "#{Faker::Educator.course_name} #{n}" }
+    field_type { Faker::Base.rand(17) }
 
     factory :field_of_study_with_interests do
       after :create do |field_of_study|

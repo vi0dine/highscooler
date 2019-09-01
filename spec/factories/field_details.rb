@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :field_detail do
     students_limit { Faker::Base.rand(400) }

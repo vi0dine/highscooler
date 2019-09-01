@@ -13,6 +13,6 @@ RSpec.describe HighSchool, type: :model do
   end
 
   it 'should have some users associated' do
-    expect(high_school_with_users.users.count).to eq(3)
+    expect(high_school_with_users.users.count).to eq(30)
   end
 end
