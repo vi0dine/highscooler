@@ -6,4 +6,8 @@ class FieldDetail < ApplicationRecord
   has_many :interesteds
   has_many :users, through: :interesteds
   validates :recrutation_formula, presence: true
+
+  def name
+    field_of_study.name
+  end
 end

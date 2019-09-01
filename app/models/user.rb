@@ -34,11 +34,19 @@ class User < ApplicationRecord
     account_type == 'admin'
   end
 
+  def schoolboy?
+    account_type == 'schoolboy'
+  end
+
   def student_of_academy?(academy)
     account_type == 'student' && self.academy == academy
   end
 
   def student_of_field?(field_of_study)
     account_type == 'student' && self.field_of_study == field_of_study
+  end
+
+  def interested_in_field?(field)
+    interesteds.select { |f| f.field_detail_id == field.id }.count.positive?
   end
 end

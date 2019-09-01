@@ -16,12 +16,12 @@
             %li.list-item
               = field.name
       .container
-        - if current_user.account_type == 'schoolboy'
+        - if current_user.schoolboy?
           = render 'user_matura_results'
-        - elsif current_user.account_type == 'admin'
+        - elsif current_user.admin?
           = render 'basic_statistics'
     .column
-      - if current_user.account_type == 'schoolboy'
+      - if current_user.schoolboy?
         = render 'report'
-      - elsif current_user.account_type == 'admin'
+      - elsif current_user.admin?
         = render 'admin_panel'

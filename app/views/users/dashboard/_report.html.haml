@@ -7,19 +7,19 @@
         .columns.is-centered.is-vcentered
           .column.is-5
             %span.subtitle 
-              = field.field_of_study.name
+              = field.name
             %p
               = "#{field.academy.name} - #{field.academy.city}"
           .column
             %p.heading Limit miejsc
-            - unless field.students_limit.nil?
+            - unless field.students_limit.blank?
               %p 
                 = field.students_limit
             - else
               %p Brak informacji
           .column
             %p.heading Próg punktowy
-            - unless field.minimal_points.nil?
+            - unless field.minimal_points.blank?
               %p 
                 = field.minimal_points.to_s+' pkt'
             - else
@@ -28,7 +28,7 @@
             %p.heading Twój wynik
             %p 
               = "#{@user.results[id]} pkt"
-          - unless current_user.interesteds.select { |f| f.field_detail_id == field.id }.count > 0
+          - unless current_user.interested_in_field?(field)
             .column
               %p.heading Zainteresowany?
               = link_to create_interest_path(interested: { user_id: current_user.id, field_detail_id: field.id }), method: :post, class: 'button is-rounded is-fullwidth is-success' do
