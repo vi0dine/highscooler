@@ -14,5 +14,11 @@ FactoryBot.define do
         create_list :field_detail, 50, academy: academy
       end
     end
+
+    factory :academy_with_students do
+      after :create do |academy|
+        create_list :user, 20, academy: academy, account_type: 'student'
+      end
+    end
   end
 end
