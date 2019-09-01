@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :field_of_study do
-    name { Faker::Educator.degree }
+    name { Faker::Educator.course_name }
     field_type { 4 }
 
     factory :field_of_study_with_interests do
