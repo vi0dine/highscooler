@@ -103,14 +103,11 @@ class RecrutationPointsCalculator
   end
 
   def calculate_recrutation_points(user)
-    begin
-      counted = count_points(user)
-      counted.each do |points|
-        points.gsub!(/.*-1.*/, '-')
-      end
-      your_results = counted
+    counted = count_points(user)
+    counted.each do |points|
+      points.gsub!(/.*-1.*/, '-')
     end
-    assign_recrutation_results(user, your_results)
+    assign_recrutation_results(user, counted)
   end
 
   def assign_recrutation_results(user, prepared_formulas)

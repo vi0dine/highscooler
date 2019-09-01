@@ -11,4 +11,8 @@ class FieldOfStudy < ApplicationRecord
 
   has_many :field_opinions
   paginates_per 5
+
+  def interested_users_count
+    field_details.first.users.count
+  end
 end

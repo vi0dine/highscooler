@@ -5,7 +5,7 @@
         = @academy.name
       %h2.subtitle
         = @academy.city
-      - if current_user && current_user.account_type == 'admin'
+      - if current_user&.admin?
         .container
           = link_to("Dodaj kierunek do uczelni", new_detail_path({ academy_id: @academy.id }), class: 'button is-success', method: 'get')
       .is-divider
@@ -27,13 +27,13 @@
                   .column.has-text-centered
                     %span.heading Zainteresowani
                     %p
-                      = field.field_details.first.users.count
+                      = field.interested_users_count
     .column
       %figure.image
         %image{src: 'https://via.placeholder.com/468x60?text=Uniwersytet+Wroclawski'}
       .container#opinions{ style: 'margin-top: 20px;' }
         %h2.subtitle Opinie o uczelni
-        - if (current_user&.account_type == 'student' && current_user&.academy == @academy) || current_user&.account_type == 'admin'
+        - if current_user&.student_of_academy?(@academy) || current_user&.admin?
           %button.button.is-success{ 'v-on:click':'showModal()' } Dodaj opinię
           .is-divider
           = form_for(@academy_opinion, url: create_academy_opinion_path(@academy_opinion), remote: true, authenticity_token: true) do |f|

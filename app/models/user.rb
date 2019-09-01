@@ -29,4 +29,16 @@ class User < ApplicationRecord
   def formulas
     field_details.collect(&:recrutation_formula)
   end
+
+  def admin?
+    account_type == 'admin'
+  end
+
+  def student_of_academy?(academy)
+    account_type == 'student' && self.academy == academy
+  end
+
+  def student_of_field?(field_of_study)
+    account_type == 'student' && self.field_of_study == field_of_study
+  end
 end

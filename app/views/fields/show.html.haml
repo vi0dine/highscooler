@@ -34,10 +34,10 @@
                           = academy.city
                     .column.has-text-centered
                       %span.heading Zainteresowani
-                      %p= academy.field_details.select { |f| f.field_of_study == @field }.first.users.count
+                      %p= academy.interested_users_count_of_field(@field)
     .column#opinions
       %h2.subtitle Opinie o kierunku
-      - if (current_user&.account_type == 'student' && current_user&.field_of_study == @field) || current_user&.account_type == 'admin'
+      - if current_user&.student_of_field?(@field) || current_user&.admin?
         %button.button.is-success{ 'v-on:click':'showModal()' } Dodaj opinię
         .is-divider
         = form_for(@field_opinion, url: create_field_opinion_path(@field_opinion), remote: true, authenticity_token: true) do |f|
