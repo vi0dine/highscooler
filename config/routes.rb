@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   scope :users do
     get '/:id', to: 'users/dashboard#show', as: :dashboard
-    post '/:id/interest', to: 'users/dashboard#create_interest', as: :create_interest
+    post '/:id/interest', to: 'interested#create', as: :create_interest
   end
 
   scope :highschools do
@@ -21,16 +21,16 @@ Rails.application.routes.draw do
     get '/new', to: 'academies#new', as: :new_academy
     post '/new', to: 'academies#create', as: :create_academy
     get '/:id', to: 'academies#show', as: :academy
-    post '/new_opinion', to: 'academies#create_academy_opinion', as: :create_academy_opinion
+    post '/new_opinion', to: 'academy_opinions#create', as: :create_academy_opinion
   end
 
   scope :fields do
     get '/', to: 'fields#index', as: :fields
-    get '/new_field', to: 'fields#new_field', as: :new_field
-    post '/new_field', to: 'fields#create_field', as: :create_field
-    get '/new_detail', to: 'fields#new_detail', as: :new_detail
-    post '/new_detail', to: 'fields#create_detail', as: :create_detail
+    get '/new_field', to: 'fields#new', as: :new_field
+    post '/new_field', to: 'fields#create', as: :create_field
+    get '/new_detail', to: 'field_details#new', as: :new_detail
+    post '/new_detail', to: 'field_details#create', as: :create_detail
     get '/:id', to: 'fields#show', as: :field
-    post '/new_opinion', to: 'fields#create_field_opinion', as: :create_field_opinion
+    post '/new_opinion', to: 'field_opinions#create', as: :create_field_opinion
   end
 end

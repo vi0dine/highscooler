@@ -41,7 +41,7 @@
         %button.button.is-success{ 'v-on:click':'showModal()' } Dodaj opinię
         .is-divider
         = form_for(@field_opinion, url: create_field_opinion_path(@field_opinion), remote: true, authenticity_token: true) do |f|
-          = render 'academies/new_opinion_form', f: f, resource: @field
+          = render 'shared/new_opinion_form', f: f, resource: @field
       .container{style: 'height: 400px; overflow: auto;'}
         - @field.field_opinions.each do |o|
           - if o.is_positive

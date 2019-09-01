@@ -27,24 +27,9 @@ class AcademiesController < ApplicationController
     end
   end
 
-  def create_academy_opinion
-    @academy_opinion = AcademyOpinion.new(academy_opinion_params)
-    if @academy_opinion.save
-      flash[:notice] = 'Opinia została dodana.'
-    else
-      flash[:alert] = 'Wystąpił błąd podczas dodawania opinii'
-    end
-    redirect_to academy_path(@academy_opinion.academy_id)
-    authorize! :create, @academy_opinion
-  end
-
   private
 
   def academy_params
     params.require(:academy).permit(:name, :city, :academy_type)
-  end
-
-  def academy_opinion_params
-    params.require(:academy_opinion).permit(:body, :is_positive, :academy_id, :user_id)
   end
 end

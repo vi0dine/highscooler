@@ -18,7 +18,7 @@
         - elsif resource.is_a? FieldOfStudy
           %label.label Kierunek
           = f.hidden_field :field_of_study_id, value: resource.id
-          = f.hidden_field :academy_id, value: current_user.academy.id
+          = f.hidden_field :academy_id, value: current_user.academy&.id
         .control
           %input.input{ disabled: true, value: resource.name }
       .field
