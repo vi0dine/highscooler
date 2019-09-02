@@ -21,12 +21,13 @@ ActiveRecord::Schema.define(version: 2019_08_30_151847) do
   end
 
   create_table "academy_opinions", force: :cascade do |t|
-    t.text "body"
-    t.boolean "is_positive"
+    t.text "body", null: false
+    t.boolean "is_positive", null: false
     t.integer "user_id"
     t.integer "academy_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["academy_id", "user_id"], name: "one_academy_opinion", unique: true
     t.index ["academy_id"], name: "index_academy_opinions_on_academy_id"
     t.index ["user_id"], name: "index_academy_opinions_on_user_id"
   end
@@ -52,13 +53,14 @@ ActiveRecord::Schema.define(version: 2019_08_30_151847) do
   end
 
   create_table "field_opinions", force: :cascade do |t|
-    t.text "body"
-    t.boolean "is_positive"
+    t.text "body", null: false
+    t.boolean "is_positive", null: false
     t.integer "user_id"
     t.integer "field_of_study_id"
     t.integer "academy_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["academy_id", "field_of_study_id", "user_id"], name: "one_field_opinion", unique: true
     t.index ["academy_id"], name: "index_field_opinions_on_academy_id"
     t.index ["field_of_study_id"], name: "index_field_opinions_on_field_of_study_id"
     t.index ["user_id"], name: "index_field_opinions_on_user_id"
@@ -77,6 +79,7 @@ ActiveRecord::Schema.define(version: 2019_08_30_151847) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["field_detail_id", "user_id"], name: "index_interesteds_on_field_detail_id_and_user_id", unique: true
     t.index ["field_detail_id"], name: "index_interesteds_on_field_detail_id"
     t.index ["user_id"], name: "index_interesteds_on_user_id"
   end

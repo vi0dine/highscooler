@@ -9,8 +9,8 @@ RSpec.describe MaturaResult, type: :model do
   it { should validate_presence_of(:result) }
 
   it 'should create valid matura result with all fields' do
-    expect(matura_result.level).to eq('basic')
-    expect(matura_result.result).to eq(99)
+    expect(%w[basic advanced]).to include(matura_result.level)
+    expect(matura_result.result).to be_between(0, 100)
     expect(matura_result.matura_subject.name).to be_kind_of(String)
     expect(matura_result.user.username).to be_kind_of(String)
   end

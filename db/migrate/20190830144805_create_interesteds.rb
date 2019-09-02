@@ -5,5 +5,6 @@ class CreateInteresteds < ActiveRecord::Migration[5.2]
       t.belongs_to :user
       t.timestamps
     end
+    add_index :interesteds, [:field_detail_id, :user_id], unique: true
   end
 end
