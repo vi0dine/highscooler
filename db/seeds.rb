@@ -75,7 +75,7 @@ FieldDetail.create(field_of_study_id: 4,
                     academy_id: 1,
                     students_limit: 65)
 FieldDetail.create(field_of_study_id: 5,
-                    recrutation_formula: '[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)][(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]',
+                    recrutation_formula: '[(Język angielski_Pp*0.2)|(Język niemiecki_Pp*0.2)|(Język francuski_Pp*0.2)|(Język hiszpański_Pp*0.2)|(Język rosyjski_Pp*0.2)|(Język włoski_Pp*0.2)|(Język angielski_Pr*0.4)|(Język niemiecki_Pr*0.4)|(Język francuski_Pr*0.4)|(Język hiszpański_Pr*0.4)|(Język rosyjski_Pr*0.4)|(Język włoski_Pr*0.4)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]+[(Biologia_Pp*0.5)|(Biologia_Pr*1)|(Chemia_Pp*0.5)|(Chemia_Pr*1)|(Matematyka_Pp*0.5)|(Matematyka_Pr*1)|(Fizyka_Pp*0.5)|(Fizyka_Pr*1)]',
                     academy_id: 1,
                     students_limit: 60)
 FieldDetail.create(field_of_study_id: 6,
