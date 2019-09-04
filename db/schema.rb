@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_08_30_151847) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "interested_count", default: 0
+    t.index ["academy_id", "field_of_study_id"], name: "index_field_details_on_academy_id_and_field_of_study_id", unique: true
     t.index ["academy_id"], name: "index_field_details_on_academy_id"
     t.index ["field_of_study_id"], name: "index_field_details_on_field_of_study_id"
   end
