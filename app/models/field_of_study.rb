@@ -8,11 +8,16 @@ class FieldOfStudy < ApplicationRecord
   has_many :users, through: :study_interests
   has_many :field_details
   has_many :academies, through: :field_details
+  has_many :interesteds, through: :field_details
 
   has_many :field_opinions
   paginates_per 5
 
   def interested_users_count
-    field_details.first.users.count
+    field_details.sum(&:interested_users_count)
+  end
+
+  def interested_users_count_on_academy(academy)
+    field_details.select { |f| f.academy == academy }.first.interested_users_count
   end
 end

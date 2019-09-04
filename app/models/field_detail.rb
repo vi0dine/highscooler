@@ -11,4 +11,8 @@ class FieldDetail < ApplicationRecord
   def name
     field_of_study.name
   end
+
+  def interested_users_count
+    users.count
+  end
 end
