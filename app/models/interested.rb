@@ -3,4 +3,5 @@
 class Interested < ApplicationRecord
   belongs_to :field_detail
   belongs_to :user
+  validates_uniqueness_of :user_id, scope: :field_detail_id
 end
