@@ -1,30 +1,54 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe MaturaResult, type: :model do
   let(:matura_result) { create(:matura_result) }
-  let(:matura_result_no_level) { build(:matura_result, level: nil) }
-  let(:matura_result_no_result) { build(:matura_result, result: nil) }
 
-  it { should validate_presence_of(:level) }
-  it { should validate_presence_of(:result) }
-
-  it 'should create valid matura result with all fields' do
-    expect(%w[basic advanced]).to include(matura_result.level)
-    expect(matura_result.result).to be_between(0, 100)
-    expect(matura_result.matura_subject.name).to be_kind_of(String)
-    expect(matura_result.user.username).to be_kind_of(String)
+  context 'validations' do
+    it { should belong_to(:user) }
+    it { should belong_to(:matura_subject) }
+    it { should validate_presence_of(:level) }
+    it { should define_enum_for(:level).with_values(%i[basic advanced]) }
+    it { should validate_presence_of(:result) }
+    it { should validate_inclusion_of(:result).in_range(0..100) }
   end
 
-  it { should validate_inclusion_of(:result).in_range(0..100) }
-
-  it 'should be invalid when level is null' do
-    expect(matura_result_no_level).to_not be_valid
+  context 'without result value' do
+    let(:matura_result_no_result) { build(:matura_result, result: nil) }
+    it { expect(matura_result_no_result).to_not be_valid }
   end
 
-  it 'should be invalid when result is null' do
-    expect(matura_result_no_level).to_not be_valid
+  context 'without level value' do
+    let(:matura_result_no_level) { build(:matura_result, level: nil) }
+    it { expect(matura_result_no_level).to_not be_valid }
   end
 
-  it { should belong_to(:user) }
-  it { should belong_to(:matura_subject) }
+  context 'model methods' do
+    let(:basic_subject) { create(:matura_subject, name: 'Matematyka') }
+    let(:basic_matura_result) {
+      create(:matura_result, level: 'basic', matura_subject: basic_subject)
+    }
+    it { expect(basic_matura_result.basic?).to be true }
+    it { expect(basic_matura_result.advanced?).to be false }
+    it {
+      expect(basic_matura_result.basic_subject?('Matematyka_Pp')).to be true
+    }
+    it {
+      expect(basic_matura_result.basic_subject?('Matematyka_Pr')).to be false
+    }
+
+    let(:advanced_subject) { create(:matura_subject, name: 'Chemia') }
+    let(:advanced_matura_result) {
+      create(:matura_result, level: 'advanced', matura_subject: advanced_subject)
+    }
+    it { expect(advanced_matura_result.basic?).to be false }
+    it { expect(advanced_matura_result.advanced?).to be true }
+    it {
+      expect(advanced_matura_result.advanced_subject?('Chemia_Pp')).to be false
+    }
+    it {
+      expect(advanced_matura_result.advanced_subject?('Chemia_Pr')).to be true
+    }
+  end
 end
