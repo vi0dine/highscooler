@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_30_151847) do
+ActiveRecord::Schema.define(version: 2019_09_13_124256) do
 
   create_table "academies", force: :cascade do |t|
     t.string "name", null: false
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 2019_08_30_151847) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["field_of_study_id"], name: "index_study_interests_on_field_of_study_id"
+    t.index ["user_id", "field_of_study_id"], name: "index_study_interests_on_user_id_and_field_of_study_id", unique: true
     t.index ["user_id"], name: "index_study_interests_on_user_id"
   end
 
