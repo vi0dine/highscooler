@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_13_124256) do
+ActiveRecord::Schema.define(version: 2019_09_13_140856) do
 
   create_table "academies", force: :cascade do |t|
     t.string "name", null: false
@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(version: 2019_09_13_124256) do
     t.index ["field_of_study_id"], name: "index_users_on_field_of_study_id"
     t.index ["high_school_id"], name: "index_users_on_high_school_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end

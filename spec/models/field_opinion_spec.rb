@@ -6,6 +6,7 @@ RSpec.describe FieldOpinion, type: :model do
   let(:opinion) { create(:field_opinion) }
 
   context 'validations' do
+    subject { opinion }
     it { should validate_presence_of(:body) }
     it {
       should validate_uniqueness_of(:user_id)

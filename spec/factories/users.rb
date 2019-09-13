@@ -23,5 +23,13 @@ FactoryBot.define do
         create_list :matura_result, 5, user: user
       end
     end
+
+    factory :user_interested_in_physics do
+      after :create do |user|
+        physics = create(:field_of_study, name: 'Fizyka')
+        physics_detail = create(:field_detail, field_of_study: physics)
+        create :interested, user: user, field_detail: physics_detail
+      end
+    end
   end
 end

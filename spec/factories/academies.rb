@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :academy do
-    sequence(:name) { |n| "University no #{n}"}
+    sequence(:name) { |n| "University no #{n}" }
     city { Faker::Address.city }
     academy_type { Faker::Base.rand(6) }
     after :create do |academy|

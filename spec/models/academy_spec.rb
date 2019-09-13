@@ -5,7 +5,8 @@ require 'rails_helper'
 RSpec.describe Academy, type: :model do
   let(:academy) { create(:academy) }
 
-  context 'academy without fields' do
+  context 'validations' do
+    subject { academy }
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:city) }
     it { should validate_presence_of(:academy_type) }
@@ -18,7 +19,7 @@ RSpec.describe Academy, type: :model do
     }
   end
 
-  context 'academy with fields' do
+  context 'with fields' do
     let(:academy_with_field_details) { create(:academy_with_field_details) }
     let(:field) { academy_with_field_details.field_of_studies.sample }
     it { should have_many(:field_details) }
@@ -36,7 +37,7 @@ RSpec.describe Academy, type: :model do
     }
   end
 
-  context 'academy with students' do
+  context 'with students' do
     let(:academy_with_students) { create(:academy_with_students) }
     it { should have_many(:users) }
     it { should have_many(:field_opinions).through(:users) }
