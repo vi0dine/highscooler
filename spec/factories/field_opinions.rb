@@ -2,6 +2,10 @@
 
 FactoryBot.define do
   factory :field_opinion do
-    
+    body { Faker::Lorem.paragraph }
+    is_positive { Faker::Boolean.boolean }
+    user
+    academy
+    field_of_study
   end
 end
