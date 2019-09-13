@@ -4,10 +4,8 @@ require 'rails_helper'
 
 RSpec.describe FieldDetail, type: :model do
   let(:field_detail) { create(:field_detail) }
-  let(:field_detail_with_interesteds) { create(:field_detail_with_interesteds) }
 
-  context 'with all attributes' do
-    subject { field_detail }
+  context 'validations' do
     it { should validate_presence_of(:recrutation_formula) }
     it {
       should validate_uniqueness_of(:field_of_study_id)
@@ -19,7 +17,7 @@ RSpec.describe FieldDetail, type: :model do
   end
 
   context 'with interested users' do
-    subject { field_detail_with_interesteds }
+    let(:field_detail_with_interesteds) { create(:field_detail_with_interesteds) }
     it { should have_many(:interesteds) }
     it { expect(field_detail_with_interesteds.interesteds.count).to eq(10) }
     it { should have_many(:users).through(:interesteds) }

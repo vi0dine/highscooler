@@ -4,11 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Academy, type: :model do
   let(:academy) { create(:academy) }
-  let(:academy_with_field_details) { create(:academy_with_field_details) }
-  let(:academy_with_students) { create(:academy_with_students) }
 
   context 'academy without fields' do
-    subject { academy }
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:city) }
     it { should validate_presence_of(:academy_type) }
@@ -22,7 +19,7 @@ RSpec.describe Academy, type: :model do
   end
 
   context 'academy with fields' do
-    subject { academy_with_field_details }
+    let(:academy_with_field_details) { create(:academy_with_field_details) }
     let(:field) { academy_with_field_details.field_of_studies.sample }
     it { should have_many(:field_details) }
     it { should have_many(:academy_opinions) }
@@ -40,7 +37,7 @@ RSpec.describe Academy, type: :model do
   end
 
   context 'academy with students' do
-    subject { academy_with_students }
+    let(:academy_with_students) { create(:academy_with_students) }
     it { should have_many(:users) }
     it { should have_many(:field_opinions).through(:users) }
     it { should have_many(:academy_opinions) }
