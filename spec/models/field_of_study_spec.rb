@@ -18,8 +18,12 @@ RSpec.describe FieldOfStudy, type: :model do
     subject { field_of_study_with_details }
     it { should have_many(:field_details) }
     it { should have_many(:academies).through(:field_details) }
-    it { should have_many(:interesteds).through(:field_details) } 
-    it { expect(field_of_study_with_details.interested_users_count).to eq(field_of_study_with_details.field_details.sum(&:interested_users_count)) }
+    it { should have_many(:interesteds).through(:field_details) }
+    it {
+      expect(field_of_study_with_details.interested_users_count)
+        .to eq(field_of_study_with_details.field_details
+          .sum(&:interested_users_count))
+    }
   end
 
   describe 'with study interests' do

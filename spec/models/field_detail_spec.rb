@@ -9,7 +9,10 @@ RSpec.describe FieldDetail, type: :model do
   context 'with all attributes' do
     subject { field_detail }
     it { should validate_presence_of(:recrutation_formula) }
-    it { should validate_uniqueness_of(:field_of_study_id).scoped_to(:academy_id) }
+    it {
+      should validate_uniqueness_of(:field_of_study_id)
+        .scoped_to(:academy_id)
+    }
     it { should belong_to(:academy) }
     it { should belong_to(:field_of_study) }
     it { expect(field_detail.name).to eq(field_detail.field_of_study.name) }
