@@ -13,11 +13,11 @@ RSpec.describe AcademiesController, type: :controller do
     it { should respond_with(200) }
     it { should render_template(:index) }
 
-    # it 'assign @academies' do
-    #   academies = FactoryBot.create_list(:academy, 8)
-    #   get :index
-    #   expect(assigns(:academies)).to eq(academies[0..4])
-    # end
+    it 'assign @academies' do
+      academies = FactoryBot.create_list(:academy, 8)
+      get :index
+      expect(assigns(:academies)).to eq(academies[0..4])
+    end
   end
 
   describe 'GET :show' do
@@ -65,6 +65,10 @@ RSpec.describe AcademiesController, type: :controller do
   end
 
   describe 'POST :create' do
+    it 'permit valid params' do
+      expect permit(:name, :city, :academy_type).for(:create, verb: :post).on(:academy)
+    end
+
     context 'as a regular user' do
       login_user
       before(:each) do
