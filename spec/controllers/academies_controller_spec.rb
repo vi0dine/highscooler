@@ -37,5 +37,22 @@ RSpec.describe AcademiesController, type: :controller do
       expect(response.body).to include(@academy.name.to_s)
       expect(response.body).to include(@academy.city.to_s)
     end
+
+    it 'prepare new academy opinion' do
+      expect(assigns(:academy_opinion)).to be_a_new(AcademyOpinion)
+    end
+  end
+
+  describe 'GET :new' do
+    context 'as a regular user' do
+      login_user
+      before(:each) do
+        get :new
+      end
+      it { expect(response).to_not render_template(:new) }
+      it {
+        should redirect_to(root_path)
+      }
+    end
   end
 end
