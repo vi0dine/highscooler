@@ -37,6 +37,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'simplecov'
   gem 'sqlite3'
 end
 
