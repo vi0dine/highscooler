@@ -54,5 +54,15 @@ RSpec.describe AcademiesController, type: :controller do
         should redirect_to(root_path)
       }
     end
+
+    context 'as an admin' do
+      login_admin
+      before(:each) do
+        get :new
+      end
+      it { should respond_with(200) }
+      it { should render_template(:new) }
+      it { expect(response.body).to include('Dodaj uczelnię') }
+    end
   end
 end
