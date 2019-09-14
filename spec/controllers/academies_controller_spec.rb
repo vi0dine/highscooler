@@ -45,7 +45,7 @@ RSpec.describe AcademiesController, type: :controller do
 
   describe 'GET :new' do
     context 'as a regular user' do
-      login_user
+      login_user(account_type: 'schoolboy')
       before(:each) do
         get :new
       end
@@ -70,7 +70,7 @@ RSpec.describe AcademiesController, type: :controller do
     end
 
     context 'as a regular user' do
-      login_user
+      login_user(account_type: 'schoolboy')
       before(:each) do
         post :create, params: { academy: FactoryBot.attributes_for(:academy) }
       end
