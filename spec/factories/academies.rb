@@ -9,6 +9,10 @@ FactoryBot.define do
       create_list :academy_opinion, 15, academy: academy
     end
 
+    trait :invalid do
+      name { nil }
+    end
+
     factory :academy_with_field_details do
       after :create do |academy|
         create_list :field_detail, 50, academy: academy

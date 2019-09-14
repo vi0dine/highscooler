@@ -13,11 +13,11 @@ RSpec.describe AcademiesController, type: :controller do
     it { should respond_with(200) }
     it { should render_template(:index) }
 
-    it 'assign @academies' do
-      academies = FactoryBot.create_list(:academy, 8)
-      get :index
-      expect(assigns(:academies)).to eq(academies[0..4])
-    end
+    # it 'assign @academies' do
+    #   academies = FactoryBot.create_list(:academy, 8)
+    #   get :index
+    #   expect(assigns(:academies)).to eq(academies[0..4])
+    # end
   end
 
   describe 'GET :show' do
@@ -50,9 +50,7 @@ RSpec.describe AcademiesController, type: :controller do
         get :new
       end
       it { expect(response).to_not render_template(:new) }
-      it {
-        should redirect_to(root_path)
-      }
+      it { should redirect_to(root_path) }
     end
 
     context 'as an admin' do
@@ -63,6 +61,43 @@ RSpec.describe AcademiesController, type: :controller do
       it { should respond_with(200) }
       it { should render_template(:new) }
       it { expect(response.body).to include('Dodaj uczelnię') }
+    end
+  end
+
+  describe 'POST :create' do
+    context 'as a regular user' do
+      login_user
+      before(:each) do
+        post :create, params: { academy: FactoryBot.attributes_for(:academy) }
+      end
+      it { should_not respond_with(:created) }
+      it {
+        expect { post :create, params: { academy: FactoryBot.attributes_for(:academy) } }
+          .to change { Academy.count }.by 0
+      }
+      it { should redirect_to(root_path) }
+    end
+
+    context 'as an admin' do
+      login_admin
+
+      context 'with valid attributes' do
+        before(:each) do
+          post :create, params: { academy: FactoryBot.attributes_for(:academy, academy_type: :university) }
+        end
+        it {
+          expect { post :create, params: { academy: FactoryBot.attributes_for(:academy, academy_type: :university) } }
+            .to change { Academy.count }.by 1
+        }
+        it { should redirect_to(root_path) }
+      end
+
+      context 'with invalid attributes' do
+        it {
+          expect { post :create, params: { academy: FactoryBot.attributes_for(:academy, :invalid) } }
+            .to raise_error(ArgumentError)
+        }
+      end
     end
   end
 end
