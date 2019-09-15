@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 2019_09_13_140856) do
   end
 
   create_table "interesteds", force: :cascade do |t|
-    t.integer "field_detail_id"
-    t.integer "user_id"
+    t.integer "field_detail_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["field_detail_id", "user_id"], name: "index_interesteds_on_field_detail_id_and_user_id", unique: true

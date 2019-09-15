@@ -3,12 +3,13 @@
 class InterestedController < ApplicationController
   def create
     interest = Interested.new(interested_params)
+    authorize! :create, interest
     if interest.save
       flash[:notice] = 'Dodano Cię do listy zainteresowanych'
-      redirect_to dashboard_path
     else
-      render 'show'
+      flash[:alert] = 'Coś poszło nie tak'
     end
+    redirect_to dashboard_path
   end
 
   private
