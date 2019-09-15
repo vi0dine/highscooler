@@ -86,16 +86,16 @@ RSpec.describe FieldOpinionsController, type: :controller do
         @field_of_study = FactoryBot.create(:field_of_study)
         post :create, params: {
           field_opinion: FactoryBot.attributes_for(:field_opinion, :invalid,
-                                                     academy_id: @academy.id,
-                                                     field_of_study_id: @field_of_study.id,
-                                                     user_id: controller.current_user.id)
+                                                   academy_id: @academy.id,
+                                                   field_of_study_id: @field_of_study.id,
+                                                   user_id: controller.current_user.id)
         }
         expect {
           post :create, params: {
             field_opinion: FactoryBot.attributes_for(:field_opinion, :invalid,
-                                                       academy_id: @academy.id,
-                                                       field_of_study_id: @field_of_study.id,
-                                                       user_id: controller.current_user.id)
+                                                     academy_id: @academy.id,
+                                                     field_of_study_id: @field_of_study.id,
+                                                     user_id: controller.current_user.id)
           }
         }.to change { FieldOpinion.count }.by 0
       end
@@ -105,8 +105,8 @@ RSpec.describe FieldOpinionsController, type: :controller do
       login_student
 
       context 'when adding opinion to not yours academy' do
-        academy = FactoryBot.create(:academy)
         it 'redirects to root page' do
+          academy = FactoryBot.create(:academy)
           post :create, params: {
             field_opinion: FactoryBot.attributes_for(:field_opinion,
                                                      user_id: controller.current_user.id,
@@ -117,6 +117,7 @@ RSpec.describe FieldOpinionsController, type: :controller do
         end
 
         it 'adds opinion' do
+          academy = FactoryBot.create(:academy)
           expect {
             post :create, params: {
               field_opinion: FactoryBot.attributes_for(:field_opinion,

@@ -7,6 +7,7 @@ RSpec.describe AcademiesController, type: :controller do
 
   describe 'GET :index' do
     before(:each) do
+      DatabaseCleaner.clean
       get :index
     end
 
@@ -14,9 +15,10 @@ RSpec.describe AcademiesController, type: :controller do
     it { should render_template(:index) }
 
     it 'assign @academies' do
-      academies = FactoryBot.create_list(:academy, 8)
+      academies = FactoryBot.create_list(:academy, 10).sort_by(&:name)
       get :index
       expect(assigns(:academies)).to eq(academies[0..4])
+      expect(assigns(:academies).count).to eq(5)
     end
   end
 
