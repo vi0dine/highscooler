@@ -98,8 +98,16 @@ RSpec.describe AcademiesController, type: :controller do
 
       context 'with invalid attributes' do
         it {
-          expect { post :create, params: { academy: FactoryBot.attributes_for(:academy, :invalid) } }
-            .to raise_error(ArgumentError)
+          expect { post :create, params: { academy: FactoryBot.attributes_for(:academy, :invalid, academy_type: :university) } }
+            .to change { Academy.count }.by 0
+        }
+        it {
+          post :create, params: { academy: FactoryBot.attributes_for(:academy, :invalid, academy_type: :university) }
+          should render_template(:new)
+        }
+        it {
+          post :create, params: { academy: FactoryBot.attributes_for(:academy, :invalid, academy_type: :university) }
+          expect(controller).to set_flash[:alert]
         }
       end
     end

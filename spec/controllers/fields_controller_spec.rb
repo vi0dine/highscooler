@@ -112,18 +112,24 @@ RSpec.describe FieldsController, type: :controller do
         it {
           expect {
             post :create, params: {
-              field_of_study: FactoryBot.attributes_for(:field_of_study, :invalid)
-            }
-          }.to raise_error(ArgumentError)
-        }
-
-        it {
-          expect {
-            post :create, params: {
-              field_of_study: FactoryBot.attributes_for(:field_of_study, :invalid, 
+              field_of_study: FactoryBot.attributes_for(:field_of_study, :invalid,
                                                         field_type: :natural_sciences)
             }
           }.to change { FieldOfStudy.count }.by 0
+        }
+        it {
+          post :create, params: {
+            field_of_study: FactoryBot.attributes_for(:field_of_study, :invalid,
+                                                      field_type: :natural_sciences)
+          }
+          should render_template(:new)
+        }
+        it {
+          post :create, params: {
+            field_of_study: FactoryBot.attributes_for(:field_of_study, :invalid,
+                                                      field_type: :natural_sciences)
+          }
+          expect(controller).to set_flash[:alert]
         }
       end
     end

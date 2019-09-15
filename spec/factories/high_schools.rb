@@ -6,6 +6,10 @@ FactoryBot.define do
     city { Faker::Address.city }
     school_type { Faker::Base.rand(2) }
 
+    trait :invalid do
+      name { nil }
+    end
+
     factory :high_school_with_users do
       after :create do |high_school|
         create_list :user, 30, high_school: high_school
