@@ -7,5 +7,9 @@ FactoryBot.define do
     user
     academy
     field_of_study
+
+    trait :invalid do
+      body { '' }
+    end
   end
 end
