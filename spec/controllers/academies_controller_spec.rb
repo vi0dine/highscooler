@@ -7,7 +7,6 @@ RSpec.describe AcademiesController, type: :controller do
 
   describe 'GET :index' do
     before(:each) do
-      DatabaseCleaner.clean
       get :index
     end
 
@@ -76,7 +75,6 @@ RSpec.describe AcademiesController, type: :controller do
       before(:each) do
         post :create, params: { academy: FactoryBot.attributes_for(:academy) }
       end
-      it { should_not respond_with(:created) }
       it {
         expect { post :create, params: { academy: FactoryBot.attributes_for(:academy) } }
           .to change { Academy.count }.by 0

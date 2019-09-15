@@ -5,6 +5,10 @@ FactoryBot.define do
     sequence(:name) { |n| "#{Faker::Educator.course_name} #{n}" }
     field_type { Faker::Base.rand(17) }
 
+    trait :invalid do
+      name { nil }
+    end
+
     factory :field_of_study_with_interests do
       after :create do |field_of_study|
         create_list :study_interest, 3, field_of_study: field_of_study
