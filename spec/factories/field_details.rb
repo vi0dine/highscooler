@@ -8,6 +8,10 @@ FactoryBot.define do
     academy
     field_of_study
 
+    trait :invalid do
+      recrutation_formula { nil }
+    end
+
     factory :field_detail_with_interesteds do
       after :create do |field_detail|
         create_list :interested, 10, field_detail: field_detail

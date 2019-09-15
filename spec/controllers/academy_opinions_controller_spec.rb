@@ -53,6 +53,21 @@ RSpec.describe AcademyOpinionsController, type: :controller do
         }
           .to change { AcademyOpinion.count }.by 1
       }
+      it "can't add multiple opinions" do
+        @academy = FactoryBot.create(:academy)
+        post :create, params: {
+          academy_opinion: FactoryBot.attributes_for(:academy_opinion,
+                                                     user_id: controller.current_user.id,
+                                                     academy_id: @academy.id)
+        }
+        expect {
+          post :create, params: {
+            academy_opinion: FactoryBot.attributes_for(:academy_opinion,
+                                                       user_id: controller.current_user.id,
+                                                       academy_id: @academy.id)
+          }
+        }.to change { AcademyOpinion.count }.by 0
+      end
     end
 
     context 'as a student of academy' do
