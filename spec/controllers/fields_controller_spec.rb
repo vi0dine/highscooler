@@ -104,6 +104,7 @@ RSpec.describe FieldsController, type: :controller do
           }.to change { FieldOfStudy.count }.by 1
         }
 
+        it { expect(controller).to set_flash[:notice] }
         it { should redirect_to(root_path) }
       end
 

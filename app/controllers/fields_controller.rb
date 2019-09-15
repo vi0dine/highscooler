@@ -23,6 +23,7 @@ class FieldsController < ApplicationController
       flash[:notice] = 'Kierunek został utworzony'
       redirect_to root_path
     else
+      flash[:alert] = 'Coś poszło nie tak'
       render 'new'
     end
   end
