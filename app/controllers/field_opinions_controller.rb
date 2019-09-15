@@ -3,13 +3,13 @@
 class FieldOpinionsController < ApplicationController
   def create
     @field_opinion = FieldOpinion.new(field_opinion_params)
+    authorize! :create, @field_opinion
     if @field_opinion.save
       flash[:notice] = 'Opinia została dodana.'
     else
       flash[:alert] = 'Wystąpił błąd podczas dodawania opinii'
     end
     redirect_to field_path(@field_opinion.field_of_study_id)
-    authorize! :create, @field_opinion
   end
 
   private
