@@ -8,5 +8,6 @@ class CreateFieldDetails < ActiveRecord::Migration[5.2]
       t.integer :minimal_points
       t.timestamps
     end
+    add_index :field_details, %i[academy_id field_of_study_id], unique: true
   end
 end

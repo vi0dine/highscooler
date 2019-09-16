@@ -18,13 +18,14 @@ class FieldsController < ApplicationController
 
   def create
     @field_of_study = FieldOfStudy.new(field_of_study_params)
+    authorize! :create, @field_of_study
     if @field_of_study.save
       flash[:notice] = 'Kierunek został utworzony'
       redirect_to root_path
     else
-      render 'new_field'
+      flash[:alert] = 'Coś poszło nie tak'
+      render 'new'
     end
-    authorize! :create, @field_of_study
   end
 
   private

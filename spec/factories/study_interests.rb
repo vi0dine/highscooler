@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :study_interest do
     user
-    association :field_of_study, factory: :field_of_study
+    field_of_study
   end
 end

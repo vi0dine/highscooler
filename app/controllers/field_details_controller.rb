@@ -8,13 +8,14 @@ class FieldDetailsController < ApplicationController
 
   def create
     @field_detail = FieldDetail.new(field_detail_params)
+    authorize! :create, @field_detail
     if @field_detail.save
       flash[:notice] = 'Kierunek został dodany do uczelni'
       redirect_to root_path
     else
-      render 'new_detail'
+      flash[:alert] = 'Coś poszło nie tak'
+      render 'new'
     end
-    authorize! :create, @field_detail
   end
 
   private

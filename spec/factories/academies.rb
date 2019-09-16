@@ -1,12 +1,30 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :academy do
-    name { Faker::Educator.university }
+    sequence(:name) { |n| "University no #{n}" }
     city { Faker::Address.city }
-    academy_type { Faker::Base.rand(2) }
+    academy_type { Faker::Base.rand(6) }
+
+    trait :invalid do
+      name { nil }
+    end
 
     factory :academy_with_field_details do
       after :create do |academy|
-        create_list :field_detail, 5, academy: academy
+        create_list :field_detail, 50, academy: academy
+      end
+    end
+
+    factory :academy_with_opinions do
+      after :create do |academy|
+        create_list :academy_opinion, 15, academy: academy
+      end
+    end
+
+    factory :academy_with_students do
+      after :create do |academy|
+        create_list :user, 20, academy: academy, account_type: 'student'
       end
     end
   end

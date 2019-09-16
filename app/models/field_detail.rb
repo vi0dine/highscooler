@@ -6,8 +6,13 @@ class FieldDetail < ApplicationRecord
   has_many :interesteds
   has_many :users, through: :interesteds
   validates :recrutation_formula, presence: true
+  validates_uniqueness_of :field_of_study_id, scope: :academy_id
 
   def name
     field_of_study.name
+  end
+
+  def interested_users_count
+    users.count
   end
 end

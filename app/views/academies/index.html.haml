@@ -16,7 +16,7 @@
         %div
           %p.heading Uczelni
           %p.title
-            = @academies.count
+            = Academy.all.count
   .level
     .container
       - @academies.each do |academy|

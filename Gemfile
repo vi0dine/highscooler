@@ -34,8 +34,10 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'html2haml'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'simplecov'
   gem 'sqlite3'
 end
 

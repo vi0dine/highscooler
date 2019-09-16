@@ -8,13 +8,14 @@ class HighSchoolsController < ApplicationController
 
   def create
     @highschool = HighSchool.new(high_school_params)
+    authorize! :create, @highschool
     if @highschool.save
       flash[:notice] = 'Szkoła została utworzona'
       redirect_to root_path
     else
+      flash[:alert] = 'Coś poszło nie tak'
       render 'new'
     end
-    authorize! :create, @highschool
   end
 
   private

@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :user do
-    email { Faker::Internet.email }
-    username { Faker::Internet.username }
-    password { '123456' }
-    city { 'Warsaw' }
-    date_of_birth { '1999-08-13' }
-    gender { 1 }
-    account_type { 2 }
-    date_of_matura { '2016-07-03' }
+    sequence(:email) { |n| "#{Faker::Internet.email}_#{n}" }
+    sequence(:username) { |n| "#{Faker::Internet.username}_#{n}" }
+    password { Faker::Internet.password }
+    city { Faker::Address.city }
+    date_of_birth { Faker::Date.backward }
+    gender { Faker::Base.rand(1) }
+    account_type { Faker::Base.rand(4) }
+    date_of_matura { Faker::Date.backward }
     high_school
 
     factory :user_with_interests do
@@ -19,6 +21,14 @@ FactoryBot.define do
     factory :user_with_results do
       after :create do |user|
         create_list :matura_result, 5, user: user
+      end
+    end
+
+    factory :user_interested_in_physics do
+      after :create do |user|
+        physics = create(:field_of_study, name: 'Fizyka')
+        physics_detail = create(:field_detail, field_of_study: physics)
+        create :interested, user: user, field_detail: physics_detail
       end
     end
   end
