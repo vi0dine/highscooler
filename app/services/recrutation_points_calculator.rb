@@ -81,9 +81,9 @@ class RecrutationPointsCalculator
     # extract subjects
     subjects = exp.split('|')
     # puts 'Extracted subjects:'
-    subjects.each do |subject|
-      puts subject
-    end
+    # subjects.each do |subject|
+    #   puts subject
+    # end
     # and for each subjects
     subjects.each { |subject| replace_subject_name(subject) }
     # replace first element with @max_exponent_result value
@@ -130,7 +130,8 @@ class RecrutationPointsCalculator
     prepared_formulas.each do |result|
       begin
         user.results << eval(result.chomp('+').to_s).round(2)
-      rescue SyntaxError
+      rescue SyntaxError => e
+        puts e.inspect.to_s
         user.results << '-'
       end
     end

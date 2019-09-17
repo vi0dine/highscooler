@@ -47,8 +47,8 @@ class User < ApplicationRecord
   end
 
   def interested_in_field?(field)
-    if field.instance_of?(FieldOfStudy)
-      interesteds.one? { |f| f.field_detail_id == field.id }.count.positive?
+    if field.instance_of?(FieldDetail)
+      interesteds.one? { |f| f.field_detail_id == field.id }
     elsif field.instance_of?(String)
       interesteds.one? { |f| f.field_detail.field_of_study.name == field }
     else
