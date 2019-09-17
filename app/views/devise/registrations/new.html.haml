@@ -5,15 +5,17 @@
     .level-item
       .container
         = render 'devise/registrations/user_form'
-  .level
-    .container
-      .level-left
-        .level-item
-          .steps-actions
-            .steps-action
-            %a.button.is-primary{'v-on:click':'prevForm()', 'v-bind:disabled':'formIndex==0', 'v-if':'formIndex<3'} Poprzedni
-      .level-right
-        .level-item
-          .steps-actions
-            .steps-action
-            %a.button.is-primary{'v-on:click':'nextForm()', 'v-bind:disabled':'formIndex==3', 'v-if':'formIndex<3'} Następny
+  .container{ style: 'margin-bottom: 15px' }
+    .level
+      .container
+        .level-left
+          .level-item
+            .steps-actions
+              .steps-action
+              %a.button.is-primary{'v-on:click':'prevForm()', 'v-bind:disabled':'formIndex==0', 'v-if':'formIndex<3'} Poprzedni
+      .container
+        .level-right
+          .level-item
+            .steps-actions
+              .steps-action
+              %a.button.is-primary{'v-on:click':'nextForm()', 'v-bind:disabled':'formIndex==3', 'v-if':'formIndex<3'} Następny

@@ -12,9 +12,15 @@
             %h3.subtitle Wyniki matur:
             %br
             .container.is-fluid{'ref':'exams'}
+              = f.fields_for :matura_results do |ff|
+                = render partial: 'matura_result', locals: { f: ff, required: MaturaSubject.where(name: 'Język polski').first.id, level: 'basic' }
+              = f.fields_for :matura_results do |ff|
+                = render partial: 'matura_result', locals: { f: ff, required: MaturaSubject.where(name: 'Matematyka').first.id, level: 'basic' }
+              = f.fields_for :matura_results do |ff|
+                = render partial: 'matura_result', locals: { f: ff, required: MaturaSubject.where(name: 'Język angielski').first.id, level: 'basic' }
             %br
             .container{'v-on:click': 'addExam'}
-              = link_to_add_exam('Dodaj egzamin', f, :matura_results, class: 'button is-primary is-pulled-right')
+              = link_to_add_exam('Dodaj egzamin', f, :matura_results, class: 'button is-primary is-pulled-right', level: 'advanced')
           .column
             %h3.subtitle Kierunki studiów:
             %br
