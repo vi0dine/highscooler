@@ -1,65 +1,51 @@
-.hero.is-secondary.is-bold
-  .hero-body.has-text-centered
-    %h1.title Witaj w HighSchooler
+.hero.is-secondary.is-bold#homepage_container
+  = video_tag('bg_video.mp4', id: 'bg_video', autoplay: true, loop: true, autobuffer: true, controls: false)
+  .hero-body.has-text-centered#homepage_content
+    %h1.title Witaj w
+    = image_tag('highscooler_logo.png', width: 400)
     .is-divider
-    %h2.subtitle 
-      Aplikacji, która pomoże Ci obliczyć ilość punktów rekrutacyjnych na Twoje wymarzone studia
-      lub jeśli takich nie masz - pomoże Ci je znaleźć!
     .container
       .columns
         .column
-          .card
+          .card#teaser
             %header.card-header
               %p.card-header-icon
                 %i.fas.fa-university
               %p.card-header-title Baza kierunków na polskich szkołach wyższych
             .card-content
               .content.has-text-justified
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Ut fermentum ligula purus, quis eleifend odio condimentum vitae. 
-                Nulla eget mauris sit amet sapien elementum ultricies. Nam interdum suscipit bibendum. 
-                Etiam id risus eu urna vestibulum efficitur. Sed congue dolor nec pulvinar viverra. Cras posuere enim odio, 
-                eu commodo tortor semper non. Maecenas lacinia vestibulum blandit.
+                Nasza aplikacja pomoże Ci zapoznać się z kierunkami studiów na uczelniach wyższych
+                w całej Polsce, a także znaleźć opinie na ich temat!
         .column
-          .card
+          .card#teaser
             %header.card-header
               %p.card-header-icon
                 %i.fas.fa-user-graduate
               %p.card-header-title Przeliczanie punktów rekrutacyjnych z wyników matury
             .card-content
               .content.has-text-justified
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Ut fermentum ligula purus, quis eleifend odio condimentum vitae. 
-                Nulla eget mauris sit amet sapien elementum ultricies. Nam interdum suscipit bibendum. 
-                Etiam id risus eu urna vestibulum efficitur. Sed congue dolor nec pulvinar viverra. Cras posuere enim odio, 
-                eu commodo tortor semper non. Maecenas lacinia vestibulum blandit.
+                Algorytm obliczania wyników rekrutacyjnych da Ci możliwość przewidzenia
+                na który ze swoich wymarzonych kierunków masz największe szanse się dostać.
       .columns
         .column
-          .card
+          .card#teaser
             %header.card-header
               %p.card-header-icon
                 %i.fas.fa-calendar-check
               %p.card-header-title Harmonogramy rekrutacji
             .card-content
               .content.has-text-justified
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Ut fermentum ligula purus, quis eleifend odio condimentum vitae. 
-                Nulla eget mauris sit amet sapien elementum ultricies. Nam interdum suscipit bibendum. 
-                Etiam id risus eu urna vestibulum efficitur. Sed congue dolor nec pulvinar viverra. Cras posuere enim odio, 
-                eu commodo tortor semper non. Maecenas lacinia vestibulum blandit.
+                Wszystkie daty zebrane w jednym miejscu abyś sam nie musiał martwić się,
+                że przegapisz termin zamknięcia zapisów czy wpłacania opłat rekrutacyjnych.
         .column
-          .card
+          .card#teaser
             %header.card-header
               %p.card-header-icon
                 %i.fas.fa-file-alt
-              %p.card-header-title Raporty dotyczące rekomendowanych uczelni
+              %p.card-header-title Kompas maturalny
             .card-content
               .content.has-text-justified
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Ut fermentum ligula purus, quis eleifend odio condimentum vitae. 
-                Nulla eget mauris sit amet sapien elementum ultricies. Nam interdum suscipit bibendum. 
-                Etiam id risus eu urna vestibulum efficitur. Sed congue dolor nec pulvinar viverra. Cras posuere enim odio, 
-                eu commodo tortor semper non. Maecenas lacinia vestibulum blandit.
+                Sprawdź co wyniki Twoich matur mówią o kierunkach studiów, które mogą Cię zainteresować.
     .is-divider
     %h1.title Nie czekaj!
     = button_to 'Dołącz do nas', new_user_registration_path, method: :get, :class => 'button button is-rounded is-large is-primary'
