@@ -1,50 +1,51 @@
-.container{style: 'margin-top: 30px;'}
-  %h1.title Uczelnie
-  .level
-    .level-left
-      .level-item
-        .field.has-addons
-          .control
-            %input.input
-          .control
-            %button.button.is-info Szukaj
-      - if current_user&.admin?
-        .level-item
-          = button_to("Dodaj uczelnię", new_academy_path, class: 'button is-success', method: 'get')
-    .level-right
-      .level-item.has-text-centered
-        %div
-          %p.heading Uczelni
-          %p.title
-            = Academy.all.count
-  .level
-    .container
-      - @academies.each do |academy|
-        = link_to academy_path(academy.id) do
-          .box{style: 'padding: 10px; margin: 10px;'}
-            .columns
-              .column.is-1
-                %figure.image.is-64x64
-                  %image.is-rounded{src: 'https://bulma.io/images/placeholders/128x128.png'}
-              .column.is-7.has-text-left
-                %p.title.is-size-4 
-                  = academy.name
-                %p.subtitle
-                  = academy.city
-              .column.is-1.has-text-centered
-                %div
-                  %p.heading Kierunków
-                  %p.title
-                    = academy.field_of_studies.count
-              .column.is-2.has-text-centered
-                %div
-                  %p.heading Zainteresowanych
+.academies_list
+  .container{style: 'padding-top: 30px;'}
+    %h1.title Uczelnie
+    .level
+      .level-left
+        -# .level-item
+        -#   .field.has-addons
+        -#     .control
+        -#       %input.input
+        -#     .control
+        -#       %button.button.is-info Szukaj
+        - if current_user&.admin?
+          .level-item
+            = button_to("Dodaj uczelnię", new_academy_path, class: 'button is-success', method: 'get')
+      .level-right
+        .level-item.has-text-centered
+          %div
+            %p.heading Uczelni
+            %p.title
+              = Academy.all.count
+    .level
+      .container
+        - @academies.each do |academy|
+          = link_to academy_path(academy.id) do
+            .box#academy_box
+              .columns
+                .column.is-1
+                  %figure.image.is-64x64
+                    %image.is-rounded{src: 'https://bulma.io/images/placeholders/128x128.png'}
+                .column.is-7.has-text-left
+                  %p.title.is-size-4 
+                    = academy.name
                   %p.subtitle
-                    = academy.interested_users_count
-              .column.is-1.has-text-centered
-                %div
-                  %p.heading Ranking
-                  %p.subtitle
-                    TODO
-  = paginate(@academies, class: 'pagination')
-        
+                    = academy.city
+                .column.is-1.has-text-centered
+                  %div
+                    %p.heading Kierunków
+                    %p.title
+                      = academy.field_of_studies.count
+                .column.has-text-centered
+                  %div
+                    %p.heading Zainteresowanych
+                    %p.title
+                      = academy.interested_users_count
+                -# .column.is-1.has-text-centered
+                -#   %div
+                -#     %p.heading Ranking
+                -#     %p.subtitle
+                -#       TODO
+    = paginate(@academies, class: 'pagination')
+          

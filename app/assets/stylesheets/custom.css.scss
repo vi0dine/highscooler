@@ -36,6 +36,25 @@ a {
   text-decoration: none !important;
 }
 
+// FOOTER
+
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.app_content {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+}
+
+// NAVBAR
+
 .navbar {
   background: $dark_blue;
 
@@ -65,6 +84,8 @@ a {
     color: $dark;
   }
 }
+
+// HOMEPAGE
 
 #bg_video {
   position: absolute;
@@ -101,4 +122,80 @@ a {
     rgba(232, 247, 238, 0.9) 0%,
     rgba(201, 214, 234, 0.9) 100%
   );
+}
+
+// ACADEMIES
+
+.academies_list {
+  background: linear-gradient(
+      63deg,
+      rgba(2, 0, 36, 0.9) 0%,
+      rgba(201, 214, 234, 0.9) 45%,
+      rgba(181, 255, 233, 0.9) 100%
+    ),
+    image-url("graduation.jpg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+
+  .title {
+    text-shadow: 1px 1px 7px black;
+    color: $light;
+  }
+
+  .heading {
+    font-weight: bold;
+  }
+
+  #academy_box {
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    background-image: linear-gradient(
+      33deg,
+      rgba(232, 247, 238, 0.5) 0%,
+      rgba(201, 214, 234, 0.5) 100%
+    );
+    // image-url("uwr.jpg");
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    z-index: 1;
+    .subtitle {
+      color: $dark;
+      transition: color 1s ease-in-out;
+    }
+  }
+
+  #academy_box:hover {
+    .subtitle {
+      color: $light;
+    }
+  }
+
+  #academy_box::before {
+    position: absolute;
+    border-radius: 5.5px;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 0.7) 0%,
+      rgba(201, 214, 234, 0.7) 45%,
+      rgba(181, 255, 233, 0.7) 100%
+    );
+    z-index: -1;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+  }
+
+  #academy_box:hover::before {
+    opacity: 1;
+    .subtitle {
+      color: $light;
+    }
+  }
 }
