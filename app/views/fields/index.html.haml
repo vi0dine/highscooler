@@ -30,7 +30,7 @@
                 %p.title.is-size-4 
                   = field.name
                 %p.subtitle
-                  = field.field_type
+                  = FieldOfStudy.human_enum_name(:field_type, field.field_type)
               .column.is-1.has-text-centered
                 %div
                   %span.heading Prowadzony na

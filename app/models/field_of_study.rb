@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class FieldOfStudy < ApplicationRecord
-  enum field_type: %i[humanities administrative artistic medical social_sciences natural_sciences formal_sciences technical sports linguistic economical pedagogical law psychological military agricultural others] # Should refactor to new model :/
+  enum field_type: %i[humanities administrative artistic medical social_sciences natural_sciences
+                      formal_sciences technical sports linguistic economical pedagogical law
+                      psychological military agricultural others] # Should refactor to new model :/
   validates :name, :field_type, presence: true
   validates :name, uniqueness: { case_sensitive: false }
   has_many :study_interests

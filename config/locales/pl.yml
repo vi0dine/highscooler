@@ -12,6 +12,25 @@ pl:
         encrypted_password: "Hasło"
         password: "Hasło"
         account_type: "Typ konta"
+      field_of_study:
+        field_types:
+          humanities: "Humanistyczny"
+          administrative: "Administracyjny"
+          artistic: "Artystyczny"
+          medical: "Medyczny"
+          social_sciences: "Nauki społeczne"
+          natural_sciences: "Nauki przyrodnicze"
+          formal_sciences: "Nauki ścisłe"
+          technical: "Techniczny"
+          sports: "Sportowy"
+          linguistic: "Językowy"
+          economical: "Ekonomiczny"
+          pedagogical: "Pedagogiczny"
+          law: "Prawniczy"
+          psychological: "Psychologiczny"
+          military: "Wojskowy"
+          agricultural: "Rolniczy"
+          others: "Inny"
       matura_result:
         levels:
           basic: "Podstawowy"
