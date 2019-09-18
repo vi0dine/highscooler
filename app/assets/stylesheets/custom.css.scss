@@ -200,3 +200,30 @@ body {
     color: $light;
   }
 }
+
+// ACADEMY
+.academy_photo {
+  position: relative;
+  height: 200px;
+  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  display: block;
+  background-size: cover; /* Resize the background image to cover the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+}
+
+.academy_photo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-shadow: inset 0px 0px 150px black;
+  backface-visibility: hidden;
+  transition: box-shadow 1s linear;
+}
+
+.academy_photo:hover::after {
+  box-shadow: none;
+}

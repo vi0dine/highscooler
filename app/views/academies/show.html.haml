@@ -29,8 +29,7 @@
                     %p
                       = field.interested_users_count_on_academy(@academy)
     .column
-      %figure.image
-        %image{src: 'https://via.placeholder.com/468x60?text=Uniwersytet+Wroclawski'}
+      .academy_photo{ style: "background-image:url(#{image_path('academies/'+@academy.id.to_s+'.jpg')})" }
       .container#opinions{ style: 'margin-top: 20px;' }
         %h2.subtitle Opinie o uczelni
         - if current_user&.student_of_academy?(@academy) || current_user&.admin?
