@@ -61,6 +61,7 @@ body {
   .register_button {
     color: $primary !important;
     font-weight: bold;
+    backface-visibility: hidden;
     -webkit-transition: background-color 1s, color 1s ease-out;
     -moz-transition: background-color 1s, color 1s ease-out;
     -o-transition: background-color 1s, color 1s ease-out;
@@ -74,6 +75,7 @@ body {
 
   .navbar-item {
     color: $light;
+    backface-visibility: hidden;
     -webkit-transition: background-color 1s, color 1s ease-out;
     -moz-transition: background-color 1s, color 1s ease-out;
     -o-transition: background-color 1s, color 1s ease-out;
@@ -152,16 +154,11 @@ body {
   padding: 25px;
   margin: 10px;
   position: relative;
-  background-image: linear-gradient(
-    33deg,
-    rgba(232, 247, 238, 0.5) 0%,
-    rgba(201, 214, 234, 0.5) 100%
-  );
-  // image-url("uwr.jpg");
   background-size: cover; /* Resize the background image to cover the entire container */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   z-index: 1;
+  backface-visibility: hidden;
   transition: box-shadow 0.5s, transform 0.5s linear;
   .subtitle {
     color: $dark;
@@ -192,6 +189,7 @@ body {
     rgba(181, 255, 233, 0.7) 100%
   );
   z-index: -1;
+  backface-visibility: hidden;
   transition: opacity 0.5s linear;
   opacity: 0;
 }

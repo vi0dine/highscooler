@@ -1,4 +1,5 @@
-.academies_list
+= javascript_pack_tag 'academies'
+.academies_list#academies
   .container{style: 'padding-top: 30px;'}
     .level
       .level-left
@@ -17,30 +18,8 @@
       .container
         - @academies.each do |academy|
           = link_to academy_path(academy.id) do
-            .box#academy_box
-              .columns
-                .column.is-1
-                  %figure.image.is-64x64
-                    %image.is-rounded{src: 'https://bulma.io/images/placeholders/128x128.png'}
-                .column.is-7.has-text-left
-                  %p.title.is-size-4 
-                    = academy.name
-                  %p.subtitle
-                    = academy.city
-                .column.is-1.has-text-centered
-                  %div
-                    %p.heading Kierunków
-                    %p.title
-                      = academy.field_of_studies.count
-                .column.has-text-centered
-                  %div
-                    %p.heading Zainteresowanych
-                    %p.title
-                      = academy.interested_users_count
-                -# .column.is-1.has-text-centered
-                -#   %div
-                -#     %p.heading Ranking
-                -#     %p.subtitle
-                -#       TODO
-    = paginate(@academies, class: 'pagination')
+            %academy-box{':academy':academy.to_json, |
+            ':fields_count':academy.field_of_studies.count, |
+            ':interested_count':academy.interested_users_count }
+    = paginate(@academies, class: 'pagination', method: :get)
           

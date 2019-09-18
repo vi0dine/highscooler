@@ -4,8 +4,8 @@
       = link_to image_tag("logo_xs.png", size: '110x51', style: 'padding: 5px'), root_path
     .navbar-menu
       .navbar-end
-        = link_to 'Uczelnie', academies_path , class: 'navbar-item'
-        = link_to 'Kierunki', fields_path , class: 'navbar-item'
+        = link_to 'Uczelnie', academies_path , class: 'navbar-item', method: :get
+        = link_to 'Kierunki', fields_path , class: 'navbar-item', method: :get
         - if user_signed_in?
           = link_to 'Wyloguj', destroy_user_session_path, class: 'navbar-item'
         - else

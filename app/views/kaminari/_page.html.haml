@@ -1,4 +1,4 @@
 - unless page.current?
-  = link_to page, url, {remote: remote, rel: page.rel, class: 'pagination-link'}
+  = link_to page, url, {remote: remote, rel: page.rel, class: 'pagination-link', method: :get}
 - else
-  = link_to page, url, {remote: remote, rel: page.rel, class: 'pagination-link is-current'}
+  = link_to page, url, {remote: remote, rel: page.rel, class: 'pagination-link is-current', method: :get}
