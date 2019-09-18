@@ -23,7 +23,7 @@
                       %span.heading.is-size-6
                         = field.name
                       %span
-                        = field.field_type
+                        = FieldOfStudy.human_enum_name(:field_type, field.field_type)
                   .column.has-text-centered
                     %span.heading Zainteresowani
                     %p
