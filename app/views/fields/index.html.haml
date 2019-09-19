@@ -1,52 +1,21 @@
-.container{style: 'margin-top: 30px;'}
-  %h1.title Kierunki
-  .level
-    .level-left
-      .level-item
-        .field.has-addons
-          .control
-            %input.input
-          .control
-            %button.button.is-info Szukaj
-      - if current_user && current_user.account_type == 'admin'
-        .level-item
-          = button_to("Dodaj kierunek", new_field_path, class: 'button is-success', method: 'get')
-    .level-right
-      .level-item.has-text-centered
-        %div
-          %p.heading Kierunków
-          %p.title
-            = @all_fields.count
-  .level
-    .container
-      - @fields.each do |field|
-        = link_to field_path(field.id) do
-          .box{style: 'padding: 10px; margin: 5px;'}
-            .columns.is-centerd.is-vcentered
-              .column.is-1
-                %figure.image.is-64x64
-                  %image.is-rounded{src: 'https://bulma.io/images/placeholders/128x128.png'}
-              .column.is-7.has-text-left
-                %p.title.is-size-4 
-                  = field.name
-                %p.subtitle
-                  = FieldOfStudy.human_enum_name(:field_type, field.field_type)
-              .column.is-1.has-text-centered
-                %div
-                  %span.heading Prowadzony na
-                  %span.title.is-block{style: 'margin-bottom: 7px;'}
-                    = field.academies.count
-                  %span.heading
-                    = pluralize(field.academies.count, 'Uczelni', plural: 'Uczelniach')                 
-              .column.is-2.has-text-centered
-                %div
-                  %p.heading Zainteresowanych
-                  %p.subtitle
-                    = field.interested_users_count
-              .column.is-1.has-text-centered
-                %div
-                  %p.heading Ranking
-                  %p.subtitle
-                    TODO
-  = paginate(@fields, class: 'pagination')
-        
+.fields_list#fields
+  .container{style: 'padding-top: 30px;'}
+    .level
+      .level-left
+        %h1.title Kierunki
+        - if current_user && current_user.account_type == 'admin'
+          .level-item
+            = button_to("Dodaj kierunek", new_field_path, class: 'button is-success', method: 'get')
+      .level-right
+        .level-item.has-text-centered
+          %div
+            %p.heading Kierunków
+            %p.title
+              = @all_fields.count
+    .level
+      .container
+        - @fields.each do |field|
+          = link_to field_path(field.id) do
+            %field-box{':field':{'name':field.name, 'type':FieldOfStudy.human_enum_name(:field_type, field.field_type), ':academies_count':field.academies.count, ':interested_count':field.interested_users_count }.to_json}
+    = paginate(@fields, class: 'pagination')
+          
