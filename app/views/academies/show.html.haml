@@ -1,3 +1,4 @@
+= javascript_pack_tag 'academy_opinion'
 .academy
   .container
     .columns
@@ -40,8 +41,8 @@
           .container{style: 'height: 700px; overflow: auto;'}
             - @academy.academy_opinions.each do |o|
               - if o.is_positive
-                .notification.is-success{style: 'padding: 10px;'}
-                  = render 'opinion', o: o
+                .notification.positive_opinion{style: 'padding: 10px;'}
+                  = render 'opinion', o: o, icon: 'smile-beam'
               - else
-                .notification.is-danger{style: 'padding: 10px;'}
-                  = render 'opinion', o: o
+                .notification.negative_opinion{style: 'padding: 10px;'}
+                  = render 'opinion', o: o, icon: 'frown'
