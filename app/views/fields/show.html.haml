@@ -1,3 +1,4 @@
+= javascript_pack_tag 'opinion'
 .field_container
   .container
     .columns
@@ -46,11 +47,11 @@
         .container{style: 'height: 400px; overflow: auto;'}
           - @field.field_opinions.each do |o|
             - if o.is_positive
-              .notification.is-success{style: 'padding: 10px;'}
-                = render 'opinion', o: o
+              .notification.positive_opinion{style: 'padding: 10px;'}
+                = render 'opinion', o: o, icon: 'smile-beam'
             - else
-              .notification.is-danger{style: 'padding: 10px;'}
-                = render 'opinion', o: o
+              .notification.negative_opinion{style: 'padding: 10px;'}
+                = render 'opinion', o: o, icon: 'frown'
         .container{style: 'padding: 10px;'}
           .soon
           .content.wip

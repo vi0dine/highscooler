@@ -1,9 +1,8 @@
-%article.media
+%article.media.opinion
   %figure.media-left
-    %p.image.is-64x64
-      %image{src: 'https://via.placeholder.com/64x64'}
+    %span.icon.is-large
+      %icon{class: "fas fa-#{icon} fa-3x opinion_icon"}
   .media-content
-    %strong= o.user.username
-    %small= o.user.academy.name
+    %strong= o.user.username + '  |  ' + (o.user&.academy&.name.nil? ? 'Brak informacji' : o.user.academy.name)
     %br
     %p= o.body
