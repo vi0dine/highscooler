@@ -1,69 +1,71 @@
-.container{style: 'margin-top: 30px;'}
-  .columns
-    .column.is-8
-      %h1.title
-        = @field.name
-      %h2.subtitle
-        = @field.field_type
-      %figure.image
-        %image{src: 'https://via.placeholder.com/468x60?text=Informatyka'}
-      .container{style: 'margin-top: 20px;'}
-      .is-divider
-      .columns
-        .column
-          .container
-            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-        .column
-          .container
-          - if current_user && current_user.account_type == 'admin'
-            .container{style: 'margin-bottom: 10px;'}
-              = link_to("Przypisz uczelnię", new_detail_path({ field_id: @field.id }), class: 'button is-success', method: 'get')
-          - @field.academies.each do |academy|
-            .box{style: 'padding: 10px;'}
-              %article.media
-                %figure.media-left
-                  %p.image.is-64x64
-                    %image{src: 'https://via.placeholder.com/64x64'}
-                .media-content
-                  .columns.is-centered.is-vcentered
-                    .column.has-text-left
-                      .content
-                        %span.heading.is-size-7
-                          = academy.name
-                        %span.is-size-8
-                          = academy.city
-                    .column.has-text-centered
-                      %span.heading Zainteresowani
-                      %p= academy.interested_users_count_of_field(@field)
-    .column#opinions
-      %h2.subtitle Opinie o kierunku
-      - if current_user&.student_of_field?(@field) || current_user&.admin?
-        %button.button.is-success{ 'v-on:click':'showModal()' } Dodaj opinię
+.field
+  .container
+    .columns
+      .column.is-8
+        %h1.title
+          = @field.name
+        %h2.subtitle
+          = FieldOfStudy.human_enum_name(:field_type, @field.field_type)
+        %figure.image
+          .field_photo{ style: "background-image:url(#{image_path('fields/'+@field.id.to_s+'.jpg')})" }
+        .container{style: 'margin-top: 20px;'}
         .is-divider
-        = form_for(@field_opinion, url: create_field_opinion_path(@field_opinion), remote: true, authenticity_token: true) do |f|
-          = render 'shared/new_opinion_form', f: f, resource: @field
-      .container{style: 'height: 400px; overflow: auto;'}
-        - @field.field_opinions.each do |o|
-          - if o.is_positive
-            .notification.is-success{style: 'padding: 10px;'}
-              = render 'opinion', o: o
-          - else
-            .notification.is-danger{style: 'padding: 10px;'}
-              = render 'opinion', o: o
-
-      .container{style: 'padding: 10px;'}
-        %h2.subtitle Przedmioty maturalne
-        %table.table.is-fullwidth
-          %thead
-            %tr
-              %th Przedmiot
-              %th Procent uczelni wliczających
-          %tbody
-            - 3.times do
-              %tr
-                %td
-                  Przedmiot
-                %td
-                  Procenty
-            
+        .columns
+          .column
+            .container
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+          .column
+            .container
+            - if current_user && current_user.account_type == 'admin'
+              .container{style: 'margin-bottom: 10px;'}
+                = link_to("Przypisz uczelnię", new_detail_path({ field_id: @field.id }), class: 'button is-success', method: 'get')
+            - @field.academies.each do |academy|
+              .box.field_academy_box
+                %article.media
+                  %figure.media-left
+                    %p.image.is-64x64
+                      %image{src:"#{image_path("cities/"+academy.city.to_s.downcase+".png")}"}
+                  .media-content
+                    .columns.is-centered.is-vcentered
+                      .column.has-text-left
+                        .content
+                          %span.heading.is-size-6
+                            = academy.name
+                          %span.heading.is-size-7
+                            = academy.city
+                      .column.has-text-centered
+                        %span.title.is-size-6 Zainteresowani
+                        %p.title.is-size-5= academy.interested_users_count_of_field(@field)
+      .column#opinions
+        %h2.subtitle Opinie o kierunku
+        - if current_user&.student_of_field?(@field) || current_user&.admin?
+          %button.button.is-success{ 'v-on:click':'showModal()' } Dodaj opinię
+          .is-divider
+          = form_for(@field_opinion, url: create_field_opinion_path(@field_opinion), remote: true, authenticity_token: true) do |f|
+            = render 'shared/new_opinion_form', f: f, resource: @field
+        .container{style: 'height: 400px; overflow: auto;'}
+          - @field.field_opinions.each do |o|
+            - if o.is_positive
+              .notification.is-success{style: 'padding: 10px;'}
+                = render 'opinion', o: o
+            - else
+              .notification.is-danger{style: 'padding: 10px;'}
+                = render 'opinion', o: o
+        .container{style: 'padding: 10px;'}
+          .soon
+          .content.wip
+            %h2.subtitle Przedmioty maturalne
+            %table.table.is-fullwidth
+              %thead
+                %tr
+                  %th Przedmiot
+                  %th Procent uczelni wliczających
+              %tbody
+                - 3.times do
+                  %tr
+                    %td
+                      Przedmiot
+                    %td
+                      Procenty
+              
 
