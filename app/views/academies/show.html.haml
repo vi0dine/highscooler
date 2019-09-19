@@ -1,47 +1,47 @@
-.container{style: 'margin-top: 30px;'}
-  .columns
-    .column
-      %h1.title
-        = @academy.name
-      %h2.subtitle
-        = @academy.city
-      - if current_user&.admin?
-        .container
-          = link_to("Dodaj kierunek do uczelni", new_detail_path({ academy_id: @academy.id }), class: 'button is-success', method: 'get')
-      .is-divider
-      .container{style: 'height: 700px; overflow-y: auto; overflow-x: hidden;'}
-        - @academy.field_of_studies.each do |field|
-          .box{style: 'padding: 10px;'}
-            %article.media
-              %figure.media-left
-                %p.image.is-64x64
-                  %image{src: 'https://via.placeholder.com/64x64'}
-              .media-content
-                .columns.is-centered.is-vcentered
-                  .column
-                    .content
-                      %span.heading.is-size-6
-                        = field.name
-                      %span
-                        = FieldOfStudy.human_enum_name(:field_type, field.field_type)
-                  .column.has-text-centered
-                    %span.heading Zainteresowani
-                    %p
-                      = field.interested_users_count_on_academy(@academy)
-    .column
-      .academy_photo{ style: "background-image:url(#{image_path('academies/'+@academy.id.to_s+'.jpg')})" }
-      .container#opinions{ style: 'margin-top: 20px;' }
-        %h2.subtitle Opinie o uczelni
-        - if current_user&.student_of_academy?(@academy) || current_user&.admin?
-          %button.button.is-success{ 'v-on:click':'showModal()' } Dodaj opinię
-          .is-divider
-          = form_for(@academy_opinion, url: create_academy_opinion_path(@academy_opinion), remote: true, authenticity_token: true) do |f|
-            = render 'shared/new_opinion_form', f: f, resource: @academy
-        .container{style: 'height: 700px; overflow: auto;'}
-          - @academy.academy_opinions.each do |o|
-            - if o.is_positive
-              .notification.is-success{style: 'padding: 10px;'}
-                = render 'opinion', o: o
-            - else
-              .notification.is-danger{style: 'padding: 10px;'}
-                = render 'opinion', o: o
+.academy
+  .container
+    .columns
+      .column
+        %h1.title
+          = @academy.name
+        %h2.subtitle
+          = @academy.city
+        - if current_user&.admin?
+          .container
+            = link_to("Dodaj kierunek do uczelni", new_detail_path({ academy_id: @academy.id }), class: 'button is-success', method: 'get')
+        .is-divider
+        .container{style: 'height: 700px; overflow-y: no-display; overflow-x: hidden;'}
+          - @academy.field_of_studies.each do |field|
+            .box.academy_field_box{style: 'padding: 10px;'}
+              %article.media
+                %figure.media-left
+                  #academy_field_box_icon{ style: "background-image:url(#{image_path('fields/types/'+ 'natural_sciences' +'.png')})" }
+                .media-content
+                  .columns.is-centered.is-vcentered
+                    .column
+                      .content
+                        %span.heading.is-size-6
+                          = field.name
+                        %span.heading
+                          = FieldOfStudy.human_enum_name(:field_type, field.field_type)
+                    .column.has-text-centered
+                      %span.title.is-size-7 ZAINTERESOWANI
+                      %p.title.is-size-4
+                        = field.interested_users_count_on_academy(@academy)
+      .column
+        .academy_photo{ style: "background-image:url(#{image_path('academies/'+@academy.id.to_s+'.jpg')})" }
+        .container#opinions{ style: 'margin-top: 20px;' }
+          %h2.subtitle Opinie o uczelni
+          - if current_user&.student_of_academy?(@academy) || current_user&.admin?
+            %button.button.is-success{ 'v-on:click':'showModal()' } Dodaj opinię
+            .is-divider
+            = form_for(@academy_opinion, url: create_academy_opinion_path(@academy_opinion), remote: true, authenticity_token: true) do |f|
+              = render 'shared/new_opinion_form', f: f, resource: @academy
+          .container{style: 'height: 700px; overflow: auto;'}
+            - @academy.academy_opinions.each do |o|
+              - if o.is_positive
+                .notification.is-success{style: 'padding: 10px;'}
+                  = render 'opinion', o: o
+              - else
+                .notification.is-danger{style: 'padding: 10px;'}
+                  = render 'opinion', o: o
