@@ -22,21 +22,22 @@
                 = link_to("Przypisz uczelnię", new_detail_path({ field_id: @field.id }), class: 'button is-success', method: 'get')
             - @field.academies.each do |academy|
               .box.field_academy_box
-                %article.media
-                  %figure.media-left
-                    %p.image.is-64x64
-                      %image{src:"#{image_path("cities/"+academy.city.to_s.downcase+".png")}"}
-                  .media-content
-                    .columns.is-centered.is-vcentered
-                      .column.has-text-left
-                        .content
-                          %span.heading.is-size-6
-                            = academy.name
-                          %span.heading.is-size-7
-                            = academy.city
-                      .column.has-text-centered
-                        %span.title.is-size-6 Zainteresowani
-                        %p.title.is-size-5= academy.interested_users_count_of_field(@field)
+                = link_to(academy_path(academy.id), method: :get) do
+                  %article.media
+                    %figure.media-left
+                      %p.image.is-64x64
+                        %image{src:"#{image_path("cities/"+academy.city.to_s.downcase+".png")}"}
+                    .media-content
+                      .columns.is-centered.is-vcentered
+                        .column.has-text-left
+                          .content
+                            %span.heading.is-size-6
+                              = academy.name
+                            %span.heading.is-size-7
+                              = academy.city
+                        .column.has-text-centered
+                          %span.title.is-size-6 Zainteresowani
+                          %p.title.is-size-5= academy.interested_users_count_of_field(@field)
       .column#opinions
         %h2.subtitle Opinie o kierunku
         - if current_user&.student_of_field?(@field) || current_user&.admin?
