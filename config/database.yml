@@ -26,5 +26,5 @@ production:
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: highscooler_prod
-  username: admin
-  password: Heisenberg1932!
+  username: <%= Rails.application.credentials.pg_username %>
+  password: <%= Rails.application.credentials.pg_password %>
