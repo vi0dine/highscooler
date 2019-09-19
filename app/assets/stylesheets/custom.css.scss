@@ -64,21 +64,10 @@ a {
 
 // Work in progress
 
-.soon {
-  position: absolute;
-  z-index: 1000;
-  height: auto;
-  min-width: 100%;
-  min-height: 100%;
-  background-image: image-url("wip.png");
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: contain; /* Resize the background image to cover the entire container */
-}
-
 .wip {
   filter: blur(5px);
 }
+
 // OVERFLOW
 
 html {
