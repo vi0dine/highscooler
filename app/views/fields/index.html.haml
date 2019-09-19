@@ -1,3 +1,4 @@
+= javascript_pack_tag 'fields'
 .fields_list#fields
   .container{style: 'padding-top: 30px;'}
     .level
@@ -16,6 +17,11 @@
       .container
         - @fields.each do |field|
           = link_to field_path(field.id) do
-            %field-box{':field':{'name':field.name, 'type':FieldOfStudy.human_enum_name(:field_type, field.field_type), ':academies_count':field.academies.count, ':interested_count':field.interested_users_count }.to_json}
+            %field-box{':field':{ |
+              'id':field.id, |
+              'name':field.name, |
+              'type':FieldOfStudy.human_enum_name(:field_type, field.field_type), |
+              'academies_count':field.academies.count, |
+              'interested_count':field.interested_users_count }.to_json }
     = paginate(@fields, class: 'pagination')
           

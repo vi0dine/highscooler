@@ -1,7 +1,12 @@
 <template>
-  <div class="box">
-    <div class="columns is-centered is-v-centered">
-      <div class="colums is-2">
+  <div
+    class="box"
+    id="field_box"
+    style="padding: 10px; margin: 5px;"
+    :style="this.fieldPhoto(field.id)"
+  >
+    <div class="columns is-centered is-vcentered">
+      <div class="column is-2">
         <figure class="image is-64x64">
           <img src="http://placehold.it/64" class="is-rounded" />
         </figure>
@@ -13,8 +18,8 @@
       <div class="column is-1 has-text-centered">
         <div>
           <span class="heading">Prowadzony na</span>
-          <span class="title is-block">{{ field.academies_count }}</span>
-          <span class="heading">{{ pluralize('uczelni') }}</span>
+          <span class="title is-block" style="margin-bottom: 7px;">{{ field.academies_count }}</span>
+          <span class="heading">{{ field.academies_count == 1 ? 'uczelni' : 'uczelniach' }}</span>
         </div>
       </div>
       <div class="column has-text-centered">
@@ -25,33 +30,41 @@
       </div>
     </div>
   </div>
-  <!-- .box{style: 'padding: 10px; margin: 5px;'}
-  .columns.is-centerd.is-vcentered
-    .column.is-2
-      %figure.image.is-64x64
-        %image.is-rounded{src: 'https://bulma.io/images/placeholders/128x128.png'}
-    .column.is-6.has-text-left
-      %p.title.is-size-4 {{ this.field.name }}
-      %p.subtitle {{ this.field.type }}
-    .column.is-1.has-text-centered
-      %div
-        %span.heading Prowadzony na
-        %span.title.is-block{style: 'margin-bottom: 7px;'} {{ this.field.academies_count }}
-        %span.heading Uczelni          
-    .column.has-text-centered
-      %div
-        %p.heading Zainteresowanych
-  %p.title {{ this.field.interested.count }}-->
 </template>
 
 <script>
 export default {
   props: ["field"],
-  mounted() {
-    pluralize.addPluralRule("Uczelni", "Uczelniach");
+  methods: {
+    fieldPhoto: function(id) {
+      let image_path;
+      try {
+        image_path = `background-image: rgb(232,247,238), url(${require("images/fields/" +
+          id +
+          ".jpg")});
+                      background-image: -moz-linear-gradient(33deg, rgba(232,247,238,0.3) 0%, rgba(201,214,234,0.3) 100%), url(${require("images/fields/" +
+                        id +
+                        ".jpg")});
+                      background-image: -webkit-linear-gradient(33deg, rgba(232,247,238,0.3) 0%, rgba(201,214,234,0.3) 100%), url(${require("images/fields/" +
+                        id +
+                        ".jpg")});
+                      background-image: linear-gradient(33deg, rgba(232,247,238,0.3) 0%, rgba(201,214,234,0.3) 100%), url(${require("images/fields/" +
+                        id +
+                        ".jpg")});
+                      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e8f7ee",endColorstr="#c9d6ea",GradientType=1), url(${require("images/fields/" +
+                        id +
+                        ".jpg")});`;
+      } catch (e) {
+        console.log(e);
+        image_path = `background-image: linear-gradient(
+                      33deg,
+                      rgba(232, 247, 238, 0.3) 0%,
+                      rgba(201, 214, 234, 0.3) 100%
+                      );`;
+      } finally {
+        return image_path;
+      }
+    }
   }
 };
 </script>
-
-<style>
-</style>
