@@ -20,6 +20,7 @@
             %field-box{':field':{ |
               'id':field.id, |
               'name':field.name, |
+              'type_enum':field.field_type, |
               'type':FieldOfStudy.human_enum_name(:field_type, field.field_type), |
               'academies_count':field.academies.count, |
               'interested_count':field.interested_users_count }.to_json }

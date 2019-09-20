@@ -2,13 +2,13 @@
   <div
     class="box"
     id="field_box"
-    style="padding: 10px; margin: 5px;"
+    style="padding: 5px; margin: 10px;"
     :style="this.fieldPhoto(field.id)"
   >
     <div class="columns is-centered is-vcentered">
       <div class="column is-2">
         <figure class="image is-64x64">
-          <img src="http://placehold.it/64" class="is-rounded" />
+          <img :src="this.fieldType(field.type_enum)" class="type-icon" />
         </figure>
       </div>
       <div class="column is-6 has-text-left">
@@ -36,7 +36,18 @@
 export default {
   props: ["field"],
   methods: {
-    fieldPhoto: function(id) {
+    fieldType: type => {
+      let image_path;
+      try {
+        image_path = require("images/fields/types/" + type + ".png");
+      } catch (e) {
+        console.log(e);
+        image_path = require("images/fields/types/other.png");
+      } finally {
+        return image_path;
+      }
+    },
+    fieldPhoto: id => {
       let image_path;
       try {
         image_path = `background-image: rgb(232,247,238), url(${require("images/fields/" +
