@@ -13,11 +13,12 @@
         .is-divider
         .container{style: 'height: 700px; overflow-y: no-display; overflow-x: hidden;'}
           - @academy.field_of_studies.each do |field|
-            .box.academy_field_box{style: 'padding: 10px;'}
+            .box.academy_field_box
               = link_to(field_path(field.id), method: :get) do
                 %article.media
-                  %figure.media-left
-                    #academy_field_box_icon{ style: "background-image:url(#{image_path('fields/types/'+ 'natural_sciences' +'.png')})" }
+                  .media-left
+                    %figure.image.is-64x64
+                      %img{ src: image_path("fields/types/#{field.field_type.to_s}.png") }
                   .media-content
                     .columns.is-centered.is-vcentered
                       .column

@@ -1,7 +1,7 @@
 %article.media.opinion
   %figure.media-left
     %span.icon.is-large
-      %icon{class: "fas fa-#{icon} fa-3x opinion_icon"}
+      %i{class: "fas fa-#{icon} fa-3x opinion_icon"}
   .media-content
     %strong= o.user.username + '  |  ' + (o.user&.field_of_study&.name.nil? ? 'Brak informacji' : o.user.field_of_study.name)
     %br

@@ -302,7 +302,7 @@ body {
 }
 
 .academy_field_box {
-  padding: 25px;
+  padding: 15px;
   position: relative;
   background-image: linear-gradient(
     33deg,
@@ -324,10 +324,14 @@ body {
     text-shadow: 1px 1px 6px black;
     transition: color 0.7s ease-in-out, text-shadow 0.7s ease-in-out;
   }
+
+  img {
+    max-width: 100%;
+  }
 }
 
 .academy_field_box:hover {
-  padding: 25px;
+  padding: 15px;
   position: relative;
   background-size: cover; /* Resize the background image to cover the entire container */
   background-position: center; /* Center the image */
@@ -368,16 +372,6 @@ body {
   .subtitle {
     color: $light;
   }
-}
-
-#academy_field_box_icon {
-  position: relative;
-  height: 50px;
-  width: 50px;
-  display: block;
-  background-size: cover; /* Resize the background image to cover the entire container */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
 }
 
 // FIELDS
@@ -584,6 +578,11 @@ body {
   .subtitle {
     color: $light;
   }
+}
+
+.type-icon {
+  filter: contrast(10%) invert(100%) sepia(20%) saturate(10000%)
+    hue-rotate(210deg) drop-shadow(2px 2px 5px #333);
 }
 
 // OPINION
