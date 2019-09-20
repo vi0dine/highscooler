@@ -1,35 +1,27 @@
 .field
   = label(:username, 'Nazwa użytkownika', class: 'label')
-  .control.has-icons-left.has-icons-right
+  .control.has-icons-left
     = f.text_field :username, class: 'input'
     %span.icon.is-small.is-left
       %i.fas.fa-user
-    %span.icon.is-small.is-right
-      %i.fas.fa-check
 .field
   = label(:email, 'Email', class: 'label')
-  .control.has-icons-left.has-icons-right
+  .control.has-icons-left
     = f.email_field :email, class: 'input'
     %span.icon.is-small.is-left
       %i.fas.fa-envelope
-    %span.icon.is-small.is-right
-      %i.fas.fa-check
 .field
   = label(:password, 'Hasło', class: 'label')
-  .control.has-icons-left.has-icons-right
+  .control.has-icons-left
     = f.password_field :password, autocomplete: "new-password", class: 'input'
     %span.icon.is-small.is-left
       %i.fas.fa-key
-    %span.icon.is-small.is-right
-      %i.fas.fa-check
 .field
   = label(:password_confirmation, 'Powtórz hasło', class: 'label')
-  .control.has-icons-left.has-icons-right
+  .control.has-icons-left
     = f.password_field :password_confirmation, autocomplete: "new-password", class: 'input'
     %span.icon.is-small.is-left
       %i.fas.fa-key
-    %span.icon.is-small.is-right
-      %i.fas.fa-check
 .field
   = label(:account_type, 'Status', class: 'label')
   .control

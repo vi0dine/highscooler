@@ -9,7 +9,7 @@
       #matura{'v-show':'formIndex==2'}
         .columns
           .column
-            %h3.subtitle Wyniki matur:
+            %h3.title.is-size-5 Wyniki matur:
             %br
             .container.is-fluid{'ref':'exams'}
               = f.fields_for :matura_results do |ff|
@@ -22,7 +22,7 @@
             .container{'v-on:click': 'addExam'}
               = link_to_add_exam('Dodaj egzamin', f, :matura_results, class: 'button is-primary is-pulled-right', level: 'advanced')
           .column
-            %h3.subtitle Kierunki studiów:
+            %h3.title.is-size-5 Kierunki studiów:
             %br
             .container.is-fluid{'ref':'interests'}
             %br
