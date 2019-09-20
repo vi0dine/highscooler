@@ -1,19 +1,19 @@
 $light: #e8f7ee;
 $dark: #444545;
 $dark_blue: #020024;
+
 $primary: #b5ffe9;
 $secondary: #c9d6ea;
+
 $link: #acbdba;
+
 $text: $dark;
-$text-lighter: #54555f;
 $background: $light;
 
 $footer-background-color: $light;
 $body-background-color: $secondary;
 $box-background-color: $link;
-$box-color: $text-lighter;
 $table-background-color: $light;
-$button-text-color: $text-lighter;
 
 li.list-item {
   background-color: $light;
@@ -24,12 +24,78 @@ li.list-item {
 @import "bulma-extensions";
 @import "bulma";
 
+.list-item {
+  color: #020024;
+  text-shadow: none;
+  font-weight: italic;
+}
+
 .notification.is-primary {
   color: $dark;
 }
 
+.notification.is-danger {
+  margin: 10px;
+  background: linear-gradient(45deg, #191737, #fb3640);
+  color: #f1f2eb;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px black;
+}
+
+.notification.is-success {
+  margin: 10px;
+  background: linear-gradient(45deg, #f1f2eb, #2ca58d);
+  color: #191737;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px #777;
+}
+
+.button.is-success {
+  background-color: #2ca58d;
+  color: #f1f2eb;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px black;
+  transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out,
+    text-shadow 0.7s ease-in-out;
+}
+
+.button.is-success:hover {
+  background-color: $primary;
+  color: #191737;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px #777;
+}
+
 .button.is-primary {
-  color: $text-lighter;
+  background-color: #2274a5;
+  color: #f1f2eb;
+  transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out;
+}
+
+.button.is-primary:hover {
+  background-color: $secondary;
+  color: #191737;
+}
+
+.button.is-light {
+  background-color: #f1f2eb;
+  color: #191737;
+  transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out;
+}
+
+.button.is-light:hover {
+  background-color: #191737;
+  color: #f1f2eb;
+}
+
+.message.is-info {
+  .message-header {
+    color: #f1f2eb;
+    background-color: #2274a5;
+  }
+  .message-body {
+    color: #2274a5;
+  }
 }
 
 a {
@@ -176,7 +242,7 @@ body {
       63deg,
       rgba(2, 0, 36, 0.9) 0%,
       rgba(201, 214, 234, 0.9) 45%,
-      rgba(181, 255, 233, 0.9) 100%
+      #b5ffe9e6 100%
     ),
     image-url("graduation.jpg");
   background-position: center; /* Center the image */
@@ -632,5 +698,67 @@ body {
 
   .opinion_icon {
     color: $dark;
+  }
+}
+
+// REGISTER
+
+.registration {
+  padding: 25px;
+  background: linear-gradient(
+      63deg,
+      rgba(2, 0, 36, 0.9) 0%,
+      rgba(201, 214, 234, 0.9) 45%,
+      rgba(181, 255, 233, 0.9) 100%
+    ),
+    image-url("graduation.jpg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+
+  .step-details {
+    .step-title {
+      text-shadow: 1px 1px 7px black;
+      color: $light;
+    }
+
+    p {
+      text-shadow: 1px 1px 7px #777;
+      color: $dark;
+    }
+  }
+
+  .steps {
+    .step-item::before {
+      background: linear-gradient(to left, #f1f2eb 50%, #2274a5 50%);
+      background-size: 200% 100%;
+      background-position: right bottom;
+    }
+
+    .step-item.is-active::before,
+    .step-item.is-completed::before {
+      background-position: left bottom;
+    }
+
+    .step-item.is-active .step-marker {
+      background-color: #f1f2eb;
+      color: #2274a5;
+      border-color: #2274a5;
+    }
+
+    .step-item.is-completed .step-marker {
+      background-color: #f1f2eb;
+      color: #2274a5;
+    }
+  }
+
+  .label,
+  .title {
+    text-shadow: 1px 1px 7px black;
+    color: $light;
+  }
+
+  .notification.is-success {
+    background: linear-gradient(45deg, #2274a599, #aaabbc99);
   }
 }
