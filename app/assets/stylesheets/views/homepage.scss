@@ -1,0 +1,39 @@
+// HOMEPAGE
+
+#bg_video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    z-index: -1000;
+    overflow: hidden;
+  }
+  
+  @media (max-width: 767px) {
+    #bg_video {
+      display: none !important;
+    }
+  }
+  
+  #homepage_content {
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 0.7) 0%,
+      rgba(201, 214, 234, 0.7) 45%,
+      rgba(181, 255, 233, 0.7) 100%
+    );
+    color: #f1f1f1;
+  }
+  
+  #teaser {
+    background: linear-gradient(
+      70deg,
+      rgba(232, 247, 238, 0.9) 0%,
+      rgba(201, 214, 234, 0.9) 100%
+    );
+  }
+  

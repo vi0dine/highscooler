@@ -1,0 +1,38 @@
+
+.button.is-success {
+    background-color: $accent_cyan;
+    color: $white;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px black;
+    transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out,
+      text-shadow 0.7s ease-in-out;
+  }
+  
+  .button.is-success:hover {
+    background-color: $primary;
+    color: $dark_blue;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #777;
+  }
+  
+  .button.is-primary {
+    background-color: $light_blue;
+    color: $white;
+    transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out;
+  }
+  
+  .button.is-primary:hover {
+    background-color: $secondary;
+    color: $dark_blue;
+  }
+  
+  .button.is-light {
+    background-color: $white;
+    color: $dark_blue;
+    transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out;
+  }
+  
+  .button.is-light:hover {
+    background-color: $dark_blue;
+    color: $white;
+  }

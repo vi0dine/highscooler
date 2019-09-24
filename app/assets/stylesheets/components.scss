@@ -1,0 +1,50 @@
+
+li.list-item {
+    background-color: $light;
+  }
+  
+  .list-item {
+    color: $darker_blue;
+    text-shadow: none;
+    font-weight: italic;
+  }
+  
+  .notification.is-primary {
+    color: $dark;
+  }
+  
+  .notification.is-danger {
+    margin: 10px;
+    background: linear-gradient(45deg, $dark_blue, $accent_red);
+    color: $white;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px black;
+  }
+  
+  .notification.is-success {
+    margin: 10px;
+    background: linear-gradient(45deg, $white, $accent_cyan);
+    color: $dark_blue;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #777;
+  }
+  
+  .message.is-info {
+    .message-header {
+      color: $white;
+      background-color: $light_blue;
+    }
+    .message-body {
+      color: $light_blue;
+    }
+  }
+  
+  a {
+    text-decoration: none !important;
+  }
+  
+  // Work in progress
+  
+  .wip {
+    filter: blur(5px);
+  }

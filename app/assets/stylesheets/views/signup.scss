@@ -1,0 +1,62 @@
+// REGISTER
+
+.registration {
+    padding: 25px;
+    background: linear-gradient(
+        63deg,
+        rgba(2, 0, 36, 0.9) 0%,
+        rgba(201, 214, 234, 0.9) 45%,
+        rgba(181, 255, 233, 0.9) 100%
+      ),
+      image-url("graduation.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+  
+    .step-details {
+      .step-title {
+        text-shadow: 1px 1px 7px black;
+        color: $light;
+      }
+  
+      p {
+        text-shadow: 1px 1px 7px #777;
+        color: $dark;
+      }
+    }
+  
+    .steps {
+      .step-item::before {
+        background: linear-gradient(to left, $white 50%, $light_blue 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+      }
+  
+      .step-item.is-active::before,
+      .step-item.is-completed::before {
+        background-position: left bottom;
+      }
+  
+      .step-item.is-active .step-marker {
+        background-color: $white;
+        color: $light_blue;
+        border-color: $light_blue;
+      }
+  
+      .step-item.is-completed .step-marker {
+        background-color: $white;
+        color: $light_blue;
+      }
+    }
+  
+    .label,
+    .title {
+      text-shadow: 1px 1px 7px black;
+      color: $light;
+    }
+  
+    .notification.is-success {
+      background: linear-gradient(45deg, rgba($light_blue, 0.6), #aaabbc99);
+    }
+  }
+  
