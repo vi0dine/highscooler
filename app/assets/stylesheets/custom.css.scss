@@ -1,6 +1,12 @@
+$white: #f1f2eb;
 $light: #e8f7ee;
 $dark: #444545;
-$dark_blue: #020024;
+$dark_blue: #191737;
+$darker_blue: #020024;
+$light_blue: #2274a5;
+$accent_red: #fb3640;
+$accent_cyan: #2ca58d;
+
 
 $primary: #b5ffe9;
 $secondary: #c9d6ea;
@@ -25,7 +31,7 @@ li.list-item {
 @import "bulma";
 
 .list-item {
-  color: #020024;
+  color: $darker_blue;
   text-shadow: none;
   font-weight: italic;
 }
@@ -36,23 +42,23 @@ li.list-item {
 
 .notification.is-danger {
   margin: 10px;
-  background: linear-gradient(45deg, #191737, #fb3640);
-  color: #f1f2eb;
+  background: linear-gradient(45deg, $dark_blue, $accent_red);
+  color: $white;
   font-weight: bold;
   text-shadow: 1px 1px 3px black;
 }
 
 .notification.is-success {
   margin: 10px;
-  background: linear-gradient(45deg, #f1f2eb, #2ca58d);
-  color: #191737;
+  background: linear-gradient(45deg, $white, $accent_cyan);
+  color: $dark_blue;
   font-weight: bold;
   text-shadow: 1px 1px 3px #777;
 }
 
 .button.is-success {
-  background-color: #2ca58d;
-  color: #f1f2eb;
+  background-color: $accent_cyan;
+  color: $white;
   font-weight: bold;
   text-shadow: 1px 1px 3px black;
   transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out,
@@ -61,40 +67,40 @@ li.list-item {
 
 .button.is-success:hover {
   background-color: $primary;
-  color: #191737;
+  color: $dark_blue;
   font-weight: bold;
   text-shadow: 1px 1px 3px #777;
 }
 
 .button.is-primary {
-  background-color: #2274a5;
-  color: #f1f2eb;
+  background-color: $light_blue;
+  color: $white;
   transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out;
 }
 
 .button.is-primary:hover {
   background-color: $secondary;
-  color: #191737;
+  color: $dark_blue;
 }
 
 .button.is-light {
-  background-color: #f1f2eb;
-  color: #191737;
+  background-color: $white;
+  color: $dark_blue;
   transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out;
 }
 
 .button.is-light:hover {
-  background-color: #191737;
-  color: #f1f2eb;
+  background-color: $dark_blue;
+  color: $white;
 }
 
 .message.is-info {
   .message-header {
-    color: #f1f2eb;
-    background-color: #2274a5;
+    color: $white;
+    background-color: $light_blue;
   }
   .message-body {
-    color: #2274a5;
+    color: $light_blue;
   }
 }
 
@@ -111,14 +117,14 @@ a {
 .pagination-link,
 .pagination-next,
 .pagination-previous {
-  background: linear-gradient(45deg, $dark_blue 0%, $dark 100%);
+  background: linear-gradient(45deg, $darker_blue 0%, $dark 100%);
   color: $light;
   text-decoration: none !important;
 }
 
 .pagination-link:hover,
 .pagination-next:hover {
-  background-color: $dark_blue;
+  background-color: $darker_blue;
   color: $link;
   text-decoration: none !important;
 }
@@ -165,7 +171,7 @@ body {
 // NAVBAR
 
 .navbar {
-  background: $dark_blue;
+  background: $darker_blue;
 
   .register_button {
     color: $primary !important;
@@ -656,19 +662,19 @@ body {
 .positive_opinion {
   background: linear-gradient(
     90deg,
-    rgba($dark_blue, 0.7) 25%,
+    rgba($darker_blue, 0.7) 25%,
     rgba($link, 0.7) 100%
   );
   box-shadow: 2px 2px 4px black;
 
   strong {
     color: $light;
-    text-shadow: 1px 1px 5px #020024;
+    text-shadow: 1px 1px 5px $darker_blue;
   }
 
   p {
     color: $light;
-    text-shadow: 1px 1px 5px $dark_blue;
+    text-shadow: 1px 1px 5px $darker_blue;
     font-style: italic;
   }
 
@@ -730,7 +736,7 @@ body {
 
   .steps {
     .step-item::before {
-      background: linear-gradient(to left, #f1f2eb 50%, #2274a5 50%);
+      background: linear-gradient(to left, $white 50%, $light_blue 50%);
       background-size: 200% 100%;
       background-position: right bottom;
     }
@@ -741,14 +747,14 @@ body {
     }
 
     .step-item.is-active .step-marker {
-      background-color: #f1f2eb;
-      color: #2274a5;
-      border-color: #2274a5;
+      background-color: $white;
+      color: $light_blue;
+      border-color: $light_blue;
     }
 
     .step-item.is-completed .step-marker {
-      background-color: #f1f2eb;
-      color: #2274a5;
+      background-color: $white;
+      color: $light_blue;
     }
   }
 
@@ -759,6 +765,6 @@ body {
   }
 
   .notification.is-success {
-    background: linear-gradient(45deg, #2274a599, #aaabbc99);
+    background: linear-gradient(45deg, rgba($light_blue, 0.6), #aaabbc99);
   }
 }
