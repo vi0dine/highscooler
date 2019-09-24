@@ -3,14 +3,14 @@
 @import "bulma-extensions";
 @import "bulma";
 
-@import './main.scss';
-@import './colors.scss';
-@import './variables.scss';
-@import './buttons.scss';
-@import './components.scss';
-@import './pagination.scss';
-@import './navbar.scss';
-@import './footer.scss';
+@import 'colors';
+@import 'main';
+@import 'variables';
+@import 'buttons';
+@import 'components';
+@import 'pagination';
+@import 'navbar';
+@import 'footer';
 
 @import './views/academies.scss';
 @import './views/academy.scss';

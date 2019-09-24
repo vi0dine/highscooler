@@ -28,6 +28,14 @@ li.list-item {
     font-weight: bold;
     text-shadow: 1px 1px 3px #777;
   }
+
+  .notification.is-info {
+    margin: 10px;
+    background: linear-gradient(45deg, $light_blue, $light);
+    color: $dark_blue;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #777;
+  }
   
   .message.is-info {
     .message-header {
