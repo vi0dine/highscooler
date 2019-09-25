@@ -1,0 +1,19 @@
+.login {
+    padding: 25px;
+    background: linear-gradient(
+        63deg,
+        rgba(2, 0, 36, 0.9) 0%,
+        rgba(201, 214, 234, 0.9) 45%,
+        rgba(181, 255, 233, 0.9) 100%
+      ),
+      image-url("graduation.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+
+    .label,
+    .title {
+      text-shadow: 1px 1px 7px black;
+      color: $light;
+    }
+}
