@@ -1,27 +1,25 @@
-.container{style: 'padding: 25px;'}
-  .columns
-    .column.is-4
-      .columns.is-centered.is-vcentered
-        .column.is-4
-          %figure.image.is-128x128
-            %img{src: 'https://bulma.io/images/placeholders/128x128.png'}
+.dashboard
+  .container{style: 'padding: 25px;'}
+    .columns
+      .column.is-4
+        .columns.is-centered.is-vcentered
+          .column
+            %h2.title
+              = @user.username
+            %h2.subtitle 
+              = @user.email
         .column
-          %h2.title
-            = @user.username
-          %h2.subtitle 
-            = @user.email
+          .list
+            - @user.field_of_studies.each do |field|
+              %li.list-item
+                = field.name
+        .container
+          - if current_user.schoolboy?
+            = render 'user_matura_results'
+          - elsif current_user.admin?
+            = render 'basic_statistics'
       .column
-        .list
-          - @user.field_of_studies.each do |field|
-            %li.list-item
-              = field.name
-      .container
         - if current_user.schoolboy?
-          = render 'user_matura_results'
+          = render 'report'
         - elsif current_user.admin?
-          = render 'basic_statistics'
-    .column
-      - if current_user.schoolboy?
-        = render 'report'
-      - elsif current_user.admin?
-        = render 'admin_panel'
+          = render 'admin_panel'

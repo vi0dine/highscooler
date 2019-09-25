@@ -3,12 +3,12 @@
   .tile.is-ancestor
   - @fields.each_with_index do |field, id|
     .tile.is-12.is-vertical{style: 'padding: 10px;'}
-      .box
+      .box#detail_box
         .columns.is-centered.is-vcentered
           .column.is-5
             %span.subtitle 
               = field.name
-            %p
+            %p.info
               = "#{field.academy.name} - #{field.academy.city}"
           .column
             %p.heading Limit miejsc
