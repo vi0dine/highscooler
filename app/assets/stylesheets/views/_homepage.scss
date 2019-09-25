@@ -40,5 +40,27 @@
       rgba(232, 247, 238, 0.9) 0%,
       rgba(201, 214, 234, 0.9) 100%
     );
+
+    border-radius: 15px;
+
+    .fas {
+      color: transparent;
+      font-size: 30px;
+      background-image: linear-gradient(45deg, $secondary, $accent_cyan);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .card-header-title {
+      font-weight: 200;
+      font-size: 21px;
+      font-family: $handwrited;
+      letter-spacing: 110%;
+      color: $darker_blue;
+    }
+
+    .content {
+      color: $dark_blue;
+    }
   }
   
