@@ -20,13 +20,18 @@
   }
   
   #homepage_content {
-    background: linear-gradient(
-      90deg,
-      rgba(2, 0, 36, 0.7) 0%,
-      rgba(201, 214, 234, 0.7) 45%,
-      rgba(181, 255, 233, 0.7) 100%
-    );
-    color: #f1f1f1;
+      
+    h1 {
+      padding: 15px;
+      font-family: $handwrited;
+      font-size: 48pt;
+      background: linear-gradient(45deg, $dark_blue 0%, $light_blue 70%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(1px 1px 3px $primary);
+    }
+
   }
   
   #teaser {
