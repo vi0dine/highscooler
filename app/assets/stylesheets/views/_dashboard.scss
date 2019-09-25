@@ -14,9 +14,6 @@
         margin: 10px;
         position: relative;
         background: linear-gradient(90deg, $white 55%, $primary 100%);
-        background-size: cover; /* Resize the background image to cover the entire container */
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Do not repeat the image */
         z-index: 1;
         backface-visibility: hidden;
         transition: box-shadow 0.5s, transform 0.5s linear;
@@ -77,5 +74,37 @@
         .info {
           color: $white;
         }
+      }
+
+    .list-item {
+        position: relative;
+        background: linear-gradient(90deg, $light 55%, $primary);
+        color: $dark_blue;
+        z-index: 1;
+        backface-visibility: hidden;
+        transition: color 1s ease-in-out;
+      }
+
+    .list-item:hover {
+        color: $white;
+    }
+      
+      .list-item::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient(
+          90deg, $light_blue, $dark_blue);
+        z-index: -1;
+        backface-visibility: hidden;
+        transition: opacity 0.5s linear;
+        opacity: 0;
+      }
+      
+      .list-item:hover::before {
+        opacity: 1;
       }
 }
