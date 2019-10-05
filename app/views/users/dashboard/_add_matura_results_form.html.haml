@@ -1,9 +1,9 @@
-.modal{'v-bind:class': "{ 'is-active': isEditingMaturaResults }"}
+.modal{'v-bind:class': "{ 'is-active': isAddingMaturaResult }"}
   .modal-background
   .modal-card
     %header.modal-card-head
-      %p.modal-card-title Edytuj wyniki
-      %button.delete{ type: 'button', 'v-on:click':'closeModal()'}
+      %p.modal-card-title Dodaj wynik
+      %button.delete{ type: 'button', 'v-on:click':'closeAddResultForm()'}
     %section.modal-card-body
       .field
         %label.label Użytkownik
@@ -26,5 +26,5 @@
           .control
             = f.number_field :result, class: 'input', min: 0, max: 100
     %footer.modal-card-foot
-      %button.button.is-success{ 'v-on:click':'submitStudyInterestForm()' } Zapisz
-      %button.button.is-danger{ type: 'button', 'v-on:click':'closeStudyInterestForm()' } Anuluj
+      %button.button.is-success{ 'v-on:click':'submitAddResultForm()' } Zapisz
+      %button.button.is-danger{ type: 'button', 'v-on:click':'closeAddResultForm()' } Anuluj

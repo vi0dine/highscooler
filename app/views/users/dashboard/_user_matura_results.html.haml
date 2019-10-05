@@ -13,6 +13,6 @@
         = MaturaResult.human_enum_name(:level, mr.level)
       %td
         = mr.result
-.button.is-primary{'v-on:click':'showEditResultsForm'} Zaktualizuj wyniki
-= form_for(@matura_result, url: edit_matura_results_path(@matura_result, id: current_user.id), method: :post, remote: true, authenticity_token: true) do |f|
-  = render 'edit_matura_results_form', f: f
+.button.is-primary{'v-on:click':'showAddResultForm()'} Dodaj wynik
+= form_for(@matura_result, url: add_matura_result_path(@matura_result, id: current_user.id), method: :post, authenticity_token: true) do |f|
+  = render 'add_matura_results_form', f: f
