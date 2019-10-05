@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_05_104449) do
+ActiveRecord::Schema.define(version: 2019_10_05_111031) do
 
   create_table "academies", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2019_10_05_104449) do
     t.integer "field_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "academies_count", default: 0, null: false
+    t.integer "interesteds_count", default: 0, null: false
   end
 
   create_table "field_opinions", force: :cascade do |t|

@@ -22,7 +22,7 @@
               'name':field.name, |
               'type_enum':field.field_type, |
               'type':FieldOfStudy.human_enum_name(:field_type, field.field_type), |
-              'academies_count':field.academies.count, |
-              'interested_count':field.interested_users_count }.to_json }
+              'academies_count':field.academies_count, |
+              'interested_count':field.interesteds_count }.to_json }
     = paginate(@fields, class: 'pagination')
           

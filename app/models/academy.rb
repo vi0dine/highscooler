@@ -12,8 +12,4 @@ class Academy < ApplicationRecord
   has_many :field_opinions, through: :users
 
   paginates_per 5
-
-  def interested_users_count_of_field(field)
-    field_details.select { |f| f.field_of_study == field }.first.interested_users_count
-  end
 end

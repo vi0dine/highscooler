@@ -30,7 +30,7 @@
                       .column.has-text-centered
                         %span.title.is-size-7 ZAINTERESOWANI
                         %p.title.is-size-4
-                          = field.interested_users_count_on_academy(@academy)
+                          = field.interesteds_count
       .column
         .academy_photo{ style: "background-image:url(#{image_path('academies/'+@academy.id.to_s+'.jpg')})" }
         .container#opinions{ style: 'margin-top: 20px;' }

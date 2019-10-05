@@ -2,7 +2,7 @@
 
 class FieldDetail < ApplicationRecord
   belongs_to :academy, counter_cache: :field_of_studies_count
-  belongs_to :field_of_study
+  belongs_to :field_of_study, counter_cache: :academies_count
   has_many :interesteds
   has_many :users, through: :interesteds
   validates :recrutation_formula, presence: true
@@ -10,9 +10,5 @@ class FieldDetail < ApplicationRecord
 
   def name
     field_of_study.name
-  end
-
-  def interested_users_count
-    self.interesteds_count
   end
 end
