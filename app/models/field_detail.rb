@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class FieldDetail < ApplicationRecord
-  belongs_to :academy
+  belongs_to :academy, counter_cache: :field_of_studies_count
   belongs_to :field_of_study
   has_many :interesteds
   has_many :users, through: :interesteds
@@ -13,6 +13,6 @@ class FieldDetail < ApplicationRecord
   end
 
   def interested_users_count
-    users.count
+    self.interesteds_count
   end
 end

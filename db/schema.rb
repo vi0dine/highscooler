@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_05_093036) do
+ActiveRecord::Schema.define(version: 2019_10_05_104449) do
 
   create_table "academies", force: :cascade do |t|
     t.string "name", null: false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_10_05_093036) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "field_of_studies_count", default: 0, null: false
+    t.integer "interesteds_count", default: 0, null: false
   end
 
   create_table "academy_opinions", force: :cascade do |t|
@@ -41,7 +42,6 @@ ActiveRecord::Schema.define(version: 2019_10_05_093036) do
     t.integer "minimal_points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "interested_count", default: 0
     t.index ["academy_id", "field_of_study_id"], name: "index_field_details_on_academy_id_and_field_of_study_id", unique: true
     t.index ["academy_id"], name: "index_field_details_on_academy_id"
     t.index ["field_of_study_id"], name: "index_field_details_on_field_of_study_id"
@@ -132,7 +132,6 @@ ActiveRecord::Schema.define(version: 2019_10_05_093036) do
     t.integer "high_school_id"
     t.integer "academy_id"
     t.integer "field_of_study_id"
-    t.integer "interested_count", default: 0
     t.index ["academy_id"], name: "index_users_on_academy_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["field_of_study_id"], name: "index_users_on_field_of_study_id"

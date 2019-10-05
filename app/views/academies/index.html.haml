@@ -20,6 +20,6 @@
           = link_to academy_path(academy.id) do
             %academy-box{':academy':academy.to_json, |
             ':fields_count':academy.field_of_studies_count, |
-            ':interested_count':academy.interested_users_count }
+            ':interested_count':academy.interesteds_count }
     = paginate(@academies, class: 'pagination', method: :get)
           

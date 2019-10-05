@@ -6,15 +6,12 @@ class Academy < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }
   has_many :users
   has_many :field_details
-  has_many :field_of_studies, through: :field_details, counter_cache: true
+  has_many :field_of_studies, through: :field_details
+  has_many :interesteds, through: :field_details
   has_many :academy_opinions
   has_many :field_opinions, through: :users
 
   paginates_per 5
-
-  def interested_users_count
-    field_details.sum(&:interested_users_count)
-  end
 
   def interested_users_count_of_field(field)
     field_details.select { |f| f.field_of_study == field }.first.interested_users_count
