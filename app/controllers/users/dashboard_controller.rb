@@ -3,7 +3,7 @@
 module Users
   class DashboardController < ApplicationController
     def show
-      @user = User.find(params[:id])
+      @user = User.eager_load(:matura_results, :field_details).find(params[:id])
       authorize! :read, @user
       @fields = @user.field_details
       @formulas = @user.formulas
