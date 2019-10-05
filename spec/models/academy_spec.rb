@@ -28,16 +28,6 @@ RSpec.describe Academy, type: :model do
     let(:field) { academy_with_field_details.field_of_studies.sample }
     it { should have_many(:field_details) }
     it { should have_many(:field_of_studies).through(:field_details) }
-    it {
-      expect(academy_with_field_details.interested_users_count)
-        .to eq(academy_with_field_details.field_of_studies
-          .sum { |f| f.field_details.first.users.count })
-    }
-    it {
-      expect(academy_with_field_details.interested_users_count_of_field(field))
-        .to eq(academy_with_field_details.field_details
-          .select { |f| f.field_of_study == field }.first.users.count)
-    }
   end
 
   context 'with students' do

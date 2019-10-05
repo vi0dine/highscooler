@@ -34,7 +34,7 @@ RSpec.describe FieldsController, type: :controller do
 
     it 'render field info' do
       expect(response.body).to include(@field.name.to_s)
-      expect(response.body).to include(@field.field_type.to_s)
+      expect(response.body).to include(FieldOfStudy.human_enum_name(:field_type, @field.field_type).to_s)
     end
 
     it 'prepare new field opinion' do

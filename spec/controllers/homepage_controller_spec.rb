@@ -15,7 +15,7 @@ RSpec.describe HomepageController, type: :controller do
     context 'as a quest' do
       before { get :index }
       it { should render_template(:index) }
-      it { expect(response.body).to include('Witaj w HighSchooler') }
+      it { expect(response.body).to include('Witaj') }
     end
   end
 end
