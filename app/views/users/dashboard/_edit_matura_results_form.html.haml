@@ -1,0 +1,30 @@
+.modal{'v-bind:class': "{ 'is-active': isEditingMaturaResults }"}
+  .modal-background
+  .modal-card
+    %header.modal-card-head
+      %p.modal-card-title Edytuj wyniki
+      %button.delete{ type: 'button', 'v-on:click':'closeModal()'}
+    %section.modal-card-body
+      .field
+        %label.label Użytkownik
+        .control
+          %input.input{ disabled: true, value: current_user.username }
+        = f.hidden_field :user_id, value: current_user.id
+      .columns.is-variable
+        .column
+          .field
+            .control.has-icons-left
+              .select
+                = f.select(:matura_subject_id, MaturaSubject.all.collect {|p| [ p.name, p.id ] })
+                %span.icon.is-small.is-left
+                  %i.fas.fa-chalkboard-teacher
+        .column
+          .control
+            .select
+              = f.select(:level, [['Podstawowy', 'basic'], ['Rozszerzony', 'advanced']])
+        .column
+          .control
+            = f.number_field :result, class: 'input', min: 0, max: 100
+    %footer.modal-card-foot
+      %button.button.is-success{ 'v-on:click':'submitStudyInterestForm()' } Zapisz
+      %button.button.is-danger{ type: 'button', 'v-on:click':'closeStudyInterestForm()' } Anuluj

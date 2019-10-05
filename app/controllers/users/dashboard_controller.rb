@@ -10,6 +10,7 @@ module Users
       @results = @user.results unless RecrutationPointsCalculator.call(@user)
 
       @study_interest = StudyInterest.new
+      @matura_result = MaturaResult.new
     end
   end
 end

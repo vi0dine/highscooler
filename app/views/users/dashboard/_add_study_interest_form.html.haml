@@ -15,5 +15,5 @@
         .select
           = f.select(:field_of_study_id, FieldOfStudy.all.collect {|field| [field.name, field.id]})
     %footer.modal-card-foot
-      %button.button.is-success{ 'v-on:click':'submit()' } Zapisz
-      %button.button.is-danger{ type: 'button', 'v-on:click':'closeModal()' } Anuluj
+      %button.button.is-success{ 'v-on:click':'submitStudyInterestForm()' } Zapisz
+      %button.button.is-danger{ type: 'button', 'v-on:click':'closeStudyInterestForm()' } Anuluj

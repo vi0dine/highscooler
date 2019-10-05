@@ -18,7 +18,7 @@
                   = link_to delete_study_interest_path(study_interest: { user_id: @user, field_of_study_id: field}), method: :delete, class: 'button is-small is-danger' do
                     %i.fas.fa-times
           - if @user.study_interests.count < 5
-            .button.is-primary{'v-on:click':'showModal'} Dodaj kierunki studiów
+            .button.is-primary{'v-on:click':'showStudyInterestForm'} Dodaj kierunki studiów
             = form_for(@study_interest, url: create_study_interest_path(@study_interest, id: current_user.id), method: :post, remote: true, authenticity_token: true) do |f|
               = render 'add_study_interest_form', f: f
         .container

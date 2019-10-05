@@ -4,18 +4,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const app = new Vue({
     el: "#user-dashboard",
     data: {
-      isAddingStudyInterests: false
+      isAddingStudyInterests: false,
+      isEditingMaturaResults: false
     },
     methods: {
-      showModal() {
+      showStudyInterestForm() {
         this.isAddingStudyInterests = true;
       },
-      closeModal() {
+      closeStudyInterestForm() {
         this.isAddingStudyInterests = false;
       },
-      submit() {
+      submitStudyInterestForm() {
         this.isAddingStudyInterests = false;
-        console.log(`${this.isAddingStudyInterests}`);
+      },
+      showEditResultsForm() {
+        this.isEditingMaturaResults = true;
+      },
+      closeEditResultsForm() {
+        this.isEditingMaturaResults = false;
+      },
+      submitEditResultsForm() {
+        this.isEditingMaturaResults = false;
       }
     }
   });
