@@ -42,7 +42,7 @@ export default {
         image_path = require("images/fields/types/" + type + ".png");
       } catch (e) {
         console.log(e);
-        image_path = require("images/fields/types/other.png");
+        image_path = require("images/fields/types/others.png");
       } finally {
         return image_path;
       }
