@@ -6,7 +6,7 @@ class Academy < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }
   has_many :users
   has_many :field_details
-  has_many :field_of_studies, through: :field_details
+  has_many :field_of_studies, through: :field_details, counter_cache: true
   has_many :academy_opinions
   has_many :field_opinions, through: :users
 
