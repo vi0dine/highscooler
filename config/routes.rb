@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     post '/:id/study_interest', to: 'users/study_interests#create', as: :create_study_interest
     delete '/:id/study_interest', to: 'users/study_interests#delete', as: :delete_study_interest
     post '/:id/matura_results', to: 'users/matura_results#create', as: :add_matura_result
-    put '/:id/matura_results', to: 'users/matura_results#update', as: :edit_matura_result
+    delete '/:id/matura_results', to: 'users/matura_results#delete', as: :delete_matura_result
   end
 
   scope :highschools do

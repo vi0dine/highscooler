@@ -13,6 +13,9 @@
         = MaturaResult.human_enum_name(:level, mr.level)
       %td
         = mr.result
+      %td
+        = link_to delete_matura_result_path(matura_result_id: mr.id), method: :delete, class: 'button is-small is-danger' do
+          %i.fas.fa-times
 .button.is-primary{'v-on:click':'showAddResultForm()'} Dodaj wynik
 = form_for(@matura_result, url: add_matura_result_path(@matura_result, id: current_user.id), method: :post, authenticity_token: true) do |f|
   = render 'add_matura_results_form', f: f

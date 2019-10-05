@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     el: "#user-dashboard",
     data: {
       isAddingStudyInterests: false,
-      isEditingMaturaResults: false,
       isAddingMaturaResult: false
     },
     methods: {
@@ -17,15 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       submitStudyInterestForm() {
         this.isAddingStudyInterests = false;
-      },
-      showEditResultForm() {
-        this.isEditingMaturaResults = true;
-      },
-      closeEditResultForm() {
-        this.isEditingMaturaResults = false;
-      },
-      submitEditResultForm() {
-        this.isEditingMaturaResults = false;
       },
       showAddResultForm() {
         this.isAddingMaturaResult = true;

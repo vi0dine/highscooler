@@ -12,6 +12,7 @@ module Users
       redirect_to dashboard_path(current_user.id)
     end
 
+    # TODO: Bring update functionality to life
     def update
       if @matura_result.update(matura_results_params)
         flash[:notice] = 'Zaktualizowano wynik matury'
@@ -19,6 +20,16 @@ module Users
         flash[:danger] = 'Coś poszło nie tak'
       end
       redirect_to dashboard_path(current_user.id)
+    end
+
+    def delete
+      @matura_result = MaturaResult.find(params[:matura_result_id])
+      if @matura_result.destroy
+        flash[:notice] = 'Usunięto wynik matury'
+      else
+        flash[:danger] = 'Coś poszło nie tak'
+      end
+      redirect_to root_path
     end
 
     private
