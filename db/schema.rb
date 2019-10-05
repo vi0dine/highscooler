@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_05_111031) do
+ActiveRecord::Schema.define(version: 2019_10_05_155221) do
 
   create_table "academies", force: :cascade do |t|
     t.string "name", null: false
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_10_05_111031) do
     t.datetime "updated_at", null: false
     t.integer "matura_subject_id"
     t.index ["matura_subject_id"], name: "index_matura_results_on_matura_subject_id"
+    t.index ["user_id", "matura_subject_id", "level"], name: "unique_matura_subject", unique: true
     t.index ["user_id"], name: "index_matura_results_on_user_id"
   end
 
