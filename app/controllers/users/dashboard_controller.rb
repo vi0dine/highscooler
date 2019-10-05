@@ -8,6 +8,8 @@ module Users
       @fields = @user.field_details
       @formulas = @user.formulas
       @results = @user.results unless RecrutationPointsCalculator.call(@user)
+
+      @study_interest = StudyInterest.new
     end
   end
 end
