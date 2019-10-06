@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe FieldOfStudy, type: :model do
   let(:field_of_study) { create(:field_of_study) }
 
-  context 'validations' do
+  context 'with valid attributes' do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:field_type) }
     it { should validate_uniqueness_of(:name).case_insensitive }

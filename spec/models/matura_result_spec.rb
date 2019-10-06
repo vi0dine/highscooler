@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe MaturaResult, type: :model do
   let(:matura_result) { create(:matura_result) }
 
-  context 'validations' do
+  context 'with valid attributes' do
     it { should belong_to(:user) }
     it { should belong_to(:matura_subject) }
     it { should validate_presence_of(:level) }
@@ -24,7 +24,7 @@ RSpec.describe MaturaResult, type: :model do
     it { expect(matura_result_no_level).to_not be_valid }
   end
 
-  context 'model methods' do
+  context 'when called model methods' do
     let(:basic_subject) { create(:matura_subject, name: 'Matematyka') }
     let(:basic_matura_result) {
       create(:matura_result, level: 'basic', matura_subject: basic_subject)

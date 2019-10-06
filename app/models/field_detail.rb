@@ -6,6 +6,7 @@ class FieldDetail < ApplicationRecord
   has_many :interesteds
   has_many :users, through: :interesteds
   validates :recrutation_formula, presence: true
+  validates_format_of :recrutation_formula, with: /\[\(.*\)\]/, on: :create, message: "is invalid"
   validates_uniqueness_of :field_of_study_id, scope: :academy_id
 
   def name

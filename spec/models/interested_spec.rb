@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Interested, type: :model do
   let(:interested) { create(:interested) }
 
-  context 'validations' do
+  context 'with valid attributes' do
     subject { interested }
     it { should belong_to(:user) }
     it { should belong_to(:field_detail) }

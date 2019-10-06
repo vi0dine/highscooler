@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe FieldOpinion, type: :model do
   let(:opinion) { create(:field_opinion) }
 
-  context 'validations' do
+  context 'with valid attributes' do
     subject { opinion }
     it { should validate_presence_of(:body) }
     it {

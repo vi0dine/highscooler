@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) { create(:user) }
 
-  context 'validations' do
+  context 'with valid attributes' do
     subject { user }
     it { should validate_presence_of(:email) }
     it { should validate_uniqueness_of(:email).case_insensitive }
@@ -41,7 +41,7 @@ RSpec.describe User, type: :model do
     it { expect(user_with_results.matura_results.count).to eq(5) }
   end
 
-  context 'model methods' do
+  context 'when called model methods' do
     let(:user_with_interests) { create(:user_with_interests) }
     let(:admin_user) { create(:user, account_type: 'admin') }
     let(:schoolboy_user) { create(:user, account_type: 'schoolboy') }
