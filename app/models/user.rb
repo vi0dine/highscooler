@@ -38,6 +38,34 @@ class User < ApplicationRecord
     account_type == 'schoolboy'
   end
 
+  def basic_results
+    self.matura_results.select(&:basic?)
+  end
+
+  def advanced_results
+    self.matura_results.select(&:advanced?)
+  end
+
+  def find_basic_result_for_subject_name(subject_name)
+    subject = self.basic_results.find { |result| result.matura_subject.name == subject_name }
+
+    if subject.nil?
+      0
+    else
+      subject.result
+    end
+  end
+
+  def find_advanced_result_for_subject_name(subject_name)
+    subject = self.advanced_results.find { |result| result.matura_subject.name == subject_name }
+
+    if subject.nil?
+      0
+    else
+      subject.result
+    end
+  end
+
   def student_of_academy?(academy)
     account_type == 'student' && self.academy == academy
   end
