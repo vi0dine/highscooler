@@ -1,24 +1,38 @@
 # frozen_string_literal: true
 
 class Formula
-  def initialize(formula)
+  def initialize(formula, user)
     @formula = formula
     @exponents = build_exponents
+    @subjects = build_subjects
     @basic_results = user.basic_results
     @advanced_results = user.advanced_results
-
-    @top_basic_subject_id = nil
-    @top_advanced_subject_id = nil
-    @max_exponent_result = nil
   end
 
-  def calculate; end
+  def calculate
+    exponents.reduce(0) do |result, exponent|
+      result + exponent.max_result
+    end
+  end
 
   private
 
   def build_exponents
     @formula.split('+').each do |exponent|
       @exponents << Exponent.new(exponent)
+    end
+  end
+
+  def calculate_exponents
+    @exponents.each do |exponent|
+      max = exponent.max_result(basic_results, advanced_results)
+      if max[:subject][:level] == :basic
+        basic_results.reject! { |res| res == max[:subject] }
+      elsif max[:subject][:level] == :advanced
+        advanced_results.reject! { |res| res == max[:subject] }
+      else
+        raise 'Wrong result level'
+      end
     end
   end
 end
@@ -37,8 +51,10 @@ class Exponent
     end
   end
 
-  def max_result(user)
-    subjects.map { |subject| subject.calculate(user) }.max
+  def max_result(basics, advanceds)
+    subjects
+      .map { |subject| subject.calculate(basics, advanceds) }
+      .max_by { |calculated| calculated[:result] }
   end
 end
 
@@ -52,17 +68,28 @@ class Subject
 
   attr_reader :subject_name, :level, :factor
 
-  def user_result(user)
+  def calculate(basics, advanceds)
+    { subject: find_user_result(basics, advanceds),
+      result: user_result(basics, advanceds) * factor }
+  end
+
+  private
+
+  def find_user_result(basics, advanceds)
     if level == :basic
-      user.find_basic_result_for_subject_name(subject_name)
+      basics.find { |result| result.matura_subject.name == subject_name }
     elsif level == :advanced
-      user.find_advanced_result_for_subject_name(subject_name)
+      advanceds.find { |result| result.matura_subject.name == subject_name }
     else
       raise StandardError, 'Wrong subject level'
     end
   end
 
-  def calculate(user)
-    user_result(user) * factor
+  def user_result(basics, advanceds)
+    if find_user_result(basics, advanceds).nil?
+      0
+    else
+      find_user_result(basics, advanceds).result
+    end
   end
 end

@@ -39,31 +39,11 @@ class User < ApplicationRecord
   end
 
   def basic_results
-    self.matura_results.select(&:basic?)
+    matura_results.select(&:basic?)
   end
 
   def advanced_results
-    self.matura_results.select(&:advanced?)
-  end
-
-  def find_basic_result_for_subject_name(subject_name)
-    subject = self.basic_results.find { |result| result.matura_subject.name == subject_name }
-
-    if subject.nil?
-      0
-    else
-      subject.result
-    end
-  end
-
-  def find_advanced_result_for_subject_name(subject_name)
-    subject = self.advanced_results.find { |result| result.matura_subject.name == subject_name }
-
-    if subject.nil?
-      0
-    else
-      subject.result
-    end
+    matura_results.select(&:advanced?)
   end
 
   def student_of_academy?(academy)
@@ -79,8 +59,6 @@ class User < ApplicationRecord
       interesteds.one? { |f| f.field_detail_id == field.id }
     elsif field.instance_of?(String)
       interesteds.one? { |f| f.field_detail.field_of_study.name == field }
-    else
-      # raise error
     end
   end
 end
