@@ -14,22 +14,22 @@ class Formula
     exponents.reduce(0) do |result, exponent|
       max = exponent.max_result(basic_results, advanced_results)
       filter_results(max)
-      result + max
+      result + max[:result]
     end
   end
 
   private
 
   def build_exponents
-    formula.split('+').each do |exponent|
-      exponents << Exponent.new(exponent)
+    formula.split('+').map do |exponent|
+      Exponent.new(exponent)
     end
   end
 
   def filter_results(max)
-    if max[:subject][:level] == :basic
+    if max[:subject][:level] == 'basic'
       basic_results.reject! { |res| res == max[:subject] }
-    elsif max[:subject][:level] == :advanced
+    elsif max[:subject][:level] == 'advanced'
       advanced_results.reject! { |res| res == max[:subject] }
     else
       raise 'Wrong result level'
