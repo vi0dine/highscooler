@@ -1,6 +1,0 @@
-.field
-  .control.has-icons-left
-    .select.is-fullwidth
-      = f.select(:field_of_study_id, FieldOfStudy.all.collect {|p| [ p.name, p.id ] })
-      %span.icon.is-small.is-left
-        %i.fas.fa-chalkboard-teacher
