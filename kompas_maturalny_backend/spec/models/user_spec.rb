@@ -26,27 +26,34 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
-class User < ApplicationRecord
-  include GraphQl::Interface
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, :token_authenticatable,
-         :recoverable, :rememberable, :validatable
+require 'rails_helper'
 
-  enum role: %i[schoolboy student partner admin]
-  enum gender: %i[female male]
+RSpec.describe User, type: :model do
+  describe "fields" do
+    it { should validate_presence_of(:email) }
+    it { should validate_uniqueness_of(:email).case_insensitive }
+    it { should validate_presence_of(:username) }
+    it { should validate_uniqueness_of(:username).case_insensitive }
+    it { should validate_presence_of(:encrypted_password) }
+    it { should validate_presence_of(:role) }
+    it {
+      should define_enum_for(:role)
+                 .with_values(%i[schoolboy student partner admin])
+    }
+    it {
+      should define_enum_for(:gender)
+                 .with_values(%i[female male])
+    }
+  end
 
-  validates :email,
-            presence: true,
-            uniqueness: { case_sensitive: false }
+  describe "callbacks" do
+    it "creates an auth token before saving if one does not exist" do
+      user = build(:user)
+      expect(user.authentication_token).to be_blank
 
-  validates :username,
-            presence: true,
-            uniqueness: { case_sensitive: false }
+      user.save
 
-  validates :encrypted_password,
-            presence: true
-
-  validates :role,
-            presence: true
+      expect(user.reload.authentication_token).to_not be_blank
+    end
+  end
 end

@@ -26,27 +26,14 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
-class User < ApplicationRecord
-  include GraphQl::Interface
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, :token_authenticatable,
-         :recoverable, :rememberable, :validatable
-
-  enum role: %i[schoolboy student partner admin]
-  enum gender: %i[female male]
-
-  validates :email,
-            presence: true,
-            uniqueness: { case_sensitive: false }
-
-  validates :username,
-            presence: true,
-            uniqueness: { case_sensitive: false }
-
-  validates :encrypted_password,
-            presence: true
-
-  validates :role,
-            presence: true
+FactoryBot.define do
+  factory :user do
+    email { Faker::Internet.email }
+    password { Faker::Internet.password }
+    username { Faker::Internet.username }
+    gender { %w[male female].sample }
+    role { %w[schoolboy student partner admin].sample }
+    date_of_birth { Faker::Date.backward }
+    date_of_matura { Faker::Date.backward }
+  end
 end
