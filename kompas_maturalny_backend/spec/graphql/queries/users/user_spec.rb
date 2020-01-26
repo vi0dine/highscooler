@@ -6,12 +6,16 @@ module Queries
       describe '.resolve' do
         it 'returns a user data with given ID' do
           user = create(:user)
+          admin = create(:user, role: 'admin')
           user_id = user.id
 
-          expect do
-            post '/graphql', params: {
-                query: query(id: user_id)
-            }
+            post '/graphql',
+                 params: {
+                     query: query(id: user_id)
+                 },
+                 headers: {
+                     Authorization: "Bearer #{admin.authentication_token}"
+                 }
 
             result = JSON.parse(response.body).to_h.deep_symbolize_keys
             expect(result.dig(:data, :user)).to include(  id: be_present,
@@ -23,15 +27,14 @@ module Queries
                                                           dateOfBirth: be_present,
                                                           dateOfMatura: be_present
                                                  )
-            expect(result.dig(:data, :user, :id).count).to eq(user_id)
-            expect(result.dig(:data, :user).count).to eq(1)
-          end
+            expect(result.dig(:data, :user, :id).to_i).to eq(user_id)
+            expect(result.dig(:data).count).to eq(1)
         end
 
         def query(id:)
           <<-GRAPHQL
-            query user(id: #{id}) {
-              user {
+            query user {
+              user(id: #{id}) {
                 id
                 email
                 username

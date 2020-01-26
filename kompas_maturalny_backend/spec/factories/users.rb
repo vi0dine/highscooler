@@ -6,8 +6,8 @@
 #  authentication_token            :text
 #  authentication_token_created_at :datetime
 #  city                            :string
-#  date_of_birth                   :date
-#  date_of_matura                  :date
+#  date_of_birth                   :datetime
+#  date_of_matura                  :datetime
 #  email                           :string           default(""), not null
 #  encrypted_password              :string           default(""), not null
 #  gender                          :integer
@@ -31,6 +31,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
     username { Faker::Internet.username }
+    city { Faker::Address.city }
     gender { %w[male female].sample }
     role { %w[schoolboy student partner admin].sample }
     date_of_birth { Faker::Date.backward }

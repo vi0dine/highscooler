@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 2020_01_24_182138) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
-    t.date "date_of_birth"
+    t.datetime "date_of_birth"
     t.integer "gender"
     t.string "city"
     t.integer "role"
-    t.date "date_of_matura"
+    t.datetime "date_of_matura"
     t.text "authentication_token"
     t.datetime "authentication_token_created_at"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true

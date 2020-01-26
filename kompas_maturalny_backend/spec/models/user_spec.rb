@@ -6,8 +6,8 @@
 #  authentication_token            :text
 #  authentication_token_created_at :datetime
 #  city                            :string
-#  date_of_birth                   :date
-#  date_of_matura                  :date
+#  date_of_birth                   :datetime
+#  date_of_matura                  :datetime
 #  email                           :string           default(""), not null
 #  encrypted_password              :string           default(""), not null
 #  gender                          :integer
