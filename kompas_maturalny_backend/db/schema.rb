@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_24_182138) do
+ActiveRecord::Schema.define(version: 2020_01_26_180040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,9 +23,37 @@ ActiveRecord::Schema.define(version: 2020_01_24_182138) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "academy_fields", force: :cascade do |t|
+    t.bigint "academy_id"
+    t.bigint "field_of_study_id"
+    t.string "recruitment_formula"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["academy_id", "field_of_study_id"], name: "index_academy_fields_on_academy_id_and_field_of_study_id", unique: true
+    t.index ["academy_id"], name: "index_academy_fields_on_academy_id"
+    t.index ["field_of_study_id"], name: "index_academy_fields_on_field_of_study_id"
+  end
+
   create_table "field_of_studies", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "matura_results", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "matura_subject_id"
+    t.integer "result"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["matura_subject_id"], name: "index_matura_results_on_matura_subject_id"
+    t.index ["user_id"], name: "index_matura_results_on_user_id"
+  end
+
+  create_table "matura_subjects", force: :cascade do |t|
+    t.string "name"
+    t.integer "subject_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

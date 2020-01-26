@@ -46,6 +46,11 @@ RSpec.describe User, type: :model do
     }
   end
 
+  describe 'associations' do
+    it { should have_many(:matura_results) }
+    it { should have_many(:matura_subjects).through(:matura_results) }
+  end
+
   describe "callbacks" do
     it "creates an auth token before saving if one does not exist" do
       user = build(:user)
