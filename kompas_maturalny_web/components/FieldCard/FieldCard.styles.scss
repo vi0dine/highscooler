@@ -1,0 +1,58 @@
+@import "../../variables";
+
+.FieldCard {
+  position: relative;
+  flex: 1 0 48%;
+  margin: 5px;
+  background-color: $primary-dark;
+  height: 12vh;
+  border-radius: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &_Counter {
+    &_Container {
+      position: absolute;
+      height: 25%;
+      width: 10%;
+      border-radius: 0 15px 0 15px;
+      text-align: center;
+      line-height: 24pt;
+      background: $accent;
+      right: 0;
+      top: 0;
+    }
+
+    &_Text {
+      font-family: $main-font-family;
+      color: $white;
+      font-weight: 700;
+      font-size: 14pt;
+    }
+  }
+
+  &_Name {
+    &_Container {
+      margin: 10px 0 0 20px;
+    }
+
+    &_Text {
+      font-family: $main-font-family;
+      color: $white;
+      font-size: 20pt;
+    }
+  }
+
+  &_Description {
+    &_Container {
+      padding: 0 0 20px 0;
+      margin-left: 20px;
+    }
+
+    &_Text {
+      font-family: $main-font-family;
+      color: $white;
+      font-size: 11pt;
+    }
+  }
+}

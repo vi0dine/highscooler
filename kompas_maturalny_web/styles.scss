@@ -1,5 +1,17 @@
 @import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css?family=Saira&display=swap');
+@import "variables";
 
 .Footer {
   text-align: center;
+}
+
+.Fields {
+  padding: 3rem 1rem 1rem 1rem;
+
+  &_Array {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: space-between !important;
+  }
 }

@@ -16,14 +16,14 @@ end
 NUMBER_OF_FIELDS.times do
   FieldOfStudy.create!(
       name: "#{Faker::Educator.course_name}",
-      description: Faker::Lorem.sentences
+      description: Faker::Lorem.paragraph(sentence_count: 10)
   )
 end
 
 NUMBER_OF_ACADEMIES.times do |i|
   Academy.create!(
       name: "#{Faker::Educator.university}#{i}",
-      description: Faker::Lorem.sentences,
+      description: Faker::Lorem.paragraph(sentence_count: 10),
       city: Faker::Address.city
   )
 end
