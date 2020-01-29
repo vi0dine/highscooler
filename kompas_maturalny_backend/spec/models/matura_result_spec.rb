@@ -20,7 +20,7 @@ require 'rails_helper'
 RSpec.describe MaturaResult, type: :model do
   describe 'fields' do
     it { should validate_presence_of(:result) }
-    it { should validate_inclusion_of(:result).in_range(0...100) }
+    it { should validate_inclusion_of(:result).in_range(0..100) }
     it { should belong_to(:user) }
     it { should belong_to(:matura_subject) }
   end

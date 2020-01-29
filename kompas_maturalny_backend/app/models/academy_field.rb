@@ -19,8 +19,6 @@ require 'recruitment_formula_calculator'
 #
 
 class AcademyField < ApplicationRecord
-  after_create :extract_recruitment_factors
-
   belongs_to :academy
   belongs_to :field_of_study
 
@@ -31,11 +29,7 @@ class AcademyField < ApplicationRecord
             presence: true,
             format: { with: /\[\(.*\)\]/, on: :create, message: "Błędny format formuły." }
 
-  attr_accessor :recruitment_factors
-
-  private
-
-  def extract_recruitment_factors
-    @recruitment_factors = RecruitmentFormulaCalculator::Formula.new(self.recruitment_formula).extract_factors
+  def calculate_recruitment_points_for(user)
+    RecruitmentFormulaCalculator::Formula.new(self.recruitment_formula).calculate(user)
   end
 end

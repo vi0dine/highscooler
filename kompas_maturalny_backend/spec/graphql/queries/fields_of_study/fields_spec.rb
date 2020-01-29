@@ -17,20 +17,28 @@ module Queries
                }
 
           result = JSON.parse(response.body).to_h.deep_symbolize_keys
-          expect(result.dig(:data, :fields)).to include(id: be_present,
-                                                        name: be_present,
-                                                        description: be_present
-                                                )
-          expect(result.dig(:data, :fields).count).to eq(10)
+          expect(result.dig(:data, :fields, :edges).sample[:node]).to include(id: be_present,
+                                                                              name: be_present,
+                                                                              description: be_present
+                                                                      )
+          expect(result.dig(:data, :fields, :edges).count).to eq(10)
         end
 
         def query()
           <<-GRAPHQL
             query fields {
               fields {
-                id
-                name
-                description
+                totalCount
+                pageInfo {
+                  endCursor
+                }
+                edges {
+                  node {
+                    id
+                    name
+                    description
+                  }
+                }
               }
             }
           GRAPHQL

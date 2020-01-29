@@ -1,7 +1,8 @@
-NUMBER_OF_FIELDS = 50
+NUMBER_OF_FIELDS = 70
 NUMBER_OF_ACADEMIES = 40
-NUMBER_OF_FIELDS_ON_ACADEMY = 35
-NUMBER_OF_MATURA_RESULTS = 5
+MIN_NUMBER_OF_FIELDS_ON_ACADEMY = 20
+MAX_NUMBER_OF_FIELDS_ON_ACADEMY = 65
+NUMBER_OF_MATURA_RESULTS = 7
 
 puts "Seeding database"
 puts "Seeding test users"
@@ -11,14 +12,18 @@ User.create(username: 'partner', email: "partner@example.com", role: "partner", 
 User.create(username: 'admin', email: "admin@example.com", role: "admin", password: "test1234")
 
 puts "Seeding matura subjects"
-MaturaSubject.create(name: 'Chemia', subject_type: 'sciences')
-MaturaSubject.create(name: 'Biologia', subject_type: 'sciences')
-MaturaSubject.create(name: 'Fizyka', subject_type: 'sciences')
-MaturaSubject.create(name: 'Geografia', subject_type: 'sciences')
-MaturaSubject.create(name: 'Matematyka', subject_type: 'sciences')
-MaturaSubject.create(name: 'Angielski', subject_type: 'humanities')
-MaturaSubject.create(name: 'Niemiecki', subject_type: 'humanities')
-MaturaSubject.create(name: 'Francuski', subject_type: 'humanities')
+MaturaSubject.create(name: 'Chemia', level: 'advanced', subject_type: 'sciences')
+MaturaSubject.create(name: 'Biologia', level: 'advanced', subject_type: 'sciences')
+MaturaSubject.create(name: 'Fizyka', level: 'advanced', subject_type: 'sciences')
+MaturaSubject.create(name: 'Geografia', level: 'advanced', subject_type: 'sciences')
+MaturaSubject.create(name: 'Matematyka', level: 'advanced', subject_type: 'sciences')
+MaturaSubject.create(name: 'Matematyka', level: 'basic', subject_type: 'sciences')
+MaturaSubject.create(name: 'Angielski', level: 'advanced', subject_type: 'humanities')
+MaturaSubject.create(name: 'Angielski', level: 'basic',  subject_type: 'humanities')
+MaturaSubject.create(name: 'Niemiecki', level: 'advanced', subject_type: 'humanities')
+MaturaSubject.create(name: 'Niemiecki', level: 'basic',  subject_type: 'humanities')
+MaturaSubject.create(name: 'Francuski', level: 'advanced', subject_type: 'humanities')
+MaturaSubject.create(name: 'Francuski', level: 'basic', subject_type: 'humanities')
 
 User.all.each do |user|
   NUMBER_OF_MATURA_RESULTS.times do |i|
@@ -43,12 +48,12 @@ NUMBER_OF_ACADEMIES.times do |i|
       city: Faker::Address.city
   )
 
-  NUMBER_OF_FIELDS_ON_ACADEMY.times do |i|
-    puts "Seeding academy fields #{i}/#{NUMBER_OF_FIELDS_ON_ACADEMY}"
+  rand(MIN_NUMBER_OF_FIELDS_ON_ACADEMY...MAX_NUMBER_OF_FIELDS_ON_ACADEMY).times do |i|
+    puts "Seeding academy fields #{i}"
     AcademyField.create!(
         field_of_study: FieldOfStudy.all[i],
         academy: academy,
-        recruitment_formula: "[(Chemia_Pr*2)|(Biologia_Pr*2)]+[(Fizyka_Pr*2)|(Matematyka_Pr*2]"
+        recruitment_formula: "[(chemia_pr*2)|(biologia_pr*2)]+[(fizyka_pr*2)|(matematyka_pr*2]"
     )
   end
 end

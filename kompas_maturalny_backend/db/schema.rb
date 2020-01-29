@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_01_26_180040) do
 
   create_table "matura_subjects", force: :cascade do |t|
     t.string "name"
+    t.integer "level"
     t.integer "subject_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

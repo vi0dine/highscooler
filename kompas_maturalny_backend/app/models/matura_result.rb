@@ -22,5 +22,5 @@ class MaturaResult < ApplicationRecord
   validates :result,
             presence: true,
             numericality: { only_integer: true },
-            inclusion: { in: 0...100 }
+            inclusion: { in: 0..100 }
 end

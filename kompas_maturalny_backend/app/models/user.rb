@@ -36,6 +36,11 @@ class User < ApplicationRecord
   has_many :matura_results
   has_many :matura_subjects, through: :matura_results
 
+  # ENABLE DEEP COPY CREATION
+  amoeba do
+    enable
+  end
+
   enum role: %i[schoolboy student partner admin]
   enum gender: %i[female male]
 
