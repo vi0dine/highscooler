@@ -27,11 +27,11 @@ const BasicLayout = ({children}) => {
                     >
                         {
                             collapsed ? (
-                                <Link href={'/fields'}>
+                                <Link href={'/fields'} as={'/fields'}>
                                     <Icon type={"book"} theme={"filled"}/>
                                 </Link>
                             ) : (
-                                <Link href={'/fields'}>
+                                <Link href={'/fields'} as={'/fields'}>
                                     <span>KIERUNKI</span>
                                 </Link>
                             )
@@ -43,11 +43,11 @@ const BasicLayout = ({children}) => {
                     >
                         {
                             collapsed ? (
-                                <Link href={'/academies'} title={"Uczelnie"}>
+                                <Link href={'/academies'} as={'/academies'}>
                                     <Icon type={"bank"} theme={"filled"}/>
                                 </Link>
                             ) : (
-                                <Link href={'/academies'} title={"Uczelnie"}>
+                                <Link href={'/academies'} as={'/academies'}>
                                     <span>UCZELNIE</span>
                                 </Link>
                             )

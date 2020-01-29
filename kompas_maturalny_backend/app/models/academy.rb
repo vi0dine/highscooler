@@ -11,6 +11,9 @@
 #
 
 class Academy < ApplicationRecord
+  has_many :academy_fields
+  has_many :field_of_studies, through: :academy_fields
+
   validates :name,
             presence: true,
             uniqueness: { case_sensitive: false }

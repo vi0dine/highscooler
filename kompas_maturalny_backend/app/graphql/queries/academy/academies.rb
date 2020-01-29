@@ -3,7 +3,7 @@ module Queries
     class Academies < Queries::BaseQuery
       description 'List all academies'
 
-      type [Types::AcademyType], null: false
+      type Types::AcademyType.connection_type, null: false
 
       def resolve
         user = context[:current_user]

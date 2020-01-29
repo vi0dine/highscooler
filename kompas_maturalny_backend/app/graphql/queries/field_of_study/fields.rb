@@ -3,7 +3,7 @@ module Queries
     class Fields < Queries::BaseQuery
       description 'List all fields of studies'
 
-      type [Types::FieldOfStudyType], null: false
+      type Types::FieldOfStudyType.connection_type, null: false
 
       def resolve
         user = context[:current_user]

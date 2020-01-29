@@ -10,6 +10,9 @@
 #
 
 class FieldOfStudy < ApplicationRecord
+  has_many :academy_fields
+  has_many :academies, through: :academy_fields
+
   validates :name,
             presence: true,
             uniqueness: {
