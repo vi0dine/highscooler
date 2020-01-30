@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_01_26_180040) do
     t.bigint "academy_id"
     t.bigint "field_of_study_id"
     t.string "recruitment_formula"
+    t.integer "students_limit"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["academy_id", "field_of_study_id"], name: "index_academy_fields_on_academy_id_and_field_of_study_id", unique: true

@@ -4,6 +4,7 @@ class CreateAcademyFields < ActiveRecord::Migration[6.0]
       t.belongs_to :academy
       t.belongs_to :field_of_study
       t.string :recruitment_formula
+      t.integer :students_limit
       t.timestamps
     end
 

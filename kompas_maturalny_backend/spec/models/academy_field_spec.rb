@@ -4,6 +4,7 @@
 #
 #  id                  :bigint           not null, primary key
 #  recruitment_formula :string
+#  students_limit      :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  academy_id          :bigint

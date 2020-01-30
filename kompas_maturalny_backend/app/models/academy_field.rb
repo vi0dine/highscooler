@@ -6,6 +6,7 @@ require 'recruitment_formula_calculator'
 #
 #  id                  :bigint           not null, primary key
 #  recruitment_formula :string
+#  students_limit      :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  academy_id          :bigint
@@ -26,10 +27,11 @@ class AcademyField < ApplicationRecord
             uniqueness: { scope: :field_of_study_id }
 
   validates :recruitment_formula,
-            presence: true,
-            format: { with: /\[\(.*\)\]/, on: :create, message: "Błędny format formuły." }
+            presence: true
+            #format: { with: /\[\(.*\)\]/, on: :create, message: "Błędny format formuły." }
 
   def calculate_recruitment_points_for(user)
+    puts self.recruitment_formula
     RecruitmentFormulaCalculator::Formula.new(self.recruitment_formula).calculate(user)
   end
 end
