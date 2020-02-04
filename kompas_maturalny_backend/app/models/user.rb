@@ -33,6 +33,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :token_authenticatable,
          :recoverable, :rememberable, :validatable
 
+  has_many :reviews
   has_many :matura_results
   has_many :matura_subjects, through: :matura_results
 

@@ -18,6 +18,7 @@
 #
 
 require 'rails_helper'
+require "models/concerns/reviewable_spec"
 
 RSpec.describe AcademyField, type: :model do
   describe 'fields' do
@@ -25,5 +26,10 @@ RSpec.describe AcademyField, type: :model do
     it { should belong_to(:field_of_study) }
     it { should validate_uniqueness_of(:academy_id).scoped_to(:field_of_study_id) }
     it { should validate_presence_of(:recruitment_formula) }
+  end
+
+  describe 'associations' do
+    it_behaves_like "reviewable"
+    it { should have_many(:reviews) }
   end
 end

@@ -3,10 +3,6 @@
 module RecruitmentFormulaCalculator
   class Formula
     def initialize(formula, remove_duplicates=true)
-      # $stderr.puts "FORMULA STRING"
-      # $stderr.puts "----------------------------------"
-      # $stderr.puts formula.gsub!(/\n/, '').gsub!(/ /, '')
-      # $stderr.puts "\n\n"
       @user = nil
       @formula = formula.gsub!(/\n/, '').gsub!(/ /, '')
       @exponents = build_exponents
@@ -38,10 +34,6 @@ module RecruitmentFormulaCalculator
 
   class Exponent
     def initialize(exponent_string)
-      # $stderr.puts "EXPONENT STRING"
-      # $stderr.puts "----------------------------------"
-      # $stderr.puts exponent_string
-      # $stderr.puts "\n\n"
       @exponent = exponent_string.gsub!(/^[\[]|[\]]$/, '')
       @subjects = build_subjects
     end
@@ -49,10 +41,6 @@ module RecruitmentFormulaCalculator
     attr_reader :subjects, :exponent
 
     def calculate(user)
-      # $stderr.puts "SUBJECTS"
-      # $stderr.puts "----------------------------------"
-      # $stderr.puts @subjects.map { |s| s.name }
-      # $stderr.puts "\n\n"
       @subjects.collect { |subject| subject.calculate(user) }
           .max_by { |calculated| calculated[:user_result] }
     end
@@ -70,10 +58,6 @@ module RecruitmentFormulaCalculator
     attr_reader :subject, :level, :multiplier, :name
 
     def initialize(subject_string)
-      # $stderr.puts "SUBJECT STRING"
-      # $stderr.puts "----------------------------------"
-      # $stderr.puts subject_string
-      # $stderr.puts "\n\n"
       subject_string.gsub!(/^[(]|[)]$/, '')
       @name = /(.*)_/.match(subject_string)[1].to_s.capitalize!
       @level = /.*_(..)/.match(subject_string)[1].to_s == 'pp' ? :basic : :advanced

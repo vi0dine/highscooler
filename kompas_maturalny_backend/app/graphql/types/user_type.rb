@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  class UserType < BaseObject
+  class UserType < Base::BaseObject
     field :gender, Types::Enums::Gender, null: true
     field :role, Types::Enums::Role, null: false
 

@@ -47,6 +47,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'associations' do
+    it { should have_many(:reviews) }
     it { should have_many(:matura_results) }
     it { should have_many(:matura_subjects).through(:matura_results) }
   end

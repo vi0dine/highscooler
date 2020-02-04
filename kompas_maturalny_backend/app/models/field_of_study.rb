@@ -12,6 +12,7 @@
 class FieldOfStudy < ApplicationRecord
   has_many :academy_fields
   has_many :academies, through: :academy_fields
+  has_many :reviews, through: :academy_fields
 
   validates :name,
             presence: true,

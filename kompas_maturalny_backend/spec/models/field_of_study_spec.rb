@@ -21,5 +21,6 @@ RSpec.describe FieldOfStudy, type: :model do
   describe 'associations' do
     it { should have_many(:academy_fields) }
     it { should have_many(:academies).through(:academy_fields) }
+    it { should have_many(:reviews).through(:academy_fields) }
   end
 end

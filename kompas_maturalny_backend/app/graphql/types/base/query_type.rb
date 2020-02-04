@@ -1,5 +1,6 @@
 module Types
-  class QueryType < Types::BaseObject
+  module Base
+  class QueryType < Types::Base::BaseObject
     # USERS
     field :users, resolver: Queries::User::Users
     field :user, resolver: Queries::User::User
@@ -9,5 +10,6 @@ module Types
     #ACADEMIES
     field :academies, resolver: Queries::Academy::Academies
     field :academy, resolver: Queries::Academy::Academy
+  end
   end
 end

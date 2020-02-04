@@ -3,6 +3,7 @@ NUMBER_OF_ACADEMIES = 40
 MIN_NUMBER_OF_FIELDS_ON_ACADEMY = 20
 MAX_NUMBER_OF_FIELDS_ON_ACADEMY = 65
 NUMBER_OF_MATURA_RESULTS = 7
+NUMBER_OF_REVIEWS = 4
 
 puts "Seeding database"
 puts "Seeding test users"
@@ -60,12 +61,24 @@ NUMBER_OF_ACADEMIES.times do |i|
       city: Faker::Address.city
   )
 
-  #rand(MIN_NUMBER_OF_FIELDS_ON_ACADEMY...MAX_NUMBER_OF_FIELDS_ON_ACADEMY).times do |i|
-  #  puts "Seeding academy fields #{i}"
-  #  AcademyField.create!(
-  #      field_of_study: FieldOfStudy.all[i],
-  #      academy: academy,
-  #      recruitment_formula: "[(chemia_pr*2)|(biologia_pr*2)]+[(fizyka_pr*2)|(matematyka_pr*2]"
-  #  )
-  #end
+  rand(MIN_NUMBER_OF_FIELDS_ON_ACADEMY...MAX_NUMBER_OF_FIELDS_ON_ACADEMY).times do |i|
+    puts "Seeding academy fields #{i}"
+    af = AcademyField.create!(
+        field_of_study: FieldOfStudy.all[i],
+        academy: academy,
+        recruitment_formula: "[(chemia_pr*2)|(biologia_pr*2)]+[(fizyka_pr*2)|(matematyka_pr*2]"
+    )
+
+    NUMBER_OF_REVIEWS.times do |i|
+      puts "Seeding review #{i}"
+      Review.create!(
+          user: User.all[i],
+          reviewable: af,
+          title: Faker::Quote.singular_siegler,
+          body: Faker::Lorem.paragraph(sentence_count: 5),
+          rate: Faker::Base.rand_in_range(0, 5)
+      )
+    end
+  end
 end
+

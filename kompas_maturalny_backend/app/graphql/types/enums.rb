@@ -1,13 +1,13 @@
 module Types
   module Enums
-    class Gender < Types::BaseEnum
+    class Gender < Types::Base::BaseEnum
       description 'All available genders'
 
       value('male', 'Man')
       value('female', 'Woman')
     end
 
-    class Role < Types::BaseEnum
+    class Role < Types::Base::BaseEnum
       description 'All available roles'
 
       value('schoolboy', 'Candidate for studies')

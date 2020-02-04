@@ -1,4 +1,4 @@
 class KompasMaturalnyBackendSchema < GraphQL::Schema
-  mutation(Types::MutationType)
-  query(Types::QueryType)
+  mutation(Types::Base::MutationType)
+  query(Types::Base::QueryType)
 end

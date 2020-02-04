@@ -20,6 +20,8 @@ require 'recruitment_formula_calculator'
 #
 
 class AcademyField < ApplicationRecord
+  include Reviewable
+
   belongs_to :academy
   belongs_to :field_of_study
 
