@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { useRouter } from 'next/router'
+import {useRouter} from 'next/router'
 import Link from 'next/link';
 import './BasicLayout.styles.scss';
 import {Layout, Menu, Icon} from 'antd';
@@ -24,32 +24,26 @@ const BasicLayout = ({children}) => {
                     <Menu.Item
                         key="/fields"
                         className={'BasicLayout_Sider_MenuItem'}
+                        onClick={() => router.push('/fields')}
                     >
                         {
                             collapsed ? (
-                                <Link href={'/fields'} as={'/fields'}>
-                                    <Icon type={"book"} theme={"filled"}/>
-                                </Link>
+                                <Icon type={"book"} theme={"filled"}/>
                             ) : (
-                                <Link href={'/fields'} as={'/fields'}>
-                                    <span>KIERUNKI</span>
-                                </Link>
+                                <span>KIERUNKI</span>
                             )
                         }
                     </Menu.Item>
                     <Menu.Item
                         key="/academies"
                         className={'BasicLayout_Sider_MenuItem'}
+                        onClick={() => router.push('/academies')}
                     >
                         {
                             collapsed ? (
-                                <Link href={'/academies'} as={'/academies'}>
-                                    <Icon type={"bank"} theme={"filled"}/>
-                                </Link>
+                                <Icon type={"bank"} theme={"filled"}/>
                             ) : (
-                                <Link href={'/academies'} as={'/academies'}>
-                                    <span>UCZELNIE</span>
-                                </Link>
+                                <span>UCZELNIE</span>
                             )
                         }
                     </Menu.Item>

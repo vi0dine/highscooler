@@ -1,5 +1,6 @@
 import React from "react";
-import { Form, Input, Button } from 'antd';
+import './LoginForm.styles.scss';
+import { Form, Input } from 'antd';
 import * as yup from 'yup';
 import {useFormik} from "formik";
 
@@ -47,9 +48,9 @@ const LoginForm = ({ handleLogin }) => {
                     onBlur={formik.handleBlur}
                 />
             </Form.Item>
-            <Button onClick={() => formik.submitForm()}>
+            <div className={'LoginForm_SubmitButton'} onClick={() => formik.submitForm()}>
                 ZALOGUJ
-            </Button>
+            </div>
         </Form>
     );
 };

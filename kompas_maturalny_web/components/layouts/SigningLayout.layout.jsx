@@ -7,7 +7,9 @@ const { Content, Header, Footer } = Layout;
 const SigningLayout = ({ children }) => {
     return (
         <Layout className={'SigningLayout'}>
-            <Header></Header>
+            <Header className={'SigningLayout_Content'}>
+
+            </Header>
             <Content className={'SigningLayout_Content'}>
                 <Row type={'flex'} align={'middle'} justify={'center'}>
                     <Col>
@@ -21,7 +23,7 @@ const SigningLayout = ({ children }) => {
                     </Col>
                 </Row>
             </Content>
-            <Footer className={'Footer'}>
+            <Footer className={'SigningLayout_Footer'}>
                 Kompas Maturalny ©2020 Created by vi0dine
             </Footer>
         </Layout>

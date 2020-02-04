@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import '../components/layouts/SigningLayout.styles.scss';
 import { Spin } from 'antd';
 import { useCookies } from 'react-cookie';
 import SigningLayout from "../components/layouts/SigningLayout.layout";
@@ -41,7 +42,11 @@ const LoginPage = () => {
                     newUser ? <SignUpForm handleSignUp={signUpUser} /> : <LoginForm handleLogin={signInUser} />
                 )
             }
-            <a onClick={() => setNewUser(true)}>Nie masz konta?</a>
+            <div className={'SigningLayout_NewUser_Container'}>
+                <a className={'SigningLayout_NewUser_Link'} onClick={() => setNewUser(true)}>
+                    Nie masz konta?
+                </a>
+            </div>
         </SigningLayout>
     );
 };
