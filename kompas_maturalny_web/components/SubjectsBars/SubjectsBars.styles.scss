@@ -1,0 +1,49 @@
+@import "variables";
+
+.SubjectsBars {
+  height: 100%;
+  align-items: flex-end;
+  justify-content: center;
+
+  span {
+    font-family: $main-font-family;
+    font-size: 11pt;
+    color: $white;
+  }
+
+  p {
+    font-family: $main-font-family;
+    font-size: 10pt;
+    color: $primary-dark;
+  }
+
+  &_bar {
+    &-1 {
+      text-align: center;
+      margin: 5px;
+      background-color: rgba($accent, 1);
+      width: 20%;
+    }
+
+    &-2 {
+      text-align: center;
+      margin: 5px;
+      background-color: rgba($accent, .8);
+      width: 20%;
+    }
+
+    &-3 {
+      text-align: center;
+      margin: 5px;
+      background-color: rgba($accent, .7);
+      width: 20%;
+    }
+
+    &-4 {
+      text-align: center;
+      margin: 5px;
+      background-color: rgba($accent, .6);
+      width: 20%;
+    }
+  }
+}

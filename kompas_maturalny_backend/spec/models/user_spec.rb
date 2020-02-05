@@ -50,6 +50,8 @@ RSpec.describe User, type: :model do
     it { should have_many(:reviews) }
     it { should have_many(:matura_results) }
     it { should have_many(:matura_subjects).through(:matura_results) }
+    it { should have_many(:user_fields) }
+    it { should have_many(:field_of_studies).through(:user_fields) }
   end
 
   describe "callbacks" do

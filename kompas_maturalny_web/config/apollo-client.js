@@ -15,11 +15,19 @@ const link = createHttpLink({
     uri: GRAPHQL_URL
 });
 
+const cache = new InMemoryCache();
+const client = new ApolloClient({
+    link: link,
+    cache,
+    resolvers: { /* ... */ },
+});
+
+cache.writeData({
+    data: {
+        userFields: []
+    }
+});
+
 export default withApollo(
-    ({ initialState }) =>
-        new ApolloClient({
-            link: link,
-            cache: new InMemoryCache()
-                .restore(initialState || {})
-        })
+    () => client
 );

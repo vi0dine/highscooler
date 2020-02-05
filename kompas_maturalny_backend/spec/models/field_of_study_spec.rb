@@ -22,5 +22,7 @@ RSpec.describe FieldOfStudy, type: :model do
     it { should have_many(:academy_fields) }
     it { should have_many(:academies).through(:academy_fields) }
     it { should have_many(:reviews).through(:academy_fields) }
+    it { should have_many(:user_fields) }
+    it { should have_many(:users).through(:user_fields) }
   end
 end

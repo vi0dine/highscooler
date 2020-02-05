@@ -29,6 +29,7 @@ module Queries
         expect(result.dig(:data, :academy, :reviews)).to all(include(title: be_present,
                                                                      body: be_present,
                                                                      rate: be_present,
+                                                                     createdAt: be_present,
                                                                      reviewable: be_present
                                                              ))
         expect(result.dig(:data, :academy, :reviews).sample.dig(:reviewable, :fieldOfStudy)).to include(name: be_present)
@@ -54,6 +55,7 @@ module Queries
                 title
                 body
                 rate
+                createdAt
                 reviewable {
                   fieldOfStudy {
                     name

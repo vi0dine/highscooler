@@ -36,6 +36,8 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :matura_results
   has_many :matura_subjects, through: :matura_results
+  has_many :user_fields
+  has_many :field_of_studies, through: :user_fields
 
   # ENABLE DEEP COPY CREATION
   amoeba do

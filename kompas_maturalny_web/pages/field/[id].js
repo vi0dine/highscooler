@@ -2,22 +2,29 @@ import React from 'react';
 import './Field.styles.scss';
 import BasicLayout from '../../components/layouts/BasicLayout.layout';
 import {useRouter} from 'next/router'
-import {useQuery} from "@apollo/react-hooks";
-import {Row, Col} from 'antd';
+import {useMutation, useQuery} from "@apollo/react-hooks";
+import {Row, Col, Spin} from 'antd';
 import {FIELD_QUERY} from "../../graphql/queries/fields";
-import AcademyCard from "../../components/AcademyCard/AcademyCard.component";
 import InterestCard from "../../components/InterestCard/InterestCard.component";
 import ReviewCard from "../../components/ReviewCard/ReviewCard.component";
+import SubjectsBars from "../../components/SubjectsBars/SubjectsBars.component";
+import {ADD_USER_FIELD} from "../../graphql/mutations/fields";
 
 const Field = () => {
     const router = useRouter();
     const {id} = router.query;
-    const {data, loading, error} = useQuery(FIELD_QUERY, {
+    const {data, loading} = useQuery(FIELD_QUERY, {
         variables: {
             id: id
         },
-        onCompleted: (data) => console.log(data),
         onError: (error) => console.log(error.message)
+    });
+
+    const [addUserField, { loading: adding }] = useMutation(ADD_USER_FIELD,{
+        variables: {
+            fieldId: id
+        },
+        update: (cache, { data }) => {}
     });
 
     return !loading && (
@@ -25,8 +32,22 @@ const Field = () => {
             <Row gutter={[30, 30]} className={'FieldPage'}>
                 <Col span={12}>
                     <Row>
-                        <Col span={24} className={'FieldPage_Name_Container'}>
+                        <Col span={18} className={'FieldPage_Name_Container'}>
                             <span className={'FieldPage_Name_Text'}>{data.field.name}</span>
+                        </Col>
+                        <Col span={6}>
+                            <div
+                                onClick={addUserField}
+                                className={'FieldPage_InterestButton'}
+                            >
+                                {
+                                    adding ? (
+                                        <Spin/>
+                                    ) : (
+                                        <span className={'FieldPage_InterestButton_Text'}>Zainteresowany?</span>
+                                    )
+                                }
+                            </div>
                         </Col>
                     </Row>
                     <Row>
@@ -68,7 +89,10 @@ const Field = () => {
                             <span className={'FieldPage_Subjects_Title'}>Przedmioty</span>
                         </Col>
                         <Col className={'FieldPage_Subjects_Container'} span={24}>
-
+                            <SubjectsBars
+                                subjects={data.field.mostFrequentSubjects.subjects}
+                                total={data.field.mostFrequentSubjects.total}
+                            />
                         </Col>
                     </Row>
                     <Row type={'flex'}>

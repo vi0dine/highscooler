@@ -13,6 +13,8 @@ class FieldOfStudy < ApplicationRecord
   has_many :academy_fields
   has_many :academies, through: :academy_fields
   has_many :reviews, through: :academy_fields
+  has_many :user_fields
+  has_many :users, through: :user_fields
 
   validates :name,
             presence: true,
@@ -21,4 +23,22 @@ class FieldOfStudy < ApplicationRecord
             }
   validates :description,
             presence: true
+
+  def most_frequent_subjects
+    occurrences = Hash.new(0)
+    self.academy_fields.map do |af|
+      af.subjects
+    end.flatten.each do |subject|
+      occurrences[subject.name] += 1
+    end
+
+    {
+        subjects:
+            occurrences
+              .sort_by { |_k, v| -v }
+              .first(4)
+              .map { |k, v| {subject: k, count: v} },
+        total: occurrences.values.reduce { |v, acc| acc+v }
+    }
+  end
 end

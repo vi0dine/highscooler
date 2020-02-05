@@ -4,7 +4,7 @@ module RecruitmentFormulaCalculator
   class Formula
     def initialize(formula, remove_duplicates=true)
       @user = nil
-      @formula = formula.gsub!(/\n/, '').gsub!(/ /, '')
+      @formula = formula
       @exponents = build_exponents
       @remove_duplicates = remove_duplicates
     end
@@ -21,6 +21,14 @@ module RecruitmentFormulaCalculator
           recruitment_points
         end
       end.max
+    end
+
+    def get_subjects
+      @exponents.map do |exp|
+        exp.subjects.map do |sub|
+          sub.subject
+        end
+      end.flatten.uniq
     end
 
     private

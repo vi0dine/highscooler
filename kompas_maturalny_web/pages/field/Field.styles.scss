@@ -15,6 +15,28 @@
     }
   }
 
+  &_InterestButton {
+    background-color: $primary-light;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    padding: .5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &_Text {
+      font-family: $main-font-family;
+      color: $dark;
+      font-size: 14pt;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   &_Description {
     &_Container {
       height: 30vh;
@@ -62,7 +84,6 @@
 
     &_Container {
       height: 18vh;
-      background-color: red;
       margin-bottom: 1rem;
     }
   }

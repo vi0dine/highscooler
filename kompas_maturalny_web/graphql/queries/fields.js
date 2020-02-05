@@ -28,6 +28,7 @@ export const FIELD_QUERY = gql`
         id
         name
         description
+        mostFrequentSubjects
         academies {
           id
           name

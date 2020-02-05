@@ -3,17 +3,35 @@ require 'rails_helper'
 
 RSpec.describe RecruitmentFormulaCalculator do
   before do
-    MaturaSubject.create!(name: "Chemia", level: 'advanced', subject_type: :sciences)
-    MaturaSubject.create!(name: "Fizyka", level: 'advanced', subject_type: :sciences)
-    MaturaSubject.create!(name: "Angielski", level: 'basic', subject_type: :sciences)
-    MaturaSubject.create!(name: "Angielski", level: 'advanced', subject_type: :sciences)
-    MaturaSubject.create!(name: "Biologia", level: 'advanced', subject_type: :sciences)
+    puts "Seeding matura subjects"
+    MaturaSubject.create(name: 'Chemia', level: 'advanced', subject_type: 'sciences')
+    MaturaSubject.create(name: 'Biologia', level: 'advanced', subject_type: 'sciences')
+    MaturaSubject.create(name: 'Fizyka', level: 'advanced', subject_type: 'sciences')
+    MaturaSubject.create(name: 'Informatyka', level: 'advanced', subject_type: 'sciences')
+    MaturaSubject.create(name: 'Geografia', level: 'advanced', subject_type: 'sciences')
+    MaturaSubject.create(name: 'Historia', level: 'advanced', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Wiedza o społeczeństwie', level: 'advanced', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Matematyka', level: 'advanced', subject_type: 'sciences')
+    MaturaSubject.create(name: 'Matematyka', level: 'basic', subject_type: 'sciences')
+    MaturaSubject.create(name: 'Polski', level: 'basic', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Polski', level: 'advanced', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Angielski', level: 'advanced', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Angielski', level: 'basic',  subject_type: 'humanities')
+    MaturaSubject.create(name: 'Niemiecki', level: 'advanced', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Niemiecki', level: 'basic',  subject_type: 'humanities')
+    MaturaSubject.create(name: 'Francuski', level: 'advanced', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Francuski', level: 'basic', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Hiszpański', level: 'advanced', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Hiszpański', level: 'basic', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Rosyjski', level: 'advanced', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Rosyjski', level: 'basic', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Włoski', level: 'advanced', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Włoski', level: 'basic', subject_type: 'humanities')
+    MaturaSubject.create(name: 'Łaciński i kultura antyczna', level: 'advanced', subject_type: 'humanities')
   end
 
   describe "with valid values" do
-    let(:formula) { "[(chemia_pr*2)|(biologia_pr*2)]+
-                     [(chemia_pr*2)|(fizyka_pr*2)]+
-                     [(angielski_pp*0.2)|(angielski_pr*0.4)|(niemiecki_pp*0.2)|(niemiecki_pr*0.4)|(francuski_pp*0.2)|(francuski_pr*0.4)|]" }
+    let(:formula) { "[(chemia_pr*2)|(biologia_pr*2)]+[(chemia_pr*2)|(fizyka_pr*2)]+[(angielski_pp*0.2)|(angielski_pr*0.4)|(niemiecki_pp*0.2)|(niemiecki_pr*0.4)|(francuski_pp*0.2)|(francuski_pr*0.4)|]" }
 
     it "calculate correct result (simplest example)" do
       user = create(:user)

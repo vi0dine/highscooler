@@ -33,7 +33,10 @@ class AcademyField < ApplicationRecord
             #format: { with: /\[\(.*\)\]/, on: :create, message: "Błędny format formuły." }
 
   def calculate_recruitment_points_for(user)
-    puts self.recruitment_formula
     RecruitmentFormulaCalculator::Formula.new(self.recruitment_formula).calculate(user)
+  end
+
+  def subjects
+    RecruitmentFormulaCalculator::Formula.new(self.recruitment_formula).get_subjects
   end
 end

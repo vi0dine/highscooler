@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_170923) do
+ActiveRecord::Schema.define(version: 2020_02_05_165258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,16 @@ ActiveRecord::Schema.define(version: 2020_02_04_170923) do
     t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id"
     t.index ["user_id", "reviewable_id"], name: "index_reviews_on_user_id_and_reviewable_id", unique: true
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "user_fields", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "field_of_study_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["field_of_study_id"], name: "index_user_fields_on_field_of_study_id"
+    t.index ["user_id", "field_of_study_id"], name: "index_user_fields_on_user_id_and_field_of_study_id", unique: true
+    t.index ["user_id"], name: "index_user_fields_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

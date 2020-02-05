@@ -22,5 +22,11 @@ FactoryBot.define do
         create_list(:review, 5, reviewable: create(:academy_field, field_of_study: field))
       end
     end
+
+    trait :with_academy_fields do
+      after :create do |field|
+        create_list(:academy_field, 5, field_of_study: field)
+      end
+    end
   end
 end

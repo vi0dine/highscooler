@@ -7,5 +7,6 @@ module Types
     field :description, String, null: false
     field :academies, [Types::AcademyType], null: true
     field :reviews, [Types::ReviewType], null: true
+    field :most_frequent_subjects, GraphQL::Types::JSON, null: true
   end
 end

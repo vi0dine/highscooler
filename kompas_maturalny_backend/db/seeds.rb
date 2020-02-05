@@ -53,6 +53,24 @@ NUMBER_OF_FIELDS.times do |i|
   )
 end
 
+def generate_formula
+  exp_number = rand(2..4)
+  factor_number = rand(1..5)
+  formula = ""
+
+  exp_number.times do |i|
+    formula += "["
+    factor_number.times do |i|
+      formula += "(#{MaturaSubject.all.sample.name.downcase}_pr*#{rand})|" if i < factor_number-1
+      formula += "(#{MaturaSubject.all.sample.name.downcase}_pr*#{rand})" if i == factor_number-1
+    end
+    formula += "]+" if i < exp_number-1
+    formula += "]" if i == exp_number-1
+  end
+
+  formula
+end
+
 NUMBER_OF_ACADEMIES.times do |i|
   puts "Seeding academies #{i}/#{NUMBER_OF_ACADEMIES}"
   academy = Academy.create!(
@@ -66,7 +84,7 @@ NUMBER_OF_ACADEMIES.times do |i|
     af = AcademyField.create!(
         field_of_study: FieldOfStudy.all[i],
         academy: academy,
-        recruitment_formula: "[(chemia_pr*2)|(biologia_pr*2)]+[(fizyka_pr*2)|(matematyka_pr*2]"
+        recruitment_formula: generate_formula
     )
 
     NUMBER_OF_REVIEWS.times do |i|
@@ -81,4 +99,3 @@ NUMBER_OF_ACADEMIES.times do |i|
     end
   end
 end
-

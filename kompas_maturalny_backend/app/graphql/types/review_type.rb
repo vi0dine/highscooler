@@ -6,6 +6,7 @@ module Types
     field :title, String, null: false
     field :body, String, null: false
     field :rate, Int, null: false
+    field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :user, Types::UserType, null: false
     field :reviewable, Types::AcademyFieldType, null: false
   end
