@@ -10,6 +10,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &_Counter {
     &_Container {
       position: absolute;

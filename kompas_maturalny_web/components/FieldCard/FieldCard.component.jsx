@@ -2,9 +2,9 @@ import React from 'react';
 import './FieldCard.styles.scss';
 import { Row, Col } from 'antd';
 
-const FieldCard = ({name, description, academiesCounter}) => {
+const FieldCard = ({name, description, academiesCounter, onClick}) => {
     return (
-        <div className={'FieldCard'}>
+        <div onClick={onClick} className={'FieldCard'}>
             <div className={'FieldCard_Counter_Container'}>
                 <span className={'FieldCard_Counter_Text'}>{academiesCounter}</span>
             </div>

@@ -1,0 +1,82 @@
+@import '../../variables.scss';
+
+.FieldPage {
+  padding: 2rem;
+
+  &_Name {
+    &_Container {
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    &_Text {
+      font-family: $main-font-family;
+      font-size: 24pt;
+    }
+  }
+
+  &_Description {
+    &_Container {
+      height: 30vh;
+      text-align: justify;
+      margin-bottom: 1rem;
+      overflow-y: auto;
+    }
+
+    &_Text {
+      font-family: $main-font-family;
+      font-size: 13pt;
+    }
+  }
+
+  &_Academies {
+    &_Title {
+      font-family: $main-font-family;
+      font-size: 24pt;
+    }
+
+    &_Container {
+      height: 35vh;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &_Reviews {
+    &_Title {
+      font-family: $main-font-family;
+      font-size: 24pt;
+    }
+
+    &_Container {
+      max-height: 45vh;
+      overflow-y: auto;
+    }
+  }
+
+  &_Subjects {
+    &_Title {
+      font-family: $main-font-family;
+      font-size: 24pt;
+    }
+
+    &_Container {
+      height: 18vh;
+      background-color: red;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &_Compass {
+    &_Title {
+      font-family: $main-font-family;
+      font-size: 24pt;
+    }
+
+    &_Container {
+      height: 18vh;
+      background-color: red;
+    }
+  }
+}
+

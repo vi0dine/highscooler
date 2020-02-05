@@ -1,0 +1,58 @@
+@import '../../variables';
+
+.ReviewCard {
+  background-color: $primary-light;
+  border-radius: 15px;
+  margin: 1rem;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+
+  &_Header {
+    &_Container {
+
+    }
+
+    &_Title {
+      &_Container {
+
+      }
+
+      &_Text {
+        font-family: $main-font-family;
+        color: $primary-dark;
+        font-size: 16pt;
+        font-weight: 500;
+      }
+    }
+
+    &_Rating {
+      color: $accent !important;
+    }
+
+    &_Reviewable {
+      &_Container {
+      }
+
+      &_Text {
+        font-family: $main-font-family;
+        color: $primary-dark;
+        font-size: 11pt;
+        font-weight: 200;
+      }
+    }
+  }
+
+  &_Content {
+    &_Body {
+      &_Container {
+        padding-top: .5rem;
+      }
+
+      &_Text {
+        font-family: $main-font-family;
+        color: $primary-dark;
+        font-size: 12pt;
+        font-weight: 300;
+      }
+    }
+  }
+}

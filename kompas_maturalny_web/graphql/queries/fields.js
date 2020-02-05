@@ -21,3 +21,29 @@ export const FIELDS_QUERY = gql`
       }
     }
 `;
+
+export const FIELD_QUERY = gql`
+    query field($id: ID!) {
+      field(id: $id) {
+        id
+        name
+        description
+        academies {
+          id
+          name
+          city
+        }
+        reviews {
+          title
+          body
+          rate
+          reviewable {
+            academy {
+              name
+              city
+            }
+          }
+        }
+      }
+    }
+`;

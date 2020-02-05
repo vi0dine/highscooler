@@ -5,10 +5,12 @@ import {useQuery} from "@apollo/react-hooks";
 import {FIELDS_QUERY} from "../graphql/queries/fields";
 import FieldCard from "../components/FieldCard/FieldCard.component";
 import InfiniteScroll from 'react-infinite-scroller';
+import {useRouter} from "next/router";
 
 const FIELDS_PER_PAGE = 20;
 
 const Fields = () => {
+    const router = useRouter();
     const {data, loading, error, fetchMore} = useQuery(FIELDS_QUERY, {
         variables: {
             first: FIELDS_PER_PAGE,
@@ -53,7 +55,9 @@ const Fields = () => {
                                     key={node.id}
                                     name={node.name}
                                     description={node.description}
-                                    academiesCounter={node.academies.length}/>
+                                    academiesCounter={node.academies.length}
+                                    onClick={() => router.push(`/field/${node.id}`)}
+                                />
                             ))
                         }
                     </InfiniteScroll>

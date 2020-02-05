@@ -1,0 +1,55 @@
+@import "../../variables";
+
+.InterestCard {
+  position: relative;
+  flex: 1;
+  margin: .5rem;
+  background-color: $primary-dark;
+  height: 8vh;
+  border-radius: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &_Name {
+    &_Container {
+      margin: 10px 0 0 20px;
+    }
+
+    &_Text {
+      font-family: $main-font-family;
+      color: $white;
+      font-size: 16pt;
+    }
+  }
+
+  &_City {
+    &_Container {
+      padding: 0 0 20px 0;
+      margin-left: 20px;
+    }
+
+    &_Text {
+      font-family: $main-font-family;
+      color: $white;
+      font-size: 10pt;
+    }
+  }
+
+  &_Button {
+    &_Container {
+      height: 100%;
+      text-align: center;
+      line-height: 70pt;
+      background-color: $accent;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &_Icon {
+      color: $white !important;
+      font-size: 30pt;
+    }
+  }
+}
