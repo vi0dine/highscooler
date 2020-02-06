@@ -14,6 +14,8 @@ module Types
     field :date_of_matura, GraphQL::Types::ISO8601DateTime, null: true
     field :authentication_token, String, null: true
 
+    field :user_fields, [Types::UserFieldType], null: true
+
     def authentication_token
       if object.gql_id != context[:current_user]&.gql_id
         raise GraphQL::UnauthorizedFieldError,
