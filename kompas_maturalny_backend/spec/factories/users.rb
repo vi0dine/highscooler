@@ -36,5 +36,11 @@ FactoryBot.define do
     role { %w[schoolboy student partner admin].sample }
     date_of_birth { Faker::Date.backward }
     date_of_matura { Faker::Date.backward }
+
+    trait :with_matura_results do
+      after(:create) do |user|
+        create_list(:matura_result, 5, user: user)
+      end
+      end
   end
 end

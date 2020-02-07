@@ -12,7 +12,7 @@
 
 FactoryBot.define do
   factory :matura_subject do
-    name { Faker::Educator.subject }
+    sequence(:name) { |n| "#{Faker::Educator.subject} #{n}" }
     level { ['basic', 'advanced'].sample }
     subject_type { ['humanities', 'sciences', 'others'].sample }
   end

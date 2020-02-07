@@ -17,9 +17,9 @@ module Queries
         MaturaSubject.create(name: 'Polski', level: 'basic', subject_type: 'humanities')
         MaturaSubject.create(name: 'Polski', level: 'advanced', subject_type: 'humanities')
         MaturaSubject.create(name: 'Angielski', level: 'advanced', subject_type: 'humanities')
-        MaturaSubject.create(name: 'Angielski', level: 'basic',  subject_type: 'humanities')
+        MaturaSubject.create(name: 'Angielski', level: 'basic', subject_type: 'humanities')
         MaturaSubject.create(name: 'Niemiecki', level: 'advanced', subject_type: 'humanities')
-        MaturaSubject.create(name: 'Niemiecki', level: 'basic',  subject_type: 'humanities')
+        MaturaSubject.create(name: 'Niemiecki', level: 'basic', subject_type: 'humanities')
         MaturaSubject.create(name: 'Francuski', level: 'advanced', subject_type: 'humanities')
         MaturaSubject.create(name: 'Francuski', level: 'basic', subject_type: 'humanities')
         MaturaSubject.create(name: 'Hiszpański', level: 'advanced', subject_type: 'humanities')
@@ -51,10 +51,13 @@ module Queries
                                                        description: be_present,
                                                        mostFrequentSubjects: be_present
                                                )
-          expect(result.dig(:data, :field, :academies)).to all(include(id: be_present,
-                                                                       name: be_present,
-                                                                       city: be_present
-                                                               ))
+          expect(result.dig(:data, :field, :academyFields)).to all(include(id: be_present,
+                                                                           academy: be_present
+                                                                   ))
+          expect(result.dig(:data, :field, :academyFields).sample.dig(:academy)).to include(id: be_present,
+                                                                                            name: be_present,
+                                                                                            city: be_present
+                                                                                    )
           expect(result.dig(:data, :field, :reviews)).to all(include(title: be_present,
                                                                      body: be_present,
                                                                      rate: be_present,
@@ -65,7 +68,7 @@ module Queries
                                                                                                    city: be_present,
                                                                                            )
           expect(result.dig(:data, :field, :id).to_i).to eq(field_id)
-          expect(result.dig(:data, :field, :academies).count).to eq(::FieldOfStudy.find(field_id).academies.count)
+          expect(result.dig(:data, :field, :academyFields).count).to eq(::FieldOfStudy.find(field_id).academies.count)
           expect(result.dig(:data, :field, :reviews).count).to eq(::FieldOfStudy.find(field_id).reviews.count)
         end
 
@@ -77,10 +80,13 @@ module Queries
                 name
                 description
                 mostFrequentSubjects
-                academies {
+                academyFields {
                   id
-                  name
-                  city
+                  academy {
+                    id
+                    name
+                    city
+                  }
                 }
                 reviews {
                   title

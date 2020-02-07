@@ -18,8 +18,7 @@
 FactoryBot.define do
   factory :matura_result do
     user
-    subject
+    matura_subject
     result { Faker::Base.rand_in_range(0, 100) }
-    level { ['basic', 'advanced'].sample }
   end
 end
