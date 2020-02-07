@@ -8,7 +8,7 @@ import {FIELD_QUERY} from "../../graphql/queries/fields";
 import InterestCard from "../../components/InterestCard/InterestCard.component";
 import ReviewCard from "../../components/ReviewCard/ReviewCard.component";
 import SubjectsBars from "../../components/SubjectsBars/SubjectsBars.component";
-import {ADD_USER_FIELD} from "../../graphql/mutations/fields";
+import {ADD_USER_FIELD, REMOVE_USER_FIELD} from "../../graphql/mutations/fields";
 import {USER_FIELDS_QUERY} from "../../graphql/queries/users";
 
 const FieldPage = () => {
@@ -35,6 +35,19 @@ const FieldPage = () => {
         }
     });
 
+    const [removeUserField, { loading: removing }] = useMutation(REMOVE_USER_FIELD,{
+        variables: {
+            fieldId: id
+        },
+        update: (cache, { data: { removeUserField } }) => {
+            const { UserState: { userFields }} = cache.readQuery({ query: USER_FIELDS_QUERY });
+            cache.writeQuery({
+                query: USER_FIELDS_QUERY,
+                data: { UserState: { userFields: [...userFields.filter(field => field !== removeUserField.userField.fieldOfStudy.id)] }},
+            });
+        }
+    });
+
     const UserState = client.readQuery({
         query: USER_FIELDS_QUERY
     });
@@ -55,11 +68,11 @@ const FieldPage = () => {
                                     {
                                         UserState.UserState.userFields.includes(id) ? (
                                             <div
-                                                onClick={addUserField}
+                                                onClick={removeUserField}
                                                 className={['FieldPage_InterestButton','remove'].join(' ')}
                                             >
                                                 {
-                                                    adding ? (
+                                                    removing ? (
                                                         <Spin/>
                                                     ) : (
                                                         <span className={['FieldPage_InterestButton_Text','remove'].join(' ')}>Usunąć?</span>
@@ -108,10 +121,10 @@ const FieldPage = () => {
                                 </Col>
                                 <Col className={'FieldPage_Academies_Container'} span={24}>
                                     {
-                                        data.field.academies.map(academy => (
+                                        data.field.academyFields.map(academyField => (
                                             <InterestCard
-                                                key={academy.id}
-                                                resource={academy}
+                                                key={academyField.id}
+                                                resource={academyField}
                                             />
                                         ))
                                     }

@@ -17,6 +17,7 @@ const FieldsPage = () => {
             first: FIELDS_PER_PAGE,
             after: null
             },
+        onCompleted: res => console.log(res),
         onError: (error) => console.log(error.message)
     });
 
@@ -56,7 +57,7 @@ const FieldsPage = () => {
                                     key={node.id}
                                     name={node.name}
                                     description={node.description}
-                                    academiesCounter={node.academies.length}
+                                    academiesCounter={node.academyFields.length}
                                     onClick={() => history.push(`/fields/${node.id}`)}
                                 />
                             ))

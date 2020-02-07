@@ -5,6 +5,7 @@ import './App.scss';
 import {GRAPHQL_URL} from "./config/apollo-client";
 import {persistCache} from 'apollo-cache-persist';
 import Routes from "./router";
+import {Spin} from "antd";
 
 const App = () => {
     const [client, setClient] = useState(undefined);
@@ -17,6 +18,7 @@ const App = () => {
                 uri: GRAPHQL_URL,
                 headers: {Authorization: `Bearer ${cookies.token}`}
             }),
+            connectToDevTools: true,
             cache: cache
         });
 
@@ -39,7 +41,11 @@ const App = () => {
         };
     }, [cookies]);
 
-    if (client === undefined) return <div>Loading...</div>;
+    if (client === undefined) {
+        return (
+            <Spin style={{paddingTop: '50%', paddingLeft: '50%'}} />
+        );
+    }
 
     return (
         <ApolloProvider client={client}>

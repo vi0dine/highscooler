@@ -15,3 +15,19 @@ export const ADD_USER_FIELD = gql`
         }
     }
 `;
+
+export const REMOVE_USER_FIELD = gql`
+    mutation removeUserField($fieldId: ID!){
+        removeUserField(input: {fieldId: $fieldId}) {
+            userField {
+                id
+                fieldOfStudy {
+                    id
+                }
+                user {
+                    id
+                }
+            }
+        }
+    }
+`;

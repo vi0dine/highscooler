@@ -39,8 +39,17 @@
     &_Container {
       height: 100%;
       text-align: center;
-      line-height: 70pt;
+      padding-top: 1rem;
       background-color: $accent;
+
+      p {
+        font-family: $main-font-family;
+        color: $white;
+
+        &.result {
+          font-size: 21pt;
+        }
+      }
 
       &:hover {
         cursor: pointer;
@@ -49,7 +58,7 @@
 
     &_Icon {
       color: $white !important;
-      font-size: 30pt;
+      font-size: 20pt;
     }
   }
 }
