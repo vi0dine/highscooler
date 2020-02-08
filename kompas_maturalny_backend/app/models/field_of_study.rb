@@ -10,6 +10,16 @@
 #
 
 class FieldOfStudy < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+  settings index: {number_of_shards: 1} do
+    mappings dynamic: 'false' do
+      indexes :name
+      indexes :description
+    end
+  end
+
   has_many :academy_fields
   has_many :academies, through: :academy_fields
   has_many :reviews, through: :academy_fields
@@ -35,10 +45,24 @@ class FieldOfStudy < ApplicationRecord
     {
         subjects:
             occurrences
-              .sort_by { |_k, v| -v }
-              .first(4)
-              .map { |k, v| {subject: k, count: v} },
-        total: occurrences.values.reduce { |v, acc| acc+v }
+                .sort_by { |_k, v| -v }
+                .first(4)
+                .map { |k, v| {subject: k, count: v} },
+        total: occurrences.values.reduce { |v, acc| acc + v }
     }
+  end
+
+  def self.search(q)
+    self.__elasticsearch__.search(
+        {
+            "query": {
+                "multi_match": {
+                    "query": q,
+                    "type": "phrase_prefix",
+                    "fields": ["name^2", "description"]
+                }
+            }
+        }
+    )
   end
 end

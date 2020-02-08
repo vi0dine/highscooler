@@ -25,7 +25,8 @@ const App = () => {
         const initData = {
             UserState: {
                 userFields: []
-            }
+            },
+            query: ''
         };
 
         cache.writeData({data: initData});
@@ -43,7 +44,7 @@ const App = () => {
 
     if (client === undefined) {
         return (
-            <Spin style={{paddingTop: '50%', paddingLeft: '50%'}} />
+            <div>LOADING</div>
         );
     }
 

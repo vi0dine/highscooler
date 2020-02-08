@@ -7,6 +7,8 @@ gem 'rails', '~> 6.0.0'
 gem 'amoeba'
 gem 'devise'
 gem 'devise-token_authenticatable'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 gem 'httparty'
 gem "interactor-rails", "~> 2.0"
 gem 'pg', '>= 0.18', '< 2.0'
