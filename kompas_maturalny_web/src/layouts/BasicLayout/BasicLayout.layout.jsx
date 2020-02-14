@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import * as _ from 'lodash';
 import {useHistory} from 'react-router-dom';
 import './BasicLayout.styles.scss';
 import {Layout, Menu, Icon, Input} from 'antd';
@@ -12,6 +13,13 @@ const BasicLayout = ({children}) => {
         const client = useApolloClient();
         const [collapsed, setCollapsed] = useState(false);
         const [query, setQuery] = useState(null);
+        const [searchInput, setSearchInput] = useState("");
+
+        const search = (q) => {
+            setQuery(q);
+        };
+
+        const debouncedSearch = _.debounce(search, 1500);
 
         useEffect(() => {
             if (query !== null) {
@@ -71,13 +79,25 @@ const BasicLayout = ({children}) => {
                     </Menu>
                 </Sider>
                 <Layout>
-                    <Header>
-                        <Search
-                            onSearch={(q) => {
-                                setQuery(q);
-                            }}
-                        />
-                    </Header>
+                    {
+                        (history.location.pathname.match(/fields$/) || history.location.pathname.match(/academies$/)) && (
+                            <Header className={'BasicLayout_Header'}>
+                                <Search
+                                    className={'BasicLayout_Header_Search'}
+                                    value={searchInput}
+                                    onSearch={(q) => {
+                                        setQuery(q);
+                                    }}
+                                    onChange={e => {
+                                        setSearchInput(e.target.value);
+                                        if (e.target.value.length > 2 || e.target.value === "") {
+                                            debouncedSearch(e.target.value)
+                                        }
+                                    }}
+                                />
+                            </Header>
+                        )
+                    }
                     <Content>
                         {children}
                     </Content>

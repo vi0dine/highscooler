@@ -19,7 +19,8 @@ const App = () => {
                 headers: {Authorization: `Bearer ${cookies.token}`}
             }),
             connectToDevTools: true,
-            cache: cache
+            cache: cache,
+            resolvers: {}
         });
 
         const initData = {
